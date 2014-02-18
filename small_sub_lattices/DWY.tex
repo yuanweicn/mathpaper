@@ -1,0 +1,1388 @@
+\documentclass{jaums}
+
+\usepackage{mathrsfs}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{amsmath}
+
+% Theorem environments
+
+\theoremstyle{thmit} % Numbered and Italic
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{definition}[theorem]{Definition}
+
+
+\theoremstyle{thmrm} % Numbered and Roman
+\newtheorem{example}{Example}
+\newtheorem{remark}{Remark}
+\newtheorem*{oldproof}{Proof}
+\renewenvironment{proof}[1][{}]{\begin{oldproof}[#1]}{\qed\end{oldproof}}
+
+% Some standard inputs
+
+\title{On Small Subspace Lattices in Hilbert Space}
+\author{Aiju Dong}
+\address{College of Mathematics and Computer Engineering\\
+Xi'an University of Arts and Science\\
+Xi'an, 710065, China\\
+E-mail: daj1965@163.com}
+
+\author{Wenming Wu}
+\address{College of Mathematics\\
+Chongqing Normal University\\
+Chongqing, 400047, China\\
+E-mail: wuwm@amss.ac.cn}
+
+\author{Wei Yuan}
+\address{Academy of Mathematics and Systems Science\\
+Chinese Academy of Science\\
+Beijing, 100190, China\\
+E-mail:  wyuan@math.ac.cn}
+
+\keywords{Projections; Lattice; Double triangle; Reflexive; Transitive}
+
+\thanks{
+2010 MR Subject Classification: 47A62, 47L75.\\
+This work was partially supported
+by Xi'an Scientific Program CXY1134WL03, NSF of China
+(No.11271390) and Natural Science Foundation Project of CQ CSTC
+(No.2010BB9318).\\
+Wenming Wu: The corresponding author.
+}
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+Reflexivity and transitivity of a double triangle lattice of subspaces in a
+Hilbert space are studied. We show that the double triangle lattice is neither
+reflexive nor transitive when some invertibility condition is satisfied (by the
+restriction of a projection under another). In this case, we show that the
+reflexive lattice determined by the double triangle lattice contains infinitely
+many projections which partially answers a problem of Halmos on small lattices
+of subspaces in Hilbert spaces.
+\end{abstract}
+
+\section{Introduction}
+
+In {\cite{[Hal]}}, Paul Halmos asked ten problems in operator theory, two of
+which were concerned with small subspace lattices in Hilbert spaces. The tenth
+problem asks whether every non-trivial strongly closed transitive atomic lattice
+is either self-conjugate or medial, i.e. the intersection and union of any two
+nontrivial projections is $0$ and $I$ respectively. Let $\mathcal H$ be a
+Hilbert space and
+$\mathcal B(\mathcal H)$ the algebra of all bounded linear operators on
+$\mathcal H$. A subalgebra $\mathcal{A}\subset\mathcal{B}(\mathcal{H})$ is
+called {\sl transitive} if the invariant subspace lattice 
+$Lat(\mathcal{A})=\{P:(I-P)TP=0,\ \forall T\in\mathcal{A}\}$ of $\mathcal{A}$ 
+is
+$\{0,I\}$. A subspace lattice $\mathcal{L}$ is called {\sl transitive} if the
+algebra
+$Alg(\mathcal{L})=\{T\in\mathcal{B}(\mathcal{H}):(I-P)TP=0,\forall
+P\in\mathcal{L}\}$ associated to $\mathcal{L}$ is equal to $\mathbb{C}I$ (the
+algebra
+consisting only scalar multiples of the identity operator $I$). In this paper,
+we shall assume that all subspaces of a Hilbert space are closed and they are
+represented by the orthogonal projections onto them; and that every subspace
+lattice contains 0 and $I$.
+
+It is easy to check that any subspace lattice with only two nontrivial elements
+is not transitive. Halmos {\cite{[Hal]}} gave an example of a transitive lattice
+of subspaces with only five nontrivial elements; and K. Harrison, H. Radjavi
+and P. Rosenthal {\cite{[HRR]}} constructed an example with only four nontrivial
+projections. The existence of a transitive subspace lattice with only three
+nontrivial projections is still unknown up to date.  Partial results are
+obtained by Hadwin, Longstaff and Rosenthal {\cite{[HLP]}}, K. Harrison
+{\cite{[Har]}} and Ge and Yuan {\cite{[GY],[GY2]}}.
+
+The ninth problem in {\cite{[Hal]}} asks whether every complete Boolean algebra
+given by subspaces of a Hilbert space is reflexive. A subalgebra $\mathcal{A}$
+of $\mathcal{B}(\mathcal{H})$
+is called {\sl reflexive} if $Alg(Lat(\mathcal{A}))=\mathcal{A}$ and a subspace
+lattice $\mathcal{L}$ is called {\sl reflexive} when
+$Lat(Alg(\mathcal{L}))=\mathcal{L}$.
+The reflexive algebras are in the central role of the non selfadjoint operator
+algebras which are closely related to operator theory
+and invariant subspaces of operators. Parallel to the theory of selfadjoint
+operator algebras (C$^*$-algebras and von Neumann algebras), many important
+results in non selfadjoint algebras were obtained in the past 50 years by many
+mathematicians, e.g.,
+Arveson {\cite{[Ar]}}, Larson {\cite{[La]}}, Davidson {\cite{[Da]}} and Lance
+{\cite{[Lan]}}.
+
+It is not easy to determine the reflexivity of a given subspace lattice or a
+given subalgebra. Halmos {\cite{[Ha2]}} has shown that any atomic complete
+Boolean algebra is reflexive.
+Furthermore Harrison {\cite{[Har]}} has shown that a finite distributive
+lattice is always reflexive.
+Thus, if a lattice has two or fewer nontrivial elements, it is reflexive.
+There are just two non-isomorphism types of
+non-distributive subspace lattices with only 3 nontrivial elements: the pentagon
+and the double triangle.
+These two classes are the most interesting small invariant subspace lattices to
+study.
+
+
+
+Recently, L. Ge and W. Yuan  {\cite{[GY],[GY2]}} studied certain maximal
+triangularity of reflexive algebras and discovered a large classes of
+interesting reflexive algebras and lattices. Those lattices assume some nice
+topological structures. For example, they show that the reflexive lattices
+generated by many double triangle lattices are homeomorphic to the classical
+two-dimensional sphere. This study initiated a new class of operator algebras
+which they call "Kadison-Singer algebras" or "KS-algebras" for short
+(correspondingly "Kadison-Singer lattices" or "KS-lattices"). Several people
+followed their study and obtain many interesting reflexive algebras and lattices
+(see, e.g. {\cite{[HY], [WY], [DH]} }). Although some of the techniques
+developed in {\cite{[GY],[GY2]}} can be applied to study double triangle
+lattices in infinite factors, the reflexive lattice determined by a double
+triangle lattice in $\mathcal{B}(\mathcal{H})$ is in general unknown. The
+existence of a transitive double triangle 
+lattice would imply such a reflexive lattice is trivial.
+
+
+In this paper, we shall study the double triangle lattice of projections in
+$\mathcal{B}(\mathcal{H})$. When $\mathcal{B}(\mathcal{H})$ is replaced by a
+finite von Neumann algebra, two or any finitely many unbounded operators
+affiliated with the algebra have a common dense domain. This allows the
+construction of many bounded operators which leave the subspaces in the lattice
+invariant. For $\mathcal{B}(\mathcal{H})$, we believe some analogs result hold:
+Suppose $A$ and $B$ are (unbounded) selfadjoint invertible operators (with
+unbounded inverses). Then it is easy to show that the algebra
+$\mathcal{A}_A=\{X\in \mathcal{B}(\mathcal{H}): A^{-1}XA \ {\rm is\ bounded}\}$
+is a (weak-operator) dense subalgebra of $\mathcal{B}(\mathcal{H})$. Similarly,
+we define $\mathcal{A}_B$.
+We conjecture that $\mathcal{A}_A\cap \mathcal{A}_B$ is weak-operator dense in
+$\mathcal{B}(\mathcal{H})$ when $A$ and $B$ are affiliated with some non-atomic
+subalgebras of $\mathcal{B}(\mathcal{H})$ respectively.
+
+The paper is organized as follows. In Section 2 (following
+the introduction), some basic results concerning double triangle lattices in
+$\mathcal{B}(\mathcal{H})$ are proved.
+Section 2 also contains a main result which describes the algebra of operators
+that leave all subspaces in a double triangle lattice invariant. In Section 3,
+we show that the algebra is not trivial if some invertibility is satisfied by
+the projections in a double triangle lattice in $\mathcal{B}(\mathcal{H})$.
+Moreover we show that the reflexive lattice determined by the double triangle
+lattice is infinite. Furthermore we will prove the conjecture under the
+assumption that $A$ and $B$ are affiliated with a finite von Neumann algebra. In
+last Section, by using some of our techniques (different from {\cite{[Lo]}}), we
+can again reduce Halmos' transitivity problem for small lattices to the case of
+double triangle lattices in $\mathcal{B}(\mathcal{H})$.
+
+
+
+\section{Preliminary Results on Double Triangle Lattices}
+
+We shall assume that $\mathcal{H}$ is a separable Hilbert space over the field
+of the complex numbers. We will use $\xi \otimes \eta$
+to denote the rank one
+operator $\xi \otimes \eta(\zeta) = \langle \zeta, \xi \rangle \eta$ where
+$\xi$, $\eta$ and $\zeta$ are vectors in $\mathcal{H}$.
+Let $P,Q,R$ be nontrivial (orthogonal) projections
+acting on $\mathcal{H}$ such that
+$\mathcal{L}=\{0,I,P,Q,R\}$ forms a double triangle lattice, i.e.,
+$P\wedge Q=P\wedge R=Q\wedge R=0$ and $P\vee Q=P\vee R=Q\vee R=I$.
+
+
+\begin{proposition}
+Suppose that $\mathcal{H}$ is infinite dimensional and
+$\mathcal{L}=\{0,I,P,Q,R\}$ a double triangle lattice.
+Then the ranges of any nontrivial projection in $\mathcal{L}$ and its orthogonal
+complement must be infinite dimensional.
+\end{proposition}
+\begin{proof} On the contrary, suppose that $dim(P(\mathcal{H}))=n<\infty$. As
+$P\wedge Q=0$ and $P\vee Q=I$,
+then according to Kaplansky formula(see, e.g. \cite{[KR]}), we have $P\vee
+Q-Q\thicksim P-P\wedge Q$
+which implies
+that $dim((I-Q)(\mathcal{H}))\leqslant n<\infty$, where $\thicksim$ denotes the
+usual Murray-von Neumann equivalence of projections. Similarly the dimension of
+$(I-R)(\mathcal{H})$ is also finite.
+Thus $(I-Q)\vee (I-R)$ is a finite-rank projection and $Q\wedge R\neq0$.
+\end{proof}
+
+Throughout the rest of this paper, we will assume that $\mathcal{H}$ is
+infinite-dimensional.
+As $P(\mathcal{H})$ and $(I-P)(\mathcal{H})$ both are infinite-dimensional, then
+we can assume that $\mathcal{H}=\mathcal{H}_0\oplus\mathcal{H}_0$ and
+$P=\left(
+                                        \begin{array}{cc}
+                                          I & 0 \\
+                                          0 & 0 \\
+                                        \end{array}
+                                      \right)$. If $Q$ satisfies that $P\vee
+Q=I$, $P\wedge Q=0$, then according to
+                                      the structure of two projections, we have
+the following result.
+
+\begin{lemma} With the above notation, if $P\wedge Q=0$ and $P\vee Q=I$, then
+$Q$ must have the following operator matrix form
+\begin{align}
+Q=\left(
+                                                           \begin{array}{cc}
+                                                             H & \sqrt{H(I-H)}V
+\\
+                                                             V^*\sqrt{H(I-H)} &
+I-V^*HV \\
+                                                           \end{array}
+                                                         \right)
+\end{align}
+where $H$ is a positive contraction and $V$ a partial isometry whose final
+projection agrees with the range projection of the operator $\sqrt{H(I-H)}$.
+\end{lemma}
+\begin{proof} Suppose that $Q=\left(
+                                                           \begin{array}{cc}
+                                                             H_1 & H_2V \\
+                                                             V^*H_2 & H_3 \\
+                                                           \end{array}
+                                                         \right)$ where $H_1$
+and $H_3$ are positive contractions and $H_2V$ is
+                                                         the polar decomposition
+of the $(2,1)-$entry in the operator matrix.
+
+As $P\wedge Q=0$, thus we have $Ker(I-H_1)=0$. Otherwise, we may assume that
+$0\neq x\in Ker(I-H_1)$. Then 
+$Q\left(
+\begin{array}{c}
+                                                                                
+                        x \\
+                                                                                
+                        0 \\
+                                                                                
+                      \end{array}                                              
+                    \right)
+=\left(
+   \begin{array}{c}
+     x \\
+     0 \\
+   \end{array}
+ \right)
+$. Thus $P\wedge Q\neq0$ which contradicts our assumption. Similarly as $P\vee
+Q=I$, we have $Ker(H_3)=0$ since that $0\neq x\in Ker(H_3)$ would imply that
+$(P\vee Q)\left(
+\begin{array}{c}
+0 \\
+x \\
+\end{array}
+\right)=0$
+which is a contradiction.
+
+Furthermore since $Q^2=Q$, we have
+\begin{eqnarray*}
+% \nonumber to remove numbering (before each equation)
+  H_1 &=& H_1^2+H_2^2  \\
+  H_2V &=& H_1H_2V+H_2VH_3  \\
+  H_3 &=& V^*H_2^2V+H_3^2.
+\end{eqnarray*}
+Then we have $H_2=\sqrt{H_1(I-H_1)}$ and
+$(I-H_1)\sqrt{H_1(I-H_1)}V=\sqrt{H_1(I-H_1)}VH_3$. As the kernel of the operator
+$\sqrt{I-H}$ is trivial,
+we find that $(I-H_1)H_1V=H_1VH_3$. According to the last equation of the
+above system of equations and $Ker(H_3)=0$, we obtain that $H_3=I-V^*H_1V$.
+\end{proof}
+
+\begin{remark} If the projections $P,Q$ are in a finite factor, then the partial
+isometry $V$ can be extended to a unitary. In this case,
+we have $Q=\left(
+                                                           \begin{array}{cc}
+                                                             H & \sqrt{H(I-H)}V
+\\
+                                                             V^*\sqrt{H(I-H)} &
+V^*(I-H)V \\
+                                                           \end{array}
+                                                         \right)$.
+Note that in the proof of the above lemma, we have $P\wedge Q=0$ and $P\vee Q=I$
+if and only if $Q$ has the operator matrix form in Lemma 2.2 and $Ker(I-H)=0$.
+\end{remark}
+
+In this paper, we shall use $Ran(A)$ to denote the range projection of the
+operator $A$ and $Range(A)$ to denote the actual range of $A$ when the
+underlying space is given. When an operator $S$ is unbounded, we denote the
+domain of $S$ by $\mathcal{D}(S)$.
+
+\begin{remark} Let us recall some properties of the operators $H$ and $V$.
+Suppose that $E=VV^*$ and $F=V^*V$. Then we have
+\begin{align*}
+    Ran(\sqrt{H})&=Ran(\sqrt{H(I-H)})=Ran(\sqrt{H(I-H)^{-1}})=Ran(\sqrt{H}V)\\
+    &=Ran(\sqrt{H(I-H)}V)=Ran(\sqrt{H(I-H)^{-1}}V)=Ran(\sqrt{I-H}V)=E.
+\end{align*}
+Furthermore the restriction of $H$ to $E(\mathcal{H}_0)$ is injective.
+Let $$W=\left(               \begin{array}{cc}
+                                        \sqrt{I-H}    & \sqrt{H}V  \\
+                                        -V^*\sqrt{H}  & V^*\sqrt{I-H}V+(I-F) \\
+                                       \end{array} \right).$$
+Then $W^*W=WW^*=I$,  i.e. $W$ is a unitary. Moreover it is easy to check that
+$Q=W\left(
+\begin{array}{cc}
+0 & 0 \\
+0 & F \\
+\end{array}
+\right)W^*$.
+\end{remark}
+
+
+If $P \wedge Q = 0$, we have, for any $0 \neq \xi \in
+Q\mathcal{H} \ominus Q(I-P)\mathcal{H}$,
+\begin{align*}
+0 = \langle\xi, Q(I-P)\beta\rangle = \langle\xi, (I-P)\beta\rangle, \qquad
+\forall \beta \in \mathcal{H},
+\end{align*}
+which contradicts the fact that $Q \wedge P = 0$.
+Therefore we have the following:
+
+\begin{lemma}
+If $P \wedge Q = 0$, then $Ran(Q) = Ran(Q(I-P))$. If $P \vee Q = I$,
+we have $Ran(I-Q) = Ran((I-Q)P)$.
+\end{lemma}
+
+
+
+
+Now we can assume that in the double triangle lattice $\mathcal{L}$, the
+projections $P,Q,R$ have the following matrix form
+\begin{align*}
+&P=\left(
+      \begin{array}{cc}
+        I & 0  \\
+        0 & 0  \\
+      \end{array}
+    \right), Q=\left(
+      \begin{array}{cc}
+        H & \sqrt{H(I-H)}V  \\
+        V^*\sqrt{H(I-H)} & I-V^*HV \\
+      \end{array}
+    \right)\\
+&R=\left(
+      \begin{array}{cc}
+        K & \sqrt{K(I-K)}W  \\
+        W^{*}\sqrt{K(I-K)} & I-W^{*}KW \\
+      \end{array}
+    \right)
+\end{align*}
+where $H, K$ are positive contractions and $V,W$ are partial isometries.
+
+
+\begin{lemma} With the notation and assumptions given above, we have that
+$Q\wedge R=0$ if and only if $Ker(\sqrt{H(I-H)^{-1}}V - \sqrt{K(I-K)^{-1}}W)
+= 0$; and that $Q\vee R=I$ if and only if $Ker(V^{*}\sqrt{H(I-H)^{-1}} -
+W^{*}\sqrt{K(I-K)^{-1}}) = 0 $.
+\end{lemma}
+
+\begin{proof} It is easy to see that
+$\begin{pmatrix}
+\xi_1 \\ \xi_2
+\end{pmatrix} \in Q(\mathcal{H})$ if and only if
+\begin{align*}
+\begin{pmatrix}
+I-H & -\sqrt{H(I-H)}V \\
+-V^{*}\sqrt{H(I-H)} & V^{*}HV
+\end{pmatrix}
+\begin{pmatrix}
+\xi_1 \\ \xi_2
+\end{pmatrix} = 0.
+\end{align*}
+Since $(I-Q) \wedge (I-P) = 0$, the above is equivalent to
+\begin{align*}
+\sqrt{I-H}\xi_1 - \sqrt{H}V \xi_2 = 0,
+\end{align*}
+which implies that $\xi_1 = \sqrt{H(I-H)^{-1}}V\xi_2$.
+
+
+Thus we have
+\begin{align*}
+Range(Q) &= \left\{
+\begin{pmatrix}
+\sqrt{H(I-H)^{-1}}V\xi \\
+\xi
+\end{pmatrix} | \xi \in \mathcal{D}(\sqrt{H(I-H)^{-1}}V) \right\} \\
+Range(R) &= \left\{
+\begin{pmatrix}
+\sqrt{K(I-K)^{-1}}W\xi \\
+\xi
+\end{pmatrix} | \xi \in \mathcal{D}(\sqrt{K(I-K)^{-1}}W) \right\}.
+\end{align*}
+Therefore $Q \wedge R = 0$ if and only if $Ker(\sqrt{H(I-H)^{-1}}V -
+\sqrt{K(I-K)^{-1}}W)
+= 0 $.
+
+Note that $I-Q = \begin{pmatrix}
+I - H & -\sqrt{H(I-H)}V \\
+-V^{*}\sqrt{H(I-H)} & V^{*}HV
+\end{pmatrix}$. Also, we have that
+$\begin{pmatrix}
+\xi_1 \\ \xi_2
+\end{pmatrix} \in (I-Q)\mathcal{H}$ if and only if
+\begin{align*}
+\begin{pmatrix}
+H & \sqrt{H(I-H)}V \\
+V^{*}\sqrt{H(I-H)} & I - V^{*}HV
+\end{pmatrix}
+\begin{pmatrix}
+\xi_1 \\ \xi_2
+\end{pmatrix} = 0.
+\end{align*}
+
+Since $Q \wedge P = 0$, the above is equivalent to
+\begin{align*}
+V^{*}\sqrt{H(I-H)}\xi_1 + (I-V^{*}HV)\xi_2 = 0.
+\end{align*}
+
+If $V^{*}V = F$, then
+$I- V^{*}HV = (I-F) + V^{*}(I-H)V$. The above is equivalent to
+\begin{align*}
+V^{*}\sqrt{H(I-H)}\xi_1 + (I-F)\xi_2 + V^{*}(I-H)V\xi_2 = 0.
+\end{align*}
+This implies that $(I-F)\xi_2 = 0$ and
+\begin{align*}
+V^{*}\sqrt{H(I-H)}\xi_1 + V^{*}(I-H)V\xi_2 = 0.
+\end{align*}
+These two equations imply that $\xi_2 = -V^{*}\sqrt{H(I-H)^{-1}}\xi_1$.
+Thus
+\begin{align*}
+Range(I-Q) &= \left\{
+\begin{pmatrix}
+\xi \\
+-V^{*}\sqrt{H(I-H)^{-1}}\xi
+\end{pmatrix} | \xi \in \mathcal{D}(\sqrt{H(I-H)^{-1}}) \right\} \\
+Range(I-R) &= \left\{
+\begin{pmatrix}
+\xi \\
+-W^{*}\sqrt{K(I-K)^{-1}}\xi
+\end{pmatrix} | \xi \in \mathcal{D}(\sqrt{K(I-K)^{-1}}W) \right\}.
+\end{align*}
+
+Therefore we have $Q\vee R = I$ if and only if $(I-Q)\wedge (I-R)=0$ which in
+turn is equivalent to
+$Ker(V^{*}\sqrt{H(I-H)^{-1}} - W^{*}\sqrt{K(I-K)^{-1}}) = 0$.
+\end{proof}
+
+The following theorem gives a description of all elements in $Alg(\mathcal{L})$
+in terms of operator equations and will be used in later sections. Similar
+descriptions were given in \cite{[GY]} and \cite{[GY2]}.
+
+
+\begin{theorem} Suppose that the projections $P,Q,R$ are the above-mentioned
+operator matrix forms and $\mathcal{L}=\{0,I,P,Q,R\}$ is a double triangle
+lattice.
+If $T\in Alg(\mathcal{L})$, then there exist operators
+$T_1,T_2,T_3\in\mathcal{B}(\mathcal{H}_0)$ which satisfy
+\begin{align}
+T_1\sqrt{H(I-H)^{-1}}V+T_2 &= \sqrt{H(I-H)^{-1}}VT_3\\
+T_1\sqrt{K(I-K)^{-1}}W+T_2 &= \sqrt{K(I-K)^{-1}}WT_3,
+\end{align} such that $T=\left(
+\begin{array}{cc}
+ T_1 & T_2 \\
+ 0   & T_3 \\
+ \end{array}
+ \right)$.
+
+Conversely, if there are operators $T_1,T_2,T_3$ satisfying the above system of
+equations, then the operator $T$ determined by the above operator matrix is in
+the algebra $Alg(\mathcal{L})$.
+\end{theorem}
+
+\begin{proof} As $P\in Alg(\mathcal{L})$, thus $T$ must have the operator matrix
+form
+$\left(
+\begin{array}{cc}
+T_1 & T_2 \\
+0   & T_3 \\
+\end{array}
+\right)$. Furthermore $(I-Q)TQ=0$ if and only if
+\begin{eqnarray*}
+% \nonumber to remove numbering (before each equation)
+  \sqrt{I-H}(\sqrt{I-H}T_1\sqrt{H}+\sqrt{I-H}T_2V^*\sqrt{I-H}-
+\sqrt{H}VT_3V^*\sqrt{I-H})\sqrt{H} &=& 0 \\
+  \sqrt{I-H}(\sqrt{I-H}T_1\sqrt{H(I-H)}V+\sqrt{I-H}T_2(I-V^*HV)-
+\sqrt{H}VT_3(I-V^*HV)) &=& 0 \\
+  V^*\sqrt{H}(\sqrt{I-H}T_1\sqrt{H}+\sqrt{I-H}T_2V^*\sqrt{I-H}-
+\sqrt{H}VT_3V^*\sqrt{I-H})\sqrt{H} &=& 0 \\
+  V^*\sqrt{H}(\sqrt{I-H}T_1\sqrt{H(I-H)}V+\sqrt{I-H}T_2(I-V^*HV)-
+\sqrt{H}VT_3(I-V^*HV)) &=& 0.
+\end{eqnarray*}
+
+Suppose that $VV^*=E$ and $V^*V=F$. As $Ker(I-H)=0$, thus the second equation in
+the above system of equations implies that
+\begin{align}
+\sqrt{I-H}T_1\sqrt{H(I-H)}V+\sqrt{I-H}T_2(I-V^*HV)- \sqrt{H}VT_3(I-V^*HV)=0.
+\end{align}
+By right-multiplying $I-F$ to the both side of the equation (4), we have
+\begin{align}
+\sqrt{I-H}T_2(I-F)-\sqrt{H}VT_3(I-F) = 0.
+\end{align}
+Subtract (5) from (4) and we have
+\begin{align}
+\sqrt{I-H}T_1\sqrt{H(I-H)}V+\sqrt{I-H}T_2V^*(I-H)V-\sqrt{H}VT_3V^*(I-H)V = 0.
+\end{align}
+
+As $Ran(V^*(I-H)V)=F$ and $Ker(V^*(I-H)V|_{F})=0$, thus equation $(6)$
+implies that
+\begin{align}
+(\sqrt{I-H}T_1\sqrt{H(I-H)^{-1}}V+\sqrt{I-H}T_2-\sqrt{H}VT_3)F=0.
+\end{align}
+Note that $V(I-F)=0$. By combining the equations $(5)$ and $(7)$, we see that
+$(I-Q)TQ=0$ implies that
+$$\sqrt{I-H}T_1\sqrt{H(I-H)^{-1}}V+\sqrt{I-H}T_2-\sqrt{H}VT_3=0.$$
+By left-multiplying the unbounded operator $\sqrt{(I-H)^{-1}}$ to the both side
+of the above equation,
+we obtain that $(I-Q)TQ=0$ implies that
+$$T_1\sqrt{H(I-H)^{-1}}V+T_2=\sqrt{H(I-H)^{-1}}VT_3.$$
+Similarly, $(I-R)TR=0$ implies that
+$$T_1\sqrt{K(I-K)^{-1}}W+T_2=\sqrt{K(I-K)^{-1}}WT_3.$$
+
+Conversely, when $T_1\sqrt{H(I-H)^{-1}}V+T_2=\sqrt{H(I-H)^{-1}}VT_3$, by
+right-multiplying $V^*\sqrt{I-H}$ and $I-F$ respectively, we have
+$$T_1\sqrt{H}+T_2V^*\sqrt{I-H}=\sqrt{H(I-H)^{-1}}VT_3V^*\sqrt{I-H}$$
+which implies that
+\begin{align}
+\sqrt{I-H}T_1\sqrt{H}+\sqrt{I-H}T_2V^*\sqrt{I-H}=\sqrt{H}VT_3V^*\sqrt{I-H}
+\end{align}
+and $T_2(I-F)=\sqrt{H(I-H)^{-1}}VT_3(I-F)$. Therefore we have
+\begin{eqnarray*}
+\sqrt{I-H}T_1\sqrt{H(I-H)}V+\sqrt{I-H}T_2(I-V^*HV)- \sqrt{H}VT_3(I-V^*HV)=0
+\end{eqnarray*}
+which implies $(I-Q)TQ=0$. Similarly, $T_1\sqrt{K(I-K)^{-1}}W+T_2 =
+\sqrt{K(I-K)^{-1}}WT_3$ implies that $(I-R)TR=0$.
+\end{proof}
+
+
+In {\cite{[GY2]}}, the authors have shown that if
+$$\mathcal{D}(\sqrt{H(I-H)^{-1}})\cap
+\mathcal{D}(\sqrt{K(I-K)^{-1}}W)\cap\mathcal{D}(W^{*}\sqrt{K(I-K)^{-1}})\neq
+0,$$
+ then the algebra $Alg(\mathcal{L})$ is non-trivial. Now we can get a similar
+result under a weaker assumption.
+
+
+\begin{lemma} With the notation given above and with the assumptions of Theorem
+2.5, if we
+assume further that $\mathcal{D}(\sqrt{H(I-H)^{-1}}V)\cap
+\mathcal{D}(\sqrt{K(I-K)^{-1}}W)\neq0$ and
+$\mathcal{D}(V^*\sqrt{H(I-H)^{-1}})\cap
+\mathcal{D}(W^{*}\sqrt{K(I-K)^{-1}})\neq0$,
+then we have $Alg(\mathcal{L})\neq\mathbb{C}I$.
+\end{lemma}
+
+\begin{proof} Suppose that $$\xi\in \mathcal{D}(V^*\sqrt{H(I-H)^{-1}})\cap
+\mathcal{D}(W^{*}\sqrt{K(I-K)^{-1}})$$
+and $$\eta\in \mathcal{D}(\sqrt{H(I-H)^{-1}}V)\cap
+\mathcal{D}(\sqrt{K(I-K)^{-1}}W).$$
+We define two rank-one operators as following
+ $$T_1=\xi\otimes(\sqrt{H(I-H)^{-1}}V-\sqrt{K(I-K)^{-1}}W)\eta$$
+ and
+ $$T_3=(V^*\sqrt{H(I-H)^{-1}}-W^{*}\sqrt{K(I-K)^{-1}})
+\xi\otimes\eta,$$ respectively. Furthermore, we define the operator $T_2$ as the
+following
+$$T_2x=\sqrt{H(I-H)^{-1}}VT_3x-\langle
+x,V^*\sqrt{H(I-H)^{-1}}\xi\rangle(\sqrt{H(I-H)^{-1}}V-\sqrt{K(I-K)^{-1}}W)\eta$$
+for any $x\in\mathcal{H}$.
+It is easy to check that $T_2$ is a bounded operator.
+
+
+By a simple calculation, it follows that
+\begin{align*}
+\sqrt{I-H}T_1\sqrt{H}+\sqrt{I-H}T_2V^*\sqrt{I-H} &= \sqrt{H}VT_3V^*\sqrt{I-H}\\
+\sqrt{I-K}T_1\sqrt{K}+\sqrt{I-K}T_2W^{*}\sqrt{I-K} &=
+\sqrt{K}WT_3W^{*}\sqrt{I-K}.
+\end{align*}
+The above equations imply that
+\begin{align}
+\sqrt{I-H}T_1\sqrt{H(I-H)^{-1}}VF+\sqrt{I-H}T_2F &= \sqrt{H}VT_3F\\
+\sqrt{I-K}T_1\sqrt{K(I-K)^{-1}}WF'+\sqrt{I-K}T_2F' &= \sqrt{K}WT_3F',
+\end{align}
+where $F=V^*V$ and $F'=W^*W$.
+
+Furthermore, we have
+\begin{align*}
+\sqrt{I-H}T_2(I-F)  &= \sqrt{H}VT_3(I-F)\\
+\sqrt{I-K}T_2(I-F') &= \sqrt{K}WT_3(I-F').
+\end{align*}
+Now we can define a bounded operator $T=\left(
+      \begin{array}{cc}
+        T_1 & T_2  \\
+        0   & T_3 \\
+      \end{array}
+    \right)$. It follows that $T\in Alg(\mathcal{L})$.
+\end{proof}
+
+
+
+
+
+
+\section{Double Triangle Lattices in $\mathcal{B}(\mathcal{H})$}
+
+In {\cite{[HLP]}}, the authors studied certain triangle lattices determined by
+two bounded operators. Here is their construction: Suppose $\mathcal{K}$ is a
+Hilbert space and $A, B$ are bounded linear operators acting on $\mathcal{K}$
+whose ranges are dense in $\mathcal{K}$ and $Range(A)\cap Range(B)=0$.
+Let $\mathcal{H}=\mathcal{K}\oplus\mathcal{K}$.
+They constructed a double triangle lattice
+$\{0,\mathcal{K}\oplus 0,
+\mathcal{K}\oplus\mathcal{K},\mathcal{G}(A),\mathcal{G}(B)\}$ where
+$\mathcal{G}(A)$ denotes the graph of $A$. The authors then proved that
+if a bounded linear operator on $\mathcal{K}$ preserving the ranges of $A,B$
+invariant must be a scalar multiple of the identity operator, then the double
+triangle lattice
+$\{0,\mathcal{K}\oplus 0,
+\mathcal{K}\oplus\mathcal{K},\mathcal{G}(A),\mathcal{G}(B)\}$ is transitive.
+
+Here we can represent the projections in the above lattice in an operator matrix
+form. In fact, let
+$H=(I+AA^*)^{-1}$ and $K=(I+BB^*)^{-1}$, and $V,W$ be the unitaries in the
+polar decompositions of $A$
+and $B$ respectively. Let $P(\mathcal{H})=\mathcal{K}\oplus 0$ and the
+projections $Q$ and $R$ be the operator matrices represented by $H,V$ and $K,W$
+respectively as in Section 2. Then the above
+double triangle lattice is the same as the lattice $\{0,I,P,Q,R\}$. The positive
+answer to our conjecture in the introduction implies that this double triangle
+lattice may not be transitive.
+
+In the above-mentioned case, the operators $H$ and $K$ are invertible and $V$
+and $W$ are unitaries. As it is shown in the previous section,
+in general, $H$ and $K$ are not invertible and $V$ and $W$ are only partial
+isometries. In this section,
+we will show that if one of the operators $I-H$ and $I-K$ is invertible, then
+the double triangle lattice $\mathcal{L}=\{0,I,P,Q,R\}$ is neither transitive
+nor reflexive.
+
+Before proving our general result, we first study a special case.
+
+Suppose that $\mathcal{H}_0$ is a separable infinite dimensional Hilbert space
+and $\mathcal{H}=\mathcal{H}_0\oplus\mathcal{H}_0$.
+Let $P, Q, R\in\mathcal{B}(\mathcal{H})$ be the projections having the following
+matrix forms with respect to our space decomposition of $\mathcal H$:
+\begin{align*}
+&P=\left(
+      \begin{array}{cc}
+        I &     0  \\
+        0 &     0  \\
+      \end{array}
+    \right), \quad Q=\frac{1}{2}\left(
+      \begin{array}{cc}
+        I &   I  \\
+        I &   I  \\
+      \end{array}
+    \right)\\
+    &R=\left(
+      \begin{array}{cc}
+        H                    & \sqrt{H(I-H)}V   \\
+        V^{*}\sqrt{H(I-H)}   & I-V^{*}HV      \\
+      \end{array}
+    \right)
+\end{align*}
+where $0\leqslant H\leqslant I$ and $V$ is a partial isometry. Let
+$\mathcal{L}=\{0,I,P,Q,R\}$ and suppose that $\mathcal{L}$ is a double triangle
+lattice.
+
+
+We define $S=\sqrt{H(I-H)^{-1}}V-I$. Then $S$ is a densely defined closed, in
+general, unbounded operator.
+From $Q\wedge R=0$, $Q\vee R=I$ and Lemma 2.4, we have
+$Ker(S^*)=Ker(V^*\sqrt{H(I-H)^{-1}}-I)=0$
+and $Ker(S)=Ker(\sqrt{H(I-H)^{-1}}V-I)=0$. Hence the ranges of $S$ and $S^*$ are
+both dense in $\mathcal{H}_0$.
+
+Suppose that $T\in Alg(\mathcal{L})$ is any given element. Since
+$P\in\mathcal{L}$, $T$ must be an upper triangle operator matrix. From
+$Q\in\mathcal{L}$, we have
+$T=\left(
+\begin{array}{cc}
+ T_1 & T_2 \\
+  0   & T_3 \\
+   \end{array}
+   \right)$
+such that $T_2=T_3-T_1$. From Theorem 2.5,
+we further have $T_1S-ST_3=0$. By using properties of unbounded operators, we
+state the following result.
+
+
+\begin{lemma} With the above notation, if $T\in Alg(\mathcal{L})$,
+then there is an $A \in \mathcal{B}(\mathcal{H}_0)$ such that $S^{-1}AS$ is
+bounded and
+$$T =\left(
+      \begin{array}{cc}
+        A   &    S^{-1}AS-A  \\
+        0   &    S^{-1}AS    \\
+      \end{array}
+    \right).
+$$
+Conversely, if $A\in \mathcal{B}(\mathcal{H}_0)$ such that $S^{-1}AS$ is
+bounded, then the above operator $T$ belongs to $Alg(\mathcal{L})$.
+\end{lemma}
+
+\begin{remark} It is easy to see that there are many bounded operators $A$ such
+that $S^{-1}AS$ is bounded. In fact, for any $\xi\in
+\mathcal{D}(V^*\sqrt{H(I-H)^{-1}}-I)$
+and $\eta\in\mathcal{D}(\sqrt{H(I-H)^{-1}}V-I)$, we define the rank-one
+operators $T_1=\xi\otimes S\eta$
+and $T_3=S^*\xi\otimes\eta$ respectively. Then the operator $T=\left(
+      \begin{array}{cc}
+        T_1   &    T_3-T_1  \\
+        0     &    T_3      \\
+      \end{array}
+    \right)\in Alg(\mathcal{L})$.
+Thus the algebra $Alg(\mathcal{L})$ is infinite dimensional.
+Furthermore, if $E=VV^{*}$ and $F=V^{*}V$, then for any $\xi\in
+(I-E)(\mathcal{H}_0)$ and $\eta\in
+(I-F)(\mathcal{H}_0)$,
+since $S\eta=-\eta$ and $S^*\xi=-\xi$, we have that the operator $\left(
+      \begin{array}{cc}
+        \xi\otimes\eta   &    0                   \\
+        0                &    \xi\otimes\eta      \\
+      \end{array}
+    \right)$ is in the algebra $Alg(\mathcal{L})$.
+Hence all the tensor products of the bounded operators from
+$(I-E)(\mathcal{H}_0)$ into $(I-F)(\mathcal{H}_0)$ with the identity operator
+$I_2$ in $\mathcal{M}_2(\mathbb{C})$ are in $Alg(\mathcal{L})$.
+
+Furthermore since $S$ is a densely defined closed operator, similar to the
+argument used in {\cite{[HY]}}, there
+exists a net $\{F_{\lambda}:\lambda>0\}$ of projections such that
+$S^{-1}F_{\lambda}, F_{\lambda}S$ are bounded and $F_{\lambda}\rightarrow I$
+as $\lambda\rightarrow 0$ under strong-operator topology. Thus the $(1,1)$-entry
+of the element in the algebra
+$Alg(\mathcal{L})$ is dense in $\mathcal{B}(\mathcal{H}_0)$ under
+strong-operator topology.
+\end{remark}
+
+\begin{lemma} With the notation given as above, for any $E'\in
+Lat(Alg(\mathcal{L}))\setminus\mathcal{L}$, we have $P\wedge E'=0$ and $P\vee
+E'=I$.
+\end{lemma}
+
+
+\begin{proof} Suppose that $P\wedge E'=\left(
+      \begin{array}{cc}
+        E'_0   &    0  \\
+        0     &    0  \\
+      \end{array}
+    \right)\in Lat(Alg(\mathcal{L}))$, where $E'_0$ is a projection. Then for
+any $\xi\in \mathcal{D}(S^*)$ and
+    $\eta\in\mathcal{D}(S)$, by using of the operators $T_1$, $T_3$ and $T$
+defined in the above remark,
+    we have $(I-E'_0)T_1E'_0=0$. It means that for any $x\in\mathcal{H}_0$,
+$\xi\in\mathcal{D}(S^*)$ and $\eta\in\mathcal{D}(S)$, we have
+    $$\langle E'_0x,\xi\rangle S\eta=\langle E'_0x,\xi\rangle E'_0S\eta.$$
+    As the domains of $S^*$ are dense in $\mathcal{H}_0$ and $Ker(S^*)=0$ which
+implies that the image of $S$ is also dense in $\mathcal{H}_0$,
+    thus we obtain that $E'_0=0$ or $E'_0=I$.
+
+    If $E'_0=I$, then $E'=\left(
+      \begin{array}{cc}
+        I     &    0  \\
+        0     &    E'_1  \\
+      \end{array}
+    \right)$. Thus for any $\xi\in \mathcal{D}(S^*)$ and $\eta\in\mathcal{D}(S)$
+and
+    $T_3=S^*\xi\otimes\eta$, we also have $(I-E'_1)T_3E'_1=0$. Similarly, we
+also have $E'_1=0$ or $E'_1=I$. But $E'\notin \mathcal{L}$,
+    it follows that $E'\wedge P=0$.
+
+    Similarly we can show that $P\vee E'=I$.
+    \end{proof}\\
+
+The following result is similar to that in {\cite{[GY2],[HY]}}. But the
+arguments used are different.  We can also determine the elements of the lattice
+$Lat(Alg(\mathcal{L}))$. But its topological structure is undetermined.
+
+
+\begin{theorem} For any projection $E'\in Lat(Alg(\mathcal{L})) \setminus
+\{0,I,P\}$, there are a positive contraction $K$ and
+a partial isometry $U$ with range projection $K$ in $\mathcal{B}(\mathcal{H}_0)$
+such that
+$$
+E' = \left(
+\begin{array}{cc} K & \sqrt{K(I-K)}U  \\
+ U^{*}\sqrt{K(I-K)} & I-U^{*}KU     \\
+ \end{array}
+ \right),
+$$
+where $\sqrt{K(I-K)^{-1}}$ (or $K$) and $U$ are determined by the
+polar decomposition of $aS + I$ for some $a \in \mathbb{C}$.
+
+Conversely, for any given
+complex number $a\in \mathbb{C}$, the polar decomposition of $I+aS$ uniquely
+determines $U$ and $K$ which gives rise to a projection $E'$
+(in the above form)
+in $Lat(Alg(\mathcal{L}))\setminus\{0,I,P\}$.
+\end{theorem}
+
+\begin{proof} Suppose that $E'\in Lat(Alg(\mathcal{L}))\setminus\{0,I,P\}$.
+According to the above Lemma, we have
+$E'\wedge P=0$ and $E'\vee P=I$. Thus according to Lemma 2.2,
+we have
+$$E'=\left(
+\begin{array}{cc} K & \sqrt{K(I-K)}U  \\
+ U^{*}\sqrt{K(I-K)} & I-U^{*}KU     \\
+ \end{array}
+ \right)$$
+where $K$ is a positive contraction with $Ker(I-K)=0$ and $U$ is a partial
+isometry with the range projection of $K$ or $\sqrt{H(I-H)}$
+ as final projection.
+
+ For any $\xi\in\mathcal{D}(V^*\sqrt{H(I-H)^{-1}}-I)$ and
+$\eta\in\mathcal{D}(\sqrt{H(I-H)^{-1}}V-I)$,
+ let $T_1=\xi\otimes S\eta$
+and $T_3=S^{*}\xi\otimes\eta$ respectively. Then the operator $T=\left(
+      \begin{array}{cc}
+        T_1   &    T_3-T_1  \\
+        0     &    T_1      \\
+      \end{array}
+    \right)\in Alg(\mathcal{L})$. According to the proof of Theorem 2.5, the
+equation $(I-E')TE'=0$ implies that
+       
+$$\sqrt{I-K}T_1(\sqrt{K(I-K)}U-(I-U^{*}KU))=(\sqrt{K}U-\sqrt{I-K})T_3(I-U^{*}
+KU).$$
+   Then for any $x\in\mathcal{H}_0$, we have
+   \begin{align}
+   \langle(\sqrt{K(I-K)}U-(I-U^{*}KU))x,\xi\rangle \sqrt{I-K}S\eta=\langle
+(I-U^{*}KU)x,S^{*}\xi\rangle(\sqrt{K}U-\sqrt{I-K})\eta.
+   \end{align}
+
+
+If $(\sqrt{K(I-K)}U-(I-U^{*}KU))x=0$ for any $x\in\mathcal{H}_0$, then $U$ must
+be injective and $Ran(\sqrt{K(I-K)})=\mathcal{H}_0$
+as $Ker(I-U^*KU)=0$. Thus we obtain that $U$ is a unitary and
+$\sqrt{K(I-K)}U=U^*(I-K)U$ which implies $E'=Q$.
+
+If $E'\neq Q$, then we can choose a vector $x_0$
+   such that $(\sqrt{K(I-K)}U-(I-U^{*}KU))x_0\neq0$. Moreover, as
+$\mathcal{D}(V^*\sqrt{H(I-H)^{-1}}-I)$ is dense, thus we also can pick a vector
+   $\xi_0\in\mathcal{D}(V^*\sqrt{H(I-H)^{-1}}-I)$ such that
+   $$\langle(\sqrt{K(I-K)}U-(I-U^{*}KU))x_0,\xi_0\rangle\neq0.$$
+
+   Thus the equation (11) implies that there is a non-zero constant
+$a\in\mathbb{C}$ such that
+   $$a\sqrt{I-K}S\eta=(\sqrt{K}U-\sqrt{I-K})\eta$$
+   for any
+   $\eta\in\mathcal{D}(\sqrt{H(I-H)^{-1}}V-I)$. Thus we have
+   $$\sqrt{K(I-K)^{-1}}U=I+aS.$$
+
+   Conversely, if $K$ and $U$ are defined by the above equation as the polar
+decomposition of the right hand side, then it is easy to check that
+   $E'\in Lat(Alg(\mathcal{L}))$.
+\end{proof}
+
+
+Note that $a=0$ corresponds to the projection $Q$ and $a=1$ the projection $R$.
+
+
+
+In the rest part of this section, we will discuss more general double triangle
+lattices in $\mathcal{B}(\mathcal{H})$. Let $A$ be an invertible bounded
+operator
+and $P$ a projection. We let $\overline{P}$ be the range projection of
+$APA^{-1}$. Note that
+$\overline{P}(\mathcal{H})=Range(APA^{-1})=Range(AP)=\{APx:x\in\mathcal{H}\}$.
+
+For the reader's convenience, we provide the proof of the following two
+well-known results on the similarity of lattices.
+
+\begin{lemma} With the notation given above, suppose that $P$ and $Q$ are two
+projections. Then we have
+$$\overline{P}\wedge\overline{Q}=\overline{P\wedge Q}, \    \
+\overline{P}\vee\overline{Q}=\overline{P\vee Q}.$$
+\end{lemma}
+\begin{proof} The first result follows from the following observations.
+\begin{align*} \xi\in (\overline{P}\wedge
+\overline{Q})(\mathcal{H})&\Leftrightarrow  APA^{-1}\xi=\xi=AQA^{-1}\xi
+\\ &\Leftrightarrow A^{-1}\xi\in P\wedge Q\Leftrightarrow
+\xi\in \overline{P\wedge Q}.
+\end{align*}
+
+Secondly, it is easy to show that
+$\overline{P}\vee\overline{Q}\leq\overline{P\vee Q}$. Conversely we have to show
+that if $\xi\in\overline{P\vee Q}$,
+then $\xi\in\overline{P}\vee\overline{Q}$. Assume that is not true. Then there
+is a
+vector $\xi\in\overline{P\vee Q}(\mathcal{H})$ but $\xi\perp
+(\overline{P}\vee\overline{Q})(\mathcal{H})$.
+Thus there is a vector $\xi_0\in (P\vee Q)(\mathcal{H})$ such that for any $x\in
+P(\mathcal{H})$ and any $y\in Q(\mathcal{H})$ we have
+$$\langle A\xi_0, Ax\rangle=0, \   \ \langle A\xi_0,Ay\rangle=0.$$
+This implies that for any $x\in P(\mathcal{H})$ and any $y\in Q(\mathcal{H})$ we
+have $\langle A^{*}A\xi_0,x\rangle=0$ and $\langle A^{*}A\xi_0,y\rangle=0$.
+Thus $A^{*}A\xi_0\perp (P+Q)(\mathcal{H})$. But $Ran(P+Q)=P\vee Q$.
+Thus $A^{*}A\xi_0\perp(P\vee Q)(\mathcal{H})$ and $A^{*}A\xi_0=0$. It follows
+that $\xi_0=0$.
+\end{proof}
+
+It follows that if $\{ 0, I, P, Q, R \}$ is a double triangle lattice, then so
+is $\{0, I, \overline{P}, \overline{Q}, \overline{R} \}$.
+
+\begin{remark} 
+In general, we do not have $I-\overline{P}=\overline{I-P}$. For
+example: let $P=\left(                                                         
+          \begin{array}{cc} 
+            I & 0 \\                                                     
+            0 & 0 \\                                                            
+          \end{array}
+        \right)$ 
+and $A=\left(\begin{array}{cc}
+       I & -I \\
+       0 & I \\
+\end{array}
+\right)$,
+then $\overline{P}=Ran(APA^{-1})=P$. But $A(I-P)A^{-1}=\left(
+\begin{array}{cc}
+  0 & -I \\
+  0 & I \\
+\end{array}
+\right)$ and 
+$\overline{I-P}=Ran(A(I-P)A^{-1})=\frac{1}{2}\left(
+                                  \begin{array}{cc}
+                                   I & -I \\
+                                  -I & I \\
+                                  \end{array}
+\right)$. However $I-\overline{P}=\left(
+                        \begin{array}{cc}
+                          0 & 0 \\
+                          0 & I \\
+                        \end{array}
+                      \right)$.
+\end{remark}
+
+However we can prove the following result.
+
+\begin{lemma} Suppose $\mathcal{L}$ is a lattice and $A$ is an invertible
+operator. For any $P\in\mathcal{L}$, we define $\overline{P}=Ran(APA^{-1})$
+and $\overline{\mathcal{L}}=\{\overline{P}:P\in\mathcal{L}\}$. Then we have
+$Alg(\overline{\mathcal{L}})=A (Alg(\mathcal{L}))A^{-1}$ and
+$Lat(Alg(\overline{\mathcal{L}}))=\{\overline{P}:P\in Lat(Alg(\mathcal{L}))\}$.
+\end{lemma}
+
+\begin{proof} First, from
+\begin{align*} T\in Alg(\mathcal{L})&\Leftrightarrow \forall P\in\mathcal{L},
+PTP=TP\\
+&\Leftrightarrow \forall P\in\mathcal{L}, APA^{-1}\cdot ATA^{-1}\cdot
+AP=ATA^{-1}\cdot AP\\
+&\Leftrightarrow ATA^{-1}\in Alg(\overline{\mathcal{L}}),
+\end{align*}
+we have $A(Alg(\mathcal{L}))A^{-1}= Alg(\overline{\mathcal{L}})$.
+
+Secondly, according to the previous result and the following
+\begin{align*} Q\in Lat(Alg(\overline{\mathcal{L}}))&\Leftrightarrow \forall
+T\in Alg(\mathcal{L}), QATA^{-1}Q=ATA^{-1}Q\\
+&\Leftrightarrow\forall T\in Alg(\mathcal{L}), A^{-1}QATA^{-1}QA=TA^{-1}QA\\
+&\Leftrightarrow Ran(A^{-1}QA)=Ran(A^{-1}Q)\in Lat(Alg(\mathcal{L})),
+\end{align*}
+we have $Lat(Alg(\overline{\mathcal{L}}))=\{\overline{P}:P\in
+Lat(Alg(\mathcal{L}))\}$.
+\end{proof}\\
+
+Now suppose that the projections $P,Q,R\in\mathcal{B}(\mathcal{H})$ have the
+following matrix forms:
+\begin{align*}&P=\left(
+                    \begin{array}{cc}
+                      I & 0 \\
+                      0 & 0 \\
+                    \end{array}
+                  \right),
+                  Q=\left(
+          \begin{array}{cc}
+            H & \sqrt{H(I-H)}V \\
+            V^*\sqrt{H(I-H)} & I-V^*HV \\
+          \end{array}
+        \right)\\
+ &R=\left(
+          \begin{array}{cc}
+            K & \sqrt{K(I-K)}W \\
+            W^*\sqrt{K(I-K)} & W^*(I-K)W \\
+          \end{array}
+        \right)
+ \end{align*} where $H,K$ are positive contractions and $V,W$ are partial
+isometries with the range projections of $H$ and $K$ as their final projections,
+respectively.
+ Then we have the following conclusion.
+
+ \begin{theorem} With the notation given above, let $\mathcal{L}=\{0,I,P,Q,R\}$.
+Suppose that
+ $\mathcal{L}$ is a double triangle lattice and one of the operators $I-H$ and
+$I-K$ is invertible. Then $\mathcal{L}$ is neither reflexive nor transitive.
+ \end{theorem}
+
+ \begin{proof} Without loss of generality, we assume that $I-H$ is invertible.
+Then $\sqrt{I-H}$ is also invertible.
+
+        Let $A=\left(
+          \begin{array}{cc}
+            I & I-\sqrt{H(I-H)^{-1}}V \\
+            0 & I \\
+          \end{array}
+        \right)$. Then $A^{-1}=\left(
+          \begin{array}{cc}
+            I & \sqrt{H(I-H)^{-1}}V-I \\
+            0 & I \\
+          \end{array}
+        \right)$.
+It is easy to check that $\overline{P}=Ran(APA^{-1})=P$. Furthermore, as
+\begin{align*} AQ=\left(
+          \begin{array}{cc}
+            V^*\sqrt{H(I-H)} & I-V^*HV \\
+            V^*\sqrt{H(I-H)} & I-V^*HV \\
+          \end{array}
+        \right)
+\end{align*} and
+$\{V^*\sqrt{H(I-H)}x+(I-V^*HV)y:x,y\in\mathcal{H}_0\}=\mathcal{H}_0$, thus we
+have
+              \begin{align*}(AQA^{-1})(\mathcal{H})=\{\left(
+                                                   \begin{array}{c}
+                                                     x \\
+                                                     x \\
+                                                   \end{array}
+                                                 \right):x\in\mathcal{H}_0\}
+        \end{align*} which implies that $\overline{Q}=\frac{1}{2}\left(
+          \begin{array}{cc}
+            I & I \\
+            I & I \\
+          \end{array}
+        \right)$.
+
+        Let
+$\overline{\mathcal{L}}=\{0,I,\overline{P},\overline{Q},\overline{R}\}$.
+According to Lemma 3.4, $\overline{\mathcal{L}}$ is also a double triangle
+lattice. According to Remark 3, we know that $Alg(\overline{\mathcal{L}})$ is
+infinite dimensional. According to Theorem 3.3,
+$\overline{\mathcal{L}}\varsubsetneq Lat(Alg(\overline{\mathcal{L}}))$.
+Lastly according to Lemma 3.5, we know that $Alg(\mathcal{L})$ is infinite
+dimensional and $\mathcal{L}\varsubsetneq
+Lat(Alg(\mathcal{L}))$.
+\end{proof}\\
+
+
+
+When $P,Q,R$ are projections in a finite factor $\mathcal{M}$, suppose that
+$\mathcal{L}=\{0,I,P,Q,R\}$ is a double triangle lattice.
+Ge and Yuan {\cite{[GY2]}}, Hou and Yuan {\cite{[HY]}} have shown that for any
+three distinct projections $E_i(i=1,2,3)$
+in $Lat(Alg(\mathcal{L}))\setminus\{0,I\}$,
+$Lat(Alg(\mathcal{L}))=Lat(Alg(\{E_1,E_2,E_3\}))$ and
+$Alg(\mathcal{L})=Alg(\{E_1,E_2,E_3\})$. It implies that
+$Alg(\mathcal{L})$ is a KS-algebra in the sense of Ge and
+Yuan(\cite{[GY]}\cite{[GY2]}). Furthermore they have shown that
+$Lat(Alg(\mathcal{L}))\setminus\{0,I\}$ is homeomorphic to the sphere
+$\mathbb{S}^2$ under the strong operator topology.
+
+In the proof of these results, there are two crucial points: the first is that
+the domains of the concerned unbounded operators contain a
+common dense subspace, the second is that there is
+ an increasing net $\{E_{\lambda}:\lambda>0\}$ of projections with
+strong-operator
+limit $I$ as $\lambda\rightarrow 0$ such that the left or right multiplications 
+of those unbounded operators with $E_{\lambda}$ are bounded. Thus
+they can use the operations of bounded operators.
+
+As for the first point, the concerned unbounded operators are affiliated with
+the finite factor and
+the domains of these operators contain a common dense subspace such that
+these unbounded operators form an algebra. However it is not true in a type
+$\mathrm{I}_{\infty}$ von Neumann algebra or $\mathcal {B}(\mathcal {H})$.
+
+As for the second point, suppose that $\mathcal{M}$ is a factor of type
+$\mathrm{II}_1$ with the unique trace $\tau$ and $T,S$ are two closed densely
+defined
+unbounded operators affiliated with $\mathcal{M}$. Let $T=HU$ and $S=KV$ be the
+polar decompositions of $T$ and $S$ respectively. Note that $H$ and $K$ are
+positive unbounded operators affiliated with $\mathcal{M}$. Thus the spectral
+projections of $H$ and $K$ are contained in $\mathcal{M}$. For any
+$\varepsilon>0$, we can choose the spectral projections $E_{\varepsilon}$ of $H$
+and $F_{\varepsilon}$ of $K$ such that $E_{\varepsilon}H$
+and $F_{\varepsilon}K$ are bounded and
+$\tau(E_{\varepsilon})>1-\frac{\varepsilon}{2}$ and
+$\tau(F_{\varepsilon})>1-\frac{\varepsilon}{2}$. We define
+$P_{\varepsilon}=E_{\varepsilon}\wedge F_{\varepsilon}$. Then $P_{\varepsilon}T$
+and $P_{\varepsilon}S$ are bounded and
+$$\tau(P_{\varepsilon})=\tau(E_{\varepsilon})+\tau(F_{\varepsilon})-\tau(E_{
+\varepsilon}\vee F_{\varepsilon})>1-\varepsilon.$$
+Then the net $\{P_{\varepsilon}\}$ of projections gives what they need. Using
+this fact, it is not hard to deduce the following lemma, and we leave the
+proof as an exercise.
+
+\begin{lemma} Suppose that $A$ and $B$ are closed densely defined invertible
+(maybe with unbounded inverse) operators affiliated with the $\mathrm{II}_1$
+factor $\mathcal{M}$. Then $\mathcal{A}_A\cap \mathcal{A}_B$ is weak-operator
+dense in $\mathcal{B}(\mathcal{H})$.
+\end{lemma}
+
+
+\section{Transitivity of small lattices}
+
+Longstaff {\cite{[Lo]}} has reduced the transitivity of lattices with three
+nontrivial projections to the case of double triangle lattices. By using
+completely different methods, we shall prove this result again in this section.
+
+Suppose $\mathcal{H}$ is a separable Hilbert space and
+$P,Q,R\in\mathcal{B}(\mathcal{H})$ are three projections.
+Assume that $\mathcal{L}=\{0,I,P,Q,R\}$. Let
+$\mathcal{L}^{\perp}=\{0,I,I-P,I-Q,I-R\}$. Now we have the following simple
+facts.
+
+\begin{lemma} $Alg(\mathcal{L})=\mathbb{C}I$ if and only if
+$Alg(\mathcal{L}^{\perp})=\mathbb{C}I$.
+\end{lemma}
+
+This is an easy corollary of the following observation:
+
+$$T\in Alg(\mathcal{L}) \Leftrightarrow  T^{*}\in Alg(\mathcal{L}^{\perp}).$$
+
+
+ \begin{lemma} Suppose that $Alg(\mathcal{L})=\mathbb{C}I$ and $E=P\wedge
+Q\neq0$. Let $R=\left(
+      \begin{array}{cc}
+        R_{11} & R_{12} \\
+        R_{21} & R_{22} \\
+      \end{array}
+    \right)$ be the operator matrix form of $R$
+with respect to the orthogonal decomposition $\mathcal{H}=E(\mathcal{H})\oplus
+E^{\perp}(\mathcal{H})$.
+Then it follows that $Ker(I-R_{11})=0$ and $Ker(R_{11})=0$.
+\end{lemma}
+
+\begin{proof} Assume that $\alpha\in Ker(I-R_{11})$ is a non-zero vector. Let
+$\xi:=\left(
+      \begin{array}{c}
+        \alpha \\
+        0 \\
+      \end{array}
+    \right)$ and $Tx:=\langle x,\xi\rangle\xi$ for any $x\in\mathcal{H}$. Then
+$T$ is a rank-one operator and
+     $T\in Alg(\mathcal{L})$ which is a contradiction.
+
+    If $0\neq\alpha\in Ker(R_{11})$, then we similarly define the vector $\xi$
+and the operator $T$
+    as above. As $P\xi=\xi$ and $Q\xi=\xi$, thus we have
+$$TP=PTP, \    \ TQ=QTQ.$$
+
+Furthermore, as $$R\xi=\left(
+      \begin{array}{c}
+        0 \\
+        R_{21}\alpha \\
+      \end{array}
+    \right)=R^{2}\xi=\left(
+      \begin{array}{cc}
+        R_{11} & R_{12} \\
+        R_{21} & R_{22} \\
+      \end{array}
+    \right)\left(
+      \begin{array}{c}
+        0 \\
+        R_{21}\alpha \\
+      \end{array}
+    \right)=\left(
+      \begin{array}{c}
+        R_{12}R_{21}\alpha \\
+        R_{22}R_{21}\alpha \\
+      \end{array}
+    \right)$$ and $R_{12} = R_{21}^{*}$, thus we have $R_{21}\alpha=0$.
+This implies that $TR=0=RTR$ and $T\in Alg(\mathcal{L})$.
+\end{proof}\\
+
+\begin{lemma} With the notation given above, suppose that $\mathcal{L}$ is
+transitive and $P\wedge Q=E\neq0$. Let $R_{12}=HV$ be the polar decomposition
+of $R_{12}$ where $H$ is positive and $V$ a partial isometry. Then we have
+$Ker(H)=0$ and $Ran(V)=E$.
+\end{lemma}
+\begin{proof} We just need to show that $Ker(H)=0$. As $R_{12}^{*}=R_{21}$ and
+$H^{2}=R_{12}R_{21}$, thus $Ker(H)=0$ if and only if $Ker(R_{21})=0$.
+Suppose that $\alpha\in Ker(R_{21})$ is a non-zero vector. Let $\xi=\left(
+      \begin{array}{c}
+        \alpha \\
+        0 \\
+      \end{array}
+    \right)$ and $T$ be the rank-one operator $x\mapsto\langle x,\xi\rangle\xi$.
+Since $P\xi=Q\xi=\xi$, thus we have $PTP=TP$ and $QTQ=TQ$.
+
+Furthermore, as $R\xi=\left(
+      \begin{array}{c}
+        R_{11}\alpha \\
+        0 \\
+      \end{array}
+    \right)$ and $R^2\xi=\left(
+      \begin{array}{c}
+        R_{11}^2\alpha \\
+        R_{21}R_{11}\alpha \\
+      \end{array}
+    \right)$, thus we have $R_{11}\alpha=R_{11}^{2}\alpha$. But
+$Ker(I-R_{11})=0$, thus we have $R_{11}\alpha=0$ and $R\xi=0$.
+It implies that $RTR=TR$ and $T\in Alg(\mathcal{L})$ which is a contradiction
+with $Alg(\mathcal{L})=\mathbb{C}I$.
+\end{proof}\\
+
+By using the properties of two projections (see, e.g., {\cite{[KR]}} or
+{\cite{[Ta]}}), we have the following:
+
+\begin{corollary} With the notation given above,  we have have
+$$R=\left(
+      \begin{array}{cc}
+        R_{11} & \sqrt{R_{11}(I-R_{11})}V  \\
+        V^{*}\sqrt{R_{11}(I-R_{11})} & V^{*}(I-R_{11})V+F \\
+      \end{array}
+    \right)$$ where $F$ is a projection such that $F\perp V^{*}V$.
+\end{corollary}
+
+
+ Now we prove the main result of the section.
+Let $P,Q,R\in\mathcal{B}(\mathcal{H})$ be projections and $\mathcal{L}=\{0, I,
+P,Q,R\}$.
+\begin{theorem} If $Alg(\mathcal{L})=\mathbb{C}I$, then the intersection and
+union of any two nontrivial distinct projections in $\mathcal{L}$ are zero
+and $I$ respectively.
+\end{theorem}
+
+\begin{proof} By Lemma 4.1, we only need to show that $P\wedge Q=0$.
+
+On the contrary assume that $P\wedge Q\neq0$. According to the above lemmas,
+the projections $P,Q,R$ must be the following operator matrix forms:
+\begin{align*}
+&P=\left(
+      \begin{array}{cc}
+        I & 0  \\
+        0 & P_0 \\
+      \end{array}
+    \right), \   \ Q=\left(
+      \begin{array}{cc}
+        I & 0  \\
+        0 & Q_0 \\
+        \end{array}
+    \right)\\
+&R=\left(
+      \begin{array}{cc}
+        R_{11} & \sqrt{R_{11}(I-R_{11})}V  \\
+        V^{*}\sqrt{R_{11}(I-R_{11})} & V^{*}(I-R_{11})V+F \\
+      \end{array}
+    \right)
+\end{align*}
+where $P_0$ and $Q_0$ are projections.
+
+As $R_{11}$ is positive and $Ker(R_{11})=Ker(I-R_{11})=0$, then there exists a
+spectral projection $E_{0}$ of $R_{11}$ such that both $E_{0}R_{11}$ and
+$E_{0}(I-R_{11})$ are invertible on the subspace $E_{0}(\mathcal{H})$. Let
+$T=E_{0}$ and $A=\left(
+      \begin{array}{cc}
+        T & -T\sqrt{R_{11}(T(I-R_{11}))^{-1}}V  \\
+        0 & 0  \\
+      \end{array}
+    \right)$ where $(T(I-R_{11}))^{-1}$ is defined as the operator which is
+$(T(I-R_{11}))^{-1}$ on the range of $E_{0}$ and zero on the range of $I-E_{0}$.
+
+It is a simple calculation to check that $(I-P)AP=0$ and $(I-Q)AQ=0$.
+Furthermore, we have
+\begin{align*}
+&(I-R)AR\\
+&=\left(
+      \begin{array}{cc}
+        I-R_{11} & -\sqrt{R_{11}(I-R_{11})}V  \\
+        -V^{*}\sqrt{R_{11}(I-R_{11})} & I-V^{*}(I-R_{11})V-F \\
+      \end{array}
+    \right)AR\\
+    &=\left(
+      \begin{array}{cc}
+        (I-R_{11})T & -(I-R_{11})T\sqrt{R_{11}(T(I-R_{11}))^{-1}}V  \\
+        -V^{*}\sqrt{R_{11}(I-R_{11})}T &
+V^{*}\sqrt{R_{11}(I-R_{11})}T\sqrt{R_{11}(T(I-R_{11}))^{-1}}V \\
+      \end{array}
+    \right)R\\
+    &=\left(
+      \begin{array}{cc}
+        (I-R_{11})T & -T\sqrt{R_{11}(I-R_{11})}V  \\
+        -V^{*}\sqrt{R_{11}(I-R_{11})}T & V^{*}TR_{11}V \\
+      \end{array}
+    \right)\\
+     & \  \  \times\left(
+      \begin{array}{cc}
+        R_{11} & \sqrt{R_{11}(I-R_{11})}V  \\
+        V^{*}\sqrt{R_{11}(I-R_{11})} & V^{*}(I-R_{11})V+F \\
+      \end{array}
+    \right)=0.
+\end{align*}
+Hence $T\in Alg(\mathcal{L})\setminus\mathbb{C}I$ which is a contradiction.
+\end{proof}\\
+
+According to the above theorem, we can draw the following consequence.
+
+\begin{corollary} Every pentagon lattice is not transitive.
+\end{corollary}
+
+\noindent\textbf{Acknowledgments} The authors would like to thank Professor
+Liming Ge, Don Hadwin, Junhao Shen and the referee for many helpful comments
+and suggestions.
+Part of this work was carried out while first two authors visited the University
+of New Hampshire while this work was carried out.
+
+%\nocite{*}
+\bibliographystyle{line}
+
+\bibliographystyle{plain}
+\begin{thebibliography}{21}
+
+\bibitem{[Ar]} W. Arveson, {\it{Operator algebras and invariant subspaces}},
+Ann. Math., 100, 433-532, 1974.
+
+\bibitem{[Da]} K. R. Davidson, {\it{Nest Algebras}}, Longman Scientific $\&$
+Technical, New York, 1988.
+
+\bibitem{[DH]} A. Dong and C. Hou, On some automorphisms of a class of
+Kadison-Singer algebras, Lin. Alg. Appl., 436, 2037-2053, 2012.
+
+\bibitem{[GY]} L. Ge and W. Yuan, {\it{Kadison-Singer algebras, I: hyperfinite
+case}}, PNAS. USA 107(5), 1838-1843, 2010.
+
+\bibitem{[GY2]} L. Ge and W. Yuan, {\it{Kadison-Singer algebras, II: general
+case}}, PNAS. USA 107(11), 4840-4844, 2010.
+
+
+\bibitem{[HLP]} D. W. Hadwin, W. E. Longstaff, R. Peter, {\it{Small transitive
+lattices}}, Proc. Amer. Math. Soc., 87(1),
+121-124, 1983.
+
+\bibitem{[Hal]} P. R. Halmos, {\it{Ten problems in Hilbert space}}, Bull. Amer.
+Math. Soc. 76, 887-933, 1970.
+
+\bibitem{[Ha2]} P. R. Halmos, {\it{Reflexive lattices of subspaces}}, J. London
+Math. Soc., 4, 257--263, 1971.
+
+
+\bibitem{[Har]} K. J. Harrison, {\it{Certain distributive lattices of subspaces
+are reflexive}}, J. London Math. Soc., 8(2), 51-56, 1974.
+
+\bibitem{[HRR]} K. J. Harrison, H. Radjavi and P. Rosenthal, {\it{A transitive
+medial subspace lattice}}, Proc. Amer.
+Math. Soc. 28, 119-121, 1971.
+
+\bibitem{[HY]} C.  Hou and W. Yuan, {\it{Minimal generating reflexive lattices
+of projections
+in finite von Neumann algebras}}, Math. Annalen, 353, 499-517, 2012.
+
+
+
+\bibitem{[KR]} R. V. Kadison and J. Ringrose, {\it Fundamentals of the
+Operator Algebras,} vols. I and II, Academic Press, Orlando, 1983
+and 1986.
+
+
+\bibitem{[Lan]} C. Lance, {\it{Cohomology and perturbations of nest algebras}},
+Proc. Lond. Math. Soc., 43, 334-356, 1981.
+
+\bibitem{[La]} D. Larson, {\it{Similarity of nest algebras}}, Ann. Math., 121,
+409-427, 1983.
+
+\bibitem{[Lo]} W. E. Longstaff, {\it{Small transitive families of subspaces}},
+Acta Math. Sinica, 19(3), 567-576, 2003.
+
+\bibitem{[RR]} H. Radjavi and P. Rosenthal, {\it{Invariant Subspaces}},
+Springer-Verlag, Berlin, 1973.
+
+\bibitem{[Ta]} M. Takesaki, {\it{Theory of operator algebras $\mathrm{I}$}},
+Springer-Verlag, Heidelberg, 1979.
+
+\bibitem{[WY]} L. Wang and W. Yuan, A new class of Kadison-Singer algebras,
+Expos. Math., 29(1), 126-132, 2011.
+
+\end{thebibliography}
+
+\end{document}
