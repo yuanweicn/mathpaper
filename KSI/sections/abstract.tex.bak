@@ -1,0 +1,26 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  中文摘要
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{center}
+\parbox{\textwidth}{
+\rule{2em}{0pt}\CJKfamily{hei}摘要：\CJKfamily{kai}总之，我的文章很牛，不发表
+的话实在是可惜了。总之，我的文章很牛，不发表的话实在是可惜了。总之，我的文章
+很牛，不发表的话实在是可惜了。总之，我的文章很牛，不发表的话实在是可惜了。总
+之，我的文章很牛，不发表的话实在是可惜了。\\[5pt]
+\rule{2em}{0pt}\CJKfamily{hei}关键词：\CJKfamily{kai}很关键；很关键；非常关键
+\\[5pt]
+\rule{2em}{0pt}\CJKfamily{hei}中图分类号：TN 123.45}
+\end{center}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  英文摘要
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{center}
+\large{\textbf{This is the English title}}\\[7pt]
+\normalsize
+Author1, Author2\\[7pt]
+(1. University of New Hampshire, U.S.A 03824;\\
+2. Academy of Mathematics and Systems Science, Beijing 100080)\\[7pt]
+\end{center}
+\paragraph{Abstract}{In this paper, } \rule{2em}{0pt}
+\paragraph{Key Words}{Key; Key; the Key}
