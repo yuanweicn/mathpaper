@@ -42,5 +42,9 @@ Thumbs.db
 *.out
 *.un~
 
+#gvim generated files #
+#######################
+*.swp
+
 #math paper ignore related_paper #
 **/related_papers/
