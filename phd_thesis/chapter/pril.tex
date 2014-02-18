@@ -1,0 +1,932 @@
+\chapter{引言及预备知识}
+
+\section{有关自伴代数的历史背景}
+
+在完成了早期关于单个算子的工作后，von
+Neumann将注意力转向了对于算子族的研究\cite{von1}，
+并开创了现在被称为von Neumann代数的学科。其关于“算子环”（Rings of
+operators）
+的系列文章\cite{MV1,MV2,von2,MV3}在之后的半个世纪中引导了相关领域的研究。
+现代算子代数中很多概念及研究课题都源于von
+Neumann的工作。本节中我们将介绍本领域的
+基本概念，及发展至今的主要结果。\\
+
+若$\cal{H}$是复数域$\mathbb{C}$上的线性空间。映射
+$\langle \hskip5pt,\rangle: \cal{H}\times \cal{H}\rightarrow
+\mathbb{C}$被称作正定的内积，如果对任意的向量$x, y, z\in\cal{H}$，$a,
+b\in \mathbb{C}$，
+
+(1)\  $\langle ax+by, z\rangle=a\langle x, z\rangle+b\langle y,
+z\rangle$；
+
+(2)\  $\langle y, x\rangle=\overline{\langle x, y\rangle}$;
+
+(3)\  $\langle x, x\rangle\geq 0$;
+
+(4)\  $\langle x, x\rangle=0$当且仅当$x=0$。
+
+
+若$\langle
+\hskip5pt,\rangle$是$\cal{H}$上正定的内积且$\cal{H}$关于范数$\|x\|=\langle
+x, x\rangle^{\frac{1}{2}}$是完备的赋范线性空间，
+则称$\cal{H}$是一个希尔伯特空间(Hilbert space)。如果$\cal
+K$是另外一个希尔伯特空间，对于从$\cal{H}$到$\cal K$的线性映射
+$T$，定义$T$的范数为$$\|T\|=\sup\{\|Tx\|:\hskip5pt x\in {\cal H},
+\|x\|\leq 1\} \mbox{。}$$若$\|T\|<\infty$，则称$T$为有界 (或连续)线性算子。
+用$\cal B(H,K)$表示从希尔伯特空间$\cal{H}$到希尔伯特空间$\cal
+K$上的所有有界线性算子组成的集合。对于$T\in\cal B(H,K)$，存在$\cal
+B(K,H)$中唯一的有界线性算子$T^{\ast}$,使得对于任意的向量$x\in{\cal
+H}, y\in \cal K$，均有 $$\langle Tx, y\rangle=\langle x,
+T^{\ast}y\rangle,$$$T^{\ast}$就被称为$T$的共轭算子(adjoint
+operator)。$\ast$运算满足：对任意的 $A, B\in \cal B(H,K)$, $a,
+b\in\mathbb{C}$，
+
+(1) \ $(aA+bB)^{\ast}=\overline{a}A^{\ast}+\overline{b}B^{\ast}$;
+
+
+(2) \ $(A^{\ast})^{\ast}=A$;
+
+(3) \ $\|A^{\ast}A\|=\|A\|^{2}$;
+
+(4) \ $\|A^{\ast}\|=\|A\|$。
+
+若${\cal H}={\cal K}$，则可证明$(AB)^{\ast}=B^{\ast}A^{\ast}$。用$\cal
+B(H)$表示$\cal B(H,H)$，即有$\cal
+B(H)$关于$\ast$运算是封闭的。如果$\cal{A}$是
+$B(\cal{H})$中的代数，且满足:对于任意$T\in\cal{A}$，
+有$T^{\ast}\in\cal{A}$, 就称$\cal{A}$为$\cal
+B(H)$的$\ast$-子代数（或者自伴子代数），反之则称为非自伴代数。
+
+
+称$\cal B(H)$中满足$T^*T=TT^*$的算子$T$为正规算子(normal operator)；
+进一步如果有$T=T^*$,就称$T$为自伴算子(self-adjoint)。如果$T^*T=I$,则称$T$是等距算子(isometry)；
+若还满足$TT^*=I$，则称$T$为酉算子(unitary).
+对于满足以下的自伴算子$T$：对任意的$x\in\cal H$，有$\langle
+Tx,x\rangle\geq 0$，我们称之为正算子(positive
+operator)，可记作$T\geq 0$。 $T_1\geq T_2 $既是说$T_1-T_2\geq
+0$。此即在$\B(\H)$中的自伴算子集合上引入了一种偏序结构。
+
+
+在$\cal B(H)$
+上有三种常用的拓扑：范数拓扑（一致拓扑），强算子拓扑和弱算子拓扑。
+范数拓扑顾名思义既是由算子范数$\|\hskip6pt\|$诱导的拓扑。$\cal
+{B(H)}$中的算子序列 $T_n$一致收敛于$T$，当且仅当$\|
+T_n-T\|\rightarrow 0$。设$x\in\cal{H}$，$x$在$\cal
+B(H)$上定义了半范数$\rho_x(T)=\|Tx\|$ ($T\in \cal B(H)$)，由半范数
+族$\{\rho_x: x\in\cal{H}\}$诱导的弱拓扑称为$\cal
+B(H)$上的强算子拓扑。$\cal {B(H)}$中的算子网
+$\{T_{\lambda}\}_{\lambda\in\Lambda}$强算子收敛于$T$，当且仅当对任意$x\in\cal
+H$，$\| (T_{\lambda}-T)x\|\rightarrow 0$。设$x,
+y\in\cal{H}$，则在$\cal B(H)$上可定义半范数$\omega_{x,
+y}(T)=|\langle Tx, y\rangle|$ ($T\in \cal B(H)$)。由半范数族
+$\{\omega_{x, y}: x, y\in
+\cal{H}\}$诱导的弱拓扑就被称为弱算子拓扑。由此，$\cal
+{B(H)}$中的算子网
+$\{T_{\lambda}\}_{\lambda\in\Lambda}$弱算子收敛于$T$，当且仅当对任意
+ $x,y\in\cal H$, $\langle T_{\lambda}x,y\rangle\rightarrow \langle Tx,y\rangle$。
+除此以外，超弱拓扑是在研究von
+Neumann代数时另一种经常用到的拓扑，它是保证 形如$f(A)=\sum_n\langle
+Ax_n, y_n\rangle$
+($\sum(\|x_n\|^2+\|y_n\|^2)<\infty$)的泛函为连续的最弱的拓扑。
+
+
+根据定义，可以看出范数拓扑是上述拓扑中最强的，而强算子拓扑强于弱算子拓扑，超弱拓扑
+强于弱算子拓扑。当Hilbert空间$\H$为有限维时，以上几种拓扑等价。von Neumann代数是
+$\cal B(H)$中弱算子闭的*-子代数，若对于$\B(\H)$中的任意*-子代数按范数取闭包，就得到了
+另一类被广泛研究的代数，即$C^{*}$-代数。特别的，每个von Neumann代数都为$C^{*}$-代数。
+为了更好的理解von Neumann代数，我们首先介绍一些关于$C^{*}$代数的基本知识。\\
+
+
+设$\cal
+A$是$\mathbb{C}$或$\mathbb{R}$上的有单位元$I$的代数，若存在$\cal
+A$上的范数$\|\hskip6pt\|$使得对$\cal A$中任意的元素$A,\ B$,
+$\|AB\|\leq \|A\|\cdot\|B\|$，而且$\|I\|=1$， 则称$\cal
+A$是赋范代数。如果$\cal A$相对于此范数是完备的，就称$\cal
+A$是Banach代数。在复Banach代数$\cal A$ 上定义映射 $\ast: A\mapsto
+A^{\ast}$，使得对任意的$A, B\in\cal A$有，
+$(aA+bB)^{\ast}=\overline{a}A^{\ast}+\overline{b}B^{\ast}$，
+$(AB)^{\ast}=B^{\ast}A^{\ast}$，
+并且$(A^{\ast})^{\ast}=A$。此映射被称为对合映射（involution）。
+C*-代数$\cal A$就是具备满足$\|TT^{\ast}\|=\|T\|^2$（$\forall T\in
+\cal A$）的对合运算的复Banach代数。
+
+\begin{exmp}
+如果$X$为紧Hausdorff空间，则$X$上全体连续函数$C(X)$，关于上确界范数，以函数的
+共轭为对和运算，形成交换的C*-代数。
+\end{exmp}
+
+若C*-代数$\cal A$ 的双边理想只有它自身，则称这种C*-代数为单的
+(simple) C*-代数。
+
+C*-代数$\AAA$中的元素$A$如果满足
+$AA^{*}=A^{*}A$，称为正规元；若还有$AA^{*} = A^{*}A = I$，则称为酉元。
+$A$被称为正元，记为$A \geq 0$，当且仅当存在一个自伴元$B \in \AAA$（$B^{*} = B$），
+使得$A = B^{2}$。以下我们记$\AAA$中正元的集合为$\AAA^{+}$。
+
+称$\AAA$上对于任意$A \in \AAA^{+}$满足$\rho(A) \geq
+0$的线性范函$\rho$为
+正线性范函。并且我们知道$\rho$为正线性范函当且仅当$\rho$有界，并且$\|\rho\|
+= \rho(I)$。
+特别的，称$\AAA$上范数为1的正线性范函$\rho$为$\AAA$上的态（state）。$\AAA$上的态$\rho$被
+称为忠实的，如果对于属于$\AAA$的任意非零正算子$A$有$\rho(A) >
+0$。对于Hilbert空间$\H$中的
+任意单位向量$\xi$，可定义$\B(\H)$上的向量态如下：对于任意$A \in
+\B(\H)$，令 $\omega_{\xi}(A) = <A\xi,\xi>$。令$S(\AAA) = \{ \rho \in
+\AAA^{*} : \|\rho\| = \rho(I) = 1 \}$
+为C*-代数$\AAA$上所有态的集合（其中$\AAA^{*}$为$\AAA$上所有连续线性范函的集合），称为$\AAA$的态空间。
+则有$S(\AAA)$为$\AAA^{*}$中的弱*紧凸集，由Krein-Milman定理知$S(\AAA)$含有极点（extreme
+point），
+记$S(\AAA)$中所有极点构成的集合为$\P(\AAA)$，有$S(\AAA)$为$\P(\AAA)$的弱*-凸闭包。我们称
+$\P(\AAA)$中的元素为$\AAA$上的纯态（pure state）。
+
+当$\AAA$为交换C*-代数时，线性范函$\rho$为纯态当且仅当对于任意$A$，$B \in \AAA$有$\rho(AB) = \rho(A)\rho(B)$。
+由此$\AAA$上纯态全体的集合$\P(\AAA)$是$S(\AAA)$的闭子集。利用全体纯态，可以得到以下结果。
+
+\begin{thm} 对于任意交换C*-代数，都存在一个紧的Hausdorff空间$X$，及从$\cal
+A$到$C(X)$\newline
+上的代数同构$\varphi$，使得
+ 对$\cal A$中的任意元$A$有，$\varphi(A^*)=\overline{\varphi(A)},\ \|A\|=\|\varphi(A)\|\ (=
+ sup\{|\varphi(A)(x)|:\ x\in X\})$。
+\end{thm}
+
+由此可将交换C*-代数$\AAA$与某个紧Hausdorff空间$X$上的连续函数空间$C(X)$等同起来。
+因为$X$上的拓扑性质可由$C(X)$中的代数性质得以反映，在此意义下，自然的将一般
+的C*-代数（不一定交换）对应为“非交换的函数空间”$C(X)$，继而对应了“非交换的拓扑空间”
+$X$，进而将一般C*-代数理论理解为非交换的拓扑理论。
+
+令$\B$为某一C*-代数。称映射$\varphi: \AAA \rightarrow \B$为同态，如果$\varphi$是保单位元
+的代数同态，且对任意的$A \in \AAA$有$\varphi(A^{*})=\varphi(A)^{*}$。如果$\varphi$还是单射，
+则称$\varphi$为同构。若存在C*-代数$\AAA$，$\B$间的同构，就称$\AAA$与$\B$同构，记为$\AAA\cong\B$。
+C*-代数间的同态是保持范数不增的，同构是保持范数不变的，即有C*-代数的同态象亦为C*-代数。特别的，
+称从$\AAA$到$\B(\H)$的同态$\varphi$为$\AAA$在Hilbert空间$\H$上的表示。如果$\varphi(\AAA)$在
+$\B(\H)$中的一次换位子是平凡的，即$\varphi(\AAA)' = \mathbb{C}I$，称$\varphi$是$\AAA$在$\H$上的
+不可约表示，否则称为可约表示。如果表示$\varphi$为同构，则称为忠实（faithful）表示。
+
+事实上，任何一个C*-代数都可以忠实地表示到某个Hilbert空间上。
+令$\rho$为C*-代数$\cal A$上的态,定义$\rho(B^*A)=\langle A,
+B\rangle$，则$\langle\ ,\ \rangle$是$\cal
+A$上的内积。由于$\langle \ ,\ \rangle$满足
+Cauchy-Schwarz不等式，即有${\cal J}_{\rho}=\{A\in{\cal A}:\
+\rho(A^*A)=0\}$为$\cal A$上一个范数闭的左理想。于是可以在商空间${\cal
+A}/{\cal J}_{\rho}$上自然的定义一个正定的内积：
+$$\langle A+{\cal J}_{\rho}, B+{\cal J}_{\rho}\rangle=\langle A, B\rangle=\rho(B^*A)\ \ (A, B\in{\cal A}) \mbox{。}$$
+用${\cal H}_{\rho}$表示${\cal A}/{\cal J}_{\rho}$在此内积下完备化得到的Hilbert空间。
+
+若对$\AAA$中的任意元素$A$，定义
+$\varphi(A)(T+{\cal J}_{\rho})=AT+{\cal
+J}_{\rho}$，则有在${\cal A}/{\cal J}_{\rho}$
+上此算子$\varphi(A)$的范数小于等于$\|A\|$。
+由Hann-Banach定理知这个算子可唯一地扩张为${\cal
+H}_{\rho}$上的有界算子。不难验证$\varphi(aA+B)=a\varphi(A)+\varphi(B)$，
+$\varphi(AB)=\varphi(A)\varphi(B)$，$\varphi(A^*)=\varphi(A)^*$，
+$\varphi(I)=I$。此外还有$\|\varphi(A)\|\leq \|A\|$，进而$\varphi({\cal
+A})$为C*-代数。在此构造下，就有$\rho (A)= \langle
+\varphi(A)(I+{\cal J}_{\rho}),\ I+{\cal J}_{\rho}\rangle$，即可将$\rho$视为
+$\B(\H_{\rho})$上某向量态在$\varphi({\cal A})$上的限制。
+记单位向量$I+{\cal J}_{\rho}$为$\xi_{\rho}$，即有$\varphi(\AAA)\xi_{\rho}$在
+$\H_{\rho}$中稠密。一般的，若$\varphi$为C*-代数$\AAA$在Hilbert空间$\H$上的表示。
+如果$\H$中的向量$\xi$满足$\varphi(\AAA)\xi$在$\H$中稠密，就称$\xi$为$\varphi(\AAA)$
+的生成（generating）向量或循环（cyclic）向量。
+
+上述由给定C*-代数$\AAA$的态$\rho$来构造相应表示（$\varphi_{\rho},
+\H_{\rho}, \xi_{\rho}$）
+的方法被称为GNS（Gelfand-Neumark-Segal）构造，是研究C*-代数的基本工具之一。并且
+对于态$\rho$，通过GNS构造得到的表示为不可约的，当且仅当$\rho$为$\AAA$上的纯态。
+进一步，如果令$\H$为相对于某C*-代数$\AAA$上所有态作GNS构造得到的Hilbert空间做直和得到的
+Hilbert空间，则自然的得到$\AAA$在$\H$上的表示（即表示的直和），可以证明此表示为忠实的
+（Gelfand-Neumark定理）。即任何C*-代数都同构于某个$\B(\H)$中的C*-子代数。
+
+张量积为从已知代数得到新代数的常规运算。对于C*-代数也可定义相应范畴中的张量积运算。
+
+若$\cal A$和$\cal B$是C*-代数，记${\cal A}\otimes_{alg}{\cal
+B}$为$\AAA$，$\B$的代数张量积。 如果存在${\cal A}\otimes_{alg}{\cal
+B}$上的范数$\gamma$，使得${\cal A}\otimes_{alg}{\cal
+B}$成为一个赋范代数，且对任意$T\in {\cal A}\otimes_{alg}{\cal B}$有
+$\gamma(T^*T)=\gamma(T)^2$，称$\gamma$是一个C*-范数。一般来说对于C*-代数
+$\AAA$，$\B$，满足上述条件的范数并不唯一。但有任意C*-范数都为交叉范数（cross
+norm），也就是说 $\gamma(A\otimes B)=\gamma(A\otimes I)\gamma(I
+\otimes B)$。${\cal A}\otimes_{alg}{\cal
+B}$关于范数$\gamma$的完备化就称为$\cal A$和$\cal
+B$关于$\gamma$的C*-代数张量积，记为${\cal A}\otimes_{\gamma}{\cal
+B}$。如果不需要特别强调C*-范数$\gamma$的话，也可以用${\cal
+A}\otimes{\cal B}$来表示。
+
+下面我们介绍两种${\cal A}\otimes_{alg}{\cal B}$上常用的C*-范数。
+
+其中一种就是空间C*-范数（spatial C*-norm）。在介绍其具体构造前，先回忆Hilbert空间
+张量积的概念。
+
+如果$\cal H$和$\cal K$是向量空间，定义集合$\{x\otimes y:\ x\in{\cal
+H},\ y\in {\cal K}\}$的线性扩张为$\cal H$和$\cal K$的代数张量积，
+记为${\cal H}\otimes_{alg}{\cal K}$。称形如$x\otimes
+y$的元素为单张量积（simple tensor product）。设$\cal H$和$\cal
+K$为Hilbert空间，可以证明存在${\cal H}\otimes_{alg}{\cal K}$上唯一的内积
+$\langle \ ,\ \rangle$，使得$\langle x\otimes y,x'\otimes y'\rangle=
+\langle x,x'\rangle\langle y, y'\rangle$（$x,x'\in {\cal
+H},y,y'\in{\cal K}$）。这样${\cal H}\otimes_{alg}{\cal
+K}$成为一个内积空间。${\cal H}\otimes_{alg}{\cal
+K}$在此内积下的完备化就称为$\cal H$和$\cal K$的张量积，记为${\cal
+H}\otimes{\cal K}$。
+
+若$\cal A$和$\cal B$
+是分别作用在希尔伯特空间$\cal H$和$\cal K$上的C*-代数，定义${\cal
+A}\otimes\cal B$为${\cal B}({\cal H}\otimes\cal K)$中由
+$\{A\otimes I:\ A\in {\cal A}\}$和$\{I\otimes B:\ B\in {\cal
+B}\}$生成的C*-子代数。称${\cal A}\otimes\cal B$为$\cal
+A$和$\cal B$的空间张量积(spatial tensor product)。${\cal
+A}\otimes\cal B$上由${\cal B}({\cal H}\otimes\cal K)$上算子范数诱导
+的范数就是空间C*-范数。若${\cal A}_1$和${\cal B}_1$
+是分别作用在希尔伯特空间${\cal H}_1$和${\cal
+K}_1$上的C*-代数，并且$\cal A$，$\cal B$分别和${\cal A}_1$, ${\cal
+B}_1$同构，就有${\cal A}\otimes\cal B$和 ${\cal A}_1\otimes{\cal
+B}_1$同构（空间张量积）。对${\cal A}\otimes_{alg}\cal
+B$上任意的C*-范数$\gamma$，${\cal A}\otimes_{alg}\cal
+B$中元素的$\gamma$范数总大于等于它的空间范数。因此也称空间C*-范数
+为最小范数，并用$\AAA \otimes_{min} \B$表示$\AAA$，$\B$的空间张量积。
+
+对应于极小范数，另一种常用的C*-范数即为所谓的极大范数。令$\Lambda=\{\gamma: \gamma\
+\mbox{是}\ {\cal A}\otimes_{alg}{\cal B}\mbox{上的C*-范数}\}$。
+对${\cal A}\otimes_{alg}{\cal
+B}$中的任一个元素$C$，定义$\|C\|_{max}=sup_{\gamma\in\Lambda}\{\gamma(C)\}$。可以验证
+$\|C\|_{max}$是${\cal A}\otimes_{alg}{\cal
+B}$上的一个C*-范数，由定义可知，此范数即为${\cal A}\otimes_{alg}{\cal
+B}$上所有C*-范数中最大的，称为极大范数。${\cal
+A}\otimes_{alg}{\cal B}$关于极大范数的完备化就称为$\cal A$和$\cal
+B$的极大张量积。
+
+一般来说对于C*-代数$\AAA$，$\B$，$\ {\cal A}\otimes_{alg}{\cal
+B}$上的极小范数与极大范数
+并不相同。但对于一类被称为核型（nuclear）的特殊C*-代数，却能保证代数张量积上有唯一的C*-范数。
+即若$\AAA$为核型的C*-代数，那么对于任意C*-代数$\cal B$， ${\cal
+A}\otimes_{alg}{\cal B}$上只存在一个C*-范数。
+事实上，所有交换C*-代数都是核型的，有限维C*-代数也为核型的。这是因为，若$\cal
+A$是一个有限维C*-代数，可以把$\cal A$写成${\cal A}=
+M_{n_1}({\mathbb{ C}})\oplus \cdots \oplus M_{n_k}({\mathbb{
+C}})$。令$\cal B$为任意一个C*-代数，定义从 ${\cal
+A}\otimes_{alg}{\cal B}$到$(M_{n_1}({\mathbb{ C}})\otimes {\cal
+B})\oplus \cdots \oplus (M_{n_k}({\mathbb{ C}})\otimes {\cal
+B})$的线性映射$\pi$， 使得$\pi((a_1,\ldots,a_k)\otimes
+b)=(a_1\otimes b_1,\ldots,a_k\otimes
+b_k)$，则这个线性映射是*-同构。因此${\cal A}\otimes_{alg}{\cal
+B}$上就有一个完备的C*-范数，由此可推出其具有唯一的C*-范数。
+事实上，如果一个*代数$\W$上有一个完备的C*-范数$\|\ \
+\|$，则$\W$上就只有这一个C*-范数。
+假若$\gamma$是$\W$的另一个C*-范数，用$\widetilde{\W}$表示$\W$相对于
+$\gamma$的完备化。则包含映射 $({\W},\|\ \ \|)\rightarrow
+({\widetilde{\W}},\gamma)$就是单的*-同态，从而是等距映射。因此$\gamma=\|\
+\ \|$。这就证明了有限维C*-代数是核型的。
+
+另一类更加重要的核型C*-代数是UHF代数。容易证明若${\cal A}_1,{\cal A}_2\ldots$是某
+C*-代数$\cal A$的核型C*-子代数，当$i<j$时，${\cal A}_i\subseteq {\cal A}_j$，
+如果$\cal A$是$\bigcup {\cal A}_i$的范数闭包，则$\cal A$也是核型的。C*-代数$\AAA$被称为
+UHF代数当且仅当存在$\AAA$中的一列单调递增的有限维C*-子代数$\{ \AAA_{k} \}$，使得$\cup_{k}
+\AAA_{k}$在$\AAA$中稠密，并且每个$\AAA_{k}$同构于某个矩阵代数$M_{n_{k}}(\mathbb{C})$。
+不难证明UHF代数都是单的。因此$\cal A$的每一个表示都是忠实的。
+
+可以用有限维C*-代数序列的无限张量积来构造UHF代数。一般的，一族C*-代数的无限张量积可以定义为
+有限子族的（空间）张量积的归纳极限（inductive limit）。令$\{{\cal
+A}_{\alpha}:\ \alpha\in \Lambda\}$为一族
+C*-代数，我们用$\otimes_{\alpha}{\cal
+A}_{\alpha}$表示它们的无限张量积。对$\alpha\in\Lambda$，若$\rho_{\alpha}$是
+${\cal A}_{\alpha}$上的态，就存在张量积$\otimes_{\alpha}{\cal
+A}_{\alpha}$上唯一的态$\otimes_{\alpha}{\rho}_{\alpha}$使得
+$$\rho(A_1\otimes \cdots \otimes A_n)=\rho_{\alpha(1)}(A_1)\cdots \rho_{\alpha(n)}(A_n),$$
+其中$A_j\in {\cal A}_{\alpha(j)}$，$\{\alpha(1),\cdots,
+\alpha(n)\}\subset \Lambda$。
+这样的态$\rho$被称为张量积上的乘积态（product
+state），乘积态在无限张量积的研究中起着非常重要的作用。
+
+由前所述，UHF代数$\AAA$为其自身的一列单调递增的子代数$\{{\cal
+A}_k\}$的范数闭包，并且${\cal A}_k$与矩阵代数$M_{n_k}(\mathbb{
+C})$同构，于是有$n_k$整除$n_{k+1}$。 如果${\cal B}_{k+1}$是${\cal
+A}_k$在${\cal A}_{k+1}$的相对换为子，则${\cal
+B}_{k+1}$同构于矩阵代数$M_{n_{k+1}/n_k}(\mathbb{C})$，可以证明${\cal
+A}$同构于 $\{{\cal B}_k\}$的张量积。UHF代数中的一个基本问题是决定由
+$\{M_{2^k}(\mathbb{C})\}$生成的UHF代数和由$\{M_{3^k}(\mathbb{C})\}$生成的UHF代数是否同构？
+或再弱一点的问题：由$\{M_{2^k}(\mathbb{C})\}$生成的UHF代数是否包含一个同构于
+$M_3(\mathbb{C})$的C*-子代数？
+
+Glimn通过对UHF代数引入如下不变量将其完全分类，进而否定回答了上述问题。
+设$\cal A$，$\{{\cal
+A}_k\}$和$n_k$的意义如上。对任意素数$p$，定义$m_p = sup\{r:
+\mbox{存在}k, \mbox{使得}p^r$整除$n_k\}$。
+此处$m_p$可能取0，$\infty$，或某个正整数。记$n({\cal A}) =
+2^{m_2}3^{m_3}5^{m_5}\cdots$, Glimm证明了以下结果：
+
+\begin{thm}
+两个UHF代数$\cal A$和$\cal B$是*-同构的，当且仅当$n({\cal A})=n({\cal
+B})$。
+\end{thm}
+
+以适当的序来构造矩阵代数的（无限）张量积,即有对任意给定的不变量$n({\cal
+A})$，都可以构造相应的UHF代数$\cal
+A$。由上述定理知存在无限多不同构的UHF代数。若对表示在某Hilbert空间上
+的UHF代数取弱算子闭包，就得到了 所谓的超有限型von
+Neumann代数（超有限型因子）。在下一章中，我们将
+从UHF代数出发构造超有限型Kadison-Singer代数。在此之前，将注意力由C*-代数转回
+到von Neumann代数。
+
+对于von Neumann代数的研究实际上早于对C*-代数的研究。作为一类特殊的C*-代数，
+即$\B(\H)$的弱算子闭子代数，von Neumann代数有很多特有的性质。以下对于
+$\cal B(H)$的子集${\cal A}$，记${\cal A}^{\prime}=\{B\in {\cal
+B(H)}:AB=BA,\forall A\in {\cal A}\}$，即$\AAA$在$\B(\H)$中的换位子。
+在\cite{von1}中von Neumann给出了如下定理：
+
+\begin{thm}（双换位定理）
+若$\cal M$是一个作用在希尔伯特空间$\cal H$上的von Neumann代数，
+则$\cal M'$也是von Neumann代数，并且$(\cal M')'=\cal M$。
+\end{thm}
+
+作为von Neumann在此领域中最早的结果之一，双换位定理给出了von Neumann代数
+的等价代数刻画。此定理最令人惊讶的特点在于其不需要任何有关拓扑的假设。可以
+说从一开始拓扑与代数就在von Neumann代数中达到了某种程度的和谐统一。
+
+由前面的讨论我们知道，任意交换的von Neumann
+代数（交换的C*-代数）都同构于某个$C(X)$，其中$X$为某个紧Hausdorff空间。
+并且von Neumann代数的性质使得$X$具有下述特殊性质，即$X$中的每个开集
+的闭包依然是开的。我们称这样的空间为极端不连通的（extremely
+disconnected）。但反之并不成立，即便$X$是极端不连通的紧Hausdorff空间，
+$C(X)$也有可能不同构于任何一个交换vonNeumann代数。实际上，交换von
+Neumann代数 的函数表示需要用测度论来刻画。
+
+令$\mu$为集合$S$上的一个($\sigma-$有限)测度，
+$L^2(S,\mu)=\{f:\int |f|^2d\mu<\infty\}$。则$L^2(S,\mu)$在内积
+$\langle f,\ g\rangle=\int
+f\bar{g}d\mu$下成为Hilbert空间。若$f$是$S$
+上的本性有界可测函数（$f \in L^{\infty}(S,\mu)$），则可定义乘法算子$M_f$为$M_f(g)=f\cdot g$，
+$\forall g\in L^2(S,\mu)$。由所有的乘法算子构成的代数$\cal
+A$就是$L^2(S,\mu)$上的一个交换von Neumann代数，
+而且与每一个乘法算子交换的算子也为乘法算子，即$\cal
+A$为$\B(L^2(S,\mu))$的极大交换(maximal abelian)von Neumann子代数。
+
+具体来说，如果取$S$和$\mu$为下列情况：[0,1]，Lebesgue 测度；
+有限或可数无限个点的集合，计数测度；或两个测度空间的并，就得到交换von
+Neumann代数的具体例子。可以证明，可分Hilbert空间上的交换von
+Neumann代数总是同构于上述的某种构造。并且一个极大交换von
+Neumann代数到$L^{\infty}(S,\mu)$上的同构是由它的作用空间（可分Hilbert空间）
+到$L^2(S,\mu)$上的酉变换诱导的。
+
+可见，交换von Neumann代数理论脱胎于测度论，所以一般von
+Neumann代数理论也可以看作是非交换的测度论。在此观点的指导下，
+自然地将von Neumann代数中的投影（自伴的幂等算子，即满足$E=E^*=E^2$）
+类比为测度空间上可测集的特征函数。即可以把von
+Neumann代数中的投影视为非交换测度空间上的可测集。上述讨论暗示了
+von Neumann代数含有大量的投影。事实上，对于任意von Neumann代数$\M$，
+其中投影的线性扩张为$\M$的范数稠子集。所以投影在von Neumann代数的
+研究中起着非常重要的作用，F.Murray与J.von Neumann正是通过对投影的研究
+将von Neumann代数分类的。
+
+称两个投影$E$和$F$正交如果$EF=0$。若$E$，$F$是投影且$EF=E=FE$，
+则称$E$是$F$的子投影，用$E\leq
+F$表示。包含$E$，$F$的值域的最小闭子空间所对应的投影称为
+$E$和$F$的并，记为$E\vee F$，而对应于$E$，$F$值域的公共闭子空间的
+投影叫做$E$与$F$的交，用$E \wedge F$表示。
+令$\cal M$为von
+Neumann代数，$\mathcal{M}$中的投影$E$，$F$称为等价的，如果存在$V\in
+\mathcal{M}$使得$V^{\ast}V=E$，$VV^{\ast}=F$，记为$E\thicksim F$，
+其中$V$是从$E(\mathcal{H})$到$F(\mathcal{H})$的部分等距算子。
+若$E$与$F$的一个子投影等价，则用$E \precsim
+F$表示，而$E$与$F$的一个子投影等价但不与$F$等价，记为$E\prec F$。在
+进一步讨论投影间的等价关系前，我们简要介绍研究von Neumann代数的另一
+重要工具。
+
+$\cal B(H)$中的每一个算子$T$都可以被唯一地分解为$VH$的形式，其中$H$是正自伴算子，
+且$H^2=T^*T$，$V$是从$H$的值域的闭包（记作$r(H)$）到$r(T)$的等距映射，
+并将$r(H)$的正交补映为0。
+称$V$为从起始空间（initial space）$r(H)$到终止空间（final
+space）$r(T)$的部分等距。如果我们用
+$R(H)$表示值域为$r(H)$的投影，则有$V^*V=R(H)$，$VV^*=R(T)$.
+上述分解被称为$T$的极分解（polar
+decomposition）。若$T$属于某von Neumann代数$\cal M$，
+则$T$极分解中的$H$和$V$依然属于$\cal M$，于是在$\M$中
+有$R(H)\sim R(T)$。
+
+应用极分解，对于von Neumann代数$\M$中的算子$T$，
+由$R(H)=R(T^*)$，立得$R(T)\sim
+R(T^*)$。应用此事实，我们就知道对$\cal
+M$中的任意算子$A$和任意投影$E$，$F$有$EAF$和$FA^*E$
+的值域投影是等价的。因此若对于$\cal M$中的任意算子$A$，
+$EAF$都等于0，就说明$E$和$F$没有非零的等价子投影。 所以一般来说 von
+Neumann代数中的投影并不一定可以比较。但如果$\cal
+M$的中心平凡（即$\M' \cap \M =
+\{\mathbb{C}I\}$），我们称之为因子，可以证明若$\M$中的投影$E$，$F$对于$\cal
+M$中的任意算子$A$满足$EAF=0$，则有$E$或$F$为0。由此即得，
+因子中任意两个非零投影都有等价的非零子投影。类似于测度论的讨论就有$E
+\precsim F$，或$F \precsim E$。 应用Cantor-Bernstein定理的
+证明方法，可以得到若$E$和$F$是von Neumann代数$\M$中的投影，并且$E
+\precsim F$，$F \precsim E$，则$E\sim F$。 由是可见$\precsim$给出von
+Neumann代数投影等价类上的偏序。并且$\precsim$ 给出von
+Neumann代数$\M$中投影等价类上的全序当且仅当$\M$为因子。
+
+应用以上概念，可以定义所谓的有限投影和无限投影。令$E$为von
+Neumann代数$\M$中的投影， 如果$E$不能等价于自身的任何真子投影，
+则称$E$为有限投影，Murray和von Neumann
+证明了两个有限投影的并依然为有限投影；
+反之若$E$能和自身的某个真子投影等价，就称$E$为无限投影。
+进一步对于无限投影$E$，如果对任意的中心投影$P$（$P \in \M' \cap
+\M$）满足 $PE = 0$，或$PE$为无限投影，则称$E$为真无限（properly
+infinite）投影。
+
+令$\mathcal{M}$为$\cal B(H)$中von
+Neumann代数，记其中心为$\mathcal{C}$（$=\M' \cap \M$）， $E$为$\mathcal{M}$
+中的投影。如果$P\in\mathcal{M}$是使得$PE=E$的最小中心投影（即$P$是投影，且$P\in\mathcal{C}$），
+就称$P$为$E$在$\mathcal{M}$中的中心覆盖（central
+carrier）。若$E$是$\cal M$中的投影，并且$E\mathcal{M}E$是交换von
+Neumann代数（此时有$E\mathcal{M}E=\mathcal{C}E$），
+则称$E$是$\mathcal{M}$的交换投影，或阿贝尔投影，特别的，
+如果$E\mathcal{M}E=\mathbb{C}E$，就称$E$为$\mathcal{M}$的
+极小投影。现在我们可以根据von Neumann代数中投影的性质，
+将其分为I型，II型和III型。
+
+令$\M$为属于$\B(\H)$的von Neumann代数。如果$\mathcal{M}$中存在一个交换投影
+使得其中心覆盖为$I$，就称$\mathcal{M}$是I型的 von
+Neumann代数。若$I$是$n$个互相等价的交换投影的和（$n\in
+\mathbb{N}$或$n=\infty$），则称$\mathcal{M}$为I$_n$型的von
+Neumann代数。如果$\mathcal{M}$中没有非零的交换投影，但包含一个中心覆盖
+为$I$的有限投影，就称$\mathcal{M}$是II型的von Neumann代数；此时，若$I$为有限的，
+则称$\mathcal{M}$为II$_1$型的von Neumann代数；若$I$是真无限的，
+则称$\mathcal{M}$为II$_{\infty}$型的von Neumann代数。
+如果$\mathcal{M}$中不包含非零的有限投影，就称$\mathcal{M}$是III型的von
+Neumann代数。如果$\M$不包含无限投影，就称$\M$为有限的von Neumann代数。
+
+一般的，根据von Neumann代数的分解定理有，任何von
+Neumann代数$\mathcal{M}$（$\subset \B(\H)$）都可唯一分解成
+\begin{align*}
+\M=(\oplus_{n \leq dim(\H)} \M P_{n}) \oplus \M P_{c_1} \oplus \M P_{c_{\infty}} \oplus \M P_{\infty},
+\end{align*}
+其中$P_{n}$（$n \leq
+dim(\H)$），$P_{c_1}$，$P_{c_{\infty}}$和$P_{\infty}$为
+$\M$的中心投影使得，$\M P_n$为I$_n$型或$P_{n} = 0$，$\M
+P_{c_1}$为II$_1$型或$P_{c_1}=0$， $\M
+P_{c_{\infty}}$为II$_{\infty}$型或$P_{c_{\infty}}=0$，$\M
+P_{\infty}$为III型或$P_{\infty} =0$。 并且以上投影的和为$I$。
+
+由以上定理可以看出，中心在研究von Neumann代数的结构时起到了至关重要的作用。
+von Neumann代数$\M$的中心$\mathcal{C}$依然是一个von Neumann代数，并且相对于$\mathcal{C}$中的
+投影$P$，$\M$成为了$\M P$和$\M (I-P)$的直和。所以在某种意义下，von Neumann代数
+的分类可归结为对因子的分类。由von Neumann代数的分解定理得到，因子必为I$_n$
+($n\in\mathbb{N}$或$n=\infty$)型，II$_1$型，II$_{\infty}$型或者III型。
+
+I型因子可由其中的极小投影完全刻画，是有所情况中最为简单的。事实上我们有如下结果。
+
+\begin{thm}
+如果因子$\cal M$有极小投影，则$I$为一族极小正交投影的和，$\cal M$同构于$\cal B(H)$，其中
+Hilbert空间$\cal H$的维数与$\M$中最大的相互正交的极小投影集合的势相同。
+\end{thm}
+
+值得指出的是，当von Neumann证明以上关于因子分类的结果时，III型因子是否存在还不为人所知。
+即使II型因子的存在性也并不显然。Murray和von Neuamann利用今天被称为群测度空间构造的方法
+给出了II型和III型因子的例子。下面我们简要描述此方法。
+
+设$(S,\Omega,\mu)$为可数分离的测度空间，离散群$G$中的元素为$S$上的保测变换。
+并且要求$G$自由的作用在$S$上，即对于任意不包含$e$的$G$的有限子集$K$，和$\Omega$中
+任意测度大于0的可测集$E$，存在$E$的测度大于0的可测子集$F$使得对于任意$k \in K$，有
+$k(F) \cap F$为零测集。记$\cal A$为是测度空间上的乘法代数。
+由Radon-nikod\'{y}m定理知，对$G$中的任意元$g$，存在$S$上的非负实值函数$\varphi_g$，使得对
+$S$上的任意非负可测函数$x$有
+ $$\int_Sx(g(s))d\mu(s)=\int_Sx(s)\varphi_g(s)d\mu(s), \ \  s\in S \mbox{。}$$
+对任意$g\in G$，定义$U_g$为
+$(U_gf)(s)=[\varphi_g(s)]^{\frac{1}{2}}f(g^{-1}(s))\ (f\in
+L^2(S,\Omega,\mu),\ s\in S)$。则有$U:\ g\mapsto U_g$
+为$G$到$L^2(S,\Omega,\mu)$上的酉表示，且对$G$中任意的$g(\neq e)$，
+${\cal A}\cap (U_g{\cal A})=\{0\}$。
+
+群测度构造将给出
+作用在Hilbert空间$\K=L^{2}(\mu) \otimes l^{2}(G)$上的von Neumann代数。
+可将$\K$视为$\oplus_{g\in G} {\cal H}_g$，${\cal H}_g=L^2(S,\Omega,\mu)$。换句话说，
+\begin{align*}
+{\cal K}=\{x:\ x \ \mbox{是从}\ G\ \mbox{到}\ L^2(S,\Omega,\mu) \ \mbox{的函数},\ \mbox{且满足}\ \sum_{g\in G}\|x(g)\|^2<\infty\} \mbox{。}
+\end{align*}
+其上内积为$\langle x,\ y\rangle=\sum_{g\in G}\langle x(g),\
+y(g)\rangle$。对$\B(L^{2}(\mu))$中的任意算子$B$，定义$\cal
+B(K)$中的算子$\Phi(B)$，使得$(\Phi(B)x)(g)=Bx(g)$，对于$G$中的元素$g$，定义
+$\B(\K)$中的酉算子$(V(g)x)(g')=U(g)x(g^{-1}g')$，其中$x \in \K$。
+则由$\Phi({\cal A})$和$\{V(g)\}_{g\in G}$所生成的von
+Neumann代数$\M$即为所求。
+如果群$G$在$S$上的作用满足以下条件：对于$S$的可测子集$X$，若对于$G$中任意元素$g$有
+$\mu(g(X)\backslash X)=0$，就可推出$\mu(X)=0$或$\mu(S\backslash
+X)=0$成立，那么称$G$遍历地作用在$S$上。
+
+\begin{thm} $G$，$S$，$\cal M$的意义如上。若$G$遍历的作用在$S$上，则$\cal M$为因子，
+且在此条件下
+
+（1）$\cal M$是I型因子当且仅当$S$中的某些点有正测度。此时$\cal M$
+是I$_n$型因子当且仅当$S$中的点的个数是$n$.
+
+（2）如果$S$上有一个$G-$不变测度$\mu_0$使得只要$\mu(S_0)=0$，就有$\mu_0(S_0)=0$，则$\cal
+M$是II型因子。此外，若$\mu_0(S)<\infty$，$\cal
+M$为II$_1$型因子；若$\mu_0(S)=\infty$，则$\cal
+M$为II$_{\infty}$型因子。
+
+（3）若（1）中条间不成立，且不存在（2）中所描述的测度$\mu_0$，$\cal M$就为III型因子。
+\end{thm}
+
+选择不同的测度空间和不同的群作用，就得到了不同因子的例子。
+
+1. 令$S$为整数群，取计数测度，即每个整数对应的测度为1，
+$G$是$S$的所有平移所构成的群。这样构造的因子是I$_{\infty}$型的。若用阶数为
+$n$的循环群代替$S$，则得到I$_n$型因子。
+
+2. 令$S$为单位圆周，取其上的Lebesgue测度。$G$是$S$某个角度为$\gamma$的无理旋转所生成的群，
+则$G$遍历的作用在$S$上，群测度构造给出II$_1$型因子。
+
+3. 令$S$是具有Lebesgue测度的实数集$\mathbb{R}$，
+$G$是所有有理平移所构成的群，则$G$遍历的
+作用在$S$上，上述构造给出II$_{\infty}$型因子。
+
+4. 同样令$S$为具有Lebesgue测度的实数集$\mathbb{R}$，$G$是所有有理仿射平移
+（$s\mapsto as+b$，$a$，$b$都是有理数）所构成的群，则我们得到III型因子。
+
+将群测度构造一般化，就衍生出von
+Neumann代数与群作用的交叉积。由于篇幅所限， 我们仅介绍von
+Neumann代数与离散群的交叉积。
+
+令$\M$为$\cal B(H)$中的von Neumann代数，（离散）群$G$为$Aut(\M)$（$\M$的自同构群）的子群。
+定义$\B(\H \otimes l^{2}(G))$中的算子如下：
+\begin{align*}
+&\pi(A)\xi(g) = g^{-1}(A)\xi(g)  \quad \xi \in \H \otimes l^{2}(G), g \in G, A \in \M;\\
+&(V_{g}\xi)(h) = \xi(g^{-1}h) \quad \xi \in \H \otimes l^{2}(G), g, h \in G \mbox{。}
+\end{align*}
+则$\M$与$G$的交叉积，即是由算子$\pi(A)$，$V_{g}$生成的von Neumann代数，记为$\M \rtimes G$。
+
+如果对von Neumann代数$\M = \mathbb{C}1$，与群$G$做交叉积（$G$平凡
+作用在$\M$上），就得到了所谓的群von Neumann代数，记为$\L_{G}$。特别的
+当$G$为I.C.C（无限共轭类）群时，$\L_{G}$为因子。两个最有名的I.C.C群为：
+整数集上所有有限置换构成的群$\Pi$；由$n$个元（$n \geq 2$）生成的自由群$\F_{n}$。
+这两种群所生成的群von Neumann代数对于von Neumann代数理论有着极其重要的意义，
+其中$\L_{\Pi}$为唯一的超有限II$_1$型因子。
+
+von Neumann代数$\M$被称为超有限（hyperfinite or
+AFD)的，如果它是由一列单调递增的有限维 von
+Neumann子代数所生成的。在\cite{MV3}中，Murray和von Neumann证明了所有
+超有限II$_1$型因子都是*-同构的（而$\L_{F_n}$与$\L_{\Pi}$不同构），
+即在*-同构意义下，超有限II$_1$型因子唯一。除了用群测度构造外，通过有限维矩阵代数
+$\M_{n}(\mathbb{C})$的无限张量积也可得到超有限型因子。要达到此目的，我们需要将以前得
+到的UHF代数通过GNS构造表示到某个Hilbert空间上，之后取弱算子闭包即得到超有限
+von Neumann代数。而得到的代数是否为因子，为I型，II型，还是III型von
+Neumann代数则取决于 态的选取。
+
+T.Powers在\cite{P}中给出了UHF代数相对其上态$\omega$做GNS构造得到因子的充要条件。
+
+\begin{thm}
+设$\A$为UHF代数，$\{ M_{i} : i = 1,2, \ldots \}$为生成$\A$的单调递增的I$_{n_i}$型因子。
+对于$\A$上的态$\omega$，以下条件等价。\\
+（1） 相对$\omega$做GNS构造取弱算子闭包后得到因子。\\
+（2） 对$\A$中的任意算子$A$，存在只依赖于$A$的整数$r > 0$，使得
+对于任意$B \in M_{r}' \cap \A$有$|\omega(AB) - \omega(A)\omega(B)| \leq \|B\|$。\\
+（3）对$\A$中的任意算子$A$，存在$\A$中的I$_{m}$型因子$M$，使得
+对于任意$B \in M' \cap \A$有$|\omega(AB) - \omega(A)\omega(B)| \leq \|B\|$。
+\end{thm}
+
+由此定理，易见对于UHF的任意非零乘积态做GNS构造，我们都将得到因子。
+在同一篇文章中，Powers从$n(\A) = 2^{\infty}$的UHF代数$\A$出发构造了
+不可数多个互不同构的III型因子。其构造方法就是对于$0 \leq \lambda \leq 1$
+选取$M_2(\mathbb{C})$上的态，
+\begin{align*}
+\widetilde{\omega}(A) = tr(AD), \quad D = \left(
+                                \begin{array}{cc}
+                                \frac{1}{\lambda+1} & 0 \\
+                                0 & \frac{\lambda}{\lambda +1}\\
+                              \end{array}
+                              \right) ,
+\end{align*}
+并用$\widetilde{\omega}$诱导$\A$上的乘积态$\omega= \otimes\widetilde{\omega}$。接下来取相对于
+$\omega$做GNS构造得到的代数的弱算子闭包，即得到互不同构的因子。当$\lambda = 0$时，
+得到I$_{\infty}$型因子；若$\lambda = 1$，结果为II$_{1}$型
+因子；而对于$0 < \lambda < I$，就得到了被称为III$_{\lambda}$型（将在下文定义）的III型因子，并且当
+$\lambda_1 \neq \lambda_2$时，III$_{\lambda_1}$型因子与III$_{\lambda_2}$型因子不同构。
+
+注意到在上述构造中，当$\lambda=1$时，$\A$上的乘积态$\omega$具有一个特殊的性质，
+对于$A$，$B$属于$\A$，$\omega(AB)=\omega(BA)$。一般的，称C*-代数上满足上述条件的
+态为迹态（tracial state），通常记von Neumann上的迹态为$\tau$。
+易见$\A$上的乘积态$\omega$，可扩展为超有限因子$\RRR$上的态，
+仍记为$\omega$。并且$\omega$满足，对$\RRR$中的任意正交投影族$\{E_{\alpha}\}$，
+有$\tau(\sum_{\alpha}E_{\alpha})=\sum_{\alpha}\tau(E_{\alpha})$，
+以后称von Neumann代数上满足上述条件的态为正规态（normal state）。
+如果对任意$A>0$，von Neumann代数上的态$\rho$满足$\rho(A)>0$,
+则称这个态是忠实的（faithful）。
+若将$\infty$加入态的取值范围，就得到了权（weight）的概念。
+称映射$\rho:\mathcal{M}^{+}\rightarrow[0,\infty]$为von Neumann代数
+$\mathcal{M}$上的权，如果对任意$H,K\in\mathcal{M}^{+}$和$a>0$有$\rho(aH+K)=a\rho(H)+\rho(K)$。
+称权$\rho$为忠实的，如果对任意$H>0$有$\rho(H)>0$。称$\rho$为半有限的，
+如果$\{H\in\mathcal{M}^{+}:\rho(H)<\infty\}$
+的线性扩张在$\mathcal{M}$中弱算子稠密。
+称$\rho$是正规的，如果在$\mathcal{M}$上存在一族正规的正线性泛函
+$\{\rho_{a}:a\in\mathbb{A}\}$，使得对任意$H\in\mathcal{M}^{+}$有$\rho(H)=\sum_{a\in\mathbb{A}}\rho_{a}(H)$。
+
+von
+Neumann代数的类型决定了其上能否存在具有某种特殊性质的权。事实上，
+正规半有限迹权的存在性及其
+限制在投影集上的值域完全决定了因子的类型。如果因子$\mathcal{M}$上没有正规半有限的迹权，则是$\mathrm{III}$型的；
+若$\mathcal{M}$不是$\mathrm{III}$型的，则存在其上的忠实正规半有限迹权$\rho$。将$\rho$限制在投影集上，
+在规范化条件下有：当值域为$\{0,1,2,\cdots,n\}$($n$可以$\infty$)时，因子
+是$\mathrm{I}_{n}$型的；值域为$[0,1]$时，因子是$\mathrm{II}_{1}$型的；值域为$[0,\infty]$时，
+因子是$\mathrm{II}_{\infty}$型的。 特别的，von
+Neumann代数$\M$是有限的，当且仅当存在其上的忠实正规迹态$\tau$。
+此时，可定义由$\tau$诱导的迹范数（或二范数）$\|\ \|_2$如下：
+对于$\M$中的算子$A$，$\|A\|_2=\tau(A^*A)^{1/2}$。
+
+将注意力再次转回到Powers的构造上（$\lambda \neq
+0$），易见在通过GNS构造得到的Hilbert空间$\H$中，$I$对应的单位向量$\xi$满足
+$\RRR\xi$，$\RRR^{'}\xi$都是$\H$的稠子空间。一般的，设$\M$为
+表示在Hilbert空间$\H$上的von
+Nuemann代数，如果$\H$中存在向量$\xi$使得
+$\mathcal{M}\xi$，$\mathcal{M}^{'}\xi$皆为$\mathcal{H}$稠子空间，即$\xi$为$\M$的循环，分离
+向量（$\xi \in \H$被称为$\M$的分离向量，如果$\M'
+\xi$在$\H$中稠），那么称 此表示为$\M$的标准表示，并有如下结论：
+
+\begin{thm}[酉表示定理]
+设$\mathcal{M}_{1}$和$\mathcal{M}_{2}$是分别以标准形式
+作用在希尔伯特空间$\mathcal{H}_{1}$和$\mathcal{H}_{2}$上的von Neumann代数。
+若$\varphi$是从$\mathcal{M}_{1}$到$\mathcal{M}_{2}$上的*-同构，则存在从$\mathcal{H}_{1}$到$\mathcal{H}_{2}$
+上的酉变换$U$，使得对任意$A\in\mathcal{M}_{1}$有$\varphi(A)=UAU^{-1}$。
+\end{thm}
+
+构造新的因子是算子代数早期发展的主要活动之一，但是在系列文章\cite{von2}，\cite{MV1}，
+\cite{MV2}，\cite{MV3}发表过后的近30年里，算子代数并没有受到应有的重视，虽然此间也
+取得了一些成果，但总的来说算子代数的发展处于低潮。
+直到60年代末，Tomita-Takesaki理论\cite{Tak1}的出现，才使算子代数取得了革命性的发展。
+Tomita-Takesaki理论为III型因子的研究提供的全新的方法，Alain
+Connes应用此理论
+成功的第一次对超有限III型因子进行了分类\cite{Con1}。连同此工作，Connes凭借其关于
+内射因子（injective
+factor）的分类\cite{Con2}，及超有限II$_1$型因子自同构群的研究在1983年获得
+菲尔兹奖（Fields Medal）。以下我们简要介绍Tomita-Takesaki理论。
+
+令$\M$为作用在Hilbert空间$\H$上的von Neumann代数。假设$\Omega \in \H$为$\M$的循环分离向量。
+则以下
+\begin{align*}
+S_{0} : A\Omega \mapsto A^{*}\Omega , \quad A \in \M
+\end{align*}
+给出了稠定（densely
+defined）的共轭（conjugate）线性算子，记其闭包为$S$。 令$S =
+J\Delta$为$S$的极分解，其中$J$为反酉（antiunitary）算子，$\Delta$为可逆正算子
+（一般为无界算子），称为模算子。Tomita-Takesaki理论的一个基本事实为：对于任意$t
+\in \mathbb{R}$，
+\begin{align*}
+\sigma_{t}(A) = \Delta^{it}A\Delta^{-it} \in \M , \quad A \in \M \quad (i\mbox{为虚数单位}),
+\end{align*}
+定义了$\M$上的*-自同构。称单参数自同构群$\{\sigma_{t}: t \in \mathbb{R} \}$为相对于$\Omega$的
+模自同构群。模自同构群可以被用来将III型因子与其它类型的因子区分开来。事实上，
+对于因子$\M$，以下成立，
+\begin{align*}
+\sigma_{t}(A) = U_{t}AU^{*}_{t} , \quad  A \in \M , t \in \mathbb{R},
+\end{align*}
+其中$U_{t}$为$\M$中的酉算子（即对于任意$t$，$\sigma_{t}$为$\M$的内自同构），
+当且仅当$\M$为I型，或II型。
+
+不动点代数$\M^{\sigma} = \{A \in \M : \sigma_{t}(A) = A, \forall t \in  \mathbb{R} \}$，
+被称为相对于$\Omega$（或相对于由$\Omega$诱导的向量态）的中心化子（centralizer）。
+$\M^{\sigma}$为von Neumann代数，令$\mathcal{C}(\M^{\sigma})$为$\M^{\sigma}$的中心，
+对于每一个属于$\mathcal{C}(\M^{\sigma})$的投影$e$，相对于作用在Hilbert空间$\overline{\{e\M e \Omega\}}$
+上的von Neumann代数$e\M e$，及$e\M e$的循环分离向量$e\Omega$，类似之前构造模算子$\Delta_{e}$。
+当$\M$为III型因子时，
+\begin{align*}
+\Gamma = \cap_{e} Spectrum(\Delta_{e}) \setminus \{0\} = \left\{
+\begin{array}{ccc}
+\{ 1 \} , & &\\
+\{\lambda^{n}: n \in \mathbb{Z} \} , & 0 < \lambda < 1 ,&\\
+\{t \in \mathbb{R}^{+} \} & &\\
+\end{array}
+\right.
+\end{align*}
+为正实数构成的乘法群$\mathbb{R}^{*}_{+}$的闭子群，且与循环分离向量的选取无关，于是$\Gamma$为
+III型因子的同构不变量，称为Connes谱。
+对应于以上三种不同情况，Connes\newline
+将III型因子进一步分为III$_0$型，III$_{\lambda}$型（$0 < \lambda < 1$）
+，及III$_1$型。不仅如此，Connes还证明了所有超有限III$_{\lambda}$型因子都同构于上文介绍的Power在\cite{P}
+中构造的因子。而超有限III$_1$型因子的唯一性则由U.Haagerup在\cite{Haa1}中予以说明。不同于以上两种情况，
+存在无穷多互不同构的超有限III$_0$型因子。
+
+较之其它无限维因子，II$_1$型因子在某种程度上更为接近有限维的矩阵因子$M_{n}(\mathbb{C})$。
+其一，II$_1$型因子与$M_{n}(\mathbb{C})$一样有唯一的迹态（其值域为$[0,1]$）。其二两者的类似，也体现
+在附属于II$_1$型因子的无界算子所具有的良好性质上。一般来说由于定义域与值域的关系，两个无界算子的
+和与积并不一定有意义。但对于附属于II$_1$型因子的算子来说，以上困难在很大程度上将不复存在。事实上
+附属于II$_1$型因子的所有算子构成一个代数。80年代初，在Jones发展了指标理论后，关于II$_1$型因子子因子的研究
+逐渐成为von Neumann代数研究中的新热点。下面我们简介绍Jones在\cite{Jon}中给出的惊人结果。
+
+令$\M$为作用在Hilbert空间$\H$上的von Neumann代数，其换位子为$\M'$。假设$\M$，$\M'$都是II$_{1}$型
+因子。记$\tau_{\M}$，$\tau_{\M'}$为$\M$，$\M'$上的迹态。对于$\H$中的任意向量$\xi$，记$[\M \xi] \in \M'$为
+到闭子空间$\overline{\M \xi}$上的投影，类似$[\M' \xi] \in \M$为
+到闭子空间$\overline{\M' \xi}$上的投影。则由Murray和von Neumann的结果知
+\begin{align*}
+dim_{\M}(\H) \equiv \frac{\tau_{\M'}([\M \xi])}{\tau_{\M}([\M'
+\xi])}
+\end{align*}
+与$\xi$的选取无关，称为扭合（coupling）常数。从某种意义上，扭合常数度量了Hilbert空间相对于
+von Neumann代数$\M$的大小。Jones应用扭合常数来测量II$_{1}$型因子子因子的大小。受到
+群中子群指标的启发，他遂将以上称为子因子的指标，其定义如下。
+
+令$\NNN$为II$_{1}$型因子$\M$（$\subset \B(\H)$）的子因子，则$\M$上的迹态就诱导了$\NNN$上的迹态，此处我们还假设$\NNN'$也为
+II$_{1}$型因子。则指标即为
+\begin{align*}
+[\M : \NNN] = \frac{dim_{\NNN}(\H)}{dim_{\M}(\H)} \mbox{。}
+\end{align*}
+指标$[\M : \NNN]$并不一定为整数。事实上，Jones在\cite{Jon}中证明指标的取值范围为
+\begin{align*}
+\{t \in \mathbb{R}: t \geq 4 \} \cup \{4cos^{2}(\pi/p): p \in \mathbb{N}, p \geq 3 \} \mbox{。}
+\end{align*}
+此结果对于日后的研究产生了深远的影响。Vaughan F.R.Jones由于建立了von Neumann代数与几何拓扑间的
+联系于1992年被授予菲尔兹奖。而指标理论则是通往其日后发现的第一步。
+
+近些年来，为研究R.Kadison于1967年提出的二元生成
+自由群因子$\mathcal{L}_{\mathcal{F}_{2}}$和三元生成自由群因子$\mathcal{L}_{\mathcal{F}_{3}}$
+是否同构的问题，D.Voiculescu
+\cite{VDN}开辟了自由概率论这一崭新的领域。
+在古典概率论中，随机变量是定义在
+概率空间上的函数，所有的随机变量构成一个交换代数。
+D.Voiculescu用非交换的算子代数来代替这个交换代数，而概率测度则以算子代数上
+具有特定性质的线性泛函来替代，继而引入了“自由独立性”，
+并得到了相应的中心极限定理。在自由概率论中，
+古典概率论中的正态分布被Wigner的半圆周分布所替代。其后，D.Voiculescu又在\cite{Dan2}中引入了自由熵的概念，
+并以自由概率论和自由熵为工具，证明了
+$\mathcal{L}_{\mathcal{F}_{2}}\cong
+\mathcal{L}_{\mathcal{F}_{5}}\overline{\otimes}M_{2}(\mathbb{C})$，
+及自由群因子没有Cartan子代数\cite{Dan3}。
+葛力明教授推广了Voiculescu估计自由熵的方法，证明了自由群因子是素因子\cite{Ge2}（即不能分
+解成两个$\mathrm{II}_{1}$型因子的张量积）且没有单的极大交换子代数\cite{Ge1}。
+这些结果解决了算子代数中几个古老而重要的问题。
+
+从下一节开始，我们将开始讨论非自伴算子代数。
+
+\section{Kadison-Singer代数的定义}
+
+\begin{defn}
+Hilbert空间$\H$的（闭）子空间$\H_{1}$为有界算子$A$（$\subset \B(\H)$）的不变子空间，
+当且仅当对任意$\xi \in \H_1$，$A\xi \in \H_1$。若令$P$为到$\H_{1}$上的正交投影，
+则可将上述条件叙述为$(I-P)AP = 0$。以下在不引起混淆的情况下，我们将不区分正交投影与
+其对应的闭子空间。
+\end{defn}
+
+\begin{defn}
+令$\H$为Hilbert空间，$S \subset
+\B(\H)$，$\P(\B(\H))$为$\B(\H)$中的全体投影。
+记$S$中所有算子的公共闭不变子空间为 $\Lat(S) = \{P \in \P(\B(\H)) :
+(I-P)AP = 0, A \in S \}$。
+可以说明$\Lat(S)$中的全体投影构成一个格，称为$S$的不变子空间格。
+此外有$\{0,I\} \subset \Lat(S)$，并且$\Lat(S)$为强算子拓扑下的闭集。
+\end{defn}
+
+不变子空间问题（invariant subspace problem）是非自伴算子理论中长期悬而未决的问题：
+\begin{align*}
+\mbox{是否每个无限可分Hilbert空间$\H$上的有界算子都有非平凡的不变子空间？}
+\end{align*}
+此处非平凡不变子空间的意思是此子空间不能为$0$或$\H$本身。用刚刚引进的记号，也可将
+不变子空间问题重新叙述如下：
+\begin{align*}
+\mbox{是否无限可分Hilbert空间$\H$上的任意有界算子$T$都满足}\Lat(T) \neq \{0, I \}?
+\end{align*}
+
+von Neumann首先证明Hilbert空间上的紧算子总有非平凡的不变子空间（未发表）。
+其后俄国数学家V.Lomonosov于1973年用全新的方法证明了如下结果：
+\begin{thm}
+设$T$（$\neq cI, c \in \mathbb{C}$）为banach空间上的有界算子，如果$T$与一个紧算子交换，则$T$有
+非平凡的超不变子空间$\mathcal{S}$（hyperinvaiant subspace），即$\mathcal{S}$同时为所有与$T$交换的
+算子的不变子空间。
+\end{thm}
+起初人们认为Lomonosov's定理将会导致不变子空间问题的肯定回答，但Hadwin-Nordgren-Radjavi-Rosenthal于
+1980年给出了不与任何紧算子交换的算子的例子，使这一希望化为泡影。由此可见无限维可分Hilbert空间上的算子
+结构是极其复杂的。如果不要求算子作用在Hilbert空间上，Per
+Enflo于70年代末，构造了Banach空间（不包含Hilbert空间的情况）
+上没有非平凡不变子空间的有界算子的例子，但时至今日不变子空间问题作依然没有被解决。
+
+平行于不变子空间问题，Kadison在\cite{Ka}中提出了可迁代数问题（transitive algebra problem）。
+
+\begin{defn}
+$\B(\H)$的子代数$\A$被称为可迁代数，如果$\A$是包含$I$的弱算子闭代数，并且$\Lat(\A) = \{0, I \}$。
+\end{defn}
+
+可迁代数问题即为：如果$\A$为$\H$上的可迁代数，是否必有$\A = \B(\H)$？
+注意到，可迁代数问题的肯定回答隐含了不变子空间问题的肯定回答。事实上，
+假设$A$（$ \neq cI, c \in \mathbb{C}$）为$\B(\H)$中的算子，记$\A$（$\ni A$）为$A$的换位子。
+由于$A \neq cI$，$\A \neq \B(\H)$，于是，可迁代数问题的肯定回答
+就说明$\Lat(\A) \neq \{0, I \}$，进而$A$有非平凡的不变子空间。
+
+有关可迁代数问题的第一个部分结果是Arveson在\cite{Av}中证明的：
+\begin{thm}
+若$\A$是$\B(\H)$中的可迁代数，并且$\A$包含$\H$上的极大交换子代数（m.a.s.a），
+就有$\A = \B(\H)$。
+\end{thm}
+
+可迁代数问题的回答，有赖于对非自伴代数的研究，这是因为，对于$\B(\H)$的自伴
+弱算子闭代数，即von Neumann代数，应用双换位定理立得以下：
+
+\begin{thm}
+$\B(\H)$为唯一的可迁von Neumann代数。
+\end{thm}
+
+下面我们介绍两种代数。自反（reflexive）代数是一类完全由其不变子空间决定的代数
+，定义如下：
+\begin{defn}
+对于Hilbert空间$\H$中任意闭子空间集合$\S$，令$\Alg(\S) = \{A \in \B(\H): (I-P)AP = 0, P \in \S \}$。
+易见$\Alg(\S)$为包含$I$的弱算子闭代数。一般的有$\S \subset \Lat(\Alg(\S))$，若有
+$\S = \Lat(\Alg(\S))$，即称$\S$为自反格。如果
+$\B(\H)$中的代数$\A$满足：$\A = \Alg(\Lat(\A))$，
+就称$\A$为自反代数。
+\end{defn}
+
+为了将有限矩阵代数中上三角子代数的概念推广到无限维空间上去，
+Kadison和Singer在\cite{KS}中引入了被称为上三角（triangular）算子代数
+的非自伴代数。
+
+\begin{defn}
+$\B(\H)$的子代数$\A$被称为上三角代数如果，$\A^{*} \cap \A$为$\B(\H)$中的极大交换子代数。
+此时，称$\A^{*} \cap \A$为$\A$的对角。
+\end{defn}
+
+综合以上两种概念，Ringrose在\cite{Rin1}，\cite{Rin2}中研究了一类被称为套（nest）代数的非自伴代数。
+
+\begin{defn}
+$\B(\H)$的子代数$\A$被称为套代数，如果$\A$为自反代数，并且$\Lat(\A)$为套，即
+子空间之间的包含关系诱导了$\Lat(\A)$上的全序。从以上条件就可推出$\Lat(\A)$的投影互相交换。
+\end{defn}
+
+借鉴了三角代数，自反代数，von Neumann代数的想法，我们进一步推广上述概念，
+定义了一类新的非自伴代数——Kadison-Singer代数。其具体定义如下：
+
+\begin{defn}
+$\B(\H)$的子代数$\A$被称为Kadison-Singer（算子）代数（或KS-代数）
+如果$\A$满足以下两个条件，
+\begin{enumerate}
+\item $\A$是自反代数，
+\item 如果$\B(\H)$的自反子代数$\frak B$，包含$\A$（$\A \subseteq \frak
+B$），并且$\frak B \cap \frak B^* = \A \cap \A^*$，那么$\A = \frak
+B$。
+\end{enumerate}
+当KS-代数$\A$的对角子代数（$\A \cap \A^*$）为因子时，我们称此类KS-代数为KS-因子，
+或Kadison-Singer因子。我们称$\B(\H)$中的的投影格$\L$为
+Kadison-Singer格（或KS-格），如果$\L$是生成von Neumann代数
+$\L^{''}$的最小自反格，换句话说也就是$\L$自反，并且$\Alg(\L)$
+是Kadison-Singer代数。
+\end{defn}
+
+显然套代数是KS-代数。由于套生成交换von Neumann代数，
+我们可将其视为“I型”KS-代数，而将一般的KS-代数视为量子化
+的套代数。KS-代数的极大性对应于其不变子空间格的极小性，
+也就是说其任何自反子格都不能生成对角代数的换位子。
+
+以下引理可由KS-代数的定义直接导出。
+
+\begin{lem}
+如果$\B(\H)$的子代数$\A$为Kadison-Singer代数，令$\M$为$\A \cap
+\A^*$在$\B(\H)$中的换位子。则格$Lat(\A)$属于$\M$, 并且生成von
+Neumann代数$\M$。
+\end{lem}
+
+\proof
+由于$\A \cap \A^*$为von Neumann代数，则$Lat(\A \cap \A^*)
+\subseteq \M$，所以$Lat(\A) \subseteq
+\M$。令$\NNN$为$Lat(\A)$生成的von
+Neumann代数。由上则知$\NNN$为$\M$的子代数，由此推出$\M' \subseteq
+\NNN'$。另外显然有$\NNN' \subseteq \Alg(Lat(\A)) =
+\A$。并且因为$\NNN'$是自伴代数，$\NNN' \subseteq \A \cap \A^* =
+\M'$。则$\NNN'=\M'$，由此可知$\NNN = \M$。\endproof
+
+我们称KS-代数$\A \subset (\B(\H))$为I，II，或III型因子，
+如果其对角子代数作为von Neumann代数为I，II，或III型因子。
+同样我们可将II型KS-因子进一步分为II$_{1}$型或II$_{\infty}$型。
+并当$\A \cap \A^{*}$作用在$\H$上为标准表示时 （即在$\H$中存在$\A
+\cap \A^{*}$的循环分离向量），
+我们称此类KS-代数为标准型，或标准KS-代数。
+
+在以下章节中，我们将给出一些以II型或III型因子为对角的非平凡KS-代数的例子。
+在此之前我们首先证明在此条件下KS-代数确为非自伴代数。
+
+\begin{thm}
+如果$\A$为以II型或III型von Neumann代数为对角的KS-代数，那么$\A$是非自伴代数。
+\end{thm}
+
+\proof 假设$\A$为自伴代数，则由定理条件可知$\A^{'}$亦为II型
+或III型von Neumann代数，所以存在$\A^{'}$的同构于$M_{2}(\mathbb{C})$的
+子代数$\M_{2}$。如果令
+\begin{align*}
+\L = \{ P | P \in \M_{2}^{'} \cap \mathcal{P}(\A^{'}) \} \cup \{E_{11}, \frac{1}{2}\sum_{i,j}E_{ij} \},
+\end{align*}
+此处$E_{ij}$为$\M_{2}$的矩阵单位，则容易验证$\L$生成$\A^{'}$，
+$\Alg(\L)$为非自伴的自反代数，且包含$\A$。类似前述引理可知
+$\Alg{\L} \cap \Alg{\L}^{*} = \A$，这与$\A$为KS-代数相矛盾。\endproof
+
+事实上，类似于以上方法，容易证明除$\A = \B(\H) = \Alg{(0, I)}$的情况外，
+即使当对角为I型von Neumann代数时，任意非平凡的KS-代数都是非自伴代数。
+如此我们可将标准KS-代数视为关于其对角von Neumann代数的极大上三角代数。
+
+\begin{defn}
+我们称两个Kadison-Singer代数$\A_{1}$（$\subset \B(\H_{1})$），
+$\A_{2}$（$\subset \B(\H_{2})$）同构，当且仅当存在从$\A_{1}$
+到$\A_{2}$的保范（代数）同构$\varphi$。特别的，如果$\varphi$
+为从$\H_{1}$到$\H_{2}$的酉算子$U$所诱导，即对任意$A$属于
+$\A_{1}$，$\varphi(A) = UAU^{*}$，我们称$\A_{1}$与$\A_{2}$酉等价。
+\end{defn}
+
+易见上述定义中的保范条件保证了两个KS-代数间的同构诱导了相应对角子代数的*-同构。
+
+\begin{defn}
+我们称两个不变子空间格为空间（spatial）同构的，当且仅当格的同构诱导了其生成的von Neumann代数间的
+*-同构。
+\end{defn}
+
+之所以要求格的同构要诱导其生成的von
+Neumann代数间的*-同构，是因为单纯的格之间的同构
+并不能保留太多的信息。例如，II$_{1}$型因子中由两个在迹态下取值为$\frac{1}{2}$的自由投影生成
+的格$\L_{0}$，在代数意义下（即保持并，交运算，及次序），与二维欧式空间上两个一维投影生成的
+格同构。以下我们称此类仅保持格结构的同构为格之间的代数同构。

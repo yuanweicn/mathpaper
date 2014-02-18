@@ -1,0 +1,145 @@
+\documentclass[notypeinfo,dvipdfm]{CASthesis}
+
+\usepackage[all]{xy}
+% 可选参数：
+% notypeinfo 取消扉页的LaTeX版本信息
+% dvips 使用 dvips 生成最终的 PS 文档
+% dvipdfm 使用 dvipdfm(x) 生成最终的 PDF 文档
+
+
+% 设置图形文件的搜索路径
+\graphicspath{{chapter/}{figures/}}
+
+% 取消链接的颜色（黑白打印时）
+\hypersetup{colorlinks=false}
+
+% 小节标题靠左对齐
+%\CTEXsetup[format+={\flushleft}]{section}
+
+
+\input amssym.def \input amssym
+
+\baselineskip12pt\lineskip6pt\lineskiplimit6pt
+\def\endproof{\nobreak\qquad\vrule height4pt width4ptdepth0pt}
+\def\Cal#1{{\cal #1}}\def\bold#1{{\bf #1}}
+\def\Bbb{\bf}
+\def\frac#1#2{{#1\over #2}}\def\tfrac#1#2{\textstyle{#1\over #2}}
+\let\phi=\varphi\def\<{\langle}\def\>{\rangle}
+\def\A{{\goth A}}\def\B{{\cal B}}\def\AAA{{\cal A}}
+\def\C{{\bf C}}\def\D{{\cal D}}\def\epsilon{\varepsilon}
+\def\F{{\cal F}}\def\G{{\cal G}}\def\H{{\cal H}}\def\I{{\cal I}}
+\def\J{{\cal J}}\def\K{{\cal K}}\def\L{{\cal L}}
+\def\M{{\cal M}}\def\N{{\bf N}}\def\NNN{{\cal N}}
+\def\O{{\cal O}}\def\P{{\cal P}}\def\Q{{\cal Q}}
+\def\R{{\bf R}}\def\Re{\mathop{\bf Re}}
+\def\RRR{{\cal R}}\def\S{{\cal S}}\def\T{{\bf T}}\def\U{{\cal U}}
+\def\TT{{\cal T}}
+\def\V{{\cal V}}
+\def\W{{\cal W}}
+\def\X{{\goth X}}\def\Y{{\goth Y}}\def\Z{{\bf Z}}
+\def\ZZZ{{\cal Z}}
+\def\implies{\;\Longrightarrow\;}
+\def\sp{\mathop{\rm sp}}\def\lh{{\ell_{\rm h}}}\def\la{{\ell_{\rm a}}}
+\def\II{{\rm II}} \font\eightrm=cmr8 \font\eightsl=cmsl8
+\font\eightbf=cmbx8 \font\twlbf=cmbx12 \font\sc=cmcsc10
+\def\tensor{\mathop{\bar\otimes}} \def\Tr{{\rm Tr}} \def\sa{{\rm sa}}
+\def\Lat{{\rm Lat}}\def\Alg{{\rm Alg}}
+\def\supp{\mathop{\rm supp}}
+
+\begin{document}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% 封面部分
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+  % 中文封面内容
+  \classification{}
+  \confidential{}
+  \UDC{}
+  \serialnumber{}
+  \title{Kadison-Singer 代数}
+  \author{袁巍}
+  \advisor{葛力明~研究员}
+  \advisorinstitute{中国科学院数学与系统科学研究院}
+  \degree{博士}
+  \major{算子代数}
+  \submitdate{2008年7月}
+  \defenddate{2008年7月}
+  \institute{中国科学院数学与系统科学研究院}
+  \school{中国科学院研究生院}
+  \chairman{}
+
+  % 英文封面内容
+  \englishtitle{Kadison-Singer Algebras}
+  \englishauthor{Wei Yuan}
+  \englishadvisor{Prof. Liming Ge}
+  \englishinstitute{Institute of Mathematics \\
+    Academy of Mathematics and Systems Science \\
+    Chinese Academy of Sciences}
+  \englishdegree{Ph.D.}
+  \englishmajor{Operator algebra}
+
+
+  % 封面
+  \maketitle
+
+  % 英文封面
+  \makeenglishtitle
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% 前言部分
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\frontmatter
+
+  % 摘要
+  \include{chapter/abstract}
+
+  % 目录
+  \tableofcontents
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% 正文部分
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\mainmatter
+
+  %\include{chapter/intro}
+  \include{chapter/pril}
+  \include{chapter/sec1}
+  \include{chapter/sec2}
+  %\include{chapter/chap-tabfig}
+  %\include{chapter/chap-faq}
+
+  % 附录
+  %\appendix
+
+  %\include{chapter/chap-req}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% 附件部分
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\backmatter
+
+  % 参考文献
+  % 使用 BibTeX
+   \bibliographystyle{alpha}
+  \bibliography{bib/main}
+ 
+  \nocite{*}
+  % 不使用 BibTeX \include{chapter/bib}
+
+  % 发表文章目录
+  \include{chapter/pub}
+
+  % 个人简历
+  \include{chapter/resume}
+
+  % 致谢
+  \include{chapter/thanks}
+
+
+\end{document}

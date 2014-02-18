@@ -1,0 +1,345 @@
+@BOOK{RR,
+         AUTHOR= "H.Radjavi and P.Rosenthal",
+         TITLE= "Invariant Subspaces",
+         YEAR= 1973,
+         PUBLISHER={Springer-Verlag, Berlin}
+         };
+
+@BOOK{KR,
+         AUTHOR= "R.Kadison and J.Ringrose",
+         TITLE= "Fundamentals of the Operator Algebras",
+         VOLUME= "I and II",
+         YEAR= "1983 and 1986",
+         PUBLISHER={Academic Press, Orlando}
+         };
+
+@ARTICLE{KS,
+         AUTHOR= "R.Kadison and I.Singer",
+         TITLE= "Triangular operator algebras. Fundamentals and hyperreducible theory",
+         JOURNAL={Amer.J.Math.},
+         YEAR= 1960,
+         PAGES="227-259",
+         VOLUME="82",
+         PUBLISHER={}
+         };
+
+@ARTICLE{Ka,
+         AUTHOR= "R.Kadison",
+         TITLE= "On the orthogonalization of operator representations",
+         JOURNAL={Amer.J.Math.},
+         YEAR= 1955,
+         PAGES="600-621",
+         VOLUME="78",
+         PUBLISHER={}
+         };
+
+@ARTICLE{G,
+         AUTHOR= "J.Glimm",
+         TITLE= "Type {I $C^{*}$}-algebras",
+         JOURNAL={Ann.Math.},
+         YEAR= 1961,
+         PAGES="572-611",
+         VOLUME="73",
+         PUBLISHER={}
+         };
+
+@ARTICLE{G2,
+         AUTHOR= "J.Glimm",
+         TITLE= "On acertain class of operator algebras",
+         JOURNAL={Trans.Amer.Math.Soc},
+         YEAR= 1960,
+         PAGES="318-340",
+         VOLUME="95",
+         PUBLISHER={}
+         };
+
+@ARTICLE{P,
+         AUTHOR= "R.Powers",
+         TITLE= "Representations of Uniformly Hyperfinite Algebras and Their Associated von Neumann Rings",
+         JOURNAL={Ann.Math.},
+         YEAR= 1967,
+         PAGES="138-171",
+         VOLUME="86",
+         PUBLISHER={}
+         };
+
+
+@ARTICLE{GS,
+         AUTHOR= "L.Ge and J.Shen",
+         TITLE= "On the generator problem of von Neumann algebras",
+         JOURNAL={Proc. of ICCM (Hong Kong)},
+         YEAR= 2004,
+         PUBLISHER={Intern. Press, Boston}
+         };
+
+@ARTICLE{H1,
+         AUTHOR= "P.Halmos",
+         TITLE= "Two subspaces",
+         JOURNAL={Trans.Amer.Math.Soc.},
+         YEAR= 1969,
+         VOLUME="144",
+         PAGES="381-389"
+         };
+
+@ARTICLE{H2,
+         AUTHOR= "P.Halmos",
+         TITLE= "Reflexive lattices of subspaces",
+         JOURNAL={J.London Math.Soc.},
+         YEAR= 1971,
+         VOLUME="4",
+         PAGES="257-263"
+         };
+
+@ARTICLE{Ha,
+         AUTHOR= "K.Harrison",
+         TITLE= "On lattices of invariant subspaces",
+         JOURNAL={Doctoral Thesis},
+         YEAR= 1970,
+         VOLUME="",
+         PAGES="",
+         PUBLISHER="Monash University, Melbourne"
+         };
+
+@ARTICLE{VDN,
+         AUTHOR= "D.Voiculescu, K.Dykema and A.Nica",
+         TITLE= "Free Random Variables",
+         JOURNAL={CRM Monograph Series},
+         YEAR= 1992,
+         VOLUME="1",
+         PAGES="",
+         PUBLISHER=""
+         };
+
+@ARTICLE{von1,
+         AUTHOR= "J. von Neumann",
+         TITLE= "Zur Algebra der Funktionaloperatoren und Theorie der normalen Operatoren",
+         JOURNAL={Math.Ann.},
+         YEAR= 1929,
+         VOLUME="102",
+         PAGES="370-437",
+         PUBLISHER=""
+         };
+
+@ARTICLE{MV1,
+         AUTHOR= "F.J. Murray, J. von Neumann",
+         TITLE= "On rings of operators",
+         JOURNAL={Ann.Math.},
+         YEAR= 1936,
+         VOLUME="37",
+         PAGES="116-229",
+         PUBLISHER=""
+         };
+
+@ARTICLE{MV2,
+         AUTHOR= "F.J. Murray, J. von Neumann",
+         TITLE= "On rings of operators, $\mathrm{II}$",
+         JOURNAL={Trans.Amer.Math.Soc.},
+         YEAR= 1937,
+         VOLUME="41",
+         PAGES="208-248",
+         PUBLISHER=""
+         };
+
+@ARTICLE{von2,
+         AUTHOR= "J. von Neumann",
+         TITLE= "On rings of operators, $\mathrm{III}$",
+         JOURNAL={Ann.Math.},
+         YEAR= 1940,
+         VOLUME="41",
+         PAGES="94-161",
+         PUBLISHER=""
+         };
+
+@ARTICLE{MV3,
+         AUTHOR= "F.J. Murray, J. von Neumann",
+         TITLE= "On rings of operators, $\mathrm{IV}$",
+         JOURNAL={Ann.Math.},
+         YEAR= 1943,
+         VOLUME="44",
+         PAGES="716-808",
+         PUBLISHER=""
+         };
+
+@ARTICLE{Con1,
+         AUTHOR= "A.Connes",
+         TITLE= "Uneclassification des facteurs de type $\mathrm{III}$",
+         JOURNAL={Ann.Sci.$\acute{e}$cole},
+         YEAR= 1973,
+         VOLUME="6",
+         PAGES="133-152",
+         PUBLISHER="23 Norm.Sup.Paris"
+         };
+
+@ARTICLE{Con2,
+         AUTHOR= "A.Connes",
+         TITLE= " Classification of injective factors, Cases $\mathrm{II_{1}, II_{\infty},
+                 III_{\lambda}}$,$\lambda\neq1$",
+         JOURNAL={Ann.Math.},
+         YEAR= 1976,
+         VOLUME="104",
+         PAGES="73-115",
+         PUBLISHER=""
+         };
+
+
+@ARTICLE{Ge1,
+         AUTHOR= "L. Ge",
+         TITLE= "Applications of free entropy to finite von Neumann algebras $\mathrm{I}$",
+         JOURNAL={Amer.J.Math},
+         YEAR= 1997,
+         VOLUME="119",
+         PAGES="467-458",
+         PUBLISHER=""
+         };
+
+@ARTICLE{Haa1,
+         AUTHOR= "U.Haagerup",
+         TITLE= "Connes' bicentralizer problem and uniqueness of the injective factor of type
+                $\mathrm{III}_{1}$",
+         JOURNAL={Acta.Math},
+         YEAR= 1987,
+         VOLUME="158",
+         PAGES="95-148",
+         PUBLISHER=""
+         };
+
+@ARTICLE{Ge2,
+         AUTHOR= "L. Ge",
+         TITLE= "Applications of free entropy to finite von Neumann algebras $\mathrm{II}$",
+         JOURNAL={Ann.Math},
+         YEAR= 1998,
+         VOLUME="147",
+         PAGES="no.1,143-157",
+         PUBLISHER=""
+         };
+
+@BOOK{Tak1,
+         AUTHOR= "M.Takesaki",
+         TITLE= "Tomita's theory of modular Hilbert algebras and its applications,Lecture Notes in Mathematics",
+         VOLUME="128",
+         YEAR= "1970",
+         PUBLISHER={Springer-Verlag,Heidelberg}
+         };
+
+@ARTICLE{Tak2,
+         AUTHOR= "M.Takesaki",
+         TITLE= "Duality for corssed products and the structure of von Neumann algebras of type $\mathrm{III}$",
+         JOURNAL={Acta.Math.},
+         YEAR= 1973,
+         VOLUME="131",
+         PAGES="249-310",
+         PUBLISHER=""
+         };
+
+@ARTICLE{To,
+        AUTHOR="M.Tomita",
+        TITLE="Standard forms of von Neumann algebras",
+        JOURNAL={Fifth Functional Analysis Symposium of the
+                Math.Soc.Japan,Aenddai},
+        YEAR=1967,
+        VOLUME="",
+        PAGES="",
+        PUBLISHER=""
+        };
+
+@ARTICLE{Dan,
+        AUTHOR="Dan Voiculescu",
+        TITLE="Circular and Semicircular Systems and Free Product Factors",
+        JOURNAL={Operator Algebras, Unitary Representations, Enveloping Algebras, and Invariant Theory, Progress in Mathematics},
+        YEAR=1990,
+        VOLUME="92",
+        PAGES="",
+        PUBLISHER="Birkh$\ddot{a}$user, Boston"
+        };
+
+@ARTICLE{Dan2,
+        AUTHOR="Dan Voiculescu",
+        TITLE="The analogues of entropy and of Fisher's information measure in free probablity
+               theory $\mathrm{II}$",
+        JOURNAL={Invent.Math.},
+        YEAR=1994,
+        VOLUME="118",
+        PAGES="411-440",
+        PUBLISHER=""
+        };
+
+@ARTICLE{Dan3,
+        AUTHOR="Dan Voiculescu",
+        TITLE="The analogues of entropy and of Fisher's information measure in free probablity
+               theory $\mathrm{III}$:The absence of Cartan subalgebras",
+        JOURNAL={ Geom.Funct.Anal.},
+        YEAR=1996,
+        VOLUME="vol6, no.1",
+        PAGES="172-199",
+        PUBLISHER=""
+        };
+
+@ARTICLE{Dyk,
+        AUTHOR="Ken Dykema",
+        TITLE="Free products of hyperfinite von Neumann algebras and free dimension",
+        JOURNAL={Duke Math.J.},
+        YEAR=,
+        VOLUME="",
+        PAGES="",
+        PUBLISHER=""
+        };
+
+@ARTICLE{Jon,
+        AUTHOR="V.Jones",
+        TITLE="Index for subfactors",
+        JOURNAL={Invent.Math.},
+        YEAR=1983,
+        VOLUME="72",
+        PAGES="1-25",
+        PUBLISHER=""
+        };
+
+@ARTICLE{Av,
+        AUTHOR="Arveson,W.B.",
+        TITLE="A density theorem for operator algebras",
+        JOURNAL={Duke Math.J},
+        YEAR=1967,
+        VOLUME="34",
+        PAGES="635-647",
+        PUBLISHER=""
+        };
+
+@ARTICLE{Rin1,
+        AUTHOR="Ringrose,J.R.",
+        TITLE="On some algebras of operators",
+        JOURNAL={Proc.London Math.Soc.},
+        YEAR=1965,
+        VOLUME="(3) 15",
+        PAGES="61-83",
+        PUBLISHER=""
+        };
+
+@ARTICLE{Rin2,
+        AUTHOR="Ringrose,J.R.",
+        TITLE="On some algebras of operators $\mathrm{II}$",
+        JOURNAL={Proc.London Math.Soc.},
+        YEAR=1966,
+        VOLUME="(3) 16",
+        PAGES="385-402",
+        PUBLISHER=""
+        };
+
+@ARTICLE{GY1,
+         AUTHOR= "Liming Ge, Wei Yuan",
+         TITLE= "Kadison-Singer Algebras, I - Hyperfinite Case",
+         JOURNAL={to appear},
+         YEAR= ,
+         PAGES="",
+         VOLUME="",
+         PUBLISHER={}
+         };
+
+@ARTICLE{GY2,
+         AUTHOR= "Liming Ge, Wei Yuan",
+         TITLE= "Kadison-Singer Algebras, II - Finite Case",
+         JOURNAL={to appear},
+         YEAR= ,
+         PAGES="",
+         VOLUME="",
+         PUBLISHER={}
+         };

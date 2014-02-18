@@ -1,0 +1,1128 @@
+\chapter{超有限KS-代数及其格}
+
+\section{超有限型KS-因子}
+
+在本节，我们将构造一类超有限型Kadison-Singer因子。为此，首先引进以下记号。
+
+令$M_{n}(\mathbb{C})$（$n >
+1$）的无限（空间）张量积在范数闭包下生成的UHF
+$C^{*}$-代数为$\A_{n}$（$=\overline{\otimes_{1}^{\infty}M_{n}(\mathbb{C})}$）。
+记$M_{n}(\mathbb{C})$在$\A_{n}$中的第k个拷贝为$M_{n}^{(k)}(\mathbb{C})$，及
+$E_{ij}^{(k)}$，$i$，$j=1$，$\ldots$，$n$，为$M_{n}^{(k)}(\mathbb{C})$的标准
+矩阵单位（$k=1$，$2\ldots$）。应用以上记号，可将$\A_{n}$写为$\overline{M_{n}^{(1)}
+\otimes M_{n}^{(2)} \otimes \cdots}$。令$\NNN_{m} =
+M_{n}^{(1)}(\mathbb{C}) \otimes M_{n}^{(2)}(\mathbb{C}) \otimes
+\cdots \otimes M_{n}^{(m)}(\mathbb{C})$（$\cong
+M_{n^{m}}(\mathbb{C})$），则$\A_{n} =\overline{
+\cup_{m=1}^{\infty}\NNN_{m}}$。以下我们将对m归纳定义属于$\NNN_{m}$的投影集合。
+
+当$m=1$时，令$P_{1j}=\sum_{i=1}^j
+E_{ii}^{(1)}$，$j=1$，$\ldots$，$n-1$，$P_{1n}=\frac1n\sum_{s,t=1}^n
+E_{st}^{(1)}$。现假设对$k \leq m-1$，$j =
+1$，$\ldots$，$n$，我们已经定义了$P_{kj}$（$\in \NNN_{k}$），则令
+\begin{align}
+P_{mj}&=P_{m-1,n-1}+ (I-P_{m-1,n-1})\sum_{i=1}^j E_{ii}^{(m)},
+\qquad j=1,\ldots, n-1, \\
+P_{mn}&=P_{m-1, n-1} +(I-P_{m-1,n-1})\left(\frac1n \sum_{s,t=1}^n
+E_{st}^{(m)}\right) \mbox{。}
+\end{align}
+将由$\{ P_{kj}: 1\le k\le m, 1\le j\le
+n\}$生成的格记为$\L_{m}$，并令$\L_\infty=\cup_m\L_m$，即$\L_\infty$为
+$\{P_{kj}: k\ge 1, 1\le j\le
+n\}$生成的格。
+
+若$\rho_n$为$M_{n}(\mathbb{C})$上的忠实态，我们可将其扩展成$\A_{n}$上的乘积态$\rho$，即
+$\rho=\rho_n\otimes\rho_n\otimes\cdots$。现对（$\A_{n}$，$\rho$）做GNS构造，记诱导出的
+Hilbert空间为$\H$。由\cite{P}中的结果，$\A_{n}$在$\B(\H)$中的弱算子闭包为超有限型因子，记
+为$\RRR$。特别的，当$\rho_n$为迹态时，$\RRR$为$II_{1}$型因子。则$\L_{m}$和$\L_{\infty}$即为
+$\RRR$中的投影格。
+
+在叙述本节主要结果前，我们先证明以下简单事实。
+
+\begin{lem}
+$\L_{m}$为有限维von Neumann代数$\NNN_{m}$的生成元，即$\L_{m}^{''} =
+\NNN_{m}$。
+\end{lem}
+
+\proof 用数学归纳法证明此引理。当$m=1$时，易见$E_{ii}^{(1)} \in
+\L_{1}^{''}$，则$nE_{ii}^{(1)}P_{1n}E_{jj}^{(1)} = E_{ij}^{(1)} \in
+L_{1}^{''}$。即当$m=1$时，引理成立。
+
+现假设对于$m \leq k$，$\L_{m}^{''} = \NNN_{m}$成立，因$\L_{k}
+\subset L_{k+1}$，所以$\NNN_{k} \subset \L_{k+1}^{''}$。由此推出
+$\sum_{i=1}^j
+E_{ii}^{(k+1)}$（$j=1$，$\ldots$，$n-1$）和$\sum_{s,t=1}^n
+E_{st}^{(k+1)}$属于$\L_{k+1}^{''}$，则类似$m=1$的情况，可以证明$\L_{k+1}^{''}
+= \NNN_{k+1}$。 \endproof
+
+以下定理为本章的主要结果。
+
+\begin{thm}
+应用以上记号，若$\B(\H)$的子代数$\A$满足以下条件，
+\begin{enumerate}
+\item $\Alg(\L_{\infty}) \subset \A $，
+\item $\A \cap \A^{*} = \Alg(\L_{\infty}) \cap
+\Alg(\L_{\infty})^{*}$，
+\end{enumerate}
+则$\A = \Alg(\L_{\infty})$。
+\end{thm}
+
+下述为以上定理的直接推论。
+
+\begin{cor}
+$\Alg(\L_{\infty})$为以超有限因子$\RRR^{'}$为对角的Kadsion-Singer因子。
+\end{cor}
+
+要证明上述结论，我们需要以下结果。
+
+\begin{lem}
+由以上定义，$\L_1\subset\NNN_1$，$E_{ij}^{(1)}$，
+$i$，$j=1$，$\ldots$，$n$为$\NNN_{1}$的矩阵单位。我们有
+\begin{align*}
+\Alg(\L_1)=\{ T\in\B(\H): \quad & E_{ii}^{(1)}TE_{jj}^{(1)}=0,
+\qquad 1\le j<i\le n; \cr & \sum_{j=1}^n E_{11}^{(1)} TE_{j1}^{(1)}=
+\sum_{j=2}^n E_{12}^{(1)}T
+E_{j1}^{(1)}=\cdots=E_{1n}^{(1)}TE_{n1}^{(1)}\}.
+\end{align*}
+\end{lem}
+
+\proof
+令$T$为$\Alg(\L_{1})$中的某个算子。首先，由$P_{1j}=\sum_{i=1}^j
+E_{ii}^{(1)}\in\L_1$（$j=1$，$\ldots$，$n-1$）属于$\L_{1}$的事实，
+可推出$E_{ii}^{(1)}TE_{jj}^{(1)}=0$，$1\le j<i\le n$。其次由于
+$TP_{1n}^{(1)}=P_{1n}^{(1)}TP_{1n}^{(1)}$，可知
+\begin{align*}
+nT\sum_{i,j=1}^n E_{ij}^{(1)}=(\sum_{i,j=1}^n E_{ij}^{(1)} )T(
+\sum_{i,j=1}^n E_{ij}^{(1)}) \mbox{。}
+\end{align*}
+在上式左侧乘以$E_{1l}^{(1)}$，同时于右侧乘以$E_{11}^{(1)}$，则得到以下关系，
+\begin{align*}
+nE_{1l}^{(1)}T\sum_{i=1}^nE_{i1}^{(1)}=n\sum_{i=1}^n E_{1l}^{(1)}
+TE_{i1}^{(1)}=(\sum_{j=1}^nE_{1j}^{(1)})T (\sum_{i=1}^n
+E_{i1}^{(1)})=\sum_{i,j=1}^n E_{1i}^{(1)} T E_{j1}^{(1)} \mbox{。}
+\end{align*}
+注意到上述关系式的右侧与$l$无关，令$l=1$，$\ldots$，$n$，并结合
+$E_{ii}^{(1)}TE_{jj}^{(1)}=0$（ $1\le j<i\le
+n$）的事实，就得到了命题中的关系
+\begin{align*}
+\sum_{i=1}^n E_{11}^{(1)} TE_{i1}^{(1)}= \sum_{i=2}^n E_{12}^{(1)}T
+E_{i1}^{(1)}=\cdots=E_{1n}^{(1)}TE_{n1}^{(1)} \mbox{。}
+\end{align*}
+反之容易验证，若算子$T$满足命题中的条件，则$T$属于$\Alg(\L_1)$。
+\endproof
+
+在$\B(\H) \cong \B(E_{11}^{(1)}\H) \otimes
+M_{n}^{(1)}$的意义下，我们可将$\B(\H)$中的元素表示为矩阵形式。特别的，
+$\Alg(\L_{1})$中的算子为相对于套
+$\{P_{1j}\}_{j=1}^{n-1}$的上三角元。即$T \in \Alg(\L_{1})$，则有
+\begin{align*}
+T=\left(
+  \begin{array}{cccc}
+    T_{11} & T_{12} & \cdots & T_{1n} \\
+    0 & T_{22} & \cdots & T_{2n} \\
+    \vdots & \vdots & \ddots & \vdots \\
+    0& 0 & \cdots & T_{nn} \\
+  \end{array}
+\right)
+\end{align*}
+不仅如此，易见由上述引理，我们可以任意选择严格上三角部分，即我们可以任意选择
+$\{T_{ij}\}_{i < j}$，并应用以下等式确定$T$的对角部分，
+\begin{align*}
+\sum_{i=1}^n T_{1i}= \sum_{i=2}^n T_{2i} =\cdots=T_{nn} \mbox{，}
+\end{align*}
+进而确保$T$属于$\Alg(\L_{1})$。
+
+\begin{lem}
+对任意属于$\Alg(\L_{1})$的算子$T$，存在$T_{1}$属于$\Alg(\L_{1}) \cap
+\L_{1}^{'}$，$T_{2}$属于$\Alg(\L_\infty)$（$\subset
+\Alg(\L_{1})$）满足$T = T_{1} +
+T_{2}$。特别的，当$E_{nn}^{(1)}TE_{nn}^{(1)}=0$时，$T=T_2\in\Alg(\L_\infty)$。
+\end{lem}
+
+\proof 假设$T\in\Alg(\L_1)$，令
+\begin{align}
+T_1=\sum_{i=1}^n E_{in}^{(1)}T E_{ni}^{(1)}\mbox{，}\qquad T_2=T-T_1
+\mbox{。}
+\end{align}
+易见$E_{ii}^{(1)}T_1 E_{jj}^{(1)}=0$（$i\neq j$），并且对任意$l,k$有
+\begin{align*}
+E_{lk}^{(1)}T_1=E_{lk}^{(1)}\sum_{i=1}^nE_{in}^{(1)}T E_{ni}^{(1)}
+=E_{ln}^{(1)}T E_{nk}^{(1)}=T_1E_{lk}^{(1)}\mbox{。}
+\end{align*}
+此既说明$T_1\in\L_1'$ ($=\NNN_1'$)。
+
+由以上显然有$T_2\in\Alg(\L_1)$。则对于$k=1,\ldots,
+n$，我们有$T_2P_{1k}=P_{1k}T_2P_{1k}$。下面我们需要说明对于
+$j\ge2$及$k=1,\ldots, n$，等式
+$T_2P_{jk}=P_{jk}T_2P_{jk}$成立。从$P_{jk}$的定义可以看出，对于$j\ge2$，
+$I-P_{jk}\le E_{nn}^{(1)}$。则由$T_{2}$的定义可知，
+\begin{align*}
+E_{nn}^{(1)}T_2=E_{nn}^{(1)}\sum_{1\le l\le k\le n} E_{ll}^{(1)} T_2
+E_{kk}^{(1)}=E_{nn}^{(1)}T_2E_{nn}^{(1)}
+=E_{nn}^{(1)}(T-T_1)E_{nn}^{(1)}=0 \mbox{。}
+\end{align*}
+以上表明$0=(I-P_{jk})T_2=(I-P_{jk})T_2P_{jk}$，即$T_2\in\Alg(\L_\infty)$。\endproof
+
+完全类似以上证明的第二部分，我们得到以下引理。在后文中我们将不加指出的应用此结论。
+
+\begin{lem}
+对于任意$m\ge 1$，如果$T\in\Alg(\L_m)$， 并且 $(I-P_{m,n-1})T=0$，
+则$T\in\Alg(\L_\infty)$。
+\end{lem}
+
+进一步注意到，$\Alg(\L_m)$和$\Alg(\L_{m+1})$中算子的区别仅仅存在于限制在
+$I-P_{m,n-1}$ $(=E_{nn}^{(1)}\otimes\cdots\otimes
+E_{nn}^{(m)})$上的部分。严格说来，我们有如下引理。
+
+\begin{lem}
+若$T$属于$\Alg(\L_m)$，则$T$属于$\Alg(\L_{m+1})$当且仅当对于$j=1$，$\ldots$，$n$，
+投影$(I-P_{m,n-1})P_{m+1,j}(I-P_{m,n-1})$对应的Hilbert子空间为
+$(I-P_{m,n-1})T(I-P_{m,n-1})$的不变子空间。
+\end{lem}
+
+\proof
+因为$T$属于$\Alg(\L_m)$，则$T$属于$\Alg(\L_{m+1})$当且仅当对于$j=1$，$\ldots$，$n$，
+$(I-P_{m+1,j})TP_{m+1,j} = 0$。从定义可知$P_{m+1,j} = P_{m,n-1} +
+(I-P_{m,n-1})Q_{j}$，此处$Q_{j}$为$\sum_{i=1}^j E_{ii}^{(m+1)}$，
+当$j=1,\ldots, n-1$，$Q_{n} = \frac1n \sum_{s,t=1}^n
+E_{st}^{(m+1)}$。则有
+\begin{align*}
+0 &= (I - P_{m+1,j})TP_{m+1,j} \\
+  &= (I - P_{m,n-1})(I-Q_{j})T [P_{m,n-1} + (I - P_{m,n-1}) Q_{j}]\\
+  &= (I - Q_{j})(I - P_{m,n-1})T(I - P_{m,n-1})Q_{j} \mbox{。}
+\end{align*}
+以上即说明$(I-P_{m,n-1})P_{m+1,j}(I-P_{m,n-1})$对应的Hilber子空间为
+$(I-P_{m,n-1})T(I-P_{m,n-1})$的不变子空间。 \endproof
+
+由以上结论，应用数学归纳法，不难证明如下事实，此处我们仅给出证明概要。
+
+\begin{lem}
+对任意$T$属于$\Alg(\L_m)$，存在$T_1$，$\ldots$，$T_{m+1}$属于
+$\Alg(\L_m)$，满足$T=T_1+\cdots +T_{m+1}$，且对于$i=1$，$\ldots$，
+$m$有$T_i\in\NNN_{i-1}'\cap\Alg(\L_\infty)$，
+$(I-P_{i,n-1})T_i=0$（此处令$\NNN_0=\C
+I$），而$T_{m+1}\in\NNN_m'\cap\Alg(\L_m)$。
+\end{lem}
+
+\proof 对于$m=1$的情况，我们已在引理2.5中证明。下面假设对$m \leq
+k$命题成立。
+
+若$T$属于$\Alg(\L_{k+1})$，由于$\L_{k} \subset
+\L_{k+1}$，$\Alg(\L_{k+1}) \subset \Alg(\L_{k})$，则由假设我们有$T =
+\sum_{i=1}^{k+1}T_{i}$，其中$T_{k+1} \in {\cal N}_{k}' \cap Alg{\cal
+L}_{k+1}$。结合引理2.7，完全类似于2.5的证明，可将$T_{k+1}$进一步分解为
+$\widetilde{T_{k+1}}$与$T_{k+2}$之和，此处$\widetilde{T_{k+1}}
+\in\NNN_{k}'\cap\Alg(\L_\infty)$，$T_{k+2}
+\in\NNN_{k+1}'\cap\Alg(\L_{k+1})$。则由数学归纳，命题得证。
+\endproof
+
+易见，对于任意$T \in \Alg(\L_{m})$，由上述引理，$T=(\sum_{i=1}^{m}
+T_{i}) + T_{m+1}$，并且因为$T_{i} \in \Alg(\L_{\infty})$（$i =
+1$，$\ldots$，$m$），所以$\sum_{i=1}^{m}
+T_{i}$属于$\Alg(\L_{\infty})$，而
+$T_{m+1}\in\NNN_m'\cap\Alg(\L_m)$。我们将此事实叙述为如下推论。
+
+\begin{cor}
+若$T \in \Alg(\L_{m})$，存在$T_{1}$，$T_{2}$使得$T = T_{1} +
+T_{2}$，并且$T_{1} \in \NNN_{m}'$，$T_{2} \in \Alg({\cal
+L}_{\infty})$。
+\end{cor}
+
+以下命题为证明定理1.4的关键步骤。
+
+\begin{lem}
+如果$\B(\H)$中的算子$T$与$\Alg(\L_\infty)$生成的代数$\A$满足
+$\A\cap\A^*=\Alg(\L_\infty) \cap\Alg(\L_\infty)^* =\RRR'$，则
+$T\in\Alg(\L_1)$。
+\end{lem}
+
+\proof 对于给定的满足条件的算子$T$，可选取$\Alg(\L_{\infty})$中的
+算子$T_{0}$（由引理2.5前的说明，及引理2.6），使得相对于$\NNN_1$中的矩阵单位
+$E_{ij}^{(1)}$，$T-T_{0}$为下三角算子，即对$i<j$，$E_{ii}^{(1)}(T-T_{0})E_{jj}^{(1)}=0$。
+则不失一般性，我们可以假设$T$本身即为下三角算子。
+
+现我们首先说明$T$为对角算子。如果$T$的某个严格下三角部分非零，令
+$i_0$为使得$E_{i_0i_0}^{(1)}TE_{jj}^{(1)}\neq0$（对于某$j<i_0$）成立的最大整数，
+并记其中最大的$j$为$j_{0}$。则当$i>j$并且$i>i_0$，或$i=i_0>j>j_0$时，我们有
+$E_{ii}^{(1)}TE_{jj}^{(1)}=0$。容易验证$E_{j_0,i_0-1}^{(1)}-E_{j_0i_0}^{(1)}\in\Alg(\L_\infty)$
+（应用引理2.4，2.6）。则$ T(E_{j_0,i_0-1}^{(1)}-E_{j_0i_0}^{(1)})
+\in\A$。令$T_1 =T(E_{j_0,i_0-1}^{(1)}-E_{j_0i_0}^{(1)})$。则
+\begin{align*}
+T_1 &= \sum_{n\ge k \geq l\ge1} E_{kk}^{(1)}TE_{ll}^{(1)}( E_{j_0,
+i_0 - 1}^{(1)} - E_{j_{0}i_{0}}^{(1)})\\
+ &= \sum_{i_{0} \geq k \geq j_{0}}
+E_{kk}^{(1)}T( E_{j_0, i_0 - 1}^{(1)} - E_{j_{0}i_{0}}^{(1)} )
+\mbox{。}
+\end{align*}
+若令
+\begin{align*}
+T_2&= E_{i_0 i_0}^{(1)}T(E_{j_0, i_0 - 1}^{(1)} -
+E_{j_{0}i_{0}}^{(1)})\\
+T_{3} &=\sum_{i_0 > k \geq j_{0}} E_{kk}^{(1)}T(E_{j_0, i_0 -
+1}^{(1)} - E_{j_{0}i_{0}}^{(1)})
+\end{align*}
+则
+$T_1=T_2+T_3$，同样由引理2.4，2.6，可知$T_3\in\Alg(\L_\infty)$。此即表明
+$T_2\in\A$。
+
+令$E_{i_0i_{0}}^{(1)}T E_{j_0i_{0}}^{(1)}=HV$为$E_{i_0i_{0}}^{(1)}T
+E_{j_0i_{0}}^{(1)}$在$\B(\H)$中的极分解，其中$H$为正算子，$V$为部分等距算子。
+由假设$E_{i_0i_0}^{(1)}TE_{j_0j_0}^{(1)}\neq0$，即知$H\neq 0$，
+$E_{i_0i_0}^{(1)} H=H E_{i_0i_0}^{(1)}=H$，并且$E_{i_0i_0}^{(1)} V=V
+E_{i_0i_0}^{(1)}=V$。则$T_2 = HV E_{i_{0}, i_{0}-1}^{(1)} -
+HV$。定义$T_{4}$，$T_{5}$如下，
+\begin{align*}
+T_{4} &= - E_{i_{0}-1,i_{0}}^{(1)}V^{*} E_{i_{0}, i_{0}-1}^{(1)} +
+E_{i_{0}-1,i_{0}}^{(1)}V^{*}E_{i_{0} i_{0}}^{(1)} \mbox{，}\\
+T_{5} &= E_{i_{0}-1,i_{0}}^{(1)}HE_{i_{0}, i_{0} - 1}^{(1)} -
+E_{i_{0}-1,i_{0}}^{(1)}HE_{i_{0} i_{0}}^{(1)} \mbox{。}
+\end{align*}
+注意到$T_{4}$，$T_{5}$属于$\Alg(\L_\infty)$。如果使
+\begin{align*}
+T_{6} &= T_{2}T_{4} + T_{5} =(  HV E_{i_{0}, i_{0}-1}^{(1)} - HV )(-
+E_{i_{0}-1,i_{0}}^{(1)}V^{*} E_{i_{0}, i_{0}-1}^{(1)} +
+E_{i_{0}-1,i_{0}}^{(1)}V^{*}E_{i_{0} i_{0}}^{(1)})\cr &\qquad \qquad
++ E_{i_{0}-1,i_{0}}^{(1)}HE_{i_{0}, i_{0} - 1}^{(1)} -
+E_{i_{0}-1,i_{0}}^{(1)}HE_{i_{0} i_{0}}^{(1)}      \\
+    &= -HE_{i_{0}, i_{0} - 1}^{(1)} + HE_{i_{0}i_{0}}^{(1)} +
+E_{i_{0}-1,i_{0}}^{(1)}HE_{i_{0}, i_{0} - 1}^{(1)} -
+E_{i_{0}-1,i_{0}}^{(1)}HE_{i_{0} i_{0}}^{(1)}\\
+&= -HE_{i_{0}, i_{0} - 1}^{(1)} + H +
+E_{i_{0}-1,i_{0}}^{(1)}HE_{i_{0}, i_{0} - 1}^{(1)} -
+E_{i_{0}-1,i_{0}}^{(1)}H \mbox{，}
+\end{align*}
+就有$T_6\in\A$，并且$T_{6}^{*} =
+T_{6}$。但显然$T_6$并非上三角算子，于是有$T_6 \notin
+\Alg(\L_\infty)$。这就说明$\A\cap\A^*\neq
+\Alg(\L_\infty)\cap\Alg(\L_\infty)^*$，与已知矛盾，则$T$为对角算子。
+于是不妨假设$T=\sum_{j=1}^n E_{jj}^{(1)}TE_{jj}^{(1)}$，下面只需说明
+$E_{11}^{(1)}TE_{11}^{(1)}=E_{1j}^{(1)}TE_{j1}^{(1)}$（$j=1,\ldots,n$），
+则命题得证。
+
+若不然，即存在某个$i$使得$E_{11}^{(1)}TE_{11}^{(1)} \neq
+E_{1i}^{(1)}TE_{i1}^{(1)}$。令
+\begin{align*}
+T_7= (E_{11}^{(1)} - E_{1i}^{(1)})T = E_{11}^{(1)}TE_{11}^{(1)} -
+E_{1i}^{(1)}TE_{ii}^{(1)} \mbox{。}
+\end{align*}
+由于$E_{11}^{(1)} -
+E_{1i}^{(1)}$属于$\Alg(\L_\infty)$，可知$T_7\in\A$。并再次应用引理2.4，2.6
+可知$T_{8} = - E_{1i}^{(1)}TE_{i1}^{(1)} +
+E_{1i}^{(1)}TE_{ii}^{(1)}$属于 $\Alg(\L_\infty)$。即有
+\begin{align*}
+0 \neq T_{7} + T_{8} = E_{11}^{(1)}TE_{11}^{(1)} -
+E_{1i}^{(1)}TE_{i1}^{(1)} \in {\A} \mbox{。}
+\end{align*}
+同样对$T_{7}+T_{8}$做极分解得到$T_{7}+T_{8}=V'H'$，此处$V'$为部分等距算子。易知
+${V'}^{*} - {V'}^{*}E_{12}^{(1)} \in \Alg(\L_\infty)$。于是得到
+\begin{align*}
+({V'}^{*} - {V'}^{*}E_{12}^{(1)})(T_{7}+T_{8}) = H'  \in {\A}
+\mbox{。}
+\end{align*}
+$H'$是自伴算子，但显然$H'$不属于$\NNN_1'$
+（$\supseteq\Alg(\L_\infty)\cap\Alg(\L_\infty)^*$）。这表明
+$\A\cap\A^*\neq
+\Alg(\L_\infty)\cap\Alg(\L_\infty)^*$，从而与已知矛盾。继而我们有
+$E_{11}^{(1)}TE_{11}^{(1)} = \cdots = E_{1n}^{(1)}TE_{n1}^{(1)}$，
+进而$T \in {\cal L}_{1}'\subseteq\Alg(\L_1)$。 \endproof
+
+基于以上事实，简单的数学归纳即可给出定理2.2的证明。我们简述证明如下。
+
+\proof[\bf 定理2.2的证明]
+不失一般性，可以假设$\A$由$T$和$\Alg(\L_\infty)$生成。从以上引理得到
+$T\in\Alg(\L_1)$。如果$T$属于$\Alg(\L_m)$，但不属于 $\Alg(\L_{m+1})$
+。由推论2.9，知$T=S+T'$，其中$S\in\Alg(\L_\infty)$，
+$T'\in\NNN_m'\cap\Alg(\L_m)$。现如果我们只考虑$\NNN_m'$中的算子，
+及矩阵单位$E_{ij}^{(m+1)}$（$i$，$j =
+1$，$\ldots$，$n$），则完全类似引理2.10证明中的计算，可以证明
+$T'\in\Alg(\L_{m+1})$。此即表明$T\in\cap_{m=1}^\infty\Alg(\L_m)=\Alg(\L_\infty)$。
+\endproof
+
+注意到上述定理的证明并不依赖于$\A$再任何拓扑下的完备性。此既说明$\Alg(\L_\infty)$
+在代数的意义下极大。在下一节，我们将讨论Kadsion-Singer格\newline
+$\Lat(\Alg(\L_\infty))$的性质。
+
+\section{Kadsion-Singer格$\Lat(\Alg(\L_\infty))$}
+
+判断任意给定的不变子空间格是否为Kadsion-Singer格一般来说并不容易的。现只有针对于
+套，或一些具有极小生成性的有限分配格（将在下一章中给出一些例子）的少量结果。在本节
+中，我们将证明上节中定义的格$\L_\infty$的强算子闭包为Kadsion-Singer格。并对当$\rho$
+为迹态的情况完全描述$\Lat(\Alg(\L_\infty))$中投影在迹态下的取值情况。从现在起，
+当$\rho$为$\A_n$上迹态（由$M_n(\mathbb{C})$上唯一的迹态诱导）时，我们改记$\rho$为
+$\tau$。令$\RRR$为$\L_\infty$（或$\A_n$）生成的超有限型因子，
+则$\RRR$的换位子$\RRR'$就是$\Alg(\L_\infty)$的对角代数。并且$\A_{n}$上的态$\rho$自然扩充
+成为$\RRR$上的态，我们依然记为$\rho$（当$\rho$为迹态时，改记为$\tau$）。
+
+下述为本节的主要结果。
+
+\begin{thm}
+记$\L^{(n)}$为$\L_\infty$在$\B(\H)$中的强算子闭包，其中Hilbert空间$\H$由$(\A_n,
+\rho)$的GNS构造给出。则$\L^{(n)}=\Lat(\Alg(\L_\infty))$。
+\end{thm}
+
+为了更好的理解$\L^{(n)}$的结构，我们首先研究格$\L_m$的性质。
+由$\L_1$的生成元$P_{1j}$,$j=1,\ldots,n$的定义，可知$\L_1$包含
+一个$\NNN_1$$(\cong M_n(\C))$中的套$\{0, P_{11},\ldots, P_{1,n-1},
+I\}$，及一个极小投影$P_{1n}$。易见$P_{1n}\wedge P_{1j}=0$（$1\le
+j\le n-1$），且$P_{1j}$与$P_{1n}$的并给出$\NNN_1$中的另一个套 $\{0,
+P_{1n}, P_{1n}\vee P_{11}, \ldots, P_{1n}\vee P_{1,n-1}=I\}$。
+若相对于$\NNN_1$中的矩阵单位$E_{ij}^{(1)}$，$i$，$j=1$，$\ldots$，$n$，
+将以上套中的投影表示为矩阵形式，则对于$0 \leq k \leq
+n-1$（此处令$P_{1n}\vee P_{10} = P_{1n}$）有
+\begin{align*}
+P_{1n}\vee P_{1k} = \left(
+          \begin{array}{cc}
+            \overbrace{\left(
+                         \begin{array}{ccc}
+                           1 &        &  \\
+                             & \ddots & \\
+                             &        & 1  \\
+                         \end{array}
+                       \right)
+            }^{k} &  \\
+                  & \underbrace{\left(
+                      \begin{array}{ccc}
+                        \frac{1}{n-k} &\cdots & \frac{1}{n-k} \\
+                        \vdots        &\ddots &  \vdots\\
+                        \frac{1}{n-k} &\cdots &  \frac{1}{n-k} \\
+                      \end{array}
+                    \right)}_{n-k}
+                   \\
+          \end{array}
+        \right) \mbox{。}
+\end{align*}
+可验证$\L_1$即为这两个套组成，并且对任意$1\le k\le
+n-1$，存在且仅存在两个$\L_1$中的投影其迹值为$\frac kn$。
+以下我们给出$\L_1$的Hasse图，
+\begin{align*}
+\xymatrix{
+          & P_{11} \ar[r] \ar[ddr]  & P_{12} \ar[r] \ar[ddr] &\cdots  \ar[r]& P_{1n-2} \ar[r] \ar[ddr] &P_{1n-1} \ar[dr] \\
+0 \ar[ur] \ar[dr] & & & & &  & I\\
+          & P_{1n} \ar[r]& P_{1n}\vee P_{11} \ar[r]& P_{1n}\vee P_{12} \ar[r]&
+\cdots \ar[r]& P_{1n}\vee P_{1n-2} \ar[ur] }
+\end{align*}
+
+简单的矩阵计算可以给出$\L_2$中的投影，粗略来说，$\L_2$中的投影
+$P$，如果不属于$\L_{1}$，则或$0 < P < P_{1n}$，$P_{1n}\vee P_{1n-1}
+< P < I$，或存在$0 \leq k \leq n-2$，使得$P_{1n}\vee P_{1k} < P <
+P_{1n}\vee P_{1k+1}$。并且$0$和$P_{1n}$，$P_{1n}\vee
+P_{1n-1}$和$I$，或$P_{1n}\vee P_{1k}$与$P_{1n}\vee
+P_{1k+1}$间的投影都形成与$\L_1$中投影同样的双链结构。为了准确描述$\L^{(n)}$中的
+投影，我们引进如下记号，对于$k=1,2,\ldots$，令
+\begin{align*}
+E_{i}^{(k)} &= \sum_{l=1}^{i} E_{ll}^{(k)}  \quad i=1,\ldots,
+  n;\\
+F_{i}^{(k)} &= \frac{1}{i}\sum_{n\ge l,m > n-i} E_{lm}^{(k)}, \quad
+i =1,\ldots,n \mbox{。}
+\end{align*}
+因为当$k\neq
+k'$时，$E_{ij}^{(k)}$与$E_{i'j'}^{(k')}$交换，所以$E_{i}^{(k)}$ and
+$F_{i}^{(k)}$属于$\NNN_{k-1}' \cap \NNN_k\ ( \NNN_{0} = \C I
+)$。并且当$j \leq n-i$时，有$E_{i}^{(k)}F_{j}^{(k)} =
+0$。进一步，对于乘积态$\rho$，我们假设
+\begin{align*}
+\rho(E_{i}^{(k)})=x_{i} \quad (x_n = 1);\quad
+\rho(F_{i}^{(k)})=y_{i} \mbox{，}
+\end{align*}
+并记$c = max\{y_{1}, \ldots , y_{n}\}$（由于$\rho$忠实，$0 < c <
+1$）。 注意到，对于迹态有$\tau(E_{i}^{(k)}) = \frac{i}{n}$,
+$\tau(F_{i}^{(k)}) = \frac{1}{n}$。
+
+应用上述记号，我们将以上描述严格叙述为以下引理。
+
+\begin{lem}
+若$P$属于$\Lat(\Alg(\L_\infty))$，并且$P \neq 0, I$。则存在某整数$i
+\in \{0,1,\ldots, n-1 \}$，使得$P = E_{i}^{(1)} +
+F_{n-i}^{(1)}Q$，其中$Q$为${\cal N}_{1}'$中的投影，且$Q \in
+Lat(\NNN_{1}' \cap
+\Alg(\L_\infty))$。反之，如果投影$P$有如上形式，则$P\in\Lat(\Alg(\L_\infty))$。
+\end{lem}
+
+\proof 首先我们证明当$P = E_{i}^{(1)} +
+F_{n-i}^{(1)}Q$时，此处$Q$的含义与引理中相同，$P \in
+\Lat(\Alg(\L_\infty))$。
+
+对任意$T\in\Alg(\L_\infty)$，由引理2.5，$T=T_1+T_2$，其中$T_{1} \in
+\Alg(\L_\infty)$，$(I - P_{1,n-1})T_{1} = 0$， $T_{2} \in \NNN_1'
+\cap
+\Alg(\L_\infty)$。因$E_{i}^{(1)}=P_{1i}\in\L_1\subseteq\L_\infty$，对于$j\in\{1,2\}$，
+我们有$(I - E_{i}^{(1)})T_jE_{i}^{(1)} =
+0$。并且可以直接验证$F_{n-i}^{(1)}(I-E_{i}^{(1)}) =
+F_{n-i}^{(1)}=(I-E_i^{(1)})F_{n-i}^{(1)}$。则$F_{n-i}^{(1)}TE_i^{(1)}=0$。由于$Q$
+与$\NNN_1$交换，有
+\begin{align*}
+(I-P)TP &= (I - E_{i}^{(1)} - F_{n-i}^{(1)}Q)T(E_{i}^{(1)} +
+            F_{n-i}^{(1)}Q) \\
+        &= (I-E_{i}^{(1)})TF_{n-i}^{(1)}Q -
+            F_{n-i}^{(1)}QTE_{i}^{(1)} - F_{n-i}^{(1)}QTF_{n-i}^{(1)}Q\\
+        &=(I-E_{i}^{(1)})TF_{n-i}^{(1)}Q -
+           QF_{n-i}^{(1)}(I-E_{i}^{(1)})TF_{n-i}^{(1)}Q \mbox{。}
+\end{align*}
+若以$T_1$或$T_2$替换$T$，上述等式依然成立。由假设，$Q \in
+\Lat(\NNN_{1}' \cap \Alg(\L_\infty))$，$E_i^{(1)}，
+F_{n-i}^{(1)}\in\NNN_1$，及$T_2\in
+\NNN_1'\cap\Alg(\L_\infty)$，我们有
+\begin{align*}
+(I-P)T_{2}P
+=((I-E_i^{(1)})F_{n-i}^{(1)}-QF_{n-i}^{(1)}(I-E_i^{(1)}))T_2Q=
+F_{n-1}^{(1)}(I - Q)T_{2}Q = 0 \mbox{。}
+\end{align*}
+下面只需说明$(I-E_i^{(1)})T_1F_{n-i}^{(1)} = 0$，则有$(I-P)T_1P=0$。
+注意到
+\begin{align*}
+(n-i)(I-E_{i}^{(1)})T_1 F_{n-i}^{(1)} = (\sum_{j= i+1}^{n}
+E_{jj}^{(1)})T_{1}(\sum_{l,m = i+1}^{n} E_{lm}^{(1)})=\sum_{j,m =
+i+1}^{n}\sum_{l = j}^{n} E_{jj}^{(1)}T_{1}E_{lm}^{(1)} \mbox{。}
+\end{align*}
+由$(I - P_{n-1}^{(1)})T_{1} = E_{nn}^{(1)}T_{1} = 0$及引理2.4，可知
+$\sum_{l= j}^{n} E_{jj}^{(1)}T_{1}E_{lm}^{(1)} =
+0$。所以$(n-i)(I-E_{i}^{(1)})T_{1}F_{n-i}^{(1)} = 0$。于是
+$(I-P)TP=0$，这就说明$P \in \Lat(\Alg(\L_\infty))$。
+
+现假设$P \in \Lat\Alg(\L_\infty))$，$P \neq 0, I$。令$i_0$, $1\le
+i_0\le n$为使 $E_{i_{0}i_{0}}^{(1)}PE_{i_{0}i_{0}}^{(1)} \neq
+E_{i_{0} i_{0}}^{(1)}$成立的最小整数。则对与$1\le i \le
+i_{0}-1$有$E_{i i}^{(1)}PE_{ii}^{(1)} = E_{ii}^{(1)}$，并且$P =
+E_{i_{0}-1}^{(1)} + P_{1}$，此处$P_{1}$为对$i\le
+i_0-1$满足$E_{i}^{(1)}P_{1} = 0$的投影。
+
+首先假设 $i_{0} \le n-1$。对任意$A \in \B(\H)$和$i_1\ge
+i_0+1$，令$A_{i_{1}} = E_{i_{0} i_{0}}^{(1)}A(E_{i_{0} i_{0}}^{(1)}
+- E_{i_{0}i_{1}}^{(1)})$。则$A_{i_1} \in \Alg(\L_\infty)$。由$P \in
+\Lat(\Alg(\L_\infty))$有
+\begin{align*}
+0 = (I - E_{i_{0}-1}^{(1)} - P_{1})A_{i_{1}}(E_{i_{0}-1}^{(1)} +
+ P_{1})
+   = (I - P_{1})E_{i_{0}i_{0}}^{(1)}A(E_{i_{0}i_{0}}^{(1)} -
+E_{i_{0} i_{1}}^{(1)})P_{1} \mbox{。}
+\end{align*}
+因$E_{i_{0}i_{0}}^{(1)}(I - P_{1})E_{i_{0} i_{0}}^{(1)} \neq
+0$，上述等式说明对于任意$i_1\ge i_0$，$E_{i_{0} i_{0}}^{(1)}P_{1} =
+E_{i_{0}i_{1}}^{(1)}P_{1}$。在上式两侧右乘$P_1E_{i_0i_0}^{(1)}=P_1E_{ji_0}^{(1)}$
+（$P_1E_{i_0i_0}^{(1)}= (E_{i_0i_0}^{(1)}P_1)^{*}
+=(E_{i_0j}^{(1)}P_1)^{*}= P_1E_{ji_0}^{(1)}$），就得到$E_{i_{0}
+i_{0}}^{(1)}P_{1}E_{i_{0}i_{0}}^{(1)} = E_{i_{0}
+i_1}^{(1)}P_{1}E_{ji_{0}}^{(1)}$（$i_1, j \geq
+i_{0}$）。即表明存在$\NNN_{1}'$中的投影$Q$，使得$P_{1} = F_{n -
+i_{0}+1}^{(1)}Q$。
+
+当$i_{0} = n$时，自然的$P_{1}$可以写成$F_{1}^{(1)}Q$，其中 $Q \in
+\NNN_{1}'$。因 $P \in \Lat(\Alg(\L_\infty))$，由引理2.5，容易看出$Q
+\in \Lat(\NNN_{1}' \cap \Alg(\L_\infty))$。 \endproof
+
+应用数学归纳法重复应用以上证明的方法，我们得到以下推论。
+
+\begin{cor}
+对任意$\Lat(\Alg(\L_\infty))$中的投影$P$，存在 $Q \in \NNN_{k}' \cap
+\Lat({\cal N}_{k}' \cap \Alg(\L_\infty))$，及整数$a_k$使得
+\begin{align}
+P = E_{a_{1}}^{(1)} + F_{n-a_{1}}^{(1)}E_{a_{2}}^{(2)} + \cdots
++(\prod_{i = 1}^{k-1}F_{n-a_{i}}^{(i)})E_{a_{k}}^{(k)} + (\prod_{i =
+1}^{k}F_{n-a_{i}}^{(i)})Q \mbox{，}
+\end{align}
+其中$0 \leq a_{i} \leq n-1$。并且当$Q = 0$或$I$时，$P \in
+\L_{\infty}$。若定义$x_{0} = 0$，我们有
+\begin{align*}
+\rho(P) = x_{a_{1}} + y_{n-a_{1}}x_{a_{2}} + \cdots +(\prod_{i =
+1}^{k-1}y_{n-a_{i}})x_{a_{k}} + (\prod_{i =
+1}^{k}y_{n-a_{i}})\rho(Q) \mbox{。}
+\end{align*}
+特别的，当$\rho$为迹态时，$\tau(P) =
+\sum_{i=1}^{k}\frac{a_{i}}{n^{i}} + \frac{\tau(Q)}{n^{k}} \in
+\left[\sum_{i=1}^{k}\frac{a_{i}}{n^{i}},\
+\sum_{i=1}^{k}\frac{a_{i}}{n^{i}} +
+\frac{1}{n^{k}}\right]\subseteq[0,1]$。
+\end{cor}
+
+有了上述对$\Lat(\Alg(\L_\infty))$中投影的刻画，我们开始证明定理2.11。
+
+\proof[\bf 定理2.11的证明]
+首先注意到此处$\H$为对（$\A_{n}$，$\rho$）做GNS构造导出，记$I$在$\H$中对应的单位向量为$\xi$。
+则对于任意$A \in \A_{n}$，$\rho(A) =
+<T\xi,\xi>$，并且常规方法可以证明$\xi$为$\RRR$（$\A_{n}$的强算子闭包）的循环分离向量。
+以下我们依然记$\RRR$上的向量态$A \rightarrow <A\xi,\xi>$为$\rho$。
+
+则要证明$\Lat(\Alg(\L_\infty))$为$\L_{\infty}$在$(\B(\H))_{1}$（$\B(\H)$的单位球）
+中的强算子闭包，只需说明对任意$P \in
+\Lat(\Alg(\L_\infty))$，$\varepsilon > 0$，
+存在$\L_{\infty}$中的投影$P_{\varepsilon}$，使得$\|(P_{\varepsilon}-P)\xi\|
+\leq \varepsilon$。若$P \notin \L_{\infty}$，令$k \in
+\mathbb{N}$使得$c^{\frac{k}{2}} < \varepsilon$（$c = max\{y_{1},
+\ldots , y_{n}\}$），则由推论2.13
+\begin{align*}
+P = E_{a_{1}}^{(1)} + F_{n-a_{1}}^{(1)}E_{a_{2}}^{(2)} + \cdots
++(\prod_{i = 1}^{k-1}F_{n-a_{i}}^{(i)})E_{a_{k}}^{(k)} + (\prod_{i =
+1}^{k}F_{n-a_{i}}^{(i)})Q \mbox{，}
+\end{align*}
+可令
+\begin{align*}
+P_{\varepsilon} = E_{a_{1}}^{(1)} + F_{n-a_{1}}^{(1)}E_{a_{2}}^{(2)}
++ \cdots +(\prod_{i = 1}^{k-1}F_{n-a_{i}}^{(i)})E_{a_{k}}^{(k)} \in
+\L_\infty \mbox{，}
+\end{align*}
+即可验证
+\begin{align*}
+\|(P_{\varepsilon}-P)\xi\|^{2} &= <(\prod_{i =
+1}^{k}F_{n-a_{i}}^{(i)})Q \xi, \xi> = \rho((\prod_{i =
+1}^{k}F_{n-a_{i}}^{(i)})Q) \\
+&= (\prod_{i = 1}^{k}y_{n-a_{i}})\rho(Q) < c^{k}
+\mbox{（最后一个等式由乘积态的性质得到），}
+\end{align*}
+这就说明$\|(P_{\varepsilon}-P)\xi\| \leq \varepsilon$。
+\endproof
+
+对于当$\rho$为迹态的情况，我们可以完全刻画$\Lat(\Alg(\L_\infty))$中投影
+在迹态下的取值情况。我们将结果叙述为以下定理。
+
+\begin{thm}
+若$\rho$为迹态，记$\L^{(n)}$为$\L_\infty$在$\B(\H)$中的强算子闭包，其中Hilbert空间$\H$由$(\A_n,
+\tau)$的GNS构造给出。则$\L^{(n)}=\Lat(\Alg(\L_\infty))$。并且对于$r\in(0,1)$，若
+存在$a$，$\l$属于$\N$使得$r=\frac
+{a}{n^l}$，那么$\L^{(n)}$中只存在两个投影其迹值为r；
+除此以外则只有一个投影其迹取值为r。
+\end{thm}
+
+\proof 只需证明关于迹值的部分。事实上由推论2.13，可以看出对于
+$r=\sum_{i=1}^{k}\frac{a_{i}}{n^{i}}$，其中$0\le a_i\le
+n-1$，并且$a_{k} \neq 0$， 只有当
+\begin{align*}
+P &= \sum_{j = 1}^{k} (\prod_{i =
+1}^{j-1}F_{n-a_{i}}^{(i)})E_{a_{j}}^{(j)} \mbox{，} \qquad  ({\rm
+let}\
+\prod_{i = 1}^{0}F_{n-a_{i}}^{(i)} = I)\quad {\rm \mbox{或}} \\
+P & = \sum_{j = 1}^{k-1} (\prod_{i =
+1}^{j-1}F_{n-a_{i}}^{(i)})E_{a_{j}}^{(j)} + (\prod_{i =
+1}^{k-1}F_{n-a_{i}}^{(i)})E_{a_{k}-1}^{(k)} + (\prod_{i =
+1}^{k-1}F_{n-a_{i}}^{(i)})F_{n-a_{k}+1}^{(k)}
+\end{align*}
+时有$\tau(P) =
+\sum_{i=1}^{k}\frac{a_{i}}{n^{i}}$，注意到若将$r$表示为
+$\sum_{i=1}^{k}\frac{a_{i}}{n^{i}}$，则上述第一个投影对应于且等式（2.4）中$Q=0$的情况，
+而第二个投影对应于将$r$表示为$\sum_{i=1}^{k-1}
+\frac{a_{i}}{n^{i}}+\frac{a_k-1}{n^k}+
+\frac1{n^k}$，$Q=I$的情况。由于对任意$r = \frac{a}{n^{l}}$（$0 < a <
+n^{l}$），我们都可以将其写成$\sum_{i=1}^{k}\frac{a_{i}}{n^{i}}$的形式，
+下面只需对$r \in (0,1)$，且对任意 正整数$l$和$a$（$0 < a <
+n^{l}$），$r\neq
+\frac{a}{n^{l}}$的情况说明存在唯一的$\L^{(n)}$中的投影$P$，使得$\tau(P)
+= r$，即完成了定理证明。
+
+为此，我们首先指出对于上述$r$，存在唯一的n进制展开，即$r =
+\sum_{k=1}^{\infty}\frac{a_{k}}{n^{k}}$，此处我们要求 $0 \leq a_{k}
+\leq n-1$，并且有无穷多个$a_k$不等于$0$或$n-1$（因为若存在$k_{0} \in
+\mathbb{N}$，使得对任意$k \geq k_{0}$，有$a_{k} =
+n-1$，则$r$实际上可以被写成$\frac a{n^l}$。例如当
+$n=10$时，有$0.09999\cdots=0.1$
+）。由推论2.13，若$P_{1}$，$P_{2}$满足$\tau(P_{1}) = \tau(P_{2}) =
+r$，则对于任意的$k \in \mathbb{N}$，存在$Q_{1}$，$Q_{2}$属于$
+\NNN_{k}' \cap \Lat({\cal N}_{k}' \cap \Alg(\L_\infty))$使得
+\begin{align*}
+P_{1} = E_{a_{1}}^{(1)} + F_{n-a_{1}}^{(1)}E_{a_{2}}^{(2)} + \cdots
++(\prod_{i = 1}^{k-1}F_{n-a_{i}}^{(i)})E_{a_{k}}^{(k)} + (\prod_{i =
+1}^{k}F_{n-a_{i}}^{(i)})Q_{1} \mbox{，} \\
+P_{2} = E_{a_{1}}^{(1)} + F_{n-a_{1}}^{(1)}E_{a_{2}}^{(2)} + \cdots
++(\prod_{i = 1}^{k-1}F_{n-a_{i}}^{(i)})E_{a_{k}}^{(k)} + (\prod_{i =
+1}^{k}F_{n-a_{i}}^{(i)})Q_{2} \mbox{。}
+\end{align*}
+于是我们有
+\begin{align*}
+\| P_{1} - P_{2} \|_{2} &= \|(\prod_{i =
+1}^{k}F_{n-a_{i}}^{(i)})(Q_{1}
+- Q_{2})\|_{2} \\
+&\leq 2\|(\prod_{i = 1}^{k}F_{n-a_{i}}^{(i)})\|_{2} =
+(\frac{1}{n})^{k/2} \mbox{，}
+\end{align*}
+这就说明$P_{1} = P_{2}$。事实上，若记此投影为$P$，并令
+\begin{align*}
+P_{k} =  \sum_{j = 1}^{k} (\prod_{i =
+1}^{j-1}F_{n-a_{i}}^{(i)})E_{a_{j}}^{(j)}\in\L_\infty ,  \quad  k =
+1 , 2,\ldots \mbox{，}
+\end{align*}
+可以看出，$P_{1} < P_{2} < \cdots < P_{k} < \cdots<P$，且$\lim_{k
+\to\infty} \tau(P_{k}) = r=\tau(P)$。\endproof
+
+接下来我们将证明当$n \neq k$（$n$，$k
+> 1$）时，$\L^{(n)}$与$\L^{(k)}$代数不同构。这就给出了可数个代数不同构的Kadsion-Singer格。
+
+\begin{thm}
+当$n\neq k$时，以下两个格 $\L^{(n)}$，$\L^{(k)}$不代数同构。
+\end{thm}
+
+此定理的证明基于以下三个引理。在证明它们之前我们先给出如下记号。
+
+\begin{defn}
+对$\L^{(n)}$的任意子集$S$，我们令
+\begin{align*}
+\ZZZ(\S) = \{P \in \L^{(n)} :\  P \wedge Q = 0, \ {\rm for\ all\ } Q
+\in \S \} \mbox{。}
+\end{align*}
+\end{defn}
+
+由引理2.13，容易得到下述结果。
+
+\begin{lem}
+$\L^{(n)}$中的投影$P$为极小投影，当且仅当$P = (\prod_{i =
+1}^{m}F_{n}^{(i)})E_{1}^{(m+1)}(m = 0, 1, \ldots)$。注意当$m=0$时，
+$P = E_{1}^{(1)}$。
+\end{lem}
+
+\begin{lem}
+对$m \geq 0$， $0 \leq a_{i} \leq n-1$，和$Q \in \NNN_{m+1}' \cap
+\Lat({\NNN}_{m+1}' \cap \Alg(\L^{(n)}))$，若
+\begin{align*}
+P &= E_{a_{1}}^{(1)} + F_{n-a_{1}}^{(1)}E_{a_{2}}^{(2)} + \cdots +
+(\prod_{i=1}^{m-1}F_{n-a_{i}}^{(i)})E_{a_{m}}^{(m)}
++(\prod_{i=1}^{m}F_{n-a_{i}}^{(i)})E_{a_{m+1}}^{(m+1)} \\
+&+(\prod_{i=1}^{m}F_{n-a_{i}}^{(i)})F_{n-a_{m+1}}^{(m+1)}Q \in
+\mathcal{L}^{(n)} \mbox{（}\prod_{i=1}^{k}F_{n-a_{i}}^{(i)} = 0, k <
+0 \mbox{）。}
+\end{align*}
+则$P \in \ZZZ((\prod_{i =
+1}^{m}F_{n}^{(i)})E_{1}^{(m+1)})$，当且仅当$a_{m+1} = 0$。
+\end{lem}
+
+\proof 若$a_{m+1} > 0$，令
+\begin{align*}
+P_{1} = E_{a_{1}}^{(1)} + F_{n-a_{1}}^{(1)}E_{a_{2}}^{(2)} + \cdots
++ (\prod_{i=1}^{m-1}F_{n-a_{i}}^{(i)})E_{a_{m}}^{(m)}
++(\prod_{i=1}^{m}F_{n-a_{i}}^{(i)})E_{a_{m+1}}^{(m+1)} (\leq P)
+\mbox{，}
+\end{align*}
+我们将验证，$(\prod_{i = 1}^{m}F_{n}^{(i)})E_{1}^{(m+1)} \leq
+P_{1}$，这就说明$a_{m+1}$必须为$0$。当$m=0$时，$P_{1} =
+E_{a_{1}}^{(1)}$，则显然$E_{1}^{(1)} \leq
+E_{a_{1}}^{(1)}$。下面假设$m > 0$。则有
+\begin{align*}
+P_{1}(\prod_{i = 1}^{m}F_{n}^{(i)})E_{1}^{(m+1)}) &=
+[E_{a_{1}}^{(1)} + F_{n-a_{1}}^{(1)}E_{a_{2}}^{(2)} + \cdots +
+(\prod_{i=1}^{m-2}F_{n-a_{i}}^{(i)})E_{a_{m-1}}^{(m-1)}](\prod_{i =
+1}^{m}F_{n}^{(i)})E_{1}^{(m+1)})\\
+&+[(\prod_{i=1}^{m-1}F_{n-a_{i}}^{(i)})E_{a_{m}}^{(m)}
++(\prod_{i=1}^{m}F_{n-a_{i}}^{(i)})E_{a_{m+1}}^{(m+1)}](\prod_{i =
+1}^{m}F_{n}^{(i)})E_{1}^{(m+1)}) \mbox{，}
+\end{align*}
+注意到$[E_{a_{m}}^{(m)} + F_{n-a_{m}}^{(m)}]F_{n}^{(m)} =
+F_{n}^{(m)}$，于是
+\begin{align*}
+&[(\prod_{i=1}^{m-1}F_{n-a_{i}}^{(i)})E_{a_{m}}^{(m)}
++(\prod_{i=1}^{m}F_{n-a_{i}}^{(i)})E_{a_{m+1}}^{(m+1)}](\prod_{i =
+1}^{m}F_{n}^{(i)})E_{1}^{(m+1)}) \\
+&=
+(\prod_{i=1}^{m-1}F_{n-a_{i}}^{(i)})(\prod_{i=1}^{m-1}F_{n}^{(i)})
+[E_{a_{m}}^{(m)} + F_{n-a_{m}}^{(m)}]F_{n}^{(m)}E_{1}^{(m+1)}\\
+&=(\prod_{i=1}^{m-1}F_{n-a_{i}}^{(i)})(\prod_{i=1}^{m-1}F_{n}^{(i)})
+F_{n}^{(m)}E_{1}^{(m+1)} \mbox{，}
+\end{align*}
+继而
+\begin{align*}
+P_{1}(\prod_{i = 1}^{m}F_{n}^{(i)})E_{1}^{(m+1)}) &=
+[E_{a_{1}}^{(1)} + F_{n-a_{1}}^{(1)}E_{a_{2}}^{(2)} + \cdots +
+(\prod_{i=1}^{m-2}F_{n-a_{i}}^{(i)})E_{a_{m-1}}^{(m-1)} +
+(\prod_{i=1}^{m-1}F_{n-a_{i}}^{(i)})] \\
+&\times (\prod_{i = 1}^{m-1}F_{n}^{(i)})F_{n}^{(m)}E_{1}^{(m+1)}
+\mbox{，}
+\end{align*}
+重复类似的计算，就得到$P_{1}(\prod_{i =
+1}^{m}F_{n}^{(i)})E_{1}^{(m+1)}) = (\prod_{i =
+1}^{m}F_{n}^{(i)})E_{1}^{(m+1)}$，即说明$(\prod_{i =
+1}^{m}F_{n}^{(i)})E_{1}^{(m+1)} \leq P_{1}$。
+
+反之，若$a_{m+1} = 0$，则
+\begin{align*}
+P = E_{a_{1}}^{(1)} + F_{n-a_{1}}^{(1)}E_{a_{2}}^{(2)} + \cdots +
+(\prod_{i=1}^{m-1}F_{n-a_{i}}^{(i)})E_{a_{m}}^{(m)}
++(\prod_{i=1}^{m}F_{n-a_{i}}^{(i)})F_{n}^{(m+1)}Q \mbox{。}
+\end{align*}
+令$\xi \in P(\H) \wedge (\prod_{i =
+1}^{m}F_{n}^{(i)})E_{1}^{(m+1)}(\H)$，并$E =
+(I-E_{n-1}^{(1)})(I-E_{n-1}^{(2)})\cdots(I-E_{n-1}^{(m+1)})$。则有
+$E\xi = E(\prod_{i = 1}^{m}F_{n}^{(i)})E_{1}^{(m+1)}\xi =
+0$。但同时还可以看出
+\begin{align*}
+0= PEP\xi &=(\prod_{i=1}^{m}F_{n-a_{i}}^{(i)})F_{n}^{(m+1)}
+E(\prod_{i=1}^{m}F_{n-a_{i}}^{(i)})F_{n}^{(m+1)}Q\xi\cr
+&=(\prod_{i=1}^{m}F_{n-a_{i}}^{(i)}(I-E_{n-1}^{(i)})
+F_{n-a_{i}}^{(i)})F_{n}^{(m+1)}(I-E_{n-1}^{m+1})
+F_{n}^{(m+1)}Q\xi\cr &=\frac{1}{n}(\prod_{i=1}^{m}\frac{1}{n-a_{i}})
+(\prod_{i=1}^{m}F_{n-a_{i}}^{(i)})F_{n}^{(m+1)}Q\xi \mbox{。}
+\end{align*}
+这就说明$\xi \in (\prod_{i = 1}^{m}F_{n}^{(i)})E_{1}^{(m+1)}(\H)
+\wedge P_{1}(\H)$，此处$P_{1} = P -
+(\prod_{i=1}^{m}F_{n-a_{i}}^{(i)})F_{n}^{(m+1)}Q$。现在令$\widetilde{E}
+=
+(I-E_{n-1}^{(1)})(I-E_{n-1}^{(2)})\cdots(I-E_{n-1}^{(m)})$，则有$\widetilde{E}\xi
+= \widetilde{E}P_{1}\xi = 0$，并且
+\begin{align*}
+0 &= (\prod_{i =
+1}^{m}F_{n}^{(i)})E_{1}^{(m+1)}\widetilde{E}(\prod_{i =
+1}^{m}F_{n}^{(i)})E_{1}^{(m+1)}\xi =(\prod_{i =
+1}^{m}F_{n}^{(i)}(I-E_{n}^{(i)})F_{n}^{(i)})E_{1}^{(m+1)}\xi\cr
+  &= \frac{1}{n^{m}}(\prod_{i = 1}^{m}F_{n}^{(i)})E_{1}^{(m+1)}\xi
+  = \frac{1}{n^{m}}\xi \mbox{。}
+\end{align*}
+于是得到$\xi = 0$，进而$P \wedge (\prod_{i =
+1}^{m}F_{n}^{(i)})E_{1}^{(m+1)} = 0$。 \endproof
+
+\begin{lem}
+对$\L^{(n)}$中的任意极小投影$(\prod_{i =
+1}^{m}F_{n}^{(i)})E_{1}^{(m+1)}(m = 0, 1, \ldots)$，我们有
+\begin{align*}
+\ZZZ(\ZZZ(\{(\prod_{i = 1}^{m}F_{n}^{(i)})E_{1}^{(m+1)} \})) = \{
+(\prod_{i = 1}^{m}F_{n}^{(i)})E_{k}^{(m+1)} | k = 0, 1, \ldots n-1
+\} \mbox{。}
+\end{align*}
+\end{lem}
+
+\proof 由前引理知
+\begin{align*}
+\ZZZ(\{(\prod_{i = 1}^{m}F_{n}^{(i)})& E_{1}^{(m+1)} \})\cr =
+\{E_{a_{1}}^{(1)} &+ F_{n-a_{1}}^{(1)}E_{a_{2}}^{(2)} + \cdots +
+(\prod_{i=1}^{m-1}F_{n-a_{i}}^{(i)})E_{a_{m}}^{(m)}
++(\prod_{i=1}^{m}F_{n-a_{i}}^{(i)})F_{n}^{(m+1)}Q: \cr &  0 \leq
+a_{i} \leq n-1, Q \in {\NNN}_{m+1}' \cap Lat({\NNN}_{m+1}' \cap
+\Alg(\L^{(n)}))\} \mbox{。}
+\end{align*}
+假设
+\begin{align*}
+E &= E_{b_{1}}^{(1)} + F_{n-b_{1}}^{(1)}E_{b_{2}}^{(2)} + \cdots +
+(\prod_{i=1}^{m-1}F_{n-b_{i}}^{(i)})E_{b_{m}}^{(m)}
++(\prod_{i=1}^{m}F_{n-b_{i}}^{(i)})E_{b_{m+1}}^{(m+1)}\\
+&+(\prod_{i=1}^{m}F_{n-b_{i}}^{(i)})F_{n-b_{m+1}}^{(m+1)}Q  \in
+\ZZZ(\ZZZ(\{(\prod_{i = 1}^{m}F_{n}^{(i)})E_{1}^{(m+1)} \}))
+\mbox{，}
+\end{align*}
+由于$E_{b_{1}}^{(1)} + F_{n-b_{1}}^{(1)}E_{b_{2}}^{(2)} + \cdots +
+(\prod_{i=1}^{m-1}F_{n-b_{i}}^{(i)})E_{b_{m}}^{(m)} \in
+\ZZZ(\{(\prod_{i = 1}^{m}F_{n}^{(i)})E_{1}^{(m+1)} \})$， 则$E =
+(\prod_{i=1}^{m}F_{n}^{(i)})[E_{b_{m+1}}^{(m+1)}
++F_{n-b_{m+1}}^{(m+1)}Q]$。注意到$E_{b_{m+1}}^{(m+1)}
++F_{n-b_{m+1}}^{(m+1)}Q = E_{b_{m+1}}^{(m+1)} \vee
+F_{n}^{(m+1)}Q$，由$(\prod_{i=1}^{m}F_{n}^{(i)})F_{n}^{(m+1)}Q \leq
+E$，就可推出$Q=0$，$E =
+(\prod_{i=1}^{m}F_{n}^{(i)})E_{b_{m+1}}^{(m+1)} (0 \leq b_{m+1} \leq
+n-1)$。现在套用引理2.17的证明方法，容易看出命题成立。 \endproof
+
+
+\proof[\bf
+定理2.15的证明]由引理2.18知，对任意$\L^{(n)}$中的极小投影$P$，我们有
+$\# \ZZZ(\ZZZ(P)) = n$，这显然为$\L^{(n)}$的代数不变量。即得定理。
+\endproof
+
+\section{$\Alg(\L^{(n)})$的换位子}
+
+为了方便，首先给出下面的记号。令
+\begin{align*}
+T^{(k)} = \sum_{i=1}^{n}E^{(k)}_{in}  \quad k = 1,2,\ldots \mbox{。}
+\end{align*}
+
+\begin{lem}
+$\B(\H)$中的算子$A$属于$\Alg(\L^{(n)})'$当且仅当$A = a_{0}I +
+A_{1}T^{(1)}$，其中$a_{0} \in \mathbb{C}$，$A_{1} \in \NNN_{1}' \cap
+(\NNN_{1}' \cap \Alg(\L^{(n)}))'$。
+\end{lem}
+
+\proof 对任意$B \in \B(\H)$，$0 < l < n$，$k >
+l$，$E^{(1)}_{ll}B(E^{(1)}_{ll} - E^{(1)}_{lk}) \in
+\Alg(\L^{(n)})$。若$A \in \Alg(\L^{(n)})'$，则有
+\begin{align*}
+&E^{(1)}_{ll}B(E^{(1)}_{ll} -
+E^{(1)}_{lk})[\sum_{i,j}E^{(1)}_{ii}AE^{(1)}_{jj}]
+=\sum_{j=1}^{n}E^{(1)}_{ll}B(E^{(1)}_{ll}-E^{(1)}_{lk})AE^{(1)}_{jj}\\
+&=\sum_{i=1}^{n}E^{(1)}_{ii}AE^{(1)}_{ll}BE^{(1)}_{ll} -
+\sum_{i=1}^{n}E^{(1)}_{ii}AE^{(1)}_{ll}BE^{(1)}_{lk}
+=[\sum_{i,j}E^{(1)}_{ii}AE^{(1)}_{jj}]E^{(1)}_{ll}B(E^{(1)}_{ll} -
+E^{(1)}_{lk}) \mbox{。}
+\end{align*}
+比较以上中间两个等式可见当$i \neq
+l$时，$E^{(1)}_{ii}AE^{(1)}_{ll}BE^{(1)}_{ll} =
+0$,即$E^{(1)}_{ii}AE^{(1)}_{ll}=0$。并且当$l=1$时，在上式两端乘以$E^{(1)}_{11}$，
+就得到$E^{(1)}_{11}BE^{(1)}_{11}E^{(1)}_{11}AE^{(1)}_{11} =
+E^{(1)}_{11}AE^{(1)}_{11}BE^{(1)}_{11}$，此即表明存在$a_{0} \in
+\mathbb{C}$，使得$E^{(1)}_{11}AE^{(1)}_{11} = a_{0}E^{(1)}_{11}$。
+类似的当$l=1$，在上式左端乘以$E^{(1)}_{11}$，右端乘以$E^{(1)}_{kk}$，对于$k
+<n$，得到
+\begin{align*}
+-E^{(1)}_{11}BE^{(1)}_{1k}AE^{(1)}_{kk} =
+-E^{(1)}_{11}AE^{(1)}_{11}BE^{(1)}_{1k} =
+-a_{0}E^{(1)}_{11}BE^{(1)}_{1k} \mbox{，}
+\end{align*}
+此即表明$E^{(1)}_{kk}AE^{(1)}_{kk} = a_{0}E^{(1)}_{kk}$（$k<n$）。
+
+依然假设$l=1$，在等式左侧乘以$E^{(1)}_{11}$，右侧乘以$E^{(1)}_{nn}$，当$k
+<
+n$时，就得到$E^{(1)}_{11}BE^{(1)}_{11}(E^{(1)}_{11}-E^{(1)}_{1k})AE^{(1)}_{nn}=0$，即
+$E^{(1)}_{11}AE^{(1)}_{nn} =
+E^{(1)}_{1k}AE^{(1)}_{nn}$。而对于$k=n$，
+\begin{align*}
+E^{(1)}_{11}BE^{(1)}_{11}(E^{(1)}_{11}-E^{(1)}_{1n})AE^{(1)}_{nn} =
+-E^{(1)}_{11}AE^{(1)}_{11}BE^{(1)}_{1n} =
+-a_{0}E^{(1)}_{11}BE^{(1)}_{1n} \mbox{。}
+\end{align*}
+由此得到$E^{(1)}_{11}AE^{(1)}_{nn} = E^{(1)}_{1n}AE^{(1)}_{nn} -
+a_{0}E^{(1)}_{1n}$。这就说明存在$A_{1} \in \NNN_{1}'$，使得$A =
+a_{0}I + A_{1}T^{(1)}$。下面说明$A_{1} \in (\NNN_{1}' \cap
+\Alg(\L^{(n)}))'$。并且不妨假设$a_{0} = 0$，即$A = A_{1}T^{(1)}$。
+
+首先验证对于任意$B \in
+\Alg(\L^{(n)})$，并且$E^{(1)}_{nn}BE^{(1)}_{nn} =
+0$，$AB=BA$。事实上
+\begin{align*}
+AB =A_{1}\sum_{i=1}^{n}E^{(1)}_{in}(I-E^{(1)}_{nn})B=0 \mbox{，}
+\end{align*}
+并且注意到$\sum_{j=1}^n E_{11}^{(1)} TE_{jn}^{(1)}= \sum_{j=2}^n
+E_{12}^{(1)}T E_{jn}^{(1)}=\cdots=0$，
+\begin{align*}
+BA &= (\sum^{n}_{i \leq
+j}E^{(1)}_{ii}BE^{(1)}_{jj})(\sum_{k=1}^{n}E^{(1)}_{kn})A_{1} \\
+&=\sum^{n}_{i=1}(\sum^{n}_{j=i}E^{(1)}_{ii}BE^{(1)}_{jn}) = 0
+\mbox{。}
+\end{align*}
+由引理2.4，可知$\Alg(\L^{(n)})$中的任意算子都可写成$B_{1}$，$B_{2}$之和，其中
+$E^{(1)}_{nn}B_{1}E^{(1)}_{nn} = 0$，$B_{2} \in \NNN_{1}' \cap
+\Alg(\L^{(n)})$。于是$A=A_{1}T^{(1)}$属于$\Alg(\L^{(n)})'$，当且仅当$A_{1}
+\in  \NNN_{1}' \cap (\NNN_{1}' \cap \Alg(\L^{(n)}))'$。 \endproof
+
+\begin{rem}
+事实上，上述引理既是说明，相对于$\NNN_{1}$中的矩阵单位，$\Alg(\L^{(n)})'$中的算子$A$都为如下形式
+\begin{align*}
+\left(
+  \begin{array}{cccc}
+    a_{0} &  & & A_{1} \\
+          & \ddots &  &\vdots \\
+          &        & a_{0} & A_{1} \\
+          &  &  & a_{0}+A_{1}\\
+  \end{array}
+\right) \mbox{。}
+\end{align*}
+并且从此矩阵形式可以看出，$\Alg(\L^{(n)})' \subset \Alg(\L_{1})$。
+\end{rem}
+
+由数学归纳法，并用证明引理2.19的方法可以得到如下结果。
+
+\begin{thm}
+$\B(\H)$中的算子$A$属于$\Alg(\L^{(n)})'$，当且仅当对任意$k \geq
+0$，存在$\{a_{i}\}_{i=0}^{k} \subset \mathbb{C}$，$A_{k+1} \in
+\NNN_{k+1}' \cap (\NNN_{k+1}' \cap \Alg(\L^{(n)}))'$，使得
+\begin{align*}
+A = a_{0}I + a_{1}T^{(1)} + \cdots + a_{k}\prod^{k}_{i=1}T^{(i)} +
+(\prod^{k+1}_{i=1}T^{(i)})A_{k+1} \mbox{。}
+\end{align*}
+ 并且从上式可见$A \in \Alg(\L_{k})$。
+\end{thm}
+
+因为对任意$k > 0$，由上述定理有$\Alg(\L^{(n)})'  \subset
+\Alg(\L_{k})$，由此可知$\Alg(\L^{(n)})' \subset
+\Alg(\L^{(n)})$，则上定理隐含了以下推论。
+
+\begin{cor}
+$\Alg(\L^{(n)})$的中心等于其换位子。
+\end{cor}
+
+一般来说对于非自伴算子代数$\A$，双换位定理并不成立，即$\A'' \neq
+\A$。此处也不例外，我们指出当$n \geq 3$时，$\Alg(\L^{(n)})'' \neq
+\Alg(\L^{(n)})$。下面我么仅针对$n=3$的情况给出属于$\Alg(\L^{(n)})''$，但不在
+$\Alg(\L^{(n)})$中算子的例子，而$n>3$时，完全类似可以给出相应反例。
+
+相对于$\NNN_{1}$中的矩阵单位，我们说明下述算子
+\begin{align*}
+T = \left(
+      \begin{array}{ccc}
+        1 & -1 & 0 \\
+        1 & -1 & 0 \\
+        0 & 0 & 0 \\
+      \end{array}
+    \right)
+\end{align*}
+属于$\Alg(\L^{(3)})'' /
+\Alg(\L^{(3)})$。由引理2.19，只需说明$T$与具有注1中矩阵形式的算子交换即可。
+以下矩阵计算即可验证此事实。
+\begin{align*}
+\left(
+      \begin{array}{ccc}
+        1 & -1 & 0 \\
+        1 & -1 & 0 \\
+        0 & 0 & 0 \\
+      \end{array}
+\right) \times
+\left(
+  \begin{array}{ccc}
+    a_{0} & 0 & A_{1} \\
+    0     & a_{0} & A_{1} \\
+    0 & 0 & a_{0}+A_{1} \\
+  \end{array}
+\right)
+&= \left(
+  \begin{array}{ccc}
+    a_{1} & -a_{1} & 0 \\
+    a_{1} & -a_{1} & 0 \\
+    0 & 0 & 0 \\
+  \end{array}
+\right)\\
+&=\left(
+  \begin{array}{ccc}
+    a_{0} & 0 & A_{1} \\
+    0     & a_{0} & A_{1} \\
+    0 & 0 & a_{0}+A_{1} \\
+  \end{array}
+\right) \times \left(
+      \begin{array}{ccc}
+        1 & -1 & 0 \\
+        1 & -1 & 0 \\
+        0 & 0 & 0 \\
+      \end{array}
+\right) \mbox{。}
+\end{align*}
+显然$T$并非上三角算子，所以$T$不属于$\Alg(\L^{(3)})$。
+
+但对于$n=2$时，我们可以证明$\Alg(\L^{(2)})$具有双交换性质。在此之前，我们进
+一步研究$\Alg(\L^{(n)})'$中算子的性质。
+
+\begin{lem}
+$T^{(k)}$为幂等算子。
+\end{lem}
+
+\proof 证明即简单的验证，
+\begin{align*}
+(T^{(k)})^{2} = \sum_{i,j}^{n}E^{(k)}_{in}E^{(k)}_{jn} = T^{(k)}
+\mbox{。} \endproof
+\end{align*}
+
+由此可知$\Alg(\L^{(n)})'$中的算子$\prod^{k}_{i=1}T^{(i)}$（$k=1,2
+\ldots$）都为幂等元。
+以下关于幂等元的性质是众所周知的，为完整起见我们在此给出简要证明。
+
+\begin{lem}
+$T$为$\B(\H)$中的幂等元，记$P_{1} = Ran(T)$，$P_{2} =
+Ran(I-T)$，则$A \in \B(\H)$与$T$交换当且仅当$(I-P_{i})BP_{i} = 0(i
+=1,2)$，即$A \in \Alg(P_{1},P_{2})$。
+\end{lem}
+
+\proof
+首先，从$AT=TA=TAT$，可知$(I-T)AT=0$，及$TA(I-T)=0$，由此即得$A \in
+\Alg(P_{1},P_{2})$。反之，注意到$P_{1}T = T$，$TP_{2} =
+0$。则若$(I-P_{2})AP_{2} = 0$，有0=$T(I-P_{2})AP_{2}(I-T) =
+TA(I-T)$，类似的有$(I-T)AT =0$，即$TA=AT$。
+
+下面我们给出$\prod^{k}_{i=1}T^{(i)}(k = 1,2, \ldots)$，及$I -
+\prod^{k}_{i=1}T^{(i)}$的值域所对应的投影。
+
+\begin{lem}
+对应于$\Alg(\L^{(n)})'$中幂等元$\prod^{k}_{i=1}T^{(i)}$及$I -
+\prod^{k}_{i=1}T^{(i)}$值域的投影为
+\begin{align*}
+P_{1} &= Ran(\prod^{k}_{i=1}T^{(i)}) = \prod_{i =
+1}^{k}F_{n}^{(i)} \\
+P_{2} &= Ran(I - \prod^{k}_{i=1}T^{(i)}) = E_{n-1}^{(1)} +
+F_{1}^{(1)}E_{n-1}^{(2)} + \cdots +(\prod_{i =
+1}^{k-1}F_{1}^{(i)})E_{n-1}^{(k)} \mbox{。}
+\end{align*}
+\end{lem}
+
+\proof 由于$\prod^{k}_{i=1}T^{(i)}$及$I -
+\prod^{k}_{i=1}T^{(i)}$为幂等元，只需验证
+\begin{align*}
+&\prod^{k}_{i=1}T^{(i)} = P_{1}(\prod^{k}_{i=1}T^{(i)}) \mbox{，} \quad P_{1}=(\prod^{k}_{i=1}T^{(i)})P_{1} \mbox{，及} \\
+&I - \prod^{k}_{i=1}T^{(i)} = P_{2}(I - \prod^{k}_{i=1}T^{(i)})
+\mbox{，} \quad P_{2} = (I - \prod^{k}_{i=1}T^{(i)})P_{2} \mbox{。}
+\end{align*}
+前两个等式容易验证，在此只证明后两个等式。
+
+首先注意到$I - \prod^{k}_{i=1}T^{(i)} = P_{2}(I -
+\prod^{k}_{i=1}T^{(i)})$当且仅当$I-P_{2} =
+(I-P_{2})\prod^{k}_{i=1}T^{(i)}$，而
+\begin{align*}
+I-P_{2} &= I - E_{n-1}^{(1)} - F_{1}^{(1)}E_{n-1}^{(2)} - \cdots
+-(\prod_{i = 1}^{k-1}F_{1}^{(i)})E_{n-1}^{(k)} \\
+&=F_{1}^{(1)} - F_{1}^{(1)}E_{n-1}^{(2)} - \cdots -(\prod_{i =
+1}^{k-1}F_{1}^{(i)})E_{n-1}^{(k)}  \quad (I - E_{n-1}^{(k)} =
+F_{1}^{(k)} = E_{nn}^{(k)}) \\
+&= \ldots = \prod_{i = 1}^{k}F_{1}^{(i)} = \prod_{i =
+1}^{k}E_{nn}^{(i)} \mbox{。}
+\end{align*}
+于是有
+\begin{align*}
+(I-P_{2})\prod^{k}_{i=1}T^{(i)} = (\prod_{i =
+1}^{k}E_{nn}^{(i)})\prod^{k}_{i=1}(\sum_{j=1}^{n}E^{(i)}_{jn})
+=\prod^{k}_{i=1}E_{nn}^{(i)} = (I-P_{2}) \mbox{。}
+\end{align*}
+
+最后一个等式成立当且仅当$\prod^{k}_{i=1}T^{(i)}P_{2} = 0$，由
+\begin{align*}
+T^{(i)}E^{(i)}_{n-1} =(\sum_{j=1}^{n}E^{(i)}_{jn})(\sum_{l=1}^{n-1}
+E_{ll}^{(i)}) = 0 \mbox{，}
+\end{align*}
+易见上式成立。 \endproof
+
+现在回忆当$n=2$时，$\L_{\infty}$由以下投影生成
+\begin{align*}
+P_{m1}&=P_{m-1,1}+ (I-P_{m-1,1})E_{11}^{(m)} \mbox{，}\\
+P_{m2}&=P_{m-1,1} +(I-P_{m-1,1})\left(\frac12 \sum_{s,t=1}^2
+E_{st}^{(m)}\right) \mbox{，}
+\end{align*}
+$m=1,2 \ldots$，且$P_{11} = E^{(1)}_{11}$，$P_{12} =\frac12
+\sum_{s,t=1}^2 E_{st}^{(1)}$。所以
+\begin{align*}
+P_{m1}&= E_{11}^{(1)} + E_{22}^{(1)}E_{11}^{(2)} + \cdots
+         +(\prod_{i = 1}^{m-1}E_{22}^{(i)})E_{11}^{(m)} \mbox{，} \\
+P_{m2}&=E_{11}^{(1)} + E_{22}^{(1)}E_{11}^{(2)} + \cdots
+         +(\prod_{i = 1}^{m-2}E_{22}^{(i)})E_{11}^{(m-1)}
+         +(\prod_{i = 1}^{m-1}E_{22}^{(i)})(\frac12 \sum_{s,t=1}^2
+         E_{st}^{(m)}) \mbox{。}
+\end{align*}
+
+下面我们证明当$n=2$时，$\prod^{k}_{i=1}T^{(i)}$，及$I-\prod^{k}_{i=1}T^{(i)}$的值域对应的
+投影生成$\L_{\infty}$，继而有如下结果。
+
+\begin{thm}
+$\Alg(\L^{(2)})'' = \Alg(\L^{(2)})$。
+\end{thm}
+
+\proof 由引理2.24知当$n=2$时，有
+\begin{align*}
+&Ran(\prod^{k}_{i=1}T^{(i)}) = \prod_{i = 1}^{k}F_{n}^{(i)} =
+\prod_{i = 1}^{k}(\frac12 \sum_{s,t=1}^2E_{st}^{(i)}) \mbox{，}\\
+&Ran(I - \prod^{k}_{i=1}T^{(i)}) = E_{11}^{(1)} +
+E_{22}^{(1)}E_{11}^{(2)} + \cdots +(\prod_{i =
+1}^{k-1}E_{22}^{(i)})E_{11}^{(k)} \mbox{。}
+\end{align*}
+可见$Ran(I - \prod^{k}_{i=1}T^{(i)}) = P_{k1}(k=1,2
+\ldots)$，$Ran(T^{(1)})=P_{12}$。现在我们证明对于$k=1,2\ldots$，
+\begin{align*}
+&Ran(\prod^{k+1}_{i=1}T^{(i)}) \vee Ran(I - \prod^{k}_{i=1}T^{(i)})
+=\prod_{i = 1}^{k+1}(\frac12 \sum_{s,t=1}^2E_{st}^{(i)}) \vee
+P_{k,1}\\
+&=  E_{11}^{(1)} + E_{22}^{(1)}E_{11}^{(2)} + \cdots
+                +(\prod_{i = 1}^{k-1}E_{22}^{(i)})E_{11}^{(k)}
+                +(\prod_{i = 1}^{k}E_{22}^{(i)})(\frac12 \sum_{s,t=1}^2
+                E_{st}^{(k+1)}) = P_{k+1,2} \mbox{。}
+\end{align*}
+易见$I - P_{k+1,2}
+=(\prod_{i=1}^{k}E_{22}^{(i)})(I-\frac12\sum_{s,t=1}^2E_{st}^{(k+1)})$，可以验证
+\begin{align*}
+(I - P_{k+1,2})Ran(\prod^{k+1}_{i=1}T^{(i)}) = 0 \mbox{，} \quad (I
+- P_{k+1,2})P_{k,1} = 0 \mbox{。}
+\end{align*}
+这说明$Ran(\prod^{k+1}_{i=1}T^{(i)}) \vee Ran(I -
+\prod^{k}_{i=1}T^{(i)}) \leq P_{k+1,2}$。
+要证明$Ran(\prod^{k+1}_{i=1}T^{(i)}) \vee Ran(I -
+\prod^{k}_{i=1}T^{(i)}) \geq P_{k+1,2}$，只需说明对于任意$\xi \in
+(\prod_{i = 1}^{k}E_{22}^{(i)})(\frac12
+\sum_{s,t=1}^2E_{st}^{(k+1)})\H$，$\xi = \xi_{1} +
+\xi_{2}$，其中$\xi_{1} \in P_{k,1}\H$，$\xi_{2} \in \prod_{i =
+1}^{k+1}(\frac12 \sum_{s,t=1}^2E_{st}^{(i)})\H$。事实上，若令
+\begin{align*}
+\xi_{2} &= 2^{k}\prod_{i = 1}^{k+1}(\frac12
+\sum_{s,t=1}^2E_{st}^{(i)})\xi = \prod_{i =
+1}^{k}[(\sum_{s,t=1}^2E_{st}^{(i)})E^{(i)}_{22}](\frac12
+\sum_{s,t=1}^2E_{st}^{(k+1)})\xi\\
+&=\prod_{i = 1}^{k}(E_{12}^{(i)} + E_{22}^{(i)})(\frac12
+\sum_{s,t=1}^2E_{st}^{(k+1)})\xi = \xi - \xi_{1} \mbox{。}
+\end{align*}
+容易验证$\xi_{1} \in P_{k,1}\H$。
+
+若$A \in \Alg(\L^{(2)})''$，由引理2.20，$A(\prod^{k}_{i=1}T^{(i)}) =
+(\prod^{k}_{i=1}T^{(i)})A(k=1,2
+\ldots)$，则从引理2.23，及以上所证，就得到$A \in
+\Alg(\L_{\infty})$，即$\Alg(\L^{(2)})'' \subset
+\Alg(\L^{(2)})$。而$\Alg(\L^{(2)}) \subset
+\Alg(\L^{(2)})''$显然成立，于是定理得证。 \endproof

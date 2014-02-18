@@ -1,0 +1,1610 @@
+\def\CTeXPreproc{Created by ctex v0.2.12, don't edit!}\chapter{三个投影生成的自反格及其决定的~KS- 代数}
+
+\section{二个投影生成的自反格及其决定的~KS- 代数}
+P.R.Halmos 在~\cite{H1} 中讨论了~Hilbert 空间上两个投影的关系及性质。在此我们简要回忆其主要结果。
+
+\begin{defn}
+令~$P$，$Q$ 为~$\B(\H)$ 中的两个投影，我们称此两投影处于“一般位置”（general
+postion），当且仅当~$P \wedge Q = 0$，$P \vee Q = I$，$(I-P) \wedge
+Q$，$(I-P) \vee Q = I$。
+\end{defn}
+
+\begin{rem}
+注意到由以上定义，若~$\H_{1}$，$\H_{2}$ 为分别对应于~$P$，$Q$ 值域的闭子空间。则~$P$，
+$Q$ 处于一般位置当且仅当~$\H_{1} \cap \H_{2} = \{0\}$，$\H_{1}^{\bot}
+\cap \H_{2} = \{0\}$，$\H_{1} \cap \H_{2}^{\bot} =
+\{0\}$，$\H_{1}^{\bot} \cap \H_{2}^{\bot} = \{0\}$。
+\end{rem}
+
+对于处于一般位置的投影有如下众所周知的结果，此处省略证明。令~$\M =
+\{P,Q\}''$，由~$P$，$Q$ 生成的~von Neumann 代数。
+
+\begin{lem}
+$P \M P$ 为由~$PQP$ 生成的交换~von Neumann 代数。
+\end{lem}
+
+\begin{lem}
+在~$\M$ 中存在由~$P = E_{11}$ 的矩阵单位~$\{E_{ij}\}_{i,j}^{2}$，则~$\M
+\cong P\M P \otimes M_{2}(\mathbb{C})$。并且~$P \sim Q$。
+\end{lem}
+
+\begin{rem}
+由上引理可知~$\M$ 酉同构于~$\AAA \otimes
+M_{2}(\mathbb{C})$，$\AAA$ 为由某正算子~$H$（$0 \leq H \leq
+I$）生成的交换~von
+Neumann 代数。并且相对于~$M_{2}(\mathbb{C}$ 的标准矩阵单位有
+\begin{align*}
+P = \left(
+      \begin{array}{cc}
+        I & 0 \\
+        0 & 0 \\
+      \end{array}
+    \right)
+\mbox{，} \quad Q = \left(
+      \begin{array}{cc}
+        H & \sqrt{H(I-H)} \\
+        \sqrt{H(I-H)} & I-H \\
+      \end{array}
+    \right) \mbox{。}
+\end{align*}
+由于~$P$，$Q$ 处于一般位置，进一步可知~$Ker(H) = \{0\}$，$Ker(I-H) =
+\{0\}$。事实上，若两投影~$P$，$Q$ 有以上的矩阵形式，则它们处于一般位置
+当且仅当~$Ker(H) = \{0\}$，$Ker(I-H) = \{0\}$。
+\end{rem}
+
+对于一般的情况，可先将~$\H$ 分解为~$\H_{1} \cap \H_{2} \oplus \H_{1}
+\cap \H_{2}^{\bot} \oplus \H_{1}^{\bot} \cap \H_{2} \oplus
+\H_{1}^{\bot} \cap \H_{2}^{\bot} \oplus
+\widetilde{\H}$。易见以上分解中的直和项都为~$P$，$Q$ 的不变自空间。并且限制在
+~$\widetilde{\H}$ 上，$P$，$Q$ 处于一般位置。则在适当表示下，$P$，$Q$ 有矩阵形式
+\begin{align*}
+P &=\left(
+     \begin{array}{cc}
+       \left(
+         \begin{array}{cccc}
+           I & 0 & 0 & 0\\
+           0 & I & 0 & 0\\
+           0 & 0 & 0 & 0\\
+           0 & 0 & 0 & 0\\
+         \end{array}
+       \right)
+        & 0 \\
+       0 & \left(
+             \begin{array}{cc}
+               I & 0 \\
+               0 & 0 \\
+             \end{array}
+           \right)
+        \\
+     \end{array}
+   \right) \mbox{，} \\
+Q &=\left(
+     \begin{array}{cc}
+       \left(
+         \begin{array}{cccc}
+           I & 0 & 0 & 0\\
+           0 & 0 & 0 & 0\\
+           0 & 0 & I & 0\\
+           0 & 0 & 0 & 0\\
+         \end{array}
+       \right)
+        & 0 \\
+       0 & \left(
+             \begin{array}{cc}
+               H & \sqrt{H(I-H)} \\
+               \sqrt{H(I-H)} & I-H \\
+             \end{array}
+           \right)
+        \\
+     \end{array}
+   \right) \mbox{。}
+\end{align*}
+
+由以上讨论我们有如下常用结论。
+
+\begin{lem}
+对于~$\B(\H)$ 中的任意两个投影~$P$，$Q$，有~$P \vee Q - P \sim Q - P
+\wedge Q$。特别的，若~$P$，$Q$ 属于某有限~von
+Neumann 代数~$\M$，令~$\tau$ 为~$\M$ 上的迹态，我们有
+\begin{align*}
+\tau(P \vee Q) = \tau(P) + \tau(Q) - \tau(P \wedge Q) \mbox{。}
+\end{align*}
+\end{lem}
+
+Halmos 在~\cite{H2} 中证明了~$\B(\H)$ 中任意两个投影生成的格都为自反格。下面
+针对两个处于一般位置（事实上，此处是否处于一般位置并不重要，类似的计算可以
+证明任意两个投影生成的格都为自反格）的投影给出证明方法。并且我们将在下
+一节中推广此方法，用于处理三个投影的情况。
+
+由注释~3，不失一般性，我们可以认为~$P$，$Q$ 属于~$M_{2}(\B(\H))$（作用在~$\H
+\oplus \H$ 上），并且有形式
+\begin{align*}
+P = \left(
+      \begin{array}{cc}
+        I & 0 \\
+        0 & 0 \\
+      \end{array}
+    \right)
+\mbox{，} \quad Q = \left(
+      \begin{array}{cc}
+        H & \sqrt{H(I-H)} \\
+        \sqrt{H(I-H)} & I-H \\
+      \end{array}
+    \right) \mbox{。}
+\end{align*}
+使用以上符号，我们可以完全刻画~$\Alg(P,Q)$ 中的算子。
+
+\begin{lem}
+$\Alg(P,Q) = \{\left(
+                 \begin{array}{cc}
+                   T_{1} & T_{2} \\
+                   0 & T_{3} \\
+                 \end{array}
+               \right) \in M_{2}(\B(\H)) : \sqrt{H}T_{3}\sqrt{I-H} -
+               \sqrt{I-H}T_{1}\sqrt{H} = \sqrt{I-H}T_{2}\sqrt{I-H}
+               \} \mbox{。}$
+\end{lem}
+
+\proof 首先，显然~$P$ 为~$M_{2}(\B(\H))$ 中某算子~$T=\left(
+                                           \begin{array}{cc}
+                                             T_{1} & T_{2} \\
+                                             T_{4} & T_{3} \\
+                                           \end{array}
+                                         \right)$
+的不变子空间，当且仅当~$T_{4} = 0$，即为相对于~$P$ 的上上三角算子。
+其次注意到，
+\begin{align*}
+Q &= \left(
+      \begin{array}{cc}
+        H & \sqrt{H(I-H)} \\
+        \sqrt{H(I-H)} & I-H \\
+      \end{array}
+    \right)\\
+&= \left(
+    \begin{array}{cc}
+      \sqrt{H} & \sqrt{I-H} \\
+      \sqrt{I-H} & -\sqrt{H} \\
+    \end{array}
+  \right)
+\left(
+      \begin{array}{cc}
+        I & 0 \\
+        0 & 0 \\
+      \end{array}
+\right)
+\left(
+    \begin{array}{cc}
+      \sqrt{H} & \sqrt{I-H} \\
+      \sqrt{I-H} & -\sqrt{H} \\
+    \end{array}
+  \right) \mbox{。}
+\end{align*}
+记酉算子~$U = \left(
+      \begin{array}{cc}
+        H & \sqrt{H(I-H)} \\
+        \sqrt{H(I-H)} & I-H \\
+      \end{array}
+\right)$，则~$(I-Q)TQ=0$，当且仅当~$(I-P)UTUP =
+0$。即相对于~$P$，$UTU$ 依然为上三角算子，矩阵计算给出
+\begin{align*}
+&\left(
+      \begin{array}{cc}
+        H & \sqrt{H(I-H)} \\
+        \sqrt{H(I-H)} & I-H \\
+      \end{array}
+\right)
+\left(
+  \begin{array}{cc}
+    T_{1} & T_{2} \\
+    0 & T_{3} \\
+  \end{array}
+\right) \left(
+      \begin{array}{cc}
+        H & \sqrt{H(I-H)} \\
+        \sqrt{H(I-H)} & I-H \\
+      \end{array}
+\right)\\
+&= \left(
+  \begin{array}{cc}
+    * & * \\
+    \sqrt{I-H}T_{1}\sqrt{H}+\sqrt{I-H}T_{2}\sqrt{I-H}-\sqrt{H}T_{3}\sqrt{I-H} & * \\
+  \end{array}
+\right) \mbox{，}
+\end{align*}
+即得到~$\sqrt{I-H}T_{1}\sqrt{H}+\sqrt{I-H}T_{2}\sqrt{I-H}-\sqrt{H}T_{3}\sqrt{I-H}
+= 0$。 \endproof
+
+\begin{rem}
+注意到上述证明中并没有用到~$P$，$Q$ 处于一般位置的事实，实际上只要~$P$，$Q$ 有引理中的形式，
+引理结论成立。
+\end{rem}
+
+由于可以完全刻画~$\Alg(P,Q)$，证明格~$\{0,P,Q,I\}$ 自反只是简单矩阵计算，我们省略证明，
+仅将结论叙述如下。
+
+\begin{cor}
+若~$P$，$Q$ 为处于一般位置的两个投影，则~$\Lat(\Alg(P,Q)) =
+\{0,P,Q,I\}$。
+\end{cor}
+
+从以上结论易见~$\Alg(P,Q)$ 为~Kadison-Singer 代数。并且类似于上节中定义的~$\Alg(\L^{(n)})$，
+$\Alg(P,Q)$ 也为代数极大。
+
+\begin{lem}
+令~$P = \left(
+      \begin{array}{cc}
+        I & 0 \\
+        0 & 0 \\
+      \end{array}
+    \right)
+$，$Q = \left(
+      \begin{array}{cc}
+        H & \sqrt{H(I-H)} \\
+        \sqrt{H(I-H)} & I-H \\
+      \end{array}
+\right)$ 为~$M_{2}(\B(\H))$ 中投影，并且~$H$ 和~$I-H$ 可逆，则若~$T=\left(
+                                                              \begin{array}{cc}
+                                                                T_{11} & T_{12} \\
+                                                                T_{21} & T_{22} \\
+                                                              \end{array}
+                                                            \right)$
+与~$\Alg(P,Q)$ 生成的代数~$\A$ 满足~$\A^{*} \cap \A = \Alg(P,Q)^{*} \cap
+\Alg(P,Q)$，就有~$T \in Alg(P,Q)$。
+\end{lem}
+
+\proof 首先易见
+\begin{align*}
+ \Alg(P,Q)^{*} \cap \Alg(P,Q) = \{\left(
+                                    \begin{array}{cc}
+                                      A & 0 \\
+                                      0 & A \\
+                                    \end{array}
+                                  \right) : A \in \{H\}''
+                                  \} \mbox{。}
+\end{align*}
+由引理~3.4，
+\begin{align*}
+T_{1} = \left(
+          \begin{array}{cc}
+               T_{11} & T_{12} \\
+               T_{21} & T_{22} \\
+           \end{array}
+         \right)
+-
+\left(
+  \begin{array}{cc}
+    -T_{12}\sqrt{\frac{I-H}{H}} & T_{12} \\
+    0 & 0 \\
+  \end{array}
+\right) =\left(
+          \begin{array}{cc}
+               T_{11}+T_{12}\sqrt{\frac{I-H}{H}} & 0 \\
+               T_{21} & T_{22} \\
+           \end{array}
+         \right) \in \A \mbox{，}
+\end{align*}
+所以
+\begin{align*}
+T_{2} = T_{1}
+         \left(
+           \begin{array}{cc}
+             I & -\sqrt{\frac{H}{I-H}} \\
+             0 & 0 \\
+           \end{array}
+         \right) =
+         \left(
+           \begin{array}{cc}
+             T_{11}+T_{12}\sqrt{\frac{I-H}{H}} & -(T_{11}+T_{12}\sqrt{\frac{I-H}{H}})\sqrt{\frac{H}{I-H}} \\
+             T_{21} & -T_{21}\sqrt{\frac{H}{I-H}} \\
+           \end{array}
+         \right) \in \A \mbox{。}
+\end{align*}
+则~$T_{3} = \left(
+             \begin{array}{cc}
+               0 & 0 \\
+               T_{21} & -T_{21}\sqrt{\frac{H}{I-H}} \\
+             \end{array}\right)$ 属于~$\A$。令~$T_{21}$ 的极分解为
+~$H_{1}U_{1}$。于是
+\begin{align*}
+T_{4} = T_{3}\left(
+               \begin{array}{cc}
+                 U^{*}_{1}\sqrt{\frac{I-H}{H}} & -U^{*}_{1} \\
+                 0 & 0 \\
+               \end{array}
+             \right)
+=\left(
+   \begin{array}{cc}
+     0 & 0 \\
+     H_{1}\sqrt{\frac{I-H}{H}} & -H_{1} \\
+   \end{array}
+ \right) \in \A \mbox{。}
+\end{align*}
+进而有
+\begin{align*}
+T_{4} + \left(
+          \begin{array}{cc}
+            -\sqrt{\frac{I-H}{H}}H_{1}\sqrt{\frac{I-H}{H}}& \sqrt{\frac{I-H}{H}}H_{1} \\
+            0 & 0 \\
+          \end{array}
+        \right)
+=\left(
+          \begin{array}{cc}
+            -\sqrt{\frac{I-H}{H}}H_{1}\sqrt{\frac{I-H}{H}}& \sqrt{\frac{I-H}{H}}H_{1} \\
+            H_{1}\sqrt{\frac{I-H}{H}} & -H_{1} \\
+          \end{array}
+        \right) \in \A^{*} \cap \A \mbox{，}
+\end{align*}
+但由引理条件，上述成立，当且仅当~$H_{1} = 0$。以下我们假设~$T_{21} =
+0$。并且由于~$\left(
+          \begin{array}{cc}
+             T_{11} &\sqrt{\frac{H}{I-H}}A_{22} - A_{11}\sqrt{\frac{H}{I-H}}  \\
+             0 & T_{22} \\
+          \end{array}
+         \right) \in \Alg(P,Q)$，可即一步假设~$T = \left(
+                                                    \begin{array}{cc}
+                                                      0 & T_{12} \\
+                                                      0 & 0 \\
+                                                    \end{array}
+                                                  \right)$。下面只需证明此形式的~$T$ 必须为零。
+则引理得证。
+
+若~$T \neq 0$，令
+\begin{align*}
+T_{5} = T - \left(
+              \begin{array}{cc}
+                -T_{12}\sqrt{\frac{I-H}{H}} & T_{12} \\
+                0 & 0 \\
+              \end{array}
+            \right)
+= \left(
+    \begin{array}{cc}
+      T_{12}\sqrt{\frac{I-H}{H}} & 0\\
+      0 & 0 \\
+    \end{array}
+  \right) \in \A \mbox{，}
+\end{align*}
+使~$U_{2}H_{2}$ 为~$T_{12}\sqrt{\frac{I-H}{H}}$ 的极分解，则有
+\begin{align*}
+\left(
+  \begin{array}{cc}
+    U^{*}_{2} & -U^{*}_{2}\sqrt{\frac{H}{I-H}} \\
+    0 & 0 \\
+  \end{array}
+\right)T_{5} = \left(
+                 \begin{array}{cc}
+                   H_{2} & 0 \\
+                   0 & 0 \\
+                 \end{array}
+               \right) \in \A^{*} \cap \A \mbox{，}
+\end{align*}
+可见~$H_{2} = 0$，即~$T = 0$。 \endproof
+
+一般来说当~Hilbert 空间为无限维时，$P$，$Q$ 处于一般位置并不能保证~$H$ 和~$I-H$ 可逆。
+但由~$ker(H)={0}$，$ker(I-H) = {0}$，及谱定理可知，存在交换~von
+Neumann 代数~$\{H\}''$ 中的一列投影~$\{P_{n}\}_{n=1}^{\infty}$，使得
+~$P_{n} \leq P_{m}$（$n \leq
+m$），$P_{n}$ 强算子收敛于~$I$，并且~$H|_{P_{n}\H}$，$(I-H)|_{P_{n}\H}$ 可逆。而且有~$\left(
+                                                                                 \begin{array}{cc}
+                                                                                   P_{n} & 0 \\
+                                                                                   0 & P_{n} \\
+                                                                                 \end{array}
+                                                                               \right)$
+属于~$\Alg(P,Q)$。由此我们可以证明引理~3.6 的结论对任意处于一般位置的两个投影成立。
+
+
+\begin{thm}
+令~$P = \left(
+      \begin{array}{cc}
+        I & 0 \\
+        0 & 0 \\
+      \end{array}
+    \right)
+$，$Q = \left(
+      \begin{array}{cc}
+        H & \sqrt{H(I-H)} \\
+        \sqrt{H(I-H)} & I-H \\
+      \end{array}
+\right)$ 为~$M_{2}(\B(\H))$ 中位于一般位置的投影，若~$T=\left(
+                                                              \begin{array}{cc}
+                                                                T_{11} & T_{12} \\
+                                                                T_{21} & T_{22} \\
+                                                              \end{array}
+                                                            \right)$
+与~$\Alg(P,Q)$ 生成的代数~$\A$ 满足~$\A^{*} \cap \A = \Alg(P,Q)^{*} \cap
+\Alg(P,Q)$，就有~$T \in Alg(P,Q)$。
+\end{thm}
+
+\proof 令~$P_{n}$ 为以上讨论中的投影，以下记~$\left(\begin{array}{cc}
+            P_{n} & 0 \\
+            0 & P_{n} \\
+            \end{array}
+\right)$ 为~$\widetilde{P_{n}}$。只需证明对任意~$n$ 有~$\widetilde{P_{n}}T\widetilde{P_{n}}
+\in \Alg(P,Q)$，由~$\widetilde{P_{n}}T\widetilde{P_{n}}$ 强算子收敛于
+~$T$，并且~$\Alg(P,Q)$ 为强算子闭的，即得结论。
+易见由于~$\widetilde{P_{n}} \in
+\Alg(P,Q)$，$\widetilde{P_{n}}T\widetilde{P_{n}}$ 与~$\widetilde{P_{n}}\Alg(P,Q)\widetilde{P_{n}}$ 生成的
+代数~$\widetilde{\A}$ 属于~$\widetilde{P_{n}}\A\widetilde{P_{n}}$。而且~$\widetilde{\A}^{*}
+\cap \widetilde{\A} \subset \widetilde{P_{n}}\A\widetilde{P_{n}}^{*}
+\cap \widetilde{P_{n}}\A\widetilde{P_{n}} = \widetilde{P_{n}}(\A^{*}
+\cap \A)\widetilde{P_{n}} = \widetilde{P_{n}}\Alg(P,Q)^{*} \cap
+\Alg(P,Q)\widetilde{P_{n}} = \{\left(
+                                 \begin{array}{cc}
+                                   A & 0 \\
+                                   0 & A \\
+                                 \end{array}
+                               \right) : A \in \{H\}'', P_{n}A = A
+                               \}$。加之可以验证投影~$P\widetilde{P_{n}}$，$Q\widetilde{P_{n}}$
+限制在~$\widetilde{P_{n}}(\H \oplus \H)$ 上处于一般位置，
+并由引理~3.4，$\widetilde{P_{n}}\Alg(P,Q)\widetilde{P_{n}}|_{\widetilde{P_{n}}
+\H \oplus \H} = \Alg(P|_{\widetilde{P_{n}}\H \oplus \H},
+Q|_{\widetilde{P_{n}}\H \oplus
+\H)})$。现在对~$\widetilde{P_{n}}T\widetilde{P_{n}}|_{\widetilde{P_{n}}
+\H \oplus \H}$，及投影~$P|_{\widetilde{P_{n}}\H \oplus \H}$，
+$Q|_{\widetilde{P_{n}}\H \oplus \H)}$，应用引理~3.6，即得结论。
+\endproof
+
+以上是对于两个投影的讨论，在下一节中我们将推广本节中的方法，用以研究某一类由三个投影生成的自反格。
+
+\section{三个投影生成的自反格}
+
+一般来说由三个投影生成的格比较复杂。而几乎已知的所有作用在可分~Hilbert 空间上的
+因子都可由三个投影生成也从一个侧面反映了这一事实。在正式开始本节的讨论前，我们首先
+给出一个例子。
+
+\begin{exmp}
+假设~$\NNN \subset \B(\H)$ 为由一个正算子~$H$（$0 \leq H \leq
+H$），及一投影~$P$ 生成的因子。令~$\M = M_{2}(\NNN) \subset
+M_{2}(\B(H))$（作用在~$\H \oplus
+\H$ 上）。此处可视~$M_{2}(\mathbb{C})$ 为~$\M$ 的子因子，并且~$\NNN$ 为~$\M_{2}(\mathbb{C})$ 在
+~$\M$ 中的相对换位子。进步要求~$ker(H) = \{0\}$，$ker(I-H) =
+\{0\}$。相对于~$\M_{2}(\mathbb{C})$ 的标准矩阵单位，令
+\begin{align*}
+P_{1} &= \left(
+          \begin{array}{cc}
+            I & 0 \\
+            0 & 0 \\
+          \end{array}
+        \right),
+P_{2}=\left(
+        \begin{array}{cc}
+          H & \sqrt{H(I-H)} \\
+          \sqrt{H(I-H)} & I-H \\
+        \end{array}
+      \right), \\
+P_{3} &= \left(
+          \begin{array}{cc}
+            I & 0 \\
+            0 & P \\
+          \end{array}
+        \right),
+P_{4} = P_{2} \wedge P_{3} \mbox{。}
+\end{align*}
+有~$P_{1} \wedge P_{2} = 0$，及~$P_{1} \vee P_{2} =
+I$。容易验证由~$\{P_1,P_2,P_3\}$ 生成的格~$\L=\{0,I, P_1, P_2, P_3,
+P_4\}$ 为分配格，其~Hasse 图为
+\begin{align*}
+\xymatrix{
+ & & & 0 \ar[ddll] \ar[dr] & & \\
+ & & &  & P_{4} \ar[dr] \ar[ddllll]& \\
+ & P_{1}  \ar[dl] & & & &P_{2} \ar[ddll] \\
+P_{3} \ar[drrr]& & & & & & \\
+& & & I & &
+ }
+\end{align*}
+所以由~\cite{H2} 中的结果知~$\L$ 自反。而且由构造可知， $\L$ 生成~von
+Neumann 代数~$\M$。更进一步有~$\L$ 的任意子格都不能生成~$\M$。
+即~$\L$ 为~Kadsion-Singer 格，$\Alg(\L)$ 为~Kadsion-Singer 因子。
+
+由此构造，我们可以实现以大多数已知因子为对角的~Kadsion-Singer 代数。譬如，可以选择
+由相对自由的正算子~$H$，及在迹态下取值为~$\frac{1}{2}$ 的投影~$P$ 生成的~$II_{1}$ 型因子~$\NNN$，
+其中也可要求~$H$ 相对~$\NNN$ 上迹态的分布与~$[0,1]$ 上的函数~$cos^{2}\frac\pi2\theta$（相对于~Lebesgue 测度）相同。
+同时若令~$\tau$ 为~$\M$ 上的迹态，则在此假设下，我们有~$\tau(P_1)=\tau(P_2)=\frac12$,
+$\tau(P_3)=\frac34$ and
+$\tau(P_4)=\frac14$，并~$\Alg(\L)$ 为~$II_{1}$ 型~Kadsion-Singer 因子。
+\end{exmp}
+
+判断一个不变子空间格是否自反，即便当格为有限时，也并不容易，有限分配格皆自反~\cite{H2}。但是大多数格
+并非分配格。非分配格中最简单的当属双三角格（double
+triangle），顾名思义，此格的~Hasse 图由两个三角型组成，
+\begin{align*}
+\xymatrix{
+ & 0 \ar[dl] \ar[d] \ar[dr]& \\
+P_{1} \ar[dr] & P_{2} \ar[d] & P_{3} \ar[dl]\\
+ & I &
+}
+\end{align*}
+从图中可见，$P_1$，$P_2$，$P_3$ 三个投影满足~$P_i\vee P_j=I$，
+$P_i\wedge P_j=0$，其中~$i\neq
+j$，$i,j=1,2,3$。如果一个格包含双三角格，则此格必不分配。$II_{1}$ 型因子中的三个
+在迹态下取值为~$\frac{1}{2}$ 的自由投影，连同~$0,I$，组成一个双三角格。以下，我们首先
+简要描述由三个自由投影生成的~$II_{1}$ 型因子。对于自由性及分布的基本知识，读者可以
+参考~\cite{VDN}。
+
+令群~$G_n = \underbrace{\Z_2* \cdots
+*\Z_2}_{n}$，即为~$n$ 个~$\Z_2$ 的自由积，这里~$n\ge2$ 或~$=\infty$。当~$n \geq
+3$ 时，$G_{n}$ 为~i.c.c 群，其对应的群~von
+Neumann 代数~$\L_{G_n}$ 为作用在~Hilbert 空间~$l^2(G_n)$（见~\cite{KR}）上的~$II_{1}$ 型因子。
+若~$U_1$，$\ldots$，$U_n$ 为~$\L_{G_n}$ 中对应于群~$G_n$ 的生成元的~$n$ 个酉算子，则~$U_1$，
+$\ldots$，$U_n$ 为~$\L_{G_n}$ 的生成元，并且由群的性质有~$U_j^2=I$。于是~$\frac{I-U_j}2$，
+$j=1,\ldots,n$，为~$\L_{G_n}$ 中在迹态下取值为~$\frac12$ 的投影。记由此~$n$ 个投影加上~$0,I$ 组成
+的格为~$\F_n$。
+
+显然，$\F_n$ 为~$\L_{G_n}$ 的极小生成格，即~$\F_{n}$ 的任意子格不能生成~$\L_{G_n}$。于是自然的
+会问当~$n \geq
+3$ 时，$\Alg(\F_n)$ 是否为~Kadison-Singer 代数？而格~$\Lat(\Alg(\F_n))$ 又该怎样如何描述。当~$n=2$ 时，
+如同在上一节中指出的，Halmos\cite{H2} 已证明~$\F_2$ 为自反格，由此~$\Alg(\F_2)$ 极大，为~Kadison-Singer 代数。
+在本章中，我们将针对~$n=3$ 的情况回答以上两个问题。以下将会看到~$\Alg(\F_3)$
+的确是~KS- 代数，且~$\Lat(\Alg(\F_3))\setminus
+\{0,I\}$ 同胚于二维球面~$S^2$。
+
+为了讨论方便，我们将~$\L_{G_3}$ 实现为由~$M_2(\mathbb{C})$ 及其在~$\L_{G_3}$ 中的相对换为子~$\M$ 生成的~von
+Neumann 代数，并相对于~$M_2(\mathbb{C})$ 的标准矩阵单位，将以上定义的生成~$\L_{G_3}$ 的三个投影记为
+\begin{align*}
+P_1&= \left(
+        \begin{array}{cc}
+          I & 0 \\
+          0 & 0 \\
+        \end{array}
+      \right),
+P_{2} = \left(
+          \begin{array}{cc}
+            H_{1} & \sqrt{H_{1}(I-H_{1})} \\
+            \sqrt{H_{1}(I-H_{1})} & I-H_{1} \\
+          \end{array}
+        \right) , \\
+P_{3}&= \left(
+          \begin{array}{cc}
+            H_{2} & \sqrt{H_{2}(I-H_{2})}V \\
+            V^{*}\sqrt{H_{2}(I-H_{2})} & I-H_{2} \\
+          \end{array}
+        \right) \mbox{。}
+\end{align*}
+由~$P_1$，$P_2$，$P_3$ 的自由性就有~$H_1$，$H_2$ 和~$V$ 相互自由，并且~$H_1$
+和~$H_2$ 有与~$\cos^2\frac{\pi}2\theta$ 在~$[0,1]$ 上相对于~Lebesgue 测度相同的的分布，
+$V$ 为~Haar 酉算子。可看出由以上假定，
+$\L_{G_3}$ 的子代数~$\M$ 既为~$H_1$，$H_2$ 和~$V$ 生成。从现在开始记~$\F_3=\{0,I,
+P_1, P_2, P_3\}$，$\H=l^2(G_3)$。
+
+当~$M_2(\mathbb{C})$ 为~$\L_{G_3}$ 的子代数时，也可将~$\B(\H)$ 视为~$M_2(\mathbb{C})\otimes
+\B$，其中~$\B$ 为~$M_2(\mathbb{C})$ 在~$\B(\H)$ 中的换位子。则相对于~$M_2(\mathbb{C})$ 的标准
+矩阵单位，任意~$\B(\H)$ 中的算子都可被记为以~$\B$ 中算子为矩阵元素的~$2\times
+2$ 矩阵。事实上，当~$\H=\H_1\oplus
+\H_1$ 时，$\H_1$ 为某~Hilbert 空间（譬如可令~$\H_{1} = P_{1}\H$），
+就有~$\B\cong\B(\H_1)$.
+
+由于~$P_1\in\F_3$，属于~$\Alg(\F_3)$ 的算子必为上三角。
+用证明引理~3.4 的方法，可以得到以下对~$\Alg(\F_3)$ 的刻画，在此我们将不赘述证明。
+
+\begin{lem}
+使用以上记号，则~$\left(
+                  \begin{array}{cc}
+                    T_{1} & T_{2} \\
+                    0 & T_{3} \\
+                  \end{array}
+                \right)\in\Alg(\F_3)$，其中 ~$
+T_1, T_2, T_3\in\B$，当且仅当
+\begin{align*}
+\sqrt{I-H_1}T_2\sqrt{I-H_1} &= \sqrt{H_1}T_3
+\sqrt{I-H_1}-\sqrt{I-H_1}T_1\sqrt{H_1};\cr
+ \sqrt{I-H_2}T_2V^*\sqrt{I-H_2}
+&= \sqrt{H_2}VT_3 V^*\sqrt{I-H_2}-\sqrt{I-H_2}T_1\sqrt{H_2}
+\mbox{。}
+\end{align*}
+\end{lem}
+
+应用附属于~$\L_{G_3}$ 的无界算子，可以构造很多属于~$\Alg(\F_3)$ 的有限秩（finite
+rank）算子。 在此我们指出所有附属于有限~von
+Neumann 代数的无界算子形成一个代数~\cite{KR}。并且任意有限个无界算子的值域的交都为~Hilbert 空间的
+稠子空间。
+
+对~$\H$ 中的任意向量~$x$，$y$，记如下定义的秩一算子
+\begin{align*}
+ z \longmapsto \<z,x\>y ,  \quad \forall z \in \H
+\end{align*}
+为~$x\otimes y$。若~$\xi$，$\eta$ 为属于~$\sqrt{H_1(I-H_1)^{-1}}$，
+$\sqrt{H_2(I-H_2)^{-1}}V$，及其共轭算子
+~$(\sqrt{H_2(I-H_2)^{-1}}V)^*$ 的公共值域
+的两个向量。可令
+\begin{align*}
+T_1&=\xi\otimes (\sqrt{H_1(I-H_1)^{-1}}-\sqrt{H_2(I-H_2)^{-1}}V)\eta\\
+T_3&=((\sqrt{H_1(I-H_1)^{-1}}-\sqrt{H_2(I-H_2)^{-1}}V)^*\xi)\otimes\eta
+\mbox{，}
+\end{align*}
+并由引理~3.8 可决定~$T_{2}$ 如下
+\begin{align*}
+T_2= \sqrt{H_1(I-H_1)^{-1}}T_3 -T_1\sqrt{H_1(I-H_1)^{-1}}
+\end{align*}
+使得~$T=\left(
+         \begin{array}{cc}
+           T_{1} & T_{2} \\
+           0 & T_{3} \\
+         \end{array}
+       \right)
+       \in\Alg(\F_3)$，并由以上构造易见~$T$ 为有限秩算子（最多为秩四算子）。
+这就说明了~$\Alg(\F_3)$ 包含很多有限秩算子（即而包含很多紧算子）。事实上，从
+下面的讨论可看出，在某种程度上可以认为~$\Alg(\F_3)$ 几乎包含了~$\B(\H)$ 的一个拷贝。
+
+在继续讨论以前，我们指出~$\Alg(\F_3)$ 包含紧算子源于三个自由投影不足以提供足够的限制。
+虽然现在不知道多少自由投影可以保证没有紧算子以这些自由投影为不变子空间，但可证明以下。
+
+\begin{thm}
+令~$G_{\infty} = *_{n \in \mathbb{N}}(\mathbb{Z}_{2})_{n} =
+\mathbb{Z}_{2}*\mathbb{Z}_{2}*\cdots$，在群因子~$\L_{G_{\infty}}$（$\subset
+\B(l^{2}(G_{\infty})$）中如前定义投影~$P_{n} =
+\frac{I+U_{n}}{2}$，记~$\F_{\infty}$ 为由~$\{0, I, P_{n} : n \in
+\mathbb{N} \}$ 生成的格。则有~$\Alg(\F_{\infty})$ 不包含紧算子。
+\end{thm}
+
+证明此结论前，首先给出以下已知结论，并简要证明。
+
+\begin{lem}
+对~$l^{2}(G_{\infty})$ 中任意有限个单位向量~$\{ \xi_{i}
+\}_{i=1}^{n}$，及任意~$\varepsilon > 0$，存在 ~$m \in \mathbb{N}$ 使得
+对任意~$k > m$，有~$|<U_{k}\xi_{1}, \xi_{i}>| < \varepsilon (i = 1, 2,
+\ldots
+,n)$。即当~$n$ 趋于无穷时，$\{U_{n}\}_{n=1}^{\infty}$ 弱算子趋于~0。
+\end{lem}
+
+\proof 由于~$\xi_{i} = \sum^{\infty}_{g \in
+G_{\infty}}a^{i}_{g}g$，此处在不引起混淆的前提下同时用~$g$ 表示群~$G_{\infty}$ 中的元素，和
+~$l^{2}(G_{\infty})$ 中的单位正交基。令~$\{g_{j}\}_{j = 1}^{n_{0}}$ 为
+~$G_{\infty}$ 中的有限集满足，若~P 为到有限维闭子空间~$\overline{span(\{g_{j}\}_{j
+= 1}^{n_{0}})}$ 上的投影，则有~$\|P\xi_{i}\| > 1 - \varepsilon^{2} (i
+= 1, 2 \ldots, n)$。现在选取~$m$ 使得对任意~$k >
+m$，$U_{k}$（自然的将酉算子与~$G_{\infty}$ 的生成元等同起来）不出现在~$g_{j}$ 中。于是若将
+~$\xi_{i}$ 分解为~$\xi_{i}^{1} + \xi_{i}^{2}$，其中~$\xi_{i}^{1} =
+P\xi_{i}$，由群的自由性即有 ~$<U_{k}\xi_{1}^{1}, \xi_{i}^{1}> =
+0$。于是
+\begin{align*}
+|<U_{k}\xi_{1}, \xi_{i}>| &= |<U_{k}\xi_{1}^{1} + U_{k}\xi_{1}^{2},
+\xi_{i}^{1} + \xi_{i}^{2}>| \\
+                        &= |<U_{k}\xi_{1}^{1}, \xi_{i}^{2}> +
+                        <U_{k}\xi_{1}^{2}, \xi_{i}>| \\
+                        &\leq \|U_{k}\xi_{1}^{1}\|\|\xi_{i}^{2}\| +
+                              \|U_{k}\xi_{1}^{2}\| \leq
+                              2\varepsilon \mbox{。}
+\end{align*} \endproof
+
+\begin{lem}
+若~$T$ 为~$\B(l^{2}(G_{\infty}))$ 中的紧算子，则~$\lim_{k}\|TU_{k}\| =
+0$.
+\end{lem}
+
+\proof 不失一般性，假设~$\|T\| = 1$。如果~$\lim_{k}\|TU_{k}\| \neq 0$,
+由于~$T$ 为紧算子，不妨认为~$\lim_{k}TU_{k} = \xi \neq 0$。于是对任意
+~$0 < \varepsilon < \frac{\|\xi\|}{3}$，存在~$k_{0} \in
+\mathbb{N}$ 使得若~$k \geq k_{0}$，则有~$\| TU_{k_{0}} - TU_{k} \| <
+\varepsilon$，即得~$\|TU_{k_{0}}\| \geq
+\frac{2\|\xi\|}{3}$。进而对任意~$N \in \mathbb{N}$ 有
+\begin{align*}
+1 \geq \|T^{*}TU_{k_{0}}\|^{2} &\geq \sum_{k = k_{0}}^{k_{0} + N}
+|<T^{*}TU_{k_{0}} U_{k}>|^{2} \\
+                        &\geq N\|TU_{k_{0}}\|^{2}(\|TU_{k_{0}}\| -
+                        \varepsilon)^{2}\\
+                        &\geq \frac{N\|TU_{k_{0}}\|^{2}\|\xi\|^{2}}{9}
+                        \mbox{。}
+\end{align*}
+即得到矛盾。 \endproof
+
+\proof[\bf 定理~3.9 的证明]
+如果~$T$ 为~$Alg(\F_{\infty})$ 中的非零紧算子，并且~$\|T\| =
+1$。不失一般性，可以认为~$T1 = \xi \neq 0$。这是因为，如果~$T \neq
+0$，则必存在~$g \in G$，使得~$Tg \neq 0$。又有~$TR_{g}$（$R_{g}$
+为右乘算子）依然为~$
+Alg(\F_{\infty})$ 中的紧算子。由是可令~$TR_{g}$ 代替~$T$ 继续讨论。
+
+因为~$T \in Alg(\F_{\infty})$，所以~$(I - P_{n})TP_{n} = 0$，即~$(1 -
+U_{n})T(1 + U_{n})1 = 0$。由上面引理可知
+\begin{align*}
+\lim_{n}\|(1-U_{n})\xi\| = \lim_{n}\|(1-U_{n})TU_{n}\| \leq
+2\lim_{n}\|TU_{n}\| = 0 \mbox{。}
+\end{align*}
+但同时我们可以找到~$n_{0} \in \mathbb{N}$，使得对于任意~$m >
+n_{0}$，$|<U_{m}\xi, \xi>| < \frac{1}{2}\|\xi\|^{2}$ 成立，继而
+\begin{align*}
+\|(1-U_{m})\xi\|^{2} &= <(1-U_{m})\xi, (1-U_{m})\xi> \\
+                     &\geq \|\xi\|^{2} \mbox{。}
+\end{align*}
+则以上两不等式相互矛盾，即~$\xi \neq 0$ 的假设不成立，定理得证。
+\endproof
+
+现在我们继续对~$\Alg(\F_{3})$ 的讨论。首先给出以下为人所知的事实，为完整起见同时
+给出其证明。
+
+\begin{lem}
+若~$U$ 为 ~$\II_1$ 型因子~$\M$（$\subset
+\B(\H)$）中的~Haar 酉元，$A$ 为~$\M$ 中的算子（或附属于~$\M$ 的无界算子）。
+并且~$A$ 与~$U$ 自由，则任意非零复数都不属于~$AU$ 的点谱。
+\end{lem}
+
+\proof 首先注意到，$0 \neq \lambda \in
+\mathbb{C}$ 为~$AU$ 的点谱当且仅当~$1$ 为~$\frac{1}{\lambda}AU$ 的点谱。而~$\frac{1}{\lambda}
+A$ 和~$U$ 依然满足引理中的条件，所以只需证明在引理条件下~$1$ 不为~$AU$ 的点谱。
+其次如果~$A$ 为附属于~$\M$ 的无界算子，若存在~$\beta \in
+\H$，使得~$AU\beta = \beta$，则投影~$P = \overline{\{\M^{'}\beta\}}
+\in \M$。并且对任意~$\xi \in P$，有~$AU\xi =
+\xi$。由极分解定理及~$II_{1}$ 型因子的性质，我们可以选取~$Q \in
+\{A\}^{''}$，使得~$AQ$ 为有界算子，并且~$Q \wedge UPU^{*} \neq
+0$。若选取~$\xi \in P\H$ 使得~$U\xi \in Q\H$，则~$AQU\xi = AU\xi =
+\xi$。而~$AQ$ 和~$U$ 依然满足引理条件。可见只需对于~$\|A\| <
+\infty$ 的情况证明 在引理条件下~$1$ 不为~$AU$ 的点谱即可。
+
+现在假设~$A$ 有界，若~$1$ 为~$AU$ 的点谱，由~$A$ 与~$U$ 自由，及~$U$ 为~haar 酉元可知，
+对于任意~$\lambda \in \mathbb{C}$，$|\lambda |= 1$，都有~$A$ 与~$\lambda
+U$ 自由，并且~$1$ 为~$\lambda AU$ 的点谱。这就说明对任意~$|\lambda |=
+1$，$\lambda
+$ 属于~$AU$ 的点谱。同样由于~$A$ 与~$U$ 的自由性，如果记~$P_{\lambda}$ 为对应于
+~$AU$ 点谱~$\lambda$ 的谱投影，则对任意~$|\lambda_{1}|=1$，$|\lambda_{2}|=1
+$ 有~$P_{\lambda_1} \sim
+P_{\lambda_{2}}$。下面我们将归纳证明如果~$\lambda_{1} , \lambda_{2},
+\ldots , \lambda_{n}$ 为~$n$（$n \geq
+2$）个不同的范数为~$1$ 的复数，则有~$P_{\lambda_{n}} \wedge (\vee_{i =
+1}^{n-1} P_{\lambda_{i}}) = 0$。
+
+$n=2$ 时结论自然成立。假设对于~$n \leq k \in
+\mathbb{N}$ 结论成立。令~$\lambda_{1} , \lambda_{2}, \ldots ,
+\lambda_{k+1}$ 为~$k+1$ 个范数等于~$1$ 的复数。如果~$\xi \in
+(P_{\lambda_{k+1}} \wedge (\vee_{i = 1}^{k}
+P_{\lambda_{i}}))\H$，对任意~$\varepsilon > 0$，存在~$\xi_{i} \in
+P_{\lambda_{i}}\mathcal{H} (i = 1,2,\ldots k)$ 使得
+\begin{align*}
+\|\xi - \xi_{1} -\xi_{2} - \ldots - \xi_{k} \| < \varepsilon
+\mbox{，}
+\end{align*}
+于是有
+\begin{align*}
+\|\lambda_{k+1}\xi - \lambda_{1}\xi_{1} - \lambda_{2}\xi_{2} -
+\ldots - \lambda_{k}\xi_{k} \| < \|A\|\varepsilon \mbox{。}
+\end{align*}
+由以上两个不等式可以得到
+\begin{align*}
+\|(\lambda_{k+1} - \lambda_{k})\xi - (\lambda_{1} -
+\lambda_{k})\xi_{1} - (\lambda_{2} - \lambda_{k})\xi_{2} - \ldots -
+(\lambda_{k-1} - \lambda_{k})\xi_{k-1} \| < (\|A\| + 1)\varepsilon
+\mbox{，}
+\end{align*}
+这等价于
+\begin{align*}
+\|\xi - \frac{(\lambda_{1} - \lambda_{k})}{(\lambda_{k+1} -
+\lambda_{k})}\xi_{1} - \frac{(\lambda_{2} -
+\lambda_{k})}{(\lambda_{k+1} - \lambda_{k})}\xi_{2} - \ldots -
+\frac{(\lambda_{k-1} - \lambda_{k})}{(\lambda_{k+1} -
+\lambda_{k})}\xi_{k-1} \| < \frac{(\|A\| + 1)}{\|\lambda_{k+1} -
+\lambda_{k}\|}\varepsilon \mbox{，}
+\end{align*}
+此即说明~$\xi$ 事实上属于~$(P_{\lambda_{k+1}} \wedge (\vee_{i =
+1}^{k-1} P_{\lambda_{i}}))\H$，但由归纳假设~$P_{\lambda_{k+1}} \wedge
+(\vee_{i = 1}^{k-1} P_{\lambda_{i}}) =
+0$，结论得证。若~$\tau$ 为~$\M$ 的忠实迹态，由于~$P_{\lambda_1} \sim
+P_{\lambda_{2}}$，$\tau(P_{\lambda_1})=
+\tau(P_{\lambda_{2}})$。现在反复应用引理~3.3 中等式，可得到
+\begin{align*}
+1 \geq \tau(\vee_{i=1}^{n} P_{\lambda_{i}}) =
+n\tau(P_{\lambda_{1}}), \quad \forall n \in \mathbb{N},
+\end{align*}
+以上成立当且仅当~$\tau(P_{\lambda_{1}}) = 0$，即~$P_{\lambda_{1}} =
+0$，于是有~$1$ 不为~$AU$ 的点谱。\endproof
+
+接下来，我们开始描述~$\Lat(\Alg(\F_3))$ 的结构。在此过程中将频繁使用无界算子进行计算。
+由前所述附属于~$II_{1}$ 型因子~$\L_{G_3}=M_2(\M)$ 的无界算子构成一个代数，并由算子的
+函数演算（function
+calculus），下文中用到的无界算子几乎都可被视为相对于~Lebesgue 测度定义在
+~$(0,1)$ 区间上的（正）函数。譬如将~$H$（$=H_1$ 或~$H_2$）与
+~$\cos^2\frac{\pi}2\theta$ 等同时，$I-H$，$\sqrt{H(I-H)}$，
+$\sqrt{H^{-1}}$，$\sqrt{(I-H)^{-1}}$ 可被视为三角函数，并且其中一个被确定时，其余随之确定。
+同时由引理~3.12 可知，许多自由（非自伴）算子的的线性组合，如
+\begin{align*}
+&\sqrt{H_{1}(I-H_{1})^{-1}} -\sqrt{H_{2}(I-H_{2})^{-1}}V \\
+&=\sqrt{H_{1}(I-H_{1})^{-1}}
+(I-\sqrt{H_{1}^{-1}(I-H_{1})}\sqrt{H_{2}(I-H_{2})^{-1}}V) \mbox{，}
+\end{align*}
+都可逆（其逆可能为无界算子）。
+
+当~$S, T$ 为附属于~$\L_{G_3}$，或有限~von
+Neumann 代数的无界算子时，对于~$X\in\B(\H)$，算子~$SXT$ 可被视为有界算子~$SE_\epsilon
+XF_\epsilon T$ 在弱算子拓扑下的极限，其中~$E_\epsilon$ 和~$F_\epsilon$
+为属于~$\L_{G_3}$（或相应的有限~von
+Neumann 代数）的投影，使得~$SE_\epsilon$ 和~$F_\epsilon
+T$ 为有界算子，并且当~$\epsilon$ 趋于~0 时，$E_\epsilon$，$F_\epsilon$ 强算子趋于~$I$。
+由此，对于属于~$\B(\H)$ 的弱算子稠子代数~$\cup_\epsilon E_\epsilon
+\B(\H) F_\epsilon$ 的算子~$X$，$SXT$ 为有界算子。
+
+在以上的意义下，现将引理~3.8 重新叙述为如下形式。
+
+\begin{lem}
+$H_1,H_2, V\in\M\subset\L_{G_3}$ 由引理~3.8 中给定，令~$S=
+\sqrt{H_{1}(I-H_{1})^{-1}} -
+\sqrt{H_{2}(I-H_{2})^{-1}}V$ 为附属于~$\M$ 的无界算子。对~$
+T\in\Alg(\F_3)$，存在~$A \in \B$ 使得
+\begin{align*}
+T =\left(
+     \begin{array}{cc}
+     A   & \sqrt{H_{1}(I-H_{1})^{-1}}S^{-1}AS - A\sqrt{H_{1}(I-H_{1})^{-1}} \\
+     0   & S^{-1}AS \\
+     \end{array}
+   \right) \mbox{。}
+\end{align*}
+反之，若~$A\in\B$ 使得~$S^{-1}AS$ 和~$\sqrt{H_{1}(I-H_{1})^{-1}}S^{-1}AS
+- A\sqrt{H_{1}(I-H_{1})^{-1}}$ 为有界算子，则~$T$ 属于~$\Alg(\F_3)$。
+\end{lem}
+
+由以上引理，及之前讨论，可见满足上述条件的算子为~$\B$ 中在强算子拓扑下的稠子集，
+由此可知~$\Alg(\F_3)$ 包含众多算子，特别的~$\Alg(\F_3)\cap\L_{G_3}$ 为无限维。应用此
+事实，不难证明~$\Lat(\Alg(\F_3))$ 中非平凡的投影（及不为~$0,I$），在~$\L_{G_{3}}$ 的迹态~$\tau$ 下
+都取值为~$\frac12$。我们将此事实叙述为以下推论。
+
+\begin{cor}
+对~$\Lat(\Alg(\F_3)) \backslash \{0, I, P_1\}$ 中的任意投影~$Q$，有~$Q
+\wedge P_{1} = 0$，$Q \vee P_{1} = I$，并且~$\tau(Q) = \frac{1}{2}$。
+\end{cor}
+
+\proof 对任意~$Q \in \Lat(\Alg(\F_3))$，可知~$Q\wedge P_1 \in
+\Lat(\Alg(\F_3))$，即在引理~3.13 中算子~$T$ 的~$(1,1)$ 位置的算子~$A$ 的作用下不变，由前
+讨论即知~$Q\wedge
+P_1$ 在~$\B$ 的某强算子拓扑稠子集的作用下不变，就可推出~$Q\wedge P_1 =
+P_{1}$ 或~0。类似的可以证明~$Q\vee P_1=I$ or $P_1$。继而对~$Q \neq
+P_{1}$，应用引理~3.3 中等式就有~$\tau(Q) = \tau(Q \vee P_{1}) -
+\tau(P_{1}) + \tau(Q \wedge P_{1}) = 1 - \frac{1}{2} + 0 =
+\frac{1}{2}$。\endproof
+
+\begin{rem}
+注意到以上推论实际证明了对于任意属于~$\Lat(\Alg(\F_3)) \setminus
+\{0,I\}$ 的投影~$Q_{1}, Q_{2}$，以下成立~$Q_{1} \wedge Q_{2} = 0$，
+$Q_{1} \vee Q_{2} = I$。
+\end{rem}
+
+以下对于属于~$\B(\H)$ 的有界算子，或附属于某有限~von
+Neumann 代数的无界算子~$X$，我们记~$\supp(X)$ 为~$X$ 的支撑集，即~$X^*X$ 的值域投影。当
+~$\supp(X)=\supp(X^*)=I$ 时，$X$ 可逆（其逆可能是无界算子）。
+
+\begin{thm}
+对于~$\Lat(\Alg(\F_3)) \setminus \{0, I,
+P_{1}\}$ 中的任意投影~$Q$，存在~$K$ 和~$U$ 属于~$\M$ 使得
+\begin{align*}
+Q = \left(
+     \begin{array}{cc}
+      K & \sqrt{K(I-K)}U \\
+      U^{*}\sqrt{K(I-K)} & U^{*}(I-K)U \\
+  \end{array}
+\right) \mbox{，}
+\end{align*}
+并且~$\sqrt{K(I-K)^{-1}}$（或~$K$）和~$U$ 由无界算子
+\begin{align*}
+&(1+a)\sqrt{H_{1}(I-H_{1})^{-1}}- a\sqrt{H_{2}(I-H_{2})^{-1}}V \\
+&=aS + \sqrt{H_{1}(I-H_{1})^{-1}}= \sqrt{K(I-K)^{-1}} U
+\end{align*}
+的极分解唯一确定，其中~$a \in \mathbb{C}$。反之，对于任意给定~$a \in
+\mathbb{C}$，由上述极分解给定的~$U$ 和~$K$ 可（由定理中的形式）唯一给出~$\Lat(\Alg(\F_3))$ 中的投影~$Q$。
+\end{thm}
+
+\proof 对于属于~$\Lat(\Alg(\F_3)) \setminus \{0, I,
+P_{1}\}$ 的投影~$Q$，相对于~$M_{2}(\mathbb{C})$ 中的矩阵单位（即相对于~$P_{1}$），
+可以将其写为
+\begin{align*}
+Q = \left(
+     \begin{array}{cc}
+      K & \sqrt{K(I-K)}U \\
+      U^{*}\sqrt{K(I-K)} & U^{*}(I-K)U \\
+  \end{array}
+\right) \mbox{，}
+\end{align*}
+其中~$K$（$0 \leq K \leq
+I$），$U$（总可适当选取，使得~$U$ 为酉算子，不失一般性可以假设~$U$ 为酉算子）属于~$\M$，
+并且由推论~3.14 可知，$\supp(I-K) =I$。
+从引理~3.13 知对于~$A\in\B$（$M_2(\C)$ 在~$\B(l^2(G_3))$ 中的换位子，
+$\B\cong\B(\H)$，$\H$ 为某一~Hilbert 空间），使得~$S^{-1}AS$，
+$\sqrt{H_{1}(I-H_{1})^{-1}}S^{-1}AS$，
+和~$A\sqrt{H_{1}(I-H_{1})^{-1}}$ 为有界算子，则
+\begin{align*}
+T =\left(
+     \begin{array}{cc}
+       A & \sqrt{H_{1}(I-H_{1})^{-1}}S^{-1}AS - A\sqrt{H_{1}(I-H_{1})^{-1}} \\
+       0 & S^{-1}AS \\
+     \end{array}
+   \right) \in \Alg(\F_3) \mbox{，}
+\end{align*}
+并且满足以上条件的算子在强算子拓扑下为~$\B$ 中的稠子集。从此即得
+\begin{align*}
+(I&-K)A\sqrt{K(I-K)}U +
+(I-K)\left[\sqrt{H_{1}(I-H_{1})^{-1}}S^{-1}AS \right.\cr & -
+\left.A\sqrt{H_{1}(I-H_{1})^{-1}}\right]U^{*}(I-K)U -
+\sqrt{K(I-K)}US^{-1}ASU^{*}(I-K)U = 0 \mbox{，}
+\end{align*}
+再由~$\supp(I-K) = I$，$I-K$ 可逆，就得到
+\begin{align*}
+&\sqrt{I-K}A\left[\sqrt{K} -
+\sqrt{H_{1}(I-H_{1})^{-1}}U^{*}\sqrt{I-K}\right]\cr &=
+\left[\sqrt{K}U -
+\sqrt{I-K}\sqrt{H_{1}(I-H_{1})^{-1}}\right]S^{-1}ASU^{*}\sqrt{I-K}
+\mbox{。}
+\end{align*}
+于是
+\begin{align*}
+&A[\sqrt{K} -
+\sqrt{H_{1}(I-H_{1})^{-1}}U^{*}\sqrt{I-K}](SU^{*}\sqrt{I-K})^{-1}\cr
+&= \sqrt{(I-K)^{-1}}[\sqrt{K}U -
+\sqrt{I-K}\sqrt{H_{1}(I-H_{1})^{-1}}]S^{-1}A \mbox{。}
+\end{align*}
+因为令上等式成立的算子形成的子代数在~$\B$（$\cong
+\B(\H_1)$）强算子稠。就有，存在~$a \in \mathbb{C}$ 使得
+\begin{align*}
+a\sqrt{I-K} &= [\sqrt{K}U -
+            \sqrt{I-K}\sqrt{H_{1}(I-H_{1})^{-1}}]S^{-1},\cr
+aSU^*\sqrt{I-K}&= \sqrt{K} -
+\sqrt{H_{1}(I-H_{1})^{-1}}U^{*}\sqrt{I-K} \mbox{。}
+\end{align*}
+这就说明
+\begin{align*}
+\sqrt{K(I-K)^{-1}}U = aS+ \sqrt{H_{1}(I-H_{1})^{-1}} \mbox{。}
+\end{align*}
+由引理~3.12 可以推出~$\supp(K) = I$，且~$U$ 为酉算子。
+反之，若~$K$ 和~$U$ 由以上等式给定。由引理~3.13，可以验证定理中给定的投影~$Q$ 属于
+~$\Lat(\Alg(\F_3))$。 \endproof
+
+\section{Kadison-Singer 代数~$\Alg(\F_3)$}
+
+本节中，我们将证明~$\Lat(\Alg(\F_3))$ 是~Kadsion-Singer 格，进而有
+~$\Alg(\F_3)$ 为~Kadsion-Singer 代数。要证明此事实，我们需要一下两个引理。
+
+\begin{lem}
+对于~$\Lat(\Alg(\F_3)) \setminus \{0, I,
+P_{1}\}$ 中任意两个投影~$Q_{1}$，$Q_{2}$，我们有~$\Alg(\{P_{1}, Q_{1},
+Q_{2}\}) = \Alg(\F_3)$。
+\end{lem}
+
+\proof 由定理~3.15，可以假设对于~$i=1$，$2$ 有
+\begin{align*}
+Q_{i}& =\left(
+          \begin{array}{cc}
+            K_{i} & \sqrt{K_{i}(I-K_{i})}U_{i} \\
+            U_{i}^{*}\sqrt{K_{i}(I-K_{i})} & U_{i}^{*}(I-K_{i})U_{i} \\
+          \end{array}
+        \right) \mbox{，且} \\
+\sqrt{K_{i}(I-K_{i})^{-1}} U_{i} &=
+(1+a_i)\sqrt{H_{1}(I-H_{1})^{-1}}-
+a_i\sqrt{H_{2}(I-H_{2})^{-1}}V \\
+&=a_{i}S +
+\sqrt{H_{1}(I-H_{1})^{-1}} \mbox{，}
+\end{align*}
+其中~$a_{1}$，$a_{2}\in \mathbb{C}$，并且~$a_{1} \neq a_{2}$。
+于是有
+\begin{align*}
+\sqrt{K_{1}(I-K_{1})^{-1}}U_{1} - \sqrt{K_{2}(I-K_{2})^{-1}}U_{2}
+= (a_{1} - a_{2})S \mbox{。}
+\end{align*}
+现在用~$(a_{1} - a_{2})S$ 替换引理~3.13 中的~$S$，就可看出~$\Alg(\{P_{1}, Q_{1},
+Q_{2}\}) = \Alg(\F_3)$。 \endproof
+
+\begin{lem}
+对于任意属于~$\Lat(\Alg(\F_3)) \setminus
+\{0, I \}$ 的三个投影~$Q_1, Q_2$ and $Q_3$，有~$P_{1} \in \Lat(\Alg(\{Q_{1},
+Q_{2}, Q_{3}\}))$。
+\end{lem}
+
+\proof 与前引理同样，假设对于~$i=1$，$2$，$3$，
+\begin{align*}
+Q_{i}& =\left(
+          \begin{array}{cc}
+            K_{i} & \sqrt{K_{i}(I-K_{i})}U_{i} \\
+            U_{i}^{*}\sqrt{K_{i}(I-K_{i})} & U_{i}^{*}(I-K_{i})U_{i} \\
+          \end{array}
+        \right) \mbox{，}
+\end{align*}
+$a_{1}$，$a_{2}$，$a_3$ 为三互不相等复数。
+
+要证明本引理，只需说明如果
+\begin{align*}
+A =\left(
+     \begin{array}{cc}
+       A_{11} & A_{12} \\
+       A_{21} & A_{22} \\
+     \end{array}
+   \right)\in
+\Alg(\{Q_{1}, Q_{2}, Q_{3}\}) \mbox{，}
+\end{align*}
+则~$A_{21} = 0$。现假设~$A$ 属于~$\Alg(\{Q_{1}, Q_{2}, Q_{3}\})$。于是对于
+~$i=1$，$2$，$3$ 有~$ (I-Q_{i})AQ_{i} = 0$。比较等式~$AQ_i=Q_iAQ_i$ 两端~$2 \times 2$ 矩阵的~$(1,2)$
+位置得到
+\begin{align*}
+(I-K_i)( A_{11}\sqrt{K_i(I-K_i)}U_i+ &A_{12}U_i^*(I-K_i)U_i)\cr =
+\sqrt{K_i(I-K_i)}U_i &
+(A_{21}\sqrt{K_i(I-K_i)}U_i+A_{22}U_i^*(I-K_i)U_i) \mbox{。}
+\end{align*}
+在~$II_{1}$ 型因子~$\L_{G_{3}}$ 中选取投影~$E_{\varepsilon}$ 使得
+~$E_{\varepsilon}\sqrt{K_{i}(I-K_{i})^{-1}}$（$i=1,2,3$），$E_{\varepsilon}S$，
+$E_{\varepsilon}\sqrt{H_{1}(I-H_{1})^{-1}}$ 都为有界算子，并且当~$\varepsilon
+\rightarrow 0$ 时，$E_{\varepsilon}$ 强算子收敛到~$I$。则对于任意
+\begin{align*}
+\xi \in
+(\cap_{i=1}^{3}\D(U_i^*(I-K_i)^{-1}U_i))\cap(\D(S))\cap(\D(\sqrt{H_{1}(I-H_{1})^{-1}}))
+\mbox{（为~$\H$ 中的稠子集）}
+\end{align*}
+以下等式成立
+\begin{align*}
+A_{11}\sqrt{K_{i}(I-K_{i})^{-1}}U_{i}\xi + A_{12}\xi =
+\sqrt{K_{i}(I-K_{i})^{-1}}U_{i}[A_{21}\sqrt{K_{i}(I-K_{i})^{-1}}U_{i}\xi
++ A_{22}\xi] \mbox{。}
+\end{align*}
+又从~$\sqrt{K_{i}(I-K_{i})^{-1}} U_{i} =a_{i}S +
+\sqrt{H_{1}(I-H_{1})^{-1}}$，则对于~$i$，$j=1$，$2$，$3$ 有
+\begin{align*}
+E_{\varepsilon}\sqrt{K_{i}(I  -K_{i})^{-1}} & U_{i}A_{21}
+\sqrt{K_{i}(I-K_{i})^{-1}}U_{i}\xi -
+E_{\varepsilon}\sqrt{K_{j}(I-K_{j})^{-1}}
+U_{j}A_{21}\sqrt{K_{j}(I-K_{j})^{-1}}U_{j}\xi \\
+&= (a_{i} -a_{j})[E_{\varepsilon}A_{11}S\xi -
+E_{\varepsilon}SA_{22}\xi] \mbox{。}
+\end{align*}
+由此推出
+\begin{align*}
+&(a_{1}-a_{2})E_{\varepsilon}\sqrt{K_{3}(I-K_{3})^{-1}}U_{3}A_{21}
+\sqrt{K_{3}(I-K_{3})^{-1}}U_{3}\xi +\\
+&(a_{2}-a_{3})E_{\varepsilon}\sqrt{K_{1}(I-K_{1})^{-1}}U_{1}A_{21}
+\sqrt{K_{1}(I-K_{1})^{-1}}U_{1}\xi +\\
+&(a_{3}-a_{1})E_{\varepsilon}\sqrt{K_{2}(I-K_{2})^{-1}}U_{2}A_{21}
+\sqrt{K_{2}(I-K_{2})^{-1}}U_{2}\xi = 0 \mbox{。}
+\end{align*}
+再次应用关系~$\sqrt{K_{i}(I-K_{i})^{-1}}U_{i} = a_{i}S +
+\sqrt{H_{1}(I-H_{1})^{-1}}$，从上等式就有
+\begin{align*}
+&[a_{3}^{2}(a_{1} - a_{2}) + a_{1}^{2}(a_{2} - a_{3}) +
+a_{2}^{2}(a_{3} - a_{1})]E_{\varepsilon}SA_{21}S\xi \\
+&+[a_{3}(a_{1} - a_{2}) + a_{1}(a_{2} - a_{3}) + a_{2}(a_{3} -
+a_{1})][E_{\varepsilon}SA_{21}\sqrt{H_{1}(I-H_{1})^{-1}}\xi \\
+  &\qquad +
+E_{\varepsilon}\sqrt{H_{1}(I-H_{1})^{-1}}A_{21}S\xi] \\
+&+[(a_{1} - a_{2}) + (a_{2} - a_{3}) + (a_{3} -
+a_{1})]E_{\varepsilon}\sqrt{H_{1}(I-H_{1})^{-1}}A_{21}\sqrt{H_{1}(I-H_{1})^{-1}}\xi
+= 0 \mbox{，}
+\end{align*}
+即有
+\begin{align*}
+(a_{1} - a_{2})(a_{1} - a_{3})(a_{2} -
+a_{3})E_{\varepsilon}SA_{21}S\xi = 0 \mbox{。}
+\end{align*}
+此式就说明~$A_{21} = 0$，于是命题成立。
+
+\begin{lem}
+由~$\mathbb{C}$ 到~$\Lat(\Alg(\F_3))$ 定义如下一一映射
+\begin{align*}
+\mathbb{C} \rightarrow \Lat(\Alg(\F_3)) \quad : a \rightarrow Q_{a}
+&= \left(
+          \begin{array}{cc}
+            K_{a} & \sqrt{K_{a}(I-K_{a})}U_{a} \\
+            U_{a}^{*}\sqrt{K_{a}(I-K_{a})} & U_{a}^{*}(I-K_{a})U_{a} \\
+          \end{array}
+        \right) \mbox{，} \\
+\sqrt{K_{a}(I-K_{a})^{-1}}U_{a} &= aS + \sqrt{H_{1}(I-H_{1})^{-1}}
+\mbox{。}
+\end{align*}
+则当~$\mathbb{C}$ 赋予通常意义下的范数拓扑，$\Lat(\Alg(\F_3))$ 赋予~$\|.\|_{2}$ 范数拓扑时，
+此映射为连续映射。
+\end{lem}
+
+\proof 只需证明当~$a \rightarrow a_{0}$ 时，$\|Q_{a} - Q_{a_0}\|_{2}
+\rightarrow 0$。从以下（$tr(.)$ 为~$\M$ 上的迹态）
+\begin{align*}
+\|Q_{a} - Q_{a_0}\|_{2}^{2} &= 1 - 2\tau(Q_{a}Q_{a_{0}}) \\
+                            &= 1 - tr(K_{a}K_{a_0}) -
+                            tr(\sqrt{K_{a}(I-K_{a})}U_{a}U^{*}_{a_0}\sqrt{K_{a_0}(I-K_{a_0})})\\
+                            & -
+                            tr(U^{*}_{a}\sqrt{K_{a}(I-K_{a})}\sqrt{K_{a_0}(I-K_{a_0})}U_{a_0})\\
+                            & -
+                            tr(U^{*}_{a}(I-K_{a})U_{a}U^{*}_{a_0}(I-K_{a_0})U_{a_0})
+\end{align*}
+可见只需证明当~$a \rightarrow a_{0}$ 时，
+\begin{align}
+&|tr((K_{a}-K_{a_0})K_{a_0})| \rightarrow 0 ,\\
+&|tr((\sqrt{K_{a}(I-K_{a})}U_{a}
+-\sqrt{K_{a_0}(I-K_{a_0})}U_{a_0})U^{*}_{a_0}\sqrt{K_{a_0}(I-K_{a_0})})
+| \rightarrow 0, \\
+&|tr((U^{*}_{a}\sqrt{K_{a}(I-K_{a})}-U^{*}_{a_0}\sqrt{K_{a_0}(I-K_{a_0})})\sqrt{K_{a_0}(I-K_{a_0})}U_{a_0})|
+\rightarrow 0,\\
+&|tr(K_{a} - K_{a_0})| \rightarrow 0, \quad |tr((U^{*}_{a}K_{a}U_{a}
+-U^{*}_{a_0}K_{a_0}U_{a_0})U^{*}_{a_0}K_{a_0}U_{a_0})| \rightarrow 0
+\mbox{。}
+\end{align}
+以下我们只证明~$(3.1)$，$(3.2)$，其余可类似证明。
+
+首先注意到对任意~$a \in \mathbb{C}$，
+\begin{align*}
+K_{a}(I-K_{a})^{-1} = |a|^{2}SS^{*} + aS\sqrt{H_{1}(I-H_{1})^{-1}} +
+\overline{a}\sqrt{H_{1}(I-H_{1})^{-1}}S +
+\sqrt{H_{1}(I-H_{1})^{-1}}　\mbox{。}
+\end{align*}
+以下记~$F(a) = |a|^{2}SS^{*} + aS\sqrt{H_{1}(I-H_{1})^{-1}} +
+\overline{a}\sqrt{H_{1}(I-H_{1})^{-1}}S +
+\sqrt{H_{1}(I-H_{1})^{-1}}$。于是
+\begin{align*}
+K_{a} = F(a)(I + F(a))^{-1} \mbox{。}
+\end{align*}
+对于任意~$\varepsilon > 0$，可选取投影~$F_{\varepsilon} \in
+\M$ 使得，若~$E_{\varepsilon} = Range((I+F(a_0))^{-1}F_{\varepsilon})
+\in
+\M$，则~$SS^{*}E_{\varepsilon}$，$S\sqrt{H_{1}(I-H_{1})^{-1}}E_{\varepsilon}$，
+$\sqrt{H_{1}(I-H_{1})^{-1}}SE_{\varepsilon}$，
+$\sqrt{H_{1}(I-H_{1})^{-1}}E_{\varepsilon}$
+都为有界算子，并且~$tr(I-F_{\varepsilon})=tr(I-E_{\varepsilon}) <
+\varepsilon^{2}$。由此知存在~$\beta > 0$，只要~$|a-a_{0}| <
+\beta$，就有~$\|F(a)E_{\varepsilon} - F_{a_0}E_{\varepsilon}\| <
+\varepsilon$。于是
+\begin{align*}
+|tr((K_{a}-K_{a_0})K_{a_0})| &\leq
+|tr(K_{a_0}(K_{a}-K_{a_0})F_{\varepsilon})| +
+|tr(K_{a_0}(K_{a}-K_{a_0})(I-F_{\varepsilon}))| \\
+&\leq
+|tr(K_{a_0}(I+F(a))^{-1}(F(a)-F(a_0))(I+F(a_0))^{-1}F_{\varepsilon})|
++ 2\varepsilon  \leq 3\varepsilon \mbox{。}
+\end{align*}
+
+要证明~$(3.2)$，类似的, 对任意~$\varepsilon >
+0$，选取投影~$P_{\varepsilon} \in
+\M$ 使得，$SP_{\varepsilon}$，$\sqrt{H_{1}(I-H_{1})^{-1}}P_{\varepsilon}$ 为有界算子，
+并且~$tr(I - P_{\varepsilon}) <
+\varepsilon^{2}$。同样的就存在~$\beta_{1} > 0$ 使得只要~$|a-a_{0}| <
+\beta_{1}$，就有
+\begin{align*}
+\| \sqrt{K_a(I-K_a)^{-1}}U_{a}P_{\varepsilon} -
+\sqrt{K_{a_0}(I-K_{a_{0}})^{-1}}U_{a_0}P_{\varepsilon}  \| \leq
+\varepsilon \mbox{。}
+\end{align*}
+于是
+\begin{align*}
+&|tr((\sqrt{K_{a}(I-K_{a})}U_{a}
+-\sqrt{K_{a_0}(I-K_{a_0})}U_{a_0})U^{*}_{a_0}\sqrt{K_{a_0}(I-K_{a_0})})|
+\\
+&\leq
+|tr(U^{*}_{a_0}\sqrt{K_{a_0}(I-K_{a_0})}(\sqrt{K_{a}(I-K_{a})}U_{a}
+-\sqrt{K_{a_0}(I-K_{a_0})}U_{a_0})P_{\varepsilon})
+| \\
+&+
+|tr(U^{*}_{a_0}\sqrt{K_{a_0}(I-K_{a_0})}(\sqrt{K_{a}(I-K_{a})}U_{a}
+-\sqrt{K_{a_0}(I-K_{a_0})}U_{a_0})(I-P_{\varepsilon}))
+| \\
+&\leq
+|tr(U^{*}_{a_0}\sqrt{K_{a_0}(I-K_{a_0})}(I-K_{a})[\sqrt{K_a(I-K_a)^{-1}}U_{a}P_{\varepsilon}
+- \sqrt{K_{a_0}(I-K_{a_{0}})^{-1}}U_{a_0}P_{\varepsilon}]) | \\
+&+
+|tr(\sqrt{K_{a_0}(I-K_{a_{0}})^{-1}}U_{a_0}P_{\varepsilon}U^{*}_{a_0}\sqrt{K_{a_0}(I-K_{a_0})}(K_{a_0}
+-K_a))| + 2\varepsilon \\
+&\leq
+|tr(\sqrt{K_{a_0}(I-K_{a_{0}})^{-1}}U_{a_0}P_{\varepsilon}U^{*}_{a_0}\sqrt{K_{a_0}(I-K_{a_0})}(K_{a_0}
+-K_a))| + 3\varepsilon  \mbox{。}
+\end{align*}
+再用证明~$(3.1)$ 的方法对上不等式进行估计，即可证明~$(3.2)$。
+\endproof
+
+完全类似以上，我们得到如下结果。
+
+\begin{lem}
+应用引理~3.18 中的符号有，当~$a \rightarrow
+\infty$，$Q_a$ 强算子收敛于~$P_1$。
+\end{lem}
+
+注意到使用引理~3.18 的符号有~$P_{2} = Q_0$，$P_{3} =
+Q_{-1}$，由引理~3.19，我们可以定义~$Q_{\infty}$ 为~$P_1$，即得到如下定理。
+
+\begin{thm}
+$\Alg(\F_3)$ 是~KS- 代数，并且~$\Lat(\Alg(\F_3))$ 中的投影~$P$ 若不为~$0$，
+$I$，$P_1$，则
+\begin{align*}
+P=\left(
+    \begin{array}{cc}
+      K & \sqrt{K(I-K)}U \\
+       U^{*}\sqrt{K(I-K)} & U^{*}(I-K)U \\
+    \end{array}
+  \right) ,
+\end{align*}
+其中~$K$ 和~$U$ 由如下极分解唯一决定
+\begin{align*}
+(a+1)\sqrt{H_1(I-H_1)^{-1}} -a
+\sqrt{H_2(I-H_2)^{-1}}V=\sqrt{K(I-K)^{-1}}U , \quad a\in\mathbb{C}
+\mbox{。}
+\end{align*}
+此外还有
+~$\tau(P)=\frac12$，及当~$a$ 趋于~$\infty$ 时，投影~$P$ 强算子收敛于~$P_1$。一般的有
+~$\Lat(\Alg(\F_3))\setminus \{0,I\}$ 同胚于~$S^2$。
+\end{thm}
+
+\proof 首先由引理~3.18，3.19 可以看出映射
+\begin{align*}
+S^2 \rightarrow \Lat(\Alg(\F_3))\setminus \{0,I\} : \quad a
+\rightarrow \left\{
+\begin{array}{cc}
+Q_{a} , & a \in \mathbb{C}\\
+P_{1} , & a = \infty \\
+\end{array}
+\right.
+\end{align*}
+（$Q_{a}$ 的意义与引理~3.18 中相同）为从~$S^2$（$\mathbb{C}$ 的一点紧化）到~$\Lat(\Alg(\F_3))\setminus
+\{0,I\}$（取二范数拓扑）上的连续映射，由于~$S^{2}$ 为紧集，并且~$\Lat(\Alg(\F_3))\setminus
+\{0,I\}$ 为~Hausdorff 空间，即得此映射为同胚。
+
+剩下我们只需证明格~$\Lat(\Alg(\F_3))$ 的极小性。显然如果子格~$\L_1$ 只包含~$\Lat(\Alg(\F_3))$ 的
+两个投影~$Q_1,Q_2$，则~$\L_1$ 不能生成~$II_1$ 型因子~$\L_{G_3}$。由引理~3.17，若~$\Lat(\Alg(\F_3))$ 的自反子格
+包含大于等于三个非平凡投影，则此子格与~$\Lat(\Alg(\F_3))$ 相同。于是定理得证。
+\endproof
+
+虽然上述定理是对于三个自由投影生成的格~$\F_3$ 叙述的，但对于某些并不自由的三个投影~$P_1$，
+$P_2$ 和~$P_3$，也可得到类似结论。我们知道许多因子都可由三个投影生成。特别的令~$\M$ 为
+~$II_{1}$ 型因子，$\tau$ 为~$\M$ 上的迹态。$M_2(\C)\subseteq\M$，并且
+~$M_2(\C)'\cap\M=\NNN$ 为由~$H_1$，$H_2$ 和~$V$ 生成的~$\M$ 的子因子，此处~$0\le
+H_1$，$H_2\le
+I$，$V$ 为酉元。不妨假设~$\M$ 作用在~$\H=L^2(\M,\tau)$ 上。令~$P_1=\left(\begin{array}{cc}
+1&0\\0&0 \\ \end{array} \right)\in
+M_2(\C)$ 为~$\M$ 中的投影。进一步若有
+\begin{align*}
+P_2=\left(\begin{array}{cc}
+H_1 & \sqrt{H_1(I-H_1)}\\
+\sqrt{H_1(I-H_1)} & I-H_1 \\
+\end{array}
+\right), \quad
+P_3= \left(\begin{array}{cc}
+H_2 & \sqrt{H_2(I-H_2)}V \\
+V^*\sqrt{H_2(I-H_2)} & V^*(I-H_2)V \\
+\end{array}
+\right)
+\end{align*}
+为~$\M$ 中的投影，并且满足~$P_2\vee P_3=I$，$P_2\wedge P_3=0$，及
+~$\sqrt{H_1(I-H_1)^{-1}}$，$\sqrt{H_2(I-H_2)^{-1}}$ 和\\
+$\sqrt{H_1(I-H_1)^{-1}}
+-\sqrt{H_2(I-H_2)^{-1}}V$ 都为有界可逆算子。可以检验，当~$H_1$，$H_2$
+相互自由，其谱属于~$(0,1)$ 且不相交，$V=I$，并且~$\sqrt{H_1(I-H_1)^{-1}}$
+与~$\sqrt{H_2(I-H_2)^{-1}}$ 的谱互不相交时，之前条件满足。
+
+\begin{thm}
+由以上假设及符号有，$\Alg(\{P_1,
+P_2,P_3\})$ 为~Kadison-Singer 代数，并且~$\Lat(\Alg(\{P_1,
+P_2,P_3\}))$ 由以下决定：$P\in\Lat(\Alg(\{P_1, P_2,P_3\}))$，则~$P\neq
+0, I, P_1$ 当且仅当有
+\begin{align*}
+P= \left(\begin{array}{cc}
+L & \sqrt{L(I-L)}U \\
+U^{*}\sqrt{L(I-L)} & I - U^{*}LU \\
+\end{array}
+\right) \mbox{，}
+\end{align*}
+其中~$L$ 和~$U$ 由下述极分解唯一决定，$(a+1)\sqrt{H_1(I-H_1)^{-1}} -a
+\sqrt{H_2(I-H_2)^{-1}}V=\sqrt{L(I-L)^{-1}}U$，$a\in\C$。由此可知~$\tau(P)=\frac12$。
+\end{thm}
+
+上述定理的证明与定理~3.20 的证明完全类似。并且同样可以验证，当~$a\to\infty$ 时，定理~3.21 中的
+投影~$P$ 强算子收敛于~$P_1$。于是即有~$\L = \Lat(\Alg(\{P_1, P_2,P_3\}))
+\setminus\{0,I\}$ 同胚于复平面的一点紧化（即为~$S^{2}$）。
+
+当格包含四个或四个以上属于某~von
+Neumann 代数的投影时，情况将更为复杂。即使对于~$\F_4$（由四个自由投影生成的格），目前我们也还
+不能完全确定~$\Lat(\Alg(\F_4))$，但由已知的结果，可以得到其包含数个~$S^2$。对于~$n\ge4$，
+决定~$\Alg(\F_n)$ 是否包含紧算子是我们感兴趣的问题。
+
+\section{约化格}
+本节中我们将对于属于有限~von
+Neumann 代数的格，定义其中投影之间的等价关系。
+
+\begin{defn}
+若~$\L$ 为属于有限~von Neumann 代数~$\M$ 的投影格，对于~$\M$ 上的某忠实
+正规迹态~$\tau$，称~$\L$ 中的投影~$P$，$Q$ 为连通的（connected），当且仅当
+对于任意~$\epsilon > 0$，存在~$\L$ 中的投影~$P_1$，$P_2$，$\ldots$，
+$P_n$，使得~$P_1=P$，$P_n=Q$，$|\tau(P_j-P_{j+1})|<\epsilon$，并且
+对于~$j=1$，$\ldots$，$n-1$ 有，$P_j\le P_{j+1}$ 或~$P_j\ge P_{j+1}$。
+\end{defn}
+
+记包含~$P$ 的联通分支为~$O(P)$，即为~$\L$ 中所有与~$P$ 连通的投影的集合。及
+~$\Gamma_0(\L)$ 为~$\L$ 中所有连通分支的集合。以下将看到~$\L$ 上的格结构可自然地
+诱导~$\Gamma_0(\L)$ 上的格结构，在此意义下，我们称~$\Gamma_0(\L)$ 为~$\L$ 的
+约化格。
+
+由以上定义易见，如果~$\L$ 为连续套，则~$\Gamma_0(\L)$ 将只包含一个点。下面给出
+关于连通分支的基本事实。
+
+\begin{prop}
+若~$\L$ 为属于有限~von
+Neumann 代数~$\M$ 的投影格，$P$，$Q\in\L$。如果~$O(P)\neq
+O(Q)$，则~$O(P)\cap O(Q)=\emptyset$。
+\end{prop}
+
+此命题的证明可由定义直接给出。若~$O(P)$，$O(Q)$ 为~$\Gamma_0(\L)$ 中的两个等价类，
+则对于任意~$Q_1\in O(Q)$，易知~$O(P\vee Q)=O(P\vee
+Q_1)$。事实上，由定义
+对于任意~$\varepsilon$，存在~$P_1$，$P_2$，$\ldots$，
+$P_n$，$P_1=Q$，$P_n=Q_1$，$|\tau(P_j-P_{j+1})|<\epsilon$，并且
+对于~$j=1$，$\ldots$，$n-1$ 有，$P_j\le P_{j+1}$ 或~$P_j\ge
+P_{j+1}$。不妨假设~$P_j\le P_{j+1}$，则~$P_{j+1} = P_{j} \vee
+P^{'}$，$\tau(P^{'}) \le \varepsilon$，于是有
+\begin{align*}
+&|\tau(P\vee P_{j}) - \tau(P\vee P_{j+1})| = |\tau(P\vee P_{j}) -
+\tau(P\vee P_{j} \vee P^{'})|\\
+&|\tau(P^{'}) - \tau((P\vee P_{j}) \wedge  P^{'})| \leq \varepsilon
+\mbox{。}
+\end{align*}
+就说明~$P\vee Q$ 与~$P\vee Q_{1}$ 连通。所以~$O(P\vee Q)$ 只取决于~$O(P)$
+和~$O(Q)$，而与~$O(P)$，$O(Q)$ 中代表元的选取无关。由是可以定义~$O(P)\vee
+O(Q)=O(P\vee Q)$。类似的，可以证明定义~$O(P)\wedge O(Q)=O(P\wedge
+Q)$ 合理。显然在以上定义下，$\L$ 上的格结构诱导了~$\Gamma_0(\L)$ 上的格结构。
+由定义，立得如下定理。
+
+\begin{thm}
+若~$\L$ 为有限~von
+Neumann 代数~$\M$ 中的投影格，$\tau$ 为~$\M$ 的某个（忠实，正规）迹态。如果~$\tau(\L)$
+只含有有限个值，则~$\Gamma_0(\L)$ 与~$\L$ 相等（即~$\L$ 中每个连通分支都为独点集）。
+\end{thm}
+
+从以上定理，我们知道~$\Gamma_0(\Lat(\Alg(\F_3)))=\Lat(\Alg(\F_3))$。若~$\L$
+为~Kadison-Singer 格，并且~$\L$ 生成一个有限~von Neumann 代数。如果
+~$\Gamma_0(\L)$ 只包含一个点，我们称~$\L$ 为可缩的（contractible）。譬如，连续套为可缩的。
+并且显然约化格不能包含连续套。下面的定理表明定理~3.23 的逆命题不成立。
+
+\begin{thm}
+若~$\L^{(n)}$ 为第二章中（对于迹态~$\tau$）给出的格，则有~$\Gamma_0(\L^{(n)})=\L^{(n)}$。
+\end{thm}
+
+以上定理的证明有赖于以下两个引理（下述证明中的符号请参考第二章相应内容）。
+
+\begin{lem}
+令~$P = E^{(1)}_{i} +
+F_{n-i}^{(1)}Q$ 为~$\L^{(n)}$ 中投影，则~$\widetilde{P} = E^{(1)}_{j} +
+F_{n-j}^{(1)}\widetilde{Q} \leq P$ 当且仅当~$j \leq
+i$，且~$\widetilde{Q} \leq Q$。并有~$| \tau(P) - \tau(Q)| =
+\frac{i-j}{n} + \frac{\tau(Q - \widetilde{Q})}{n}$。
+\end{lem}
+
+上述引理的证明十分简单（如可考虑投影在迹态下的取值），在此省略证明。但需
+注意到，引理说明若在两投影~$P = E^{(1)}_{i} + F_{n-i}^{(1)}Q$，
+$\widetilde{P} = E^{(1)}_{j} + F_{n-j}^{(1)}\widetilde{Q}$ 满足~$P
+\leq \widetilde{P}$，或~$P \geq \widetilde{P}$ 的前提下，$|\tau(P -
+\widetilde{P})| \leq \frac{1}{n}$ 当且仅当~$i =
+j$。有了以上观察，容易得到以下引理。
+
+\begin{lem}
+令~$P_{1} = E^{(1)}_{i_{1}} + F_{n-i_{1}}^{(1)}Q_{1}$，$P_{2} =
+E^{(1)}_{i_{2}} +
+F_{n-i_{2}}^{(1)}Q_{2}$ 为~$\mathcal{L}^{(n)}$ 中的两投影，如果~$i_{1}
+\neq i_{2}$，则有~$P_{1}$，$P_{2}$ 不连通。
+\end{lem}
+
+\proof 假设~$P_{1}$，$P_{2}$ 连通，则由定义有，对于~$\varepsilon \leq
+\frac{1}{n}$，存在~$\L^{(n)}$ 中的投影~$\widetilde{P}_{1}$，
+$\widetilde{P}_{2}$，$\ldots$，$\widetilde{P}_{m}$，使得~$P_{1} =
+\widetilde{P}_{1}$，$\widetilde{P}_{m} = P_{2}$，
+$|\tau(\widetilde{P}_{j} - \widetilde{P}_{j+1})| < \varepsilon$，
+并且~$\widetilde{P}_{j} \leq \widetilde{P}_{j+1}$ 或~$\widetilde{P}_{j}
+\geq \widetilde{P}_{j+1}$。由前讨论，因为~$ \widetilde{P}_{1} = P_{1}
+=  E^{(1)}_{i_{1}} + F_{n-i_{1}}^{(1)}Q_{1}$，就有~$
+\widetilde{P}_{2} = E^{(1)}_{i_{1}} +
+F_{n-i_{1}}^{(1)}\widetilde{Q_{2}}$，归纳即有~$ \widetilde{P}_{j} =
+E^{(1)}_{i_{1}} + F_{n-i_{1}}^{(1)}\widetilde{Q_{j}} (j = 1, 2,
+\ldots m)$。特别的
+\begin{align*}
+E^{(1)}_{i_{1}} + F_{n-i_{1}}^{(1)}\widetilde{Q_{m}}
+=\widetilde{P}_{m} = P_{2} = E^{(1)}_{i_{2}} +
+F_{n-i_{2}}^{(1)}Q_{2} ,
+\end{align*}
+与假设矛盾。 \endproof
+
+应用以上方法，简单的数学归纳即得定理~3.24，在此仅给出证明概要。
+
+\proof[定理~3.24 的证明]
+只需说明若~$P_{1}$，$P_{2}$ 为~$\mathcal{L}^{(n)}$ 中两个不相同的投影，则~$P_{1}
+$，$P_{2}$ 不连通。
+
+如果~$P_{1} \neq P_{2}$，则必存在~$k \in \mathbb{N}$ 使得
+\begin{align*}
+P_{1} &= E_{a_{1}}^{(1)} + F_{n-a_{1}}^{(1)}E_{a_{2}}^{(2)} + \cdots
++ (\prod_{i=1}^{k-2}F_{n-a_{i}}^{(i)})E_{a_{k-1}}^{(k-1)}+
+(\prod_{i=1}^{k-1}F_{n-a_{i}}^{(i)})E_{a_{k}}^{(k)} +
+(\prod_{i=1}^{k}F_{n-a_{i}}^{(i)})Q_{1},\\
+P_{2} &= E_{a_{1}}^{(1)} + F_{n-a_{1}}^{(1)}E_{a_{2}}^{(2)} + \cdots
++ (\prod_{i=1}^{k-2}F_{n-a_{i}}^{(i)})E_{a_{k-1}}^{(k-1)}+
+(\prod_{i=1}^{k-1}F_{n-a_{i}}^{(i)})E_{b_{k}}^{(k)} +
+(\prod_{i=1}^{k-1}F_{n-a_{i}}^{(i)})F_{n-b_{k}}^{(k)}Q_{2},
+\end{align*}
+其中~$a_{k} \neq
+b_{k}$，则类似引理~3.26 的证明，应用数学归纳法即得结论。\endproof
+
+在结束本章前，我们给出另一种以~von
+Neumann 代数为对角的极大上三角代数（不是在~Kadison-Singer 代数意义下）的构造方法。
+
+\section{关于极大性的讨论}
+在定义~Kadison-Singer 代数时，我们要求代数相对于所有对角相同的自反代数极大。
+我们在第二章中构造的“极大上三角”代数不仅相对于所有自反代数极大，而且相对于
+所有代数具有极大性，即不需自反性，或相对于任何拓扑为闭集的假设。一般来说，要满足代数极大性
+并不容易。在本节中我们去掉自反性假设，但保留相对于弱算子拓扑闭的假设，构造
+一类相对于所有弱算子闭代数极大的，以~von Neumann 代数为对角的“上三角”代数。
+
+假设~$\M$ 为作用在~Hilbert 空间~$\H_{0}$ 上的~von
+Neumann 代数，存在~$\M$ 中的可逆正算子~$H_1$，$\ldots$，$H_n$ 满足~$H_1^2$，$H_2^2$，$\ldots$，
+$H_n^2$ 为~$\M$ 的生成元。由~[GS]，可知许多~von
+Neumann 代数都可由有限个可逆正算子生成，特别的，所有~$III$ 型和（真无限~check）的
+~von
+Neumann 代数都满足上述条件。令~$\H$ 为~$n+1$ 个~$\H_{0}$ 的直和。则~$\B(\H)\cong
+M_{n+1}(\B(\H_0))$。由此，我们同时将 ~$M_{n+1}(\C)$ 和~$\B(\H_0)$
+视为~$\B(\H)$ 的子代数。令~$E_{ij}$，$i$，$j=1$，$\ldots$，$n+1$，为
+~$M_{n+1}(\C)$ 的矩阵单位。相对于以上矩阵单位，我们可以将~$\B(\H)$ 中元素记为以
+~$\B(\H_0)$ 中算子为矩阵元的算子矩阵。则得到以下定理。
+
+\begin{thm}
+若定义弱算子闭代数
+\begin{align*}
+\A= \left\{ \left( \begin{array}{cccc}
+                 A & * &  \ldots & * \\
+                 0 & H_1^{-1} A H_1 & \ldots & * \\
+                 \vdots & \vdots & \ddots & \vdots\\
+                 0 & 0 & \ldots & H_n^{-1} A H_n \\
+                 \end{array}
+     \right) :\quad  A \in \B(\H_0) \right\},
+\end{align*}
+其中~$*$ 代表该位置可取~$\B(\H_{0})$ 中任意元素为值。则~$\A$ 满足~$\A \cap
+\A^{*} = M_{n+1}(\M)'$（$\cong
+\M'\cap\B(\H_0)$）。并且~$\A$ 在之前提到的意义下极大，即对于任意
+满足~$\A \subset \W$ 的弱算子闭代数~$\W$，如果~$\W \cap \W^{*} = \A \cap
+\A^{*}$，就有~$\W = \A$。
+\end{thm}
+
+下面我们证明此结论。
+
+\begin{lem}
+$\A$ 弱算子闭，且满足~$\A \cap \A^{*} = M_{n+1}(\M)'$。
+\end{lem}
+
+\proof 首先说明~$\A$ 弱算子闭。由~$\A$ 的定义有~$A \in {\cal
+U}_{0}$ 当且仅当
+  \begin{align}
+    E_{i,i}AE_{j,j} &= 0 (i>j)\\
+    E_{1,1}AE_{1,1} &= H_i E_{1,i+1} A E_{i+1,1} {H_i}^{-1} \mbox{。}
+  \end{align}
+则显然有，如果~$T_\alpha \overset{\text{WOT}}{\longrightarrow} T$，$
+T_\alpha \in {\cal
+  A}$，$ E_{i,i}T E_{j,j} = \lim_{\alpha} E_{i,i}T_\alpha E_{j,j} = 0
+  (i>j)$，及
+  \begin{align*}
+     E_{1,1}T E_{1,1} &= \lim_{\alpha} E_{1,1}T_\alpha E_{1,1}\\
+                      &= \lim_{\alpha} H_i  E_{1,i+1} T_\alpha E_{i+1,1} {H_i}^{-1} \\
+                      &= H_i  E_{1,i+1} T E_{i+1,1} {H_i}^{-1} ,
+  \end{align*}
+这就说明~$T \in \A$。
+
+要证明~$\A \cap \A^{*} =
+M_{n+1}(\M)'$，只需说明任意属于~$\A$ 的自伴算子~$H$ 属于~$M_{n+1}(\M)'$。由~$(3.5)$，$(3.6)$
+易见，对于~$H \in \A$ 有
+\begin{align*}
+    E_{i,i}HE_{j,j} &= 0 (i \neq j) ,\\
+    E_{1,1}HE_{1,1} &= H_i E_{1,i+1} H E_{i+1,1} {H_i}^{-1} ,\\
+    E_{1,1}HE_{1,1} &= {H_i}^{-1} E_{1,i+1} H E_{i+1,1} {H_i},
+\end{align*}
+由假设~$\{ {H_1}^2, {H_2}^2,\ldots, {H_n}^2 \}'' = \M
+$，可见上述等式正说明~$H \in M_{n+1}(\M)'$。 \endproof
+
+
+\begin{lem}
+对于~$M_{n+1}(\B(\H_{0}))$ 中的算子~$T$，如果由~$\A$ 与~$T$ 生成的代数~$\W$（不需要取弱算子闭包）满足
+~${\cal W}^* \cap {\cal W} = M_{n+1}(\M)'$，则有~$E_{i,i}TE_{j,j} =
+0$，$i > j$，$i,j = 1, \ldots n+1$。
+\end{lem}
+
+\proof 如果存在~$i > 1$ 使得~$E_{i,i}TE_{1,1} \neq 0$，令
+\begin{align*}
+E_{1,1}UHE_{1,1} = E_{1,i}TE_{1,1} = E_{1,i}T - {\sum_{j=2}^{n+1}
+    E_{1,i}TE_{j,j}}
+\end{align*}
+为~$E_{1,i}TE_{1,1} (\in {\cal W})$ 的极分解，则有
+\begin{align*}
+E_{1,1}HE_{1,1} = (E_{1,1}U^*E_{1,1} + \sum_{j=2}^{n+1} H_{j-1}^{-1}
+E_{j,1}U^{*}E_{1,j}
+     H_{j-1})E_{1,1}UHE_{1,1} \in {\cal W} \mbox{，}
+\end{align*}
+但显然~$E_{1,1}HE_{1,1}$ 不属于~$M_{n+1}(\M)'$，与假设矛盾。类似的，可证明其余情况。\endproof
+
+\proof[定理~3.27 的证明]
+要证明定理，只需说明对于属于~$\B(\H)$ 的算子~$T$，如果~$T$ 与~$\A$ 生成的弱算子闭代数~$\W$ 满足
+~${\cal W}^* \cap {\cal W} = M_{n+1}(\M)'$，即有~$T \in
+\A$。由引理~3.29，以及~$\A$ 的构造，不妨假设
+\begin{align*}
+T = \left(%
+           \begin{array}{cccc}
+              A_{1} & 0 & \ldots & 0 \\
+              0 & H_{1}^{-1} A_{2} H_{1} & \ldots & 0 \\
+              \vdots & \vdots & \ddots  & \vdots \\
+              0 & 0 & \ldots & H_{n}^{-1} A_{n+1} H_{n} \\
+           \end{array}%
+         \right) \in  {\cal W} \mbox{。}
+\end{align*}
+以下将证明~$A_1 = A_2 = \ldots = A_{n+1}$，等价于要说明~$A_{1} -
+A_{n+1} = A_{2} - A_{n+1} = \ldots = 0$。如若不然，不失一般性可假设
+~$A_{1} - A_{n+1} \neq 0$，$A_{1} - A_{n+1} \geq
+0$。事实上，如果令~$UK$ 为~$A_{1} - A_{n+1}$ 的极分解，就有
+\begin{align*}
+&\left(%
+           \begin{array}{cccc}
+              U^* & 0 & \ldots & 0 \\
+              0 & H_{1}^{-1} U^* H_{1} & \ldots & 0 \\
+              \vdots & \vdots & \ddots  & \vdots \\
+              0 & 0 & \ldots & H_{n}^{-1} U^* H_{n} \\
+           \end{array}%
+         \right)\\
+         &\times \left(%
+           \begin{array}{ccccc}
+              A_{1} - A_{n+1} & 0 & \ldots & 0 &0 \\
+              0 & H_{1}^{-1} (A_{2} - A_{n+1}) H_{1} & \ldots & 0 &0\\
+              \vdots & \vdots & \ddots  & \vdots & \vdots\\
+              0 & 0 & \ldots &H_{n-1}^{-1} (A_{n} - A_{n+1}) H_{n-1} &
+              0\\
+              0 & 0 & \ldots & 0 & 0\\
+           \end{array}%
+         \right)\\
+         &=
+          \left(%
+           \begin{array}{cccc}
+              K & 0 & \ldots & 0 \\
+              0 & H_{1}^{-1} U^*(A_{2} - A_{n+1}) H_{1} & \ldots & 0 \\
+              \vdots & \vdots & \ddots  & \vdots \\
+              0 & 0 & \ldots & 0 \\
+           \end{array}%
+         \right)
+         \in {\cal W} \mbox{。}
+\end{align*}
+
+由以上讨论，现假设~$A_1 \geq 0$，$A_{n+1} =
+0$。选取~$\B(\H_{0})$ 中的一维投影~$P $，使得~$PA_{1}P = c_{1}P \neq
+0$，于是有
+\begin{align*}
+  \frac{1}{c_1} &\left(%
+       \begin{array}{cccc}
+          P & 0 & \ldots & 0 \\
+          0 & H_{1}^{-1} P H_{1} & \ldots & 0 \\
+          \vdots & \vdots & \ddots  & \vdots \\
+          0 & 0 & \ldots & H_{n}^{-1} P H_{n} \\
+       \end{array}%
+  \right)\times
+  \left(%
+       \begin{array}{cccc}
+          A_{1} & 0 & \ldots & 0 \\
+          0 & H_{1}^{-1} A_{2} H_{1} & \ldots & 0 \\
+          \vdots & \vdots & \ddots  & \vdots \\
+          0 & 0 & \ldots & 0 \\
+       \end{array}%
+  \right)\\
+  \times &\left(%
+       \begin{array}{cccc}
+          P & 0 & \ldots & 0 \\
+          0 & H_{1}^{-1} P H_{1} & \ldots & 0 \\
+          \vdots & \vdots & \ddots  & \vdots \\
+          0 & 0 & \ldots & H_{n}^{-1} P H_{n} \\
+       \end{array}%
+  \right)
+  =
+    \left(%
+       \begin{array}{cccc}
+          P & 0 & \ldots & 0 \\
+          0 & c_{2} H_{1}^{-1} P H_{1} & \ldots & 0 \\
+          \vdots & \vdots & \ddots  & \vdots \\
+          0 & 0 & \ldots & 0 \\
+       \end{array}%
+  \right) \in {\cal W} ,
+\end{align*}
+其中~$c_{i}P = \frac{1}{c_{1}}PA_{i}P$（$i =2,\ldots,
+n$）。由算子的函数演算，不妨假设~$c_i = 1$（$i =2,\ldots, n$）。
+令~$\{e_{\alpha}\}_{\alpha}$，为~$\H$ 的一组标准正交基，并且~$Pe_{\alpha_0}
+ = e_{\alpha_0}$。使~$V_{\alpha}$ 为将~$e_{\alpha}$ 映为~$e_{\alpha_{0}}$ 的部分等距算子，
+则有~$\sum_{\alpha}V_{\alpha}PV_{\alpha}^{*} = I$（其有限和弱算子收敛为~$I$）。
+于是
+\begin{align*}
+  \left(%
+       \begin{array}{cccc}
+          I & 0 & \ldots & 0 \\
+          0 & I & \ldots & 0 \\
+          \vdots & \vdots & \ddots  & \vdots \\
+          0 & 0 & \ldots & 0 \\
+       \end{array}%
+  \right) \in {\cal W}^{*} \cap {\cal W},
+\end{align*}
+则假设与引理条件矛盾，定理得证。 \endproof
+
+\begin{rem}
+对于定理~3.27 中定义的代数，如果投影~$P = (P_{ij})_{i,j=1}^{n+1} \in \Lat(\A)$，$P_{ij}\in\B(\H_0)$，
+简单的矩阵计算即可验证~$P$ 必须为对角矩阵，并且~$(I-P_{ii})TP_{jj}=0$，对于~$i<j$，及任意
+~$T$ in $\B(\H_0)$。就有~$P=\sum_{j=1}^k E_{jj}$，$k$ 为某不大于~$n+1$ 的自然数。此即说明
+\begin{align*}
+\Lat(\A)=\{0, E_{11},\ldots, \sum_{j=1}^{n}E_{jj}, I\} \mbox{。}
+\end{align*}
+同时显然~$\A \subsetneqq \Alg(\Lat(\A))$，即~$\A$ 不为自反代数。
+\end{rem}

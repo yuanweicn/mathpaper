@@ -1,0 +1,190 @@
+\begin{thebibliography}{10}
+
+\bibitem{Con1}
+A.Connes.
+\newblock Uneclassification des facteurs de type $\mathrm{III}$.
+\newblock {\em Ann.Sci.$\acute{e}$cole}, 6:133--152, 1973.
+
+\bibitem{Con2}
+A.Connes.
+\newblock Classification of injective factors, cases $\mathrm{II_{1},
+  II_{\infty}, III_{\lambda}}$,$\lambda\neq1$.
+\newblock {\em Ann.Math.}, 104:73--115, 1976.
+
+\bibitem{Av}
+W.B. Arveson.
+\newblock A density theorem for operator algebras.
+\newblock {\em Duke Math.J}, 34:635--647, 1967.
+
+\bibitem{VDN}
+K.Dykema D.Voiculescu and A.Nica.
+\newblock Free random variables.
+\newblock {\em CRM Monograph Series}, 1, 1992.
+
+\bibitem{Dyk}
+Ken Dykema.
+\newblock Free products of hyperfinite von neumann algebras and free dimension.
+\newblock {\em Duke Math.J.}
+
+\bibitem{MV1}
+J.~von~Neumann F.J.~Murray.
+\newblock On rings of operators.
+\newblock {\em Ann.Math.}, 37:116--229, 1936.
+
+\bibitem{MV2}
+J.~von~Neumann F.J.~Murray.
+\newblock On rings of operators, $\mathrm{II}$.
+\newblock {\em Trans.Amer.Math.Soc.}, 41:208--248, 1937.
+
+\bibitem{MV3}
+J.~von~Neumann F.J.~Murray.
+\newblock On rings of operators, $\mathrm{IV}$.
+\newblock {\em Ann.Math.}, 44:716--808, 1943.
+
+\bibitem{Ge1}
+L.~Ge.
+\newblock Applications of free entropy to finite von neumann algebras
+  $\mathrm{I}$.
+\newblock {\em Amer.J.Math}, 119:467--458, 1997.
+
+\bibitem{Ge2}
+L.~Ge.
+\newblock Applications of free entropy to finite von neumann algebras
+  $\mathrm{II}$.
+\newblock {\em Ann.Math}, 147:no.1,143--157, 1998.
+
+\bibitem{GY1}
+Liming Ge and Wei Yuan.
+\newblock Kadison-singer algebras, $\mathrm{I}$ - hyperfinite case.
+\newblock {\em to appear}.
+
+\bibitem{GY2}
+Liming Ge and Wei Yuan.
+\newblock Kadison-singer algebras, $\mathrm{II}$ - finite case.
+\newblock {\em to appear}.
+
+\bibitem{RR}
+H.Radjavi and P.Rosenthal.
+\newblock {\em Invariant Subspaces}.
+\newblock Springer-Verlag, Berlin, 1973.
+
+\bibitem{G2}
+J.Glimm.
+\newblock On acertain class of operator algebras.
+\newblock {\em Trans.Amer.Math.Soc}, 95:318--340, 1960.
+
+\bibitem{G}
+J.Glimm.
+\newblock Type {I $C^{*}$}-algebras.
+\newblock {\em Ann.Math.}, 73:572--611, 1961.
+
+\bibitem{Ha}
+K.Harrison.
+\newblock On lattices of invariant subspaces.
+\newblock {\em Doctoral Thesis}, 1970.
+
+\bibitem{GS}
+L.Ge and J.Shen.
+\newblock On the generator problem of von neumann algebras.
+\newblock {\em Proc. of ICCM (Hong Kong)}, 2004.
+
+\bibitem{Tak1}
+M.Takesaki.
+\newblock {\em Tomita's theory of modular Hilbert algebras and its
+  applications,Lecture Notes in Mathematics}, volume 128.
+\newblock Springer-Verlag,Heidelberg, 1970.
+
+\bibitem{Tak2}
+M.Takesaki.
+\newblock Duality for corssed products and the structure of von neumann
+  algebras of type $\mathrm{III}$.
+\newblock {\em Acta.Math.}, 131:249--310, 1973.
+
+\bibitem{To}
+M.Tomita.
+\newblock Standard forms of von neumann algebras.
+\newblock {\em Fifth Functional Analysis Symposium of the
+  Math.Soc.Japan,Aenddai}, 1967.
+
+\bibitem{H1}
+P.Halmos.
+\newblock Two subspaces.
+\newblock {\em Trans.Amer.Math.Soc.}, 144:381--389, 1969.
+
+\bibitem{H2}
+P.Halmos.
+\newblock Reflexive lattices of subspaces.
+\newblock {\em J.London Math.Soc.}, 4:257--263, 1971.
+
+\bibitem{Rin1}
+J.R. Ringrose.
+\newblock On some algebras of operators.
+\newblock {\em Proc.London Math.Soc.}, (3) 15:61--83, 1965.
+
+\bibitem{Rin2}
+J.R. Ringrose.
+\newblock On some algebras of operators $\mathrm{II}$.
+\newblock {\em Proc.London Math.Soc.}, (3) 16:385--402, 1966.
+
+\bibitem{Ka}
+R.Kadison.
+\newblock On the orthogonalization of operator representations.
+\newblock {\em Amer.J.Math.}, 78:600--621, 1955.
+
+\bibitem{KS}
+R.Kadison and I.Singer.
+\newblock Triangular operator algebras. fundamentals and hyperreducible theory.
+\newblock {\em Amer.J.Math.}, 82:227--259, 1960.
+
+\bibitem{KR}
+R.Kadison and J.Ringrose.
+\newblock {\em Fundamentals of the Operator Algebras}, volume I and II.
+\newblock Academic Press, Orlando, 1983 and 1986.
+
+\bibitem{P}
+R.Powers.
+\newblock Representations of uniformly hyperfinite algebras and their
+  associated von neumann rings.
+\newblock {\em Ann.Math.}, 86:138--171, 1967.
+
+\bibitem{Haa1}
+U.Haagerup.
+\newblock Connes' bicentralizer problem and uniqueness of the injective factor
+  of type $\mathrm{III}_{1}$.
+\newblock {\em Acta.Math}, 158:95--148, 1987.
+
+\bibitem{Jon}
+V.Jones.
+\newblock Index for subfactors.
+\newblock {\em Invent.Math.}, 72:1--25, 1983.
+
+\bibitem{Dan}
+Dan Voiculescu.
+\newblock Circular and semicircular systems and free product factors.
+\newblock {\em Operator Algebras, Unitary Representations, Enveloping Algebras,
+  and Invariant Theory, Progress in Mathematics}, 92, 1990.
+
+\bibitem{Dan2}
+Dan Voiculescu.
+\newblock The analogues of entropy and of fisher's information measure in free
+  probablity theory $\mathrm{II}$.
+\newblock {\em Invent.Math.}, 118:411--440, 1994.
+
+\bibitem{Dan3}
+Dan Voiculescu.
+\newblock The analogues of entropy and of fisher's information measure in free
+  probablity theory $\mathrm{III}$:the absence of cartan subalgebras.
+\newblock {\em Geom.Funct.Anal.}, vol6, no.1:172--199, 1996.
+
+\bibitem{von1}
+J.~von Neumann.
+\newblock Zur algebra der funktionaloperatoren und theorie der normalen
+  operatoren.
+\newblock {\em Math.Ann.}, 102:370--437, 1929.
+
+\bibitem{von2}
+J.~von Neumann.
+\newblock On rings of operators, $\mathrm{III}$.
+\newblock {\em Ann.Math.}, 41:94--161, 1940.
+
+\end{thebibliography}
