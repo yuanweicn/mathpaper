@@ -1,0 +1,874 @@
+\documentclass[a4paper,10pt]{amsart}
+
+\usepackage[protrusion=true,expansion=true]{microtype} 
+\usepackage{fancyhdr}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx} 
+\usepackage{wrapfig} 
+
+\usepackage{mathpazo}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{hyperref}
+\usepackage{cleveref}
+\usepackage{comment}
+\usepackage{color}
+
+\newtheorem{example}{Example}[section]
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}{Proposition}[section]
+\newtheorem{corollary}{Corollary}[section]
+\newtheorem{definition}{Definition}[section]
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{remark}{Remark}[section]
+\newtheorem{question}{Question}[section]
+
+\crefname{lemma}{Lemma}{lemmas}
+\crefname{remark}{Remark}{remark}
+\crefname{corollary}{Corollary}{corollary}
+\crefname{theorem}{Theorem}{theorem}
+\crefname{example}{Example}{example}
+\crefname{definition}{Definition}{definition}
+
+\newcommand{\AAA}{\mathfrak A}
+\newcommand{\BBB}{\mathcal B}
+\newcommand{\CCC}{\mathcal C}
+\newcommand{\HHH}{\mathcal H} %for Hilbert space
+\newcommand{\LLL}{\mathcal L} % for lattice
+\newcommand{\MMM}{\mathcal M}
+
+
+\newcommand{\Lat}{\mathcal Lat}
+\newcommand{\Alg}{\mathcal Alg}
+\newcommand{\tr}{\tau}
+\newcommand{\C}{\mathbb C} %for complex number
+\newcommand{\R}{\mathbb R}  %for real number
+\newcommand{\Z}{\mathbb Z} %for integer
+\newcommand{\N}{\mathbb N} % for nature number
+% self defined vars
+\newcommand{\titleinfo}{A note on operators commuted with a 
+    unbounded operator afflicated with II$_1$ factors}
+\newcommand{\authorinfo}{Wenming Wu and Wei Yuan} 
+
+\linespread{1.05}
+\pagestyle{fancyplain}
+\fancyhf{}
+%\fancyhf[HLE,HRO]{\titleinfo}
+\fancyhf[HRE,HLO]{\authorinfo}
+\fancyhf[FC]{\thepage}
+
+\begin{document}
+
+\title{\LARGE\textbf{\titleinfo}} 
+\author{\large\textsc{\authorinfo}} 
+\address{AMSS}  
+\email{}
+
+\date{}
+
+%\renewcommand{\abstractname}{Summary} 
+\begin{abstract}
+Enter abstract here
+\end{abstract}
+
+% Keywords
+\subjclass[2010]{Primary 47L75; Secondary 15A30}
+\keywords{von Neumann algebras, unbounded operators}
+\thanks{}
+\maketitle
+
+
+\section*{Introduction}
+Introduction here!
+
+\section{Unbounded Fuglede-Putnam Theorem}
+The celebrated Fuglede-Putnam theorem in its classical form is as follows:
+\begin{theorem}[Fuglede-Putnam Theorem] \label{fthm0}
+   If $T$ is a bounded operator and if $M$ and $N$ are normal operators, then
+   \begin{align*}
+       TN \subset MT \Rightarrow TN^{*} \subset M^{*}T.
+   \end{align*}
+\end{theorem}
+
+Fuglede \cite{F} proved the foregoing theorem in the case $N=M$ in 1950 and Putnam 
+extended it to the form given above one year later \cite{CRP}. In 1958, Rosenblum
+published a very elegant proof of the theorem in the case that $M$ and $N$ are
+bounded. We will prove the following version of Fuglede-Putnam theorem.
+
+\begin{theorem}\label{fthm1}
+    Let $\AAA$ be a finite von Neumann algebra,
+    and $T$ a closed operator affiliated with $\AAA$. 
+    If $N$ is a normal operators in $\AAA$ and $NT = TN$, then
+    $N^{*}T = TN^{*}$.
+\end{theorem}
+
+In order to prove this theorem, we will first prove the following lemma.
+\begin{lemma} \label{flam1}
+   Suppose that $\AAA$ is a finite von Neumann algebra. 
+   Let $N$ be a normal operator in $\AAA$ and $P$ a projection in $\AAA$.
+   If $(I-P)NP = 0$, then $PN = NP$.
+\end{lemma}
+
+\begin{proof}
+   Let $\tau$ be a faithful trace on $\AAA$ and  
+   \begin{align*}
+      P = \begin{pmatrix}
+          I & 0\\
+          0 & 0
+      \end{pmatrix} 
+      \qquad 
+      N = \begin{pmatrix}
+          N_1 & N_2 \\
+          0 & N_3
+      \end{pmatrix}. 
+   \end{align*}
+   Since $\tau(PN^{*}NP) = \tau(PNN^{*}P)$, 
+   $\tau|_{P\AAA P}(N_{1}^{*}N_1) = \tau|_{P\AAA P}(N_{1}N_{1}^{*} +
+   N_2 N_{2}^{*})$. Therefore, $\tau(N_2 N_{2}^{*}) = 0$ and $
+   N_2 = 0$.
+\end{proof}
+
+
+\begin{lemma} \label{flam2}
+    Let $\AAA$ be a finite von Neumann algebra,
+    and $H$ a closed positive operator affiliated with $\AAA$. 
+    If $M$ and $N$ are normal operators in $\AAA$ and $NH = HM$,
+    then $N^{*}H = HM^{*}$, $NH= HN$ and $MH=HM$. 
+    Furthermore, if $Ker(H) = \{0\}$, then
+    $M=N$.
+\end{lemma}
+
+\begin{proof}
+    If $ker(H) \neq \{0\}$, then it is not hard to see that 
+    $(I-E_{0})NE_{0}$, where $E_0$ is the orthnormal projection 
+    onto $ker(H)$. 
+    By \cref{flam1}, $E_{0}N = NE_{0}$. 
+    Since $N^{*}H = HM^{*}$, similar argument shows
+    that $E_{0}M^{*} = M^{*}E_{0}$.
+    
+    Therefore we assume $ker(H) = \{0\}$.
+    Let $\tau$ be a faithful trace on $\AAA$.
+    Let $\{ E_{\lambda} \}$ be the resolution of identity in $\AAA$ such that
+    \begin{align*}
+        H = \int_{0}^{\infty} \lambda d E_{\lambda}. 
+    \end{align*}
+Fix a $\lambda > 0$, let
+\begin{align*}
+    P = E_{\lambda} = \begin{pmatrix}
+          I & 0\\
+          0 & 0
+      \end{pmatrix}, \quad 
+   H = \begin{pmatrix}
+       H_1 & 0\\
+       0 & H_2
+   \end{pmatrix}, \quad  
+   N = \begin{pmatrix}
+       N_{11} & N_{12}\\ 
+       N_{21} & N_{22} \\
+   \end{pmatrix}, \quad  
+   M = \begin{pmatrix}
+       M_{11} & M_{12}\\ 
+       M_{21} & M_{22} \\
+   \end{pmatrix},
+\end{align*}
+where $H_1 = HE_{\lambda}$ and $H_2 = H(I-E_{\lambda})$.
+$NH = HM$ implies that
+\begin{align*}
+   \begin{pmatrix}
+       H_{1}^{-1}N_{11}H_{1} & H_{1}^{-1}N_{12}H_{2}\\
+       H_{2}^{-1}N_{21}H_{1} & H_{2}^{-1}N_{22}H_{2}\\
+   \end{pmatrix} = 
+   \begin{pmatrix}
+       M_{11} & M_{12}\\ 
+       M_{21} & M_{22} \\
+   \end{pmatrix}
+\end{align*}
+Since $M$ is normal, we have $\tau(PM^{*}MP) = \tau(PMM^{*}P)$, 
+\begin{align*}
+    &\tau \left ( \begin{pmatrix}
+           H_{1}N_{11}^{*}H_{1}^{-2}N_{11}H_{1} + 
+           H_{1}N_{21}^{*}H_{2}^{-2}N_{21}H_{1} & 0 \\
+           0 & 0
+       \end{pmatrix} \right )\\
+       = &\tau \left (\begin{pmatrix}
+       H_{1}^{-1}N_{11}H_{1}^{2}N_{11}^{*}H_{1}^{-1}
+       + H_{1}^{-1}N_{12}H_{2}^{2}N_{12}^{*}H_{1}^{-1} & 0\\
+       0 & 0
+   \end{pmatrix} \right). 
+\end{align*}
+Note that 
+\begin{align*}
+    \tau|_{P\AAA P}(H_{1}N_{11}^{*}H_{1}^{-2}N_{11}H_{1}) 
+    = \tau|_{P\AAA P}(H_{1}^{-1}N_{11}H_{1}^{2}N_{11}^{*}H_{1}^{-1}).
+\end{align*}
+We have
+\begin{align*}
+    \tau|_{P\AAA P}(H_{1}N_{21}^{*}H_{2}^{-2}N_{21}H_{1}) 
+    = \tau|_{P\AAA P}(H_{1}^{-1}N_{12}H_{2}^{2}N_{12}^{*}H_{1}^{-1}). 
+\end{align*}
+Since $\| H_{1} \| \leq \lambda$ and $\|H_{2}^{-1}\| \leq \frac{1}{\lambda}$, 
+we have
+\begin{align*}
+    \tau \left (
+    \begin{pmatrix}
+        H_{1}N_{21}^{*}H_{2}^{-2}N_{21}H_{1} & 0\\
+        0 & 0
+    \end{pmatrix} \right)
+    &\leq  \frac{1}{\lambda^{2}}
+    \tau \left (
+    \begin{pmatrix}
+        H_{1}N_{21}^{*}N_{21}H_{1} & 0 \\
+        0 & 0
+    \end{pmatrix} \right) \\
+    & = \frac{1}{\lambda^{2}} \tau \left (
+         \begin{pmatrix}
+             0 & H_1 N_{21}^{*}\\
+             0 & 0
+         \end{pmatrix}
+         \begin{pmatrix}
+             0 & 0\\
+             N_{21}H_1 & 0
+         \end{pmatrix}
+    \right ) \\
+    & = \frac{1}{\lambda^{2}} \tau \left (
+        \begin{pmatrix}
+            0 & 0\\
+            0 & N_{21}H_{1}^{2}N_{21}^{*}
+         \end{pmatrix}
+    \right ) \\
+    & \leq \tau \left (
+        \begin{pmatrix}
+            0 & 0\\
+            0 & N_{21}N_{21}^{*}
+         \end{pmatrix}
+    \right )
+    = \tau \left (
+        \begin{pmatrix}
+            N_{21}^{*}N_{21} & 0\\
+            0 & 0 
+         \end{pmatrix}
+    \right )
+\end{align*}
+Let $Q = E_{\beta} - E_{\lambda}$ where $\beta > \lambda$.
+\begin{align*}
+    &\tau \left (
+    \begin{pmatrix}
+        H_{1}^{-1}N_{12}H_{2}^{2}N_{12}^{*}H_{1}^{-1} & 0\\
+        0 & 0
+    \end{pmatrix} \right) \\
+    &\geq \beta^{2}
+     \tau \left (     
+     \begin{pmatrix}
+         H_{1}^{-1}N_{12}(I-Q)N_{12}^{*}H_{1}^{-1} & 0\\
+        0 & 0
+    \end{pmatrix} \right )
+    + \lambda^{2} \tau \left (
+     \begin{pmatrix}
+         H_{1}^{-1}N_{12}QN_{12}^{*}H_{1}^{-1} & 0\\
+        0 & 0
+    \end{pmatrix} \right)\\
+    &= \beta^{2} \tau \left ( 
+    \begin{pmatrix}
+        0 & 0\\
+        0 & (I-Q)N_{12}^{*}H_{1}^{-2}N_{12}(I-Q)
+    \end{pmatrix} \right )
+    + \lambda^{2} \tau \left (
+    \begin{pmatrix}
+        0 & 0\\
+        0 & QN_{12}^{*}H_{1}^{-2}N_{12}Q
+    \end{pmatrix} \right ) \\
+    & \geq \frac{\beta^{2}}{\lambda^2}\tau \left (
+    \begin{pmatrix}
+        0 & 0\\
+        0 & (I-Q)N_{12}^{*}N_{12}(I-Q)
+    \end{pmatrix} \right )
+    + \tau \left (
+    \begin{pmatrix}
+        0 & 0\\
+        0 & QN_{12}^{*}N_{12}Q
+    \end{pmatrix} \right ) \\ 
+    & = \frac{\beta^{2}}{\lambda^2}\tau \left (
+    \begin{pmatrix}
+        N_{12}(I-Q)N_{12}^{*} & 0\\
+        0 & 0
+    \end{pmatrix} \right )
+    + \tau \left (
+    \begin{pmatrix}
+        N_{12}QN_{12}^{*} & 0\\
+        0 & 
+    \end{pmatrix} \right )
+\end{align*}
+Since $N^{*}N = NN^{*}$, we have
+\begin{align*}
+    \tau \left(
+    \begin{pmatrix} 
+        N_{12}N_{12}^{*} & 0 \\
+        0 & 0 \\
+    \end{pmatrix}
+    \right )= 
+    \tau \left (
+    \begin{pmatrix} 
+        N_{21}^{*}N_{21} & 0 \\
+        0 & 0
+    \end{pmatrix}    
+    \right ).
+\end{align*}
+Therefore
+\begin{align*}
+    \frac{\beta^{2}}{\lambda^2}\tau \left (
+    \begin{pmatrix}
+        N_{12}(I-Q)N_{12}^{*} & 0\\
+        0 & 0
+    \end{pmatrix} \right )
+    + \tau \left (
+    \begin{pmatrix}
+        N_{12}QN_{12}^{*} & 0\\
+        0 & 
+    \end{pmatrix} \right ) \leq
+    \tau \left(
+    \begin{pmatrix} 
+        N_{12}N_{12}^{*} & 0 \\
+        0 & 0 \\
+    \end{pmatrix}
+    \right ).
+\end{align*}
+Thus
+\begin{align*}
+    \frac{\beta^{2}}{\lambda^2}\tau \left (
+    \begin{pmatrix}
+        N_{12}(I-Q)N_{12}^{*} & 0\\
+        0 & 0
+    \end{pmatrix} \right ) \leq
+    \tau \left(
+    \begin{pmatrix} 
+        N_{12}(I-Q)N_{12}^{*} & 0 \\
+        0 & 0 \\
+    \end{pmatrix}
+    \right ).
+\end{align*}
+This implies that $N_{12}(I-Q)N_{12}^{*} = 0$. Since $E_{\lambda} = 
+\wedge_{\alpha > \lambda} E_{\alpha}$, we have $N_{12}N^{*}_{12} = 0$.
+By \cref{flam1}, we have $E_{\lambda}N = NE_{\lambda}$.
+Since $\lambda$ is arbitrary, $NH = HN$. By the hypothesis, $(N-M)H = 0$.
+Thus, $N=M$ since $ker(H)= \{0\}$.
+\end{proof}
+
+Now we can prove \cref{fthm1}.
+
+\begin{proof}[Proof of \cref{fthm1}]
+    Let $T = UH$ be the polar decomposition of $T$ (
+    Since $\AAA$ is a finite von Neumann algebra, we could
+    also assume that $U$ is a unitary). $NT = TN$ is equivalent to  
+   $U^{*}NUH = HN$. Let $M = U^{*}NU$. We have $MH = HN$. By \cref{flam2},
+   $M^{*}H = HN^{*}$, and $N^{*}T = T N^{*}$. 
+\end{proof}
+
+\begin{comment}
+\begin{theorem} 
+    Let $\AAA$ be a finite von Neumann algebra with a faithful trace $\tau$,
+    and $T$ is a closed operator affiliated with $\AAA$ and $\tau(T^{*}T) < \infty$. 
+    If $M$ and $N$ are normal operators in $\AAA$ and $MT = TN$, then
+    $M^{*}T = TN^{*}$.
+\end{theorem}
+
+\begin{proof} 
+    We could assume that $\AAA$ acing on $L^2(\AAA, \tau)$ and $\zeta$ is a
+    trace vector. By the fact $\tau(T^{*}T) < \infty$, we have 
+    $\| T\zeta \|_2 < \infty$ and $\zeta \in \mathfrak{D}(T)$. By
+    Theorem 7.2.15 of \cite{KR}, there exists a * anti-isomorphism $\phi$ of $\AAA$ 
+    onto $\AAA'$ such that $A\zeta = \phi(A)\zeta$ for any $A \in \AAA$. 
+    Therefore, $\AAA \zeta = \AAA' \zeta \subset \mathfrak{D}(T)$.
+    By induction, $MT = TN$ implies that $M^{k}T=TN^{k} $ for all $k \in \N$.
+    Thus for any $z \in \C$, for any $A'$ in $\AAA'$, we have
+    \begin{align}\label{feq2}
+        e^{\Bar{z}M}T = Te^{\Bar{z}N} \mbox{ and }
+        e^{\Bar{z}M}T A' \zeta = Te^{\Bar{z}N} A' \zeta. 
+    \end{align}
+    Let $F(z) = e^{zM^{*}}Te^{-zN^{*}}A' \zeta$. By \cref{feq1},  
+    \begin{align*}
+        F(z) = A' e^{zM^{*}}e^{-\Bar{z}M}Te^{\Bar{z}N}e^{-zN^{*}}\zeta
+             = A' e^{zM^{*}-\Bar{z}M}Te^{\Bar{z}N-zN^{*}}\zeta
+             = A' e^{zM^{*}-\Bar{z}M}e^{\Bar{z}\phi(N)-z\phi(N)^{*}}T\zeta.
+    \end{align*}
+    Note that $e^{zM^{*}-\Bar{z}M}$ is a unitary in $\AAA$ and 
+    $\phi(e^{\Bar{z}N-zN^{*}})$ is a unitary in $\AAA'$. Hence 
+    $\|F(z)\|_2 \leq \|A'\|\|T\zeta\|_2$ for any $z \in \C$. Since
+    $F(z) = e^{zM^{*}}A' e^{-z\phi(N)^{*}}T\zeta$ is analytic, $F(z)$ is 
+    constant and equal to $F(0) = T A' \zeta$. Therefore, 
+    $0 = F'(z) = M^{*}TA' \zeta - A' \phi(N)^{*}T\zeta = 
+    M^{*}TA' \zeta - TN^{*} A'\zeta$ and $M^{*}T = TN^{*}$. 
+\end{proof}
+\end{comment}
+
+\begin{corollary}\label{fcor1}
+    Let $\AAA$ be a finite von Neumann algebra,
+    and $T$ a closed operator affiliated with $\AAA$. 
+    If $N$ is a normal operators in $\AAA$ and $NT = TN$, then
+    $AT = TA$ for each $A$ in the von Neumann algebra generated by $N$.
+\end{corollary}
+\begin{proof}
+    By \cref{fthm1} and Lemma 5.6.13 in \cite{KR}, we have the result.
+\end{proof}
+
+\begin{corollary}\label{fcor2}
+    Let $\AAA$ be a finite von Neumann algebra,
+    and $T$ a closed operator affiliated with $\AAA$. 
+    If $N$ is a normal operator affiliated with $\AAA$ and $NT = TN$, then
+    $N^{*}T = TN^{*}$.
+\end{corollary}
+
+\begin{proof}
+   Let $E_n$ be the spectral projections for $N$ corresponding to the set 
+   $\{ z : |z| \leq n \}$ for each positive integer $n$. 
+   Thus $\{ E_{n} \}$ is a increasing
+   sequence of projections with strong-operator limit $I$. By $NT = TN$, we have
+   \begin{align*}
+      (E_{n}NE_{n})(E_nTE_{n}) = (E_{n}TE_{n})(E_{n}NE_{n}).
+   \end{align*}  
+   By \cref{fthm1},
+   \begin{align*}
+       E_{n}N^{*}TE_{n} = (E_{n}N^{*}E_{n})(E_nTE_{n}) 
+       = (E_{n}TE_{n})(E_{n}N^{*}E_{n})=E_{n}TN^{*}E_{n}.
+   \end{align*} 
+   Note that $E_{n} \leq E_{m}$ if $n \leq m$. 
+   Multiply $E_n$ from right on both side of the equation 
+   $E_{m}N^{*}TE_{m} = E_{m}TN^{*}E_{m}$, we have
+   $E_{m}N^{*}TE_{n} = E_{m}TN^{*}E_{n}$.
+   Let $m$ tend to $\infty$,  we get $N^{*}TE_{n} = TN^{*}E_{n}$. 
+   Thus, $E_{n}T^{*}N = E_{n}NT^{*}$. Let $n$ tend to $\infty$ we have
+   $T^{*}N = NT^{*}$ and $N^{*}T = TN^{*}$. 
+\end{proof}
+
+\begin{corollary}\label{fcor3}
+    Let $\AAA$ be a finite von Neumann algebra,
+    and $T$ a closed operator affiliated with $\AAA$. 
+    If $N$ and $M$ are normal operators affiliated with $\AAA$ and $MT = TN$, then
+    $M^{*}T = TN^{*}$.
+\end{corollary}
+
+\begin{proof}
+    Note that
+    \begin{align*}
+      \AAA \otimes M_{s}(\C) = \{
+        \begin{pmatrix}
+         A_{11} & A_{12} \\
+         A_{21} & A_{22}
+    \end{pmatrix} : A_{ij} \in \AAA \}  
+    \end{align*}
+    is also a finite von Neumann algebra. 
+    Consider
+    \begin{align*}
+        N_{1} = \begin{pmatrix}
+            N & 0\\
+            0 & M
+        \end{pmatrix}
+        \mbox{ and } 
+        T_{1} = \begin{pmatrix}
+            0 & 0\\
+            T & 0\\
+        \end{pmatrix}.
+    \end{align*}
+    Note that $N_1$ is normal, $N_{1}T_{1} = T_{1}N_{1}$. 
+    By \cref{fcor2}, we have
+    $N_{1}^{*}T_{1} = T_{1}N_{1}^{*}$. Comparing the $(2,1)$ entry then
+    gives $M^{*}T = TN^{*}$.
+\end{proof}
+
+\begin{corollary}\label{fcor4}
+    Let $\AAA$ be a finite von Neumann algebra with a faithful trace $\tau$,
+    and $T$ is a closed operator affiliated with $\AAA$. 
+    If $N$ and $M$ are  normal operators in $\AAA$ and $MT = TN$, then
+    $f(M)T = Tf(N)$ for any measurable function $f$.
+\end{corollary}
+
+Let $T$ be a closed operator. The numerical range of $T$, denoted by $W(T)$,
+is defined as
+\begin{align*}
+    W(T) = \{\langle T\xi, \xi \rangle: \xi \in \mathfrak{D}(T), \|\xi \|_2 = 1 \}. 
+\end{align*}
+
+In \cite{Em}, Embry proved the following theorem.
+\begin{theorem}
+   Let $N$ and $M$ be two commuting bounded normal operators and $T$ a bounded
+   operator such that $0 \notin W(T)$. If $MT = TN$, then $N = M$. 
+\end{theorem}
+
+By \cref{fcor4} and an argument parallel to that used in \cite{Em}, we have 
+the following fact.
+
+\begin{corollary}\label{fcor5}
+    Let $\AAA$ be a finite von Neumann algebra,
+    and $T$ a closed operator affiliated with $\AAA$. 
+    If $N$ and $M$ are two commuting normal operators in 
+    $\AAA$, $MT = TN$ and $0 \notin W(T)$, 
+    then $N = M$.
+\end{corollary}
+
+The following result is well known.
+
+\begin{lemma} \label{flam3}
+    Let $\AAA$ be a separable II$_1$ factor. There exist two
+    maximal abelian subalgebras $\mathfrak{M}_1$, $\mathfrak{M}_2$ such
+    that $\mathfrak{M}_1 \cap \mathfrak{M}_2 =  \C I$.
+\end{lemma}
+
+\begin{proof}
+    By Corollary 4.1 in \cite{P}, there is a hyperfinite subfactor $\mathcal{R}$
+    such that $\mathcal{R}' \cap \AAA = \C I$. Let 
+    $\widetilde{\mathfrak{M}_1}$ and $\widetilde{\mathfrak{M}_2}$ 
+    be two orthognal maximal abelian
+    subalgebras generate $\mathcal{R}$. 
+    There exist two maximal abelian subalgebras 
+    $\mathfrak{M}_1$ and $\mathfrak{M}_2$ of $\AAA$ contains
+    $\widetilde{\mathfrak{M}_1}$ and $\widetilde{\mathfrak{M}_2}$
+    respectively. If $T \in \mathfrak{M}_1 \cap \mathfrak{M}_2$,
+    then $T$ in $\AAA$ commute with all elements in 
+    $\widetilde{\mathfrak{M}_1}$ and $\widetilde{\mathfrak{M}_2}$.
+    Hence $T$ commutes with $\mathcal{R}$ and $T$ is a scalar.
+\end{proof}
+
+\begin{corollary}\label{fcor6}
+   If $\AAA$ be a separable II$_1$ factor, then there exists 
+   a closed operator $T$ affiliated with $\AAA$ such that 
+   $NT \neq TN$ for any nontrivial normal operator affiliated with 
+   $\AAA$.
+\end{corollary}
+\begin{proof}
+    By \cref{flam3}, there exist two maximal abelian
+    subalgebras $\mathfrak{M}_1$ and $\mathfrak{M}_2$ of $\AAA$ such that 
+    $\mathfrak{M}_1 \cap \mathfrak{M}_2 = 
+    \C I$. Let $T = H_1 + iH_2$ where $H_1$ and $H_2$ are two positive 
+    invertible (the inverse is a bouned positive operator in $\AAA$) operators
+    generate $\mathfrak{M}_1$ and $\mathfrak{M}_2$ respective. 
+    Suppose $N \eta \AAA$ is a nontrivial
+    normal operator and $NT = TN$. By \cref{fcor2}, 
+    $N^{*}T = TN^{*}$. Hence $NT^{*} = T^{*}N$. 
+    This implise that $TH_1 = H_1 T$ and $TH_2 = TH_2$.
+    If $T$ is a unitary, then $T$ is in $\mathfrak{M}_1 \cap \mathfrak{M}_2 = \C I$.
+    If $T$ is not a unitary, then $(I+T^{*}T)^{-1}$ is in
+    $\mathfrak{M}_1 \cap \mathfrak{M}_2 = \C I$. Thus $T$ must be a scalar. 
+\end{proof}
+
+\section{Examples}
+Throughout this section $(X, \mathcal{B}, \mu)$ will denote a 
+probability space. 
+For simplicity of notation, we will use $h$ to denote the 
+multiplication operator associated with the measurable function $h$
+whenever there is no danger of ambiguity.
+Let $G$ be a group acts on
+$X$ ergodically, i.e., if $X \in \mathcal{B}$ and $\mu(g(X)\setminus X) = 0$ for 
+each $g$ in $G$, then either $m(X) = 0$ or $m(S \setminus X) = 0$, and 
+preserves the measure.
+This induces 
+an automorphic representation of $G$ on $L^{\infty}(X)$: 
+$\alpha_{g}(h)(x) = h(g^{-1}(x))$. The cross product 
+$L^{\infty}(X) \rtimes_{\alpha} G$ is the von Neumann algebra, acting on 
+$L^{2}(X, d\mu) \otimes l^{2}(G)$, generated by the operators
+\begin{align*}
+    \psi(h) = \sum_{g \in G}\alpha_{g}^{-1}(h) \otimes E_{g}, 
+    \qquad L_g = I \otimes l_g \qquad (h \in L^{\infty}(X), g \in G),
+\end{align*}
+where $E_g$ is the projection onto the one dimensional subspace 
+spanned by $e_{g}$ in $l^{2}(G)$. 
+
+Since $G$ preserves the measure, $L^{\infty}(X) \rtimes_{\alpha} G$ is a II$_1$
+factor. Let $s_1, s_2, \ldots, s_n$ be n elements in $G$ and 
+$\{h_{s_i} \}_{i = 1}^{n}$ be a measurable functions on $X$ such that 
+$\mu(\{x : h_{s_i}(x) = 0 \mbox{ or } \infty \}) = 0$.
+It is easy to see that the operator
+\begin{align*}
+    T = \sum_{i = 1}^{n} \psi(h_{s_i})L_{s_i} =
+    \sum_{i = 1}^{n} \sum_{g \in G} \alpha_{g}^{-1}(h_{s_i}) \otimes E_{g}l_{s_i}
+\end{align*}
+is affiliated with $L^{\infty}(X) \rtimes_{\alpha} G$. Let 
+\begin{align*}
+    A = \sum_{s} \sum_{g} \alpha_{g}^{-1}(f_{s}) \otimes E_{g}l_{s}
+\end{align*}
+be any operator in $L^{\infty}(X) \rtimes_{\alpha} G$. We have
+\begin{align*}
+\left\langle AT \xi \otimes e_l, \beta \otimes e_g \right \rangle &=
+    \left\langle (\sum_{i=1}^{n} \sum_{g_2} \alpha_{g_2}^{-1}(h_{s_i}) \otimes
+    E_{g_2}l_{s_i})\xi \otimes e_l, (\sum_{s} \sum_{g_1} \alpha_{g_1}^{-1}
+    (\bar{f_{s}})
+\otimes l_{s^{-1}}E_{g_1}) \beta \otimes e_g \right \rangle \\ 
+&= \left\langle \sum_{i=1}^{n} \alpha_{s_{i}l}^{-1}(h_{s_i})\xi \otimes e_{s_{i}l}, 
+\sum_{s} \alpha_{g}^{-1}(\bar{f_s})\beta \otimes e_{s^{-1}g} \right \rangle \\
+&= \sum_{i=1}^{n}\left\langle \alpha_{s_{i}l}^{-1}(h_{s_i})\xi,
+\alpha_{g}^{-1}(\overline{f_{gl^{-1}s_{i}^{-1}}})\beta \right \rangle \\
+&= \left\langle \sum_{i=1}^{n}
+\alpha_{g}^{-1}(f_{gl^{-1}s_{i}^{-1}})\alpha_{s_{i}l}^{-1}(h_{s_i})\xi, \beta \right
+\rangle,
+\end{align*}
+and
+\begin{align*}
+\left\langle TA \xi \otimes e_l, \beta \otimes e_g \right \rangle &=
+\left\langle 
+(\sum_{s} \sum_{g_1} \alpha_{g_1}^{-1}(f_{s}) \otimes E_{g_1}L_{s}) \xi \otimes e_l,
+(\sum_{i=1}^{n}\sum_{g_2} \alpha_{g_2}^{-1}(\overline{h_{s_i}}) \otimes
+l_{s_{i}^{-1}}E_{g_2}) \beta \otimes e_{g} \right \rangle \\ 
+&= \left \langle \sum_{s} \alpha_{sl}^{-1}(f_{s})\xi \otimes e_{sl},
+\sum_{i=1}^{n}\alpha_{g}^{-1}(\overline{h_{s_i}})\beta \otimes e_{s_{i}^{-1}g} \right
+\rangle\\ 
+& = \left \langle
+\sum_{i=1}^{n} \alpha_{g}^{-1}(h_{s_i})\alpha_{s_{i}^{-1}g}^{-1}(f_{s_{i}^{-1}gl^{-1}}) 
+\xi,
+\beta \right \rangle
+\end{align*}
+If $AT = TA$, then (let $gl^{-1} = s$)
+\begin{align}\label{eq1}
+    \sum_{i=1}^{n}\alpha_{g}^{-1}(f_{ss_{i}^{-1}})\alpha_{s_{i}s^{-1}g}^{-1}
+    (h_{s_i}) =
+    \sum_{i=1}^{n}\alpha_{g}^{-1}(h_{s_i})\alpha_{s^{-1}_{i}g}^{-1}(f_{s_{i}^{-1}s}).
+\end{align}
+
+
+
+
+\subsection{Hyperfinite case}
+
+Let $G = \Z$, $s_1 = 1$, $g = n$, $s = m+1$. By \cref{eq1} we have
+\begin{align*}
+    \alpha_{-n}(f_{m})\alpha_{m-n}(h_{1}) =
+\alpha_{-n}(h_{1})\alpha_{1-n}(f_{m}).
+\end{align*}
+Apply $\alpha_{n}$ to both side of the equation above, we have
+\begin{align*}
+f_{m}\alpha_{m}(h_{1}) =
+h_{1}\alpha(f_{m}).
+\end{align*}
+Recall that $h_{i}$ is a measurable functions on $X$ such that 
+$\mu(\{x : h_{s_i}(x) = 0 \mbox{ or } \infty \}) = 0$.
+Therefore we have
+\begin{align*}
+\frac{\alpha(f_{m})}{f_{m}} = \frac{\alpha_{m}(h_{1})}{h_{1}}.
+\end{align*}
+
+Let
+\begin{align*}
+   k_{m} =  \begin{cases}
+       h_{1}\alpha_{1}(h_{1})\cdots\alpha_{m-1}(h_{1}) &\mbox{ if } m > 0, \\
+       1 &\mbox{ if } m = 0, \\
+       \alpha_{-1}(\frac{1}{h_1})\alpha_{-2}(\frac{1}{h_1})
+       \cdots\alpha_{m}(\frac{1}{h_1}) &\mbox{ if } m < 0.
+   \end{cases} 
+\end{align*}
+We have
+\begin{align*}
+    \frac{\alpha(f_{m})}{f_{m}} = \frac{\alpha(k_{m})}{k_{m}} \mbox{ and } 
+    \alpha(\frac{f_{m}}{k_{m}}) = \frac{f_{m}}{k_{m}}.
+\end{align*}
+
+By lemma 8.6.6 in \cite{KR}, there exist $c_{k}$, $k = 0, \pm 1, \pm 2, \ldots$, such
+that $f_{m} = c_{m}k_{m}$, a.e..
+It is not hard to choose $h_1$, e.g. let $X = S^{1}$ and 
+$h_1 = \frac{e^{2\pi i \theta} + 1}
+{e^{2\pi i \theta} -1}$, 
+such that each $k_m$($m \neq 0)$ is an unbounded 
+measurable function.
+
+Recall that a Cartan subalgebra $\MMM$ in a II$_1$ factor $\AAA$ is a maximal
+abelian *-subalgebra with normalizer $\mathcal{N}_{\AAA}(\MMM) =
+\{ U \in \mathcal{U}(\AAA) : U^{*}\MMM  U = \MMM\}$ generating $\AAA$.
+
+\begin{lemma} \label{hy_lam1}
+    Let $\mathcal{R}$ be the hyperfinite von Neumann algebra. There exists 
+    a closed operator $T = UH \eta \mathcal{R}$ such that 
+    $T' \cap \mathcal{R} = \C I$, $T$ generates $\mathcal{R}$ i.e.
+    $U$ and $H$ generate $\mathcal{R}$ and $H$ generates a Cartan subalgebra of 
+    $\mathcal{R}$.
+\end{lemma}
+
+Since any two Cartan subalgebra of the hyperfinite II$_1$ factor are conjugate by
+an automorphism of $\mathcal{R}$, we have the following result.
+
+\begin{corollary} \label{hy_cor1}
+   Let $\AAA$ be a separable II$_1$ factor. There exists a hyperfinite II$_1$ 
+   subfactor $\MMM$ of $\AAA$ and a 
+   $T \eta \MMM$ such that 
+   $NT \neq TN$ for any nontrivial normal operator affiliated with $\AAA$.
+\end{corollary}
+
+\begin{proof}
+    By Corollary 4.2 in \cite{P}, there is a hyperfinite II$_1$ subfactor $\MMM$ 
+    such that $\MMM' \cap \AAA = \C I$. 
+    Let $T = UH$ be the closed operator in \cref{hy_lam1}.
+    If $N$ is a normal operator in $\AAA$ and $NT = TN$, then $N \in \MMM' \cap \AAA$. 
+\end{proof}
+
+\subsection{Non $\Gamma$ case}
+Consider the example in \cite{WY}. Let $G = F_{2}$ be the free group 
+generated by $a, b$. Assume that the subgroup generated by $a$ acts on 
+$X$ ergodically and the subgroup generated by $b$ acts on $X$ trivially.
+
+Let $T = \sum_{g} \alpha_{g}^{-1}(h_{a}) \otimes E_{g}L_{a}$.
+If $A = \sum_{s} \sum_{g} \alpha_{g}(f_{s}) 
+\otimes E_{g}L_{s}$
+is in $L^{\infty}(X) \rtimes_{\alpha} G$ and 
+commute with $T$, then by \cref{eq1} 
+\begin{align*}
+    \alpha_{g}^{-1}(f_{sa^{-1}})\alpha_{as^{-1}g}^{-1}(h_{a}) =
+    \alpha_{g}^{-1}(h_{a})\alpha_{a^{-1}g}^{-1}(f_{a^{-1}s}), \qquad \forall g, s \in G.
+\end{align*}
+
+Let $s = sa$ and $g = a$. For simplicity
+of notation, we will use $\alpha^{n}$ to denote
+$\alpha_{a^{n}}$. Let $\rho$ be the group homomorphism from $F_2$ to $\Z$ 
+such that $\rho(a) = 1$,
+$\rho(b) = 0$. Let $\rho(s) = m$, we have
+\begin{align*}
+    \alpha^{-1}(f_{s})\alpha^{m-1}(h_{a}) =
+    \alpha^{-1}(h_{a})f_{a^{-1}sa}, \qquad \forall s \in G \mbox{ and } m \in \Z.
+\end{align*}
+Therefore, $\frac{\alpha(f_{a^{-1}sa})}{f_s} = \frac{\alpha^{m}(h_a)}{h_a}$. 
+
+Let
+\begin{align*}
+   k_{m} =  \begin{cases}
+       h_{a}\alpha^{1}(h_{a})\cdots\alpha^{m-1}(h_{a}) &\mbox{ if } m > 0, \\
+       1 &\mbox{ if } m = 0, \\
+       \alpha^{-1}(\frac{1}{h_a})\alpha^{-2}(\frac{1}{h_a})
+       \cdots\alpha^{m}(\frac{1}{h_a}) &\mbox{ if } m < 0.
+   \end{cases} 
+\end{align*}
+For any $s \in G$, if $\rho(s)=m$, then 
+$\frac{f_{a^{-1}sa}}{k_m} = \alpha^{-1}(\frac{f_s}{k_m})$.
+Therefore $f_{a^{-n}sa^{n}} = \alpha^{-n}(\frac{f_s}{k_m})k_m$.
+
+Let $m = 0$.
+If $s$ contains $b^{\pm 1}$ in the reduced form, then
+$f_{s} = 0$ since $\sum_{n \in Z} \| f_{a^{-n}sa^{n}} \|_{2}^{2} 
+= \sum_{n \in Z} \|\alpha_{n}^{-1}(f_{s}) \|_{2}^{2}
+    = \sum_{n \in Z} \| f_{s} \|_{2}^{2} \leq \infty$.
+
+If $s$ contains $b^{\pm 1}$ in the reduced form and $m = \rho(s) \neq 0$, then
+$\frac{f_s}{k_m} = 0$. Indeed, if $\frac{f_s}{k_m} = h \neq 0$, then 
+there exists a measurable subset 
+$A$ in $\mathcal{B}$, $\mu(A) > 0$, $h(x) > c$ for almost 
+every $x \in A$ and 
+$ |c\chi_{A}k_{m}| \geq \delta > 0$, $\delta > 0$. 
+By Furstenberg's multiple recurrence theorem \cite{MT}[Theorem 7.4], we have
+\begin{align*}
+{\lim \inf}_{N \rightarrow \infty} \frac{1}{N} \sum^{N}_{n = 1} \mu(A \cap
+\alpha^{-n}(A)) = \varepsilon > 0.
+\end{align*}
+This implies that there exists a subsequence $n_{i}$ such that $\mu(A \cap
+\alpha^{-n_i}(A)) >= \varepsilon$. Therefore, we have
+\begin{align}
+\infty = \sum_{i}\delta^{2}\varepsilon \leq
+\sum_{i} \int \|f_{a^{-n_{i}}sa^{n_{i}}}\|^{2} d\mu < \infty .
+\end{align}
+It is a contradiction. Hence, $\frac{f_s}{k_m} = 0$ if 
+$s$ contains $b^{\pm 1}$ in the reduced form. 
+
+\begin{remark}
+Note that in the above proof, we do not need $0$ and $\infty$ to be the
+cluster point of the range of $h_a$. In another word, this is just a 
+tedious way to show that $A$ must be in the von Neumann subalgebra generated
+by $L_a$ and $L^{\infty}(X)$. 
+\end{remark}
+
+Suppose that $T = KW$ is a unbounded operator affiliated with a II$_{1}$ 
+factor such that $T' \cap \AAA = \C I$.
+Here $K = \sqrt{TT^{*}}$ and $W$ is a unitary.
+
+
+Let 
+\begin{align*}
+&P_1 = \begin{pmatrix}
+I & 0\\
+0 & 0 
+\end{pmatrix} \qquad
+P_2 = \begin{pmatrix}
+0 & 0\\
+0 & I 
+\end{pmatrix}\qquad 
+P_3 = \begin{pmatrix}
+\frac{1}{2} & \frac{1}{2}\\
+\frac{1}{2} & \frac{1}{2}
+\end{pmatrix}\\
+&P_4 = \begin{pmatrix}
+H & \sqrt{H(I-H)}V\\
+V^{*}\sqrt{H(I-H)} & V^{*}(I - H)V.
+\end{pmatrix}
+\end{align*}
+We have 
+\begin{align*}
+Alg(\{ P_1, P_2, P_3, P_4 \}) = \{ 
+\begin{pmatrix}
+T & 0\\
+0 & T
+\end{pmatrix}
+= 
+\begin{pmatrix}
+T & 0\\
+0 & S^{-1}TS
+\end{pmatrix} | T \in P_1\AAA P_1\},
+\end{align*}
+where $S = -\sqrt{H(I - H)^{-1}}V$.
+Just make $V = -W$ and $H = \frac{K^{2}}{I + K^{2}}$, we get a 
+transitive lattice contains 4 elements.
+
+\section{General}
+
+
+%-----------------------------------------------------------------------------------
+%BIBLIOGRAPHY
+%-----------------------------------------------------------------------------------
+\begin{thebibliography}{9}
+    \bibitem{MV1}
+        F. Murray and J. von Neumann, 
+        \em{On Rings of Operators}, 
+        Ann. Mat. 37, 1936, 116–229. 
+
+    \bibitem{KR} 
+        R. Kadison and J. Ringrose,
+        {\em Fundamentals of the theory of operator algebras I, II},
+        Graduate Studies in Mathematics, 15-16, AMS, 1997. 
+
+    \bibitem{MT}
+    M. Einsiedler and T. Ward, 
+    {\em Ergodic Theory with a view towards Number Theory}, 
+    GTM259, Springer-Verlag 2011.
+
+    \bibitem{F}
+        B. Fuglede,
+        {\em A commutativity theorem for normal operators},
+        PNAS USA, 36(1), 1950, 35-40.
+
+    \bibitem{CRP}
+        C. R. Putnam,
+        {\em On normal operators in Hilbert space},
+        Amer. J. Math. 73(2), 1951, 357-362.
+
+    \bibitem{MR}
+        M. Rosenblum, 
+        {\em On a theorem of Fuglede and Putnam}, 
+        J. London Math. Soc., 33, 1958, 376–377.
+    
+    \bibitem{Em}
+        M. R. Embry, 
+        {\em Similarities involving normal operators on Hilbert space}, 
+        Pacific. J. Math., 35(2), 1970, 331–336.
+
+    \bibitem{M}
+        M. Mortad,
+        {\em Products and sums of bounded and unbounded normal operators: 
+        Fuglede-Putnam versus Embry}. 
+        (English) Rev. Roum. Math. Pures Appl., 56(3), 2011, 195-205
+
+    \bibitem{P}
+         S. Popa, 
+         {\em On a problem of R.V. Kadison on maximal 
+         abelian *-subalgebras in factors}, 
+         Invent. Math. 65, 1981, 269–281.
+
+    \bibitem{WY}
+       W. Wu and W. Yuan, 
+       {\em A remark on central sequence algebras
+       of the tensor product of $\mathrm{II}_{1}$ factors}
+
+\end{thebibliography}
+%-----------------------------------------------------------------------------------
+
+\end{document}
