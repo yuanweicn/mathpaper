@@ -1,0 +1,1098 @@
+%% PNAStmpl.tex
+%% Template file to use for PNAS articles prepared in LaTeX
+%% Version: Apr 14, 2008
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% BASIC CLASS FILE
+%% PNAStwo for two column articles is called by default.
+%% Uncomment PNASone for single column articles. One column class
+%% and style files are available upon request from pnas@nas.edu.
+%% (uncomment means get rid of the '%' in front of the command)
+%\documentclass{pnasone}
+\documentclass{pnastwo}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Changing position of text on physical page:
+%% Since not all printers position
+%% the printed page in the same place on the physical page,
+%% you can change the position yourself here, if you need to:
+
+% \advance\voffset -.5in % Minus dimension will raise the printed page on the
+                         %  physical page; positive dimension will lower it.
+
+%% You may set the dimension to the size that you need.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% OPTIONAL GRAPHICS STYLE FILE
+
+%% Requires graphics style file (graphicx.sty), used for inserting
+%% .eps files into LaTeX articles.
+%% Note that inclusion of .eps files is for your reference only;
+%% when submitting to PNAS please submit figures separately.
+
+%% Type into the square brackets the name of the driver program
+%% that you are using. If you don't know, try dvips, which is the
+%% most common PC driver, or textures for the Mac. These are the options:
+
+% [dvips], [xdvi], [dvipdf], [dvipdfm], [dvipdfmx], [pdftex], [dvipsone],
+% [dviwindo], [emtex], [dviwin], [pctexps], [pctexwin], [pctexhp], [pctex32],
+% [truetex], [tcidvi], [vtex], [oztex], [textures], [xetex]
+
+\usepackage[pdftex]{graphicx}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% OPTIONAL POSTSCRIPT FONT FILES
+
+%% PostScript font files: You may need to edit the PNASoneF.sty
+%% or PNAStwoF.sty file to make the font names match those on your system.
+%% Alternatively, you can leave the font style file commands commented out
+%% and typeset your article using the default Computer Modern
+%% fonts (recommended). If accepted, your article will be typeset
+%% at PNAS using PostScript fonts.
+
+
+% Choose PNASoneF for one column; PNAStwoF for two column:
+%\usepackage{PNASoneF}
+%\usepackage{PNAStwoF}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% ADDITIONAL OPTIONAL STYLE FILES
+
+%% The AMS math files are commonly used to gain access to useful features
+%% like extended math fonts and math commands.
+
+\usepackage{amssymb,amsfonts,amsmath}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% OPTIONAL MACRO FILES
+%% Insert self-defined macros here.
+%% \newcommand definitions are recommended; \def definitions are supported
+
+%\newcommand{\mfrac}[2]{\frac{\displaystyle #1}{\displaystyle #2}}
+%\def\s{\sigma}
+
+\newenvironment{proof}[1][Proof]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}]}{\end{trivlist}}
+
+\newtheorem{example}{Example}
+
+
+\newcommand{\A}{\mathcal A}
+\newcommand{\AAA}{\mathfrak A}
+\newcommand{\B}{\mathcal B}
+\newcommand{\BBB}{\mathfrak B}
+\newcommand{\CCC}{\mathcal C}
+\newcommand{\DDD}{\mathcal D}
+\newcommand{\F}{\mathcal F}
+\newcommand{\G}{\mathcal G}
+\newcommand{\HHH}{\mathcal H} %for Hilbert space
+\newcommand{\LLL}{\mathcal L} % for lattice
+\newcommand{\PPP}{\mathcal P}
+\newcommand{\M}{\mathcal M}
+\newcommand{\NNN}{\mathcal N} %for nest
+\newcommand{\RRR}{\mathcal R}
+\newcommand{\SSS}{\mathcal S}
+\newcommand{\W}{\mathcal W}
+\newcommand{\ZZZ}{\mathcal Z}
+\newcommand{\supp}{\mathop{\mathrm supp}}
+\newcommand{\TT}{\mathcal T}
+\newcommand{\II}{\mathrm{II}}
+
+
+\newcommand{\e}[2][]{e^{#1}_{#2}} %for matrix unit \e[upper index]{lower index}
+
+\newcommand{\Lat}{\mathrm{Lat}}
+\newcommand{\Alg}{\mathrm{Alg}}
+\newcommand{\tensor}{\mathop{\bar \otimes}}
+\newcommand{\tr}{\tau}
+
+\newcommand{\C}{\mathbb C} %for complex numbers
+\newcommand{\R}{\mathbb R}  %for real numbers
+\newcommand{\Z}{\mathbb Z} %for integers
+\newcommand{\N}{\mathbb N} % for natural numbers
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Don't type in anything in the following section:
+%%%%%%%%%%%%
+%% For PNAS Only:
+\contributor{Submitted to Proceedings
+of the National Academy of Sciences of the United States of America}
+\url{www.pnas.org/cgi/doi/10.1073/pnas.0709640104}
+\copyrightyear{2008}
+\issuedate{Issue Date}
+\volume{Volume}
+\issuenumber{Issue Number}
+%%%%%%%%%%%%
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%% For titles, only capitalize the first letter
+%% \title{Almost sharp fronts for the surface quasi-geostrophic equation}
+
+\title{Kadison-Singer Algebras, II \\
+        -----General Case}
+
+
+%% Enter authors via the \author command.
+%% Use \affil to define affiliations.
+%% (Leave no spaces between author name and \affil command)
+
+%% Note that the \thanks{} command has been disabled in favor of
+%% a generic, reserved space for PNAS publication footnotes.
+
+%% \author{<author name>
+%% \affil{<number>}{<Institution>}} One number for each institution.
+%% The same number should be used for authors that
+%% are affiliated with the same institution, after the first time
+%% only the number is needed, ie, \affil{number}{text}, \affil{number}{}
+%% Then, before last author ...
+%% \and
+%% \author{<author name>
+%% \affil{<number>}{}}
+
+%% For example, assuming Garcia and Sonnery are both affiliated with
+%% Universidad de Murcia:
+%% \author{Roberta Graff\affil{1}{University of Cambridge, Cambridge,
+%% United Kingdom},
+%% Javier de Ruiz Garcia\affil{2}{Universidad de Murcia, Bioquimica y Biologia
+%% Molecular, Murcia, Spain}, \and Franklin Sonnery\affil{2}{}}
+
+\author{Liming Ge\affil{1}{L. K. Hua Key Laboratory of Mathematics,
+Chinese Academy of Sciences, Beijing, China} \affil{2}{ University
+of New Hampshire, Durham, USA} \and Wei Yuan\affil{1}{}}
+
+\contributor{Submitted to Proceedings of the National Academy of Sciences
+of the United States of America}
+
+%% The \maketitle command is necessary to build the title page.
+\maketitle
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{article}
+
+\begin{abstract}
+A new class of operator algebras, Kadison-Singer algebras, is
+introduced. These highly noncommutative, non selfadjoint algebras
+generalize triangular matrix algebras. They are determined by
+certain minimally generating lattices of projections in the von
+Neumann algebras corresponding to the commutant of the diagonals of
+the Kadison-Singer algebras. A new invariant for the lattices is
+introduced to classify these algebras.
+\end{abstract}
+
+%% When adding keywords, separate each term with a straight line: |
+\keywords{von Neumann algebra | Kadison-Singer algebra |
+Kadison-Singer lattice |triangular algebra | reflexive algebra}
+
+%% Optional for entering abbreviations, separate the abbreviation from
+%% its definition with a comma, separate each pair with a semicolon:
+%% for example:
+%% \abbreviations{SAM, self-assembled monolayer; OTS,
+%% octadecyltrichlorosilane}
+
+% \abbreviations{}
+
+%% The first letter of the article should be drop cap: \dropcap{}
+%\dropcap{I}n this article we study the evolution of ''almost-sharp'' fronts
+
+%% Enter the text of your article beginning here and ending before
+%% \begin{acknowledgements}
+%% Section head commands for your reference:
+%% \section{}
+%% \subsection{}
+%% \subsubsection{}
+
+\section{Introduction}
+
+Kadison-Singer algebras were introduced in \cite{GY}.
+Examples of Kadison-Singer algebras with hyperfinite diagonals
+were given and studied. In this article, we shall continue our
+study of Kadison-Singer algebras and mostly deal with the case
+when the diagonal is a finite von Neumann algebra. We shall use
+the notation and definitions introduced in \cite{GY}.
+
+Suppose $\HHH$ is a Hilbert space and $\B(\HHH)$ is the algebra of all
+bounded operators on $\HHH$. Recall that a Kadison-Singer algebra is
+a maximal reflexive subalgebra of $\B(\HHH)$ with respect to a given
+von Neumann algebra as its diagonal algebra. In \cite{GY}, we
+constructed Kadison-Singer algebras with hyperfinite factors as
+their diagonal algebras and provided many new reflexive lattices.
+Our main result in this paper is to prove that the reflexive
+lattice generated by a double triangle (a special lattice with
+only three nontrivial projections) is, in general, isomorphic to
+the two-dimensional sphere $S^2$ (plus two distinct points
+corresponding to $0$ and $I$), and the corresponding reflexive
+algebra is a Kadison-Singer algebra. In particular, we show that
+the algebra leave three free projections invariant is a
+Kadison-Singer algebra. This shows that many factors are
+(minimally) generated by a reflexive lattice of projections which
+is topologically homeomorphic to  $S^2$. Noncommutative algebraic
+structures on $S^2$ determined by the projections give rise to non
+isomorphic factors and Kadison-Singer factors.
+
+The paper contains five sections. In Section 2, maximal
+triangularity is discussed in different aspects. In Section 3, we
+describe the reflexive lattice generated by three free projections
+and show that it is homeomorphic to $S^2$. In Section 4, we show
+that this lattice is a Kadison-Singer lattice and thus the
+corresponding algebra is a Kadison-Singer algebra. Certain
+generalization of the result is also discussed. In Section 5, we
+introduce a notion of connectedness of projections in a lattice of
+projections in a finite von Neumann algebra and show that all
+connected components form another lattice, called a {\it reduced
+lattice}. Reduced lattices of most of our examples were computed.
+
+The authors wish to thank J. Shen and M. Ravichandran for many
+helpful discussions.
+
+\section{Maximality conditions}
+
+In the definition of Kadison-Singer algebras, we require
+that the algebra be maximal in the class of reflexive algebras
+with the same diagonal. Our examples of KS-algebras given in \cite{GY}
+are ``maximal triangular'' in the class of all algebras with the
+same diagonal, i.e., an algebraic maximality without reflexiveness
+or closedness assumptions. In general, the algebraic maximality
+assumption is a much stronger requirement. We call a subalgebra
+$\AAA$ of $\B(\HHH)$ {\it maximal triangular with respect to its
+diagonal C*- (or von Neumann) algebra $\AAA\cap\AAA^*$} if, for any
+subalgebra $\BBB$ of $\B(\HHH)$, $\BBB$ contains $\AAA$ and has
+the same diagonal as $\AAA$, then $\BBB$ is equal to $\AAA$. This
+may lead to new interesting classes of non selfadjoint algebras.
+Many similar questions as those in \cite{KS}, e.g., the closedness of
+$\AAA$, can be asked accordingly.
+
+In the following, we give a canonical method to construct a maximal
+triangular algebra in the class of weak-operator closed algebras
+with respect to a given von Neumann algebra as its diagonal.
+
+Suppose $\M$ is a von Neumann algebra acting on a Hilbert space
+$\HHH_0$ and $H_1,\ldots,H_n$ are positive elements in $\M$ such
+that $H_1^2,H_2^2,\ldots, H_n^2$ generate $\M$ as a von Neumann
+algebra. From \cite{GS}, we know that many von Neumann algebras can be
+generated by such positive elements, especially all type III and
+properly infinite von Neumann algebras. Let $\HHH$ be the direct sum
+of $n+1$ copies of $\HHH_0$. Then $\B(\HHH)\cong M_{n+1}(\B(\HHH_0))$.
+With this identification, we shall view both $M_{n+1}(\C)$ and
+$\B(\HHH_0)$ as subalgebras of $\B(\HHH)$. Let $E_{ij}$,
+$i,j=1,\ldots,n+1$ be a matrix unit system for $M_{n+1}(\C)$. We
+shall write elements in $\B(\HHH)$ in a matrix form with respect to
+this unit system (with entries from $\B(\HHH_0)$).
+
+\begin{theorem}
+Define
+\begin{align*}
+\AAA= \left\{ \left( \begin{array}{cccc}
+                 A & * &  \ldots & * \\
+                 0 & H_1^{-1} A H_1 & \ldots & * \\
+                 \vdots & \vdots & \ddots & \vdots\\
+                 0 & 0 & \ldots & H_n^{-1} A H_n \\
+                 \end{array}
+     \right) :\quad  A \in \B(\HHH_0) \right\},
+\end{align*}
+where $*$ denotes all possible elements in $\B(\HHH_0)$. Then $\A$
+is maximal upper triangular with respect to the diagonal
+$M_{n+1}(\M)'$ $(\cong \M'\cap\B(\HHH_0))$.
+\end{theorem}
+
+\begin{proof}
+It is easy to check that $\AAA\cap
+\AAA^*= M_{n+1}(\M)'$. Similar techniques we used in the proof of
+Theorem 3 in \cite{GY} will show that $\AAA$ is maximal upper
+triangular with the given diagonal. We omit the details
+here.
+\end{proof}
+
+With $\AAA$ given in Theorem 1, suppose $P$ is a projection in
+$\Lat(\AAA)$ with $P=(P_{ij})_{i,j=1}^{n+1}$, $P_{ij}\in\B(\HHH_0)$.
+It is easy to see that $P$ must be diagonal and
+$(I-P_{ii})TP_{jj}=0$ for all $i<j$ and any $T$ in $\B(\HHH_0)$.
+Thus $P=\sum_{j=1}^k E_{jj}$ for some $k$. We know that such a $P$
+lies in $\Lat(\AAA)$. This shows that $\Lat(\AAA)=\{0, E_{11},\ldots,
+\sum_{j=1}^{n}E_{jj}, I\}$. Clearly this implies that $\AAA$ is not
+reflexive. It is interesting to know if $\AAA$ contains a subalgebra
+which is a Kadison-Singer algebra with the same diagonal.
+
+The semidirect product of a von Neumann algebra $\M$ with a
+semigroup $S$ (embedded in the automorphism group of $\M$) will
+give us another construction of triangular algebras. In general,
+such construction will not give us a maximal triangular algebra.
+Whether there is a KS-algebra containing such a triangular algebra
+for certain ergodic actions is another interesting question.
+
+
+On the other hand, if we start with a ``minimal'' lattice $\LLL$ of
+projections in a von Neumann algebra so that the lattice generate
+the von Neumann algebra, then is $\Alg(\LLL)$ a Kadison-Singer
+algebra? In general, $\LLL\neq\Lat(\Alg(\LLL))$. Thus $\LLL$ may not be
+a Kadison-Singer lattice. But we shall see that $\Alg(\LLL)$ is
+often a Kadison-Singer algebra in next section.
+
+\section{Reflexive lattices generated by three projections}
+
+Lattices generated by two projections are always
+reflexive \cite{H}. But lattices generated by three projections are
+complicated. Most of factors acting on a separable Hilbert space
+are known to be generated by three projections or a projection and
+a positive operator (see \cite{GS}).
+
+\begin{example}
+Suppose $\M$ is a factor
+acting on $\HHH$ and write $\M=M_2(\NNN)$, where $\NNN$ is a subfactor
+of $\M$. We assume that $\NNN$ is generated by a projection $P$ and
+a positive element $H$ with $0\le H\le I$ and
+$\supp(H)=\supp(I-H)=I$. Here we view $M_2(\C)$ as a subalgebra of
+$\M$ and $\NNN$ as the relative commutant of $M_2(\C)$ in $\M$. Let
+$E_{11}, E_{12}, E_{21}$ and $E_{22}$ be the standard matrix unit
+system for $M_2(\C)$. Define $P_1=E_{11}$, $P_2=E_{11}H+E_{12}
+\sqrt{H(I-H)}+E_{21} \sqrt{H(I-H)} +E_{22}(I-H)$,
+$P_3=E_{11}+E_{22}P$ and $P_4=P_2\wedge P_3$. Assume that $P_1\wedge
+P_2=0$, $P_1\vee P_2=I$. Then $\LLL=\{0,I, P_1, P_2, P_3, P_4\}$
+generated by $\{P_1,P_2,P_3\}$ is a distributive lattice and thus
+reflexive \cite{Ha}. From our construction, we know that $\M$ is
+generated by $\LLL$ as a von Neumann algebra. One also easily checks
+that any proper sublattice of $\LLL$ does not generate $\M$. Thus $\LLL$
+is a Kadison-Singer lattice and $\Alg(\LLL)$ is a Kadison-Singer
+factor. From this construction, we can realize most of the factors
+as diagonals of Kadison-Singer algebras. For example, one may choose
+$\NNN$ as a factor of type $\II_1$ generated by a projection $P$ of
+trace $\frac12$ and a positive operator $H$ such that $P$ and $H$
+are free, and $H$ has the same distribution (with respect to the
+trace on $\NNN$) as the function $\cos^2\frac\pi2\theta$ on $[0,1]$
+(with respect to Lebesgue measure). Let $\tau$ be the trace on $\M$.
+In this case, $\tau(P_1)=\tau(P_2)=\frac12$, $\tau(P_3)=\frac34$ and
+$\tau(P_4)=\frac14$. Then $\Alg(\LLL)$ is a Kadison-Singer factor of
+type $\II_1$.
+\end{example}
+
+It is hard to determine when a lattice is reflexive even for a
+finite lattice. Finite distributive lattices are reflexive \cite{Ha}.
+But most of the lattice are not distributive. The simplest non
+distributive lattice is a {\it double triangle} where it contains
+$0, I$ and three projections $P_1,P_2$ and $P_3$ so that $P_i\vee
+P_j=I$ and $P_i\wedge P_j=0$ for any $i\neq j$ and $i,j=1,2,3$.
+Any lattice that contains a double triangle sublattice is not
+distributive. Three free projections with trace $\frac12$ in a
+factor of type $\II_1$ (together with $0,I$) form a double
+triangle lattice. In the following, we first describe factors
+generated by free projections. For basic theory on freeness and
+distributions, we refer to \cite{VDN}.
+
+Let $G_n$ be the free product of $\ZZZ_2$ with itself $n$ times, for
+$n\ge2$, or $=\infty$. When $n\ge3$, $G_n$ is an i.c.c. group so
+its associated group von Neumann algebra $\LLL_{G_n}$ is a factor of
+type $\II_1$ acting on $l^2(G_n)$ (see \cite{KR}). If $U_1,\ldots,U_n$
+are canonical generators for $\LLL_{G_n}$ corresponding to the
+generators of $G_n$ with $U_j^2=I$. Then $\frac{I-U_j}2$,
+$j=1,\ldots,n$, are projections of trace $\frac12$.  Let $\F_n$ be
+the lattice consisting of these $n$ free projections and $0, I$.
+
+Clearly $\F_n$ is a minimal lattice which generates $\LLL_{G_n}$ as
+a von Neumann algebra. Is $\Alg(\F_n)$, $n\ge3$, a Kadison-Singer
+algebra? What is $\Lat(\Alg(\F_n))$? When $n=2$, Halmos \cite{H} showed
+that $\F_2$ is reflexive and thus $\Alg(\F_2)$ is maximal and
+hence a Kadison-Singer algebra. We shall answer the above
+questions for the case when $n=3$ and show that $\Alg(\F_3)$ is a
+KS-algebra and $\Lat(\Alg(\F_3))\setminus \{0,I\}$ is homeomorphic
+to $S^2$, the two-dimensional sphere.
+
+We shall realize $\LLL_{G_3}$ as the von Neumann algebra generated
+by $M_2(\C)$ and its relative commutant $\M$ in $\LLL_{G_3}$ and
+write projection generators of $\LLL_{G_3}$ in terms of $2\times 2$
+matrices (with respect to the standard matrix units in $M_2(\C)$)
+given by the following equations:
+
+\begin{align*}
+P_1&= \left(
+        \begin{array}{cc}
+          I & 0 \\
+          0 & 0 \\
+        \end{array}
+      \right),
+P_{2} = \left(
+          \begin{array}{cc}
+            H_{1} & \sqrt{H_{1}(I-H_{1})} \\
+            \sqrt{H_{1}(I-H_{1})} & I-H_{1} \\
+          \end{array}
+        \right) , \\
+P_{3}&= \left(
+          \begin{array}{cc}
+            H_{2} & \sqrt{H_{2}(I-H_{2})}V \\
+            V^{*}\sqrt{H_{2}(I-H_{2})} & V^{*}(I-H_{2})V \\
+          \end{array}
+        \right) \mbox{.}
+\end{align*}
+The freeness among $P_1,P_2,P_3$ require that $H_1, H_2$ and $V$
+be free, $H_1$ and $H_2$ have the same distribution as
+$\cos^2\frac{\pi}2\theta$ on $[0,1]$ with respect to Lebesgue
+measure and $V$ a Haar unitary element. Then the subalgebra $\M$
+of $\LLL_{G_3}$ is the von Neumann algebra generated by $H_1,H_2$
+and $V$. Now $\F_3=\{0,I, P_1, P_2, P_3\}$, $\HHH=l^2(G_3)$.
+
+When $M_2(\C)$ is a subalgebra of $\LLL_{G_3}$, we may also view
+$\B(\HHH)=M_2(\C)\otimes \B$, where $\B$ is the commutant of
+$M_2(\C)$ in $\B(\HHH)$. Thus all operators can be written as
+$2\times 2$ matrices with entries from $\B$. In fact, when
+$\HHH=\HHH_1\oplus \HHH_1$ for some Hilbert space $\HHH_1$, then
+$\B\cong\B(\HHH_1)$.
+
+Since $P_1\in\F_3$, any operator $T$ belonging to $\Alg(\F_3)$
+must be upper triangular. The following lemma follows from the
+invariance of $P_2$ and $P_3$ under $T$. The computation is
+straight forward.
+
+\begin{lemma}
+With notation given above, $\left(
+                  \begin{array}{cc}
+                    T_{1} & T_{2} \\
+                    0 & T_{3} \\
+                  \end{array}
+                \right)\in\Alg(\F_3)$, where $
+T_1, T_2, T_3\in\B$, if and only if \begin{align*}
+\sqrt{I-H_1}T_2\sqrt{I-H_1} &= \sqrt{H_1}T_3
+\sqrt{I-H_1}-\sqrt{I-H_1}T_1\sqrt{H_1};\cr
+ \sqrt{I-H_2}T_2V^*\sqrt{I-H_2}
+&= \sqrt{H_2}VT_3 V^*\sqrt{I-H_2}-\sqrt{I-H_2}T_1\sqrt{H_2}.
+\end{align*}
+\end{lemma}
+
+Using unbounded operators affiliated with $\LLL_{G_3}$, one can
+construct many finite rank operators in $\Alg(\F_3)$. Unbounded
+operators affiliated with a finite von Neumann form an algebra
+\cite{KR}. Any finitely many unbounded operators have a common dense domain.
+Let $\xi$ and $\eta$ be vectors in the common domain of
+$\sqrt{H_1(I-H_1)^{-1}}$, $\sqrt{H_2(I-H_2)^{-1}}V$ and the
+adjoint $(\sqrt{H_2(I-H_2)^{-1}}V)^*$. We shall use $x\otimes y$
+to denote the rank one operator defined by $x\otimes
+y(z)= \langle z,x  \rangle y$, for any $z\in\HHH$ with $x$ and $y$ arbitrarily
+given. Now let $T_1=\xi\otimes (\sqrt{H_1(I-H_1)^{-1}}
+-\sqrt{H_2(I-H_2)^{-1}}V)\eta$, $T_3=((\sqrt{H_1(I-H_1)^{-1}}
+-\sqrt{H_2(I-H_2)^{-1}}V)^*\xi)\otimes\eta$ and $T_2=
+\sqrt{H_1(I-H_1)^{-1}}T_3 -T_1\sqrt{H_1(I-H_1)^{-1}}$ (determined
+by Lemma 1). Then $T=\left(
+         \begin{array}{cc}
+           T_{1} & T_{2} \\
+           0 & T_{3} \\
+         \end{array}
+       \right)
+       \in\Alg(\F_3)$ is a finite rank operator (at most rank
+4). This shows that $\Alg(\F_3)$ contains many finite rank (and
+thus compact) operators. In fact, Lemma 3 below will show that
+$\Alg(\F_3)$ contains ``almost'' a copy of $\B(\HHH)$.
+
+The following is a technical result that will be used frequently.
+The result might be well known. We only sketch a proof here.
+
+\begin{lemma}
+ Suppose $U$ is a Haar
+unitary element in a factor $\M$ of type II$_1$ and $A$ is an
+element in (or an unbounded operator affiliated with) $\M$ such
+that $A$ and $U$ are free with each other. Then any nonzero scalar
+$\lambda$ can not be a point spectrum of $AU$.
+\end{lemma}
+
+\begin{proof}
+Suppose $\lambda\in\C$ is a nonzero
+point spectrum of $AU$. By symmetry and freeness of $A$ and
+$\omega U$, we know that $\lambda$ must be a point spectrum for
+$A(\omega U)$ for any $\omega\in\C$ with $|\omega|=1$. This
+implies that $\omega^{-1}\lambda$ is a point spectrum of $AU$.
+Suppose $P_\beta$ is the spectral projection of $AU$ supported at
+$\beta\in\C$. Then $P_\lambda$ is equivalent to
+$P_{\omega\lambda}$ for any $|\omega|=1$. A direct computation
+shows that if $\lambda\neq\lambda_j$ for $j=1,2,\ldots, n$, then
+$P_\lambda\wedge(P_{\lambda_1}\vee \cdots \vee P_{\lambda_n})=0$.
+From finiteness of $\M$, it is easy to conclude that $P_\lambda=0$
+when $\lambda\neq0$.
+\end{proof}
+
+In the following, we shall describe all elements in
+$\Lat(\Alg(\F_3))$. Unbounded operators will be used in our
+computation. All unbounded operators affiliated with the factor
+$\LLL_{G_3}=M_2(\M)$ form an algebra. From function calculus, many
+unbounded operators we encounter in this paper can be viewed as
+(positive) functions defined on $(0,1)$ with respect to Lebesgue
+measure. When $H$ ($=H_1$ or $H_2$) is identified with
+$\cos^2\frac{\pi}2\theta$. Then $I-H$, $\sqrt{H(I-H)}$,
+$\sqrt{H^{-1}}$, $\sqrt{(I-H)^{-1}}$, etc., can be viewed as
+trigonometric functions and they are all determined by any one of
+them. Lemma 2 also tells that many linear combinations of free
+(non selfadjoint) operators such as $\sqrt{H_{1}(I-H_{1})^{-1}} -
+\sqrt{H_{2}(I-H_{2})^{-1}}V=\sqrt{H_{1}(I-H_{1})^{-1}}
+(I-\sqrt{H_{1}^{-1}(I-H_{1})}\sqrt{H_{2}(I-H_{2})^{-1}}V) $ are
+invertible (with unbounded inverses).
+
+When $S, T$ are unbounded operators affiliated with $\LLL_{G_3}$ or a
+finite von Neumann algebra and $X\in\B(\HHH)$, then $SXT$ is an
+unbounded operator that can be viewed as the weak-operator limit of
+bounded operators of the form $SE_\epsilon XF_\epsilon T$ for
+projections $E_\epsilon$ and $F_\epsilon$ in $\LLL_{G_3}$ (or the
+finite von Neumann algebra) so that $SE_\epsilon$ and $F_\epsilon T$
+are bounded and $E_\epsilon$, $F_\epsilon$ have strong operator
+limit $I$ (as $\epsilon\to 0$). Thus, for any operator $X$ in a
+weak-operator dense subalgebra $\cup_\epsilon E_\epsilon \B(\HHH)
+F_\epsilon$ of $\B(\HHH)$, the operator $SXT$ is a bounded operator.
+
+Using unbounded operators, we may restate the above lemma in the
+following form.
+
+\begin{lemma}
+With $H_1,H_2,
+V\in\M\subset\LLL_{G_3}$ given above, let $S=
+\sqrt{H_{1}(I-H_{1})^{-1}} - \sqrt{H_{2}(I-H_{2})^{-1}}V$ be an
+unbounded operator affiliated with $\M$. If $ T\in\Alg(\F_3)$,
+then there is an $A \in \B$ such that
+\begin{align*}
+T =\left(
+     \begin{array}{cc}
+     A   & \sqrt{H_{1}(I-H_{1})^{-1}}S^{-1}AS - A\sqrt{H_{1}(I-H_{1})^{-1}} \\
+     0   & S^{-1}AS \\
+     \end{array}
+   \right) \mbox{.}
+\end{align*}
+Conversely, if $A\in\B$ such that $\sqrt{H_{1}(I-H_{1})^{-1}}S^{-1}AS- A\sqrt{H_{1}(I-H_{1})^{-1}}$
+and $S^{-1}AS$ are bounded operators, then the above $T$ belongs to $\Alg(\F_3)$.
+\end{lemma}
+
+The above lemma shows that $\Alg(\F_3)$ is quite large, in
+particular, $\Alg(\F_3)\cap\LLL_{G_3}$ is infinite dimensional. The
+following result follows easily from the above lemma and shows
+that all nontrivial projections in $\Lat(\Alg(\F_3))$ have trace
+$\frac12$.
+
+\begin{corollary}
+For any $Q \in
+\Lat(\Alg(\F_3)) \backslash \{0, I, P_1\}$, we have that $Q \wedge
+P_{1} = 0$, $Q \vee P_{1} = I$, and  $\tau(Q) = \frac{1}{2}$.
+\end{corollary}
+
+\begin{proof}
+For any $Q \in \Lat(\Alg(\F_3))$,
+$Q\wedge P_1\in\Lat(\Alg(\F_3))$. Thus $Q\wedge P_1$ is invariant
+under all $T$ given in Lemma 3 and thus the $A$ in $(1,1)$ entry
+of $T$. This implies that $Q\wedge P_1=P_1$ or $0$. Similarly we
+can show that $Q\vee P_1=I$ or $P_1$.
+\end{proof}
+
+This corollary actually shows that for any distinct projections
+$Q_{1}, Q_{2}$ in $\Lat(\Alg(\F_3)) \setminus \{0,I\}$, $Q_{1}
+\wedge Q_{2} = 0$, and $Q_{1} \vee Q_{2} = I$.
+
+For any $X\in\B(\HHH)$ or an unbounded operator $X$ affiliated with
+a (finite) von Neumann algebra, we shall use $\supp(X)$ to denote
+the support of $X$, i.e., the range projection of $X^*X$. When
+$\supp(X)=\supp(X^*)=I$, $X$ has an (unbounded) inverse.
+
+\begin{theorem}
+For any projection $Q$
+in $\Lat(\Alg(\F_3)) \setminus \{0, I, P_{1}\}$, there are $K$ and
+$U$ in $\M$ such that
+\begin{align*}
+Q = \left(
+     \begin{array}{cc}
+      K & \sqrt{K(I-K)}U \\
+      U^{*}\sqrt{K(I-K)} & U^{*}(I-K)U \\
+  \end{array}
+\right) ,
+\end{align*}
+where $\sqrt{K(I-K)^{-1}}$ (or $K$) and $U$ are determined by the
+polar decomposition of $(1+a)\sqrt{H_{1}(I-H_{1})^{-1}}-
+a\sqrt{H_{2}(I-H_{2})^{-1}}V =aS + \sqrt{H_{1}(I-H_{1})^{-1}}=
+\sqrt{K(I-K)^{-1}} U$ for some $a \in \C$. Moreover for any given
+$a$ in $\C$, the polar decomposition determines $U$ and $K$
+uniquely which give rise to a projection $Q$ (in the above form)
+in $\Lat(\Alg(\F_3))$.
+\end{theorem}
+
+\begin{proof}
+Suppose $Q$ is given
+ in the theorem. From Corollary 2, we know that
+ $\supp(I-K) =I$. From Lemma 3,
+for any  $A\in\B$ (the commutant of $M_2(\C)$ in $\B(l^2(G_3))$,
+$\B\cong\B(\HHH)$ for some Hilbert space $\HHH$) such that $S^{-1}AS$
+and $\sqrt{H_{1}(I-H_{1})^{-1}}S^{-1}AS -
+A\sqrt{H_{1}(I-H_{1})^{-1}}$ are bounded, then
+\begin{align*}
+T =\left(
+     \begin{array}{cc}
+       A & \sqrt{H_{1}(I-H_{1})^{-1}}S^{-1}AS - A\sqrt{H_{1}(I-H_{1})^{-1}} \\
+       0 & S^{-1}AS \\
+     \end{array}
+   \right) \in \Alg(\F_3),
+\end{align*}
+here $S=\sqrt{H_{1}(I-H_{1})^{-1}} - \sqrt{H_{2}(I-H_{2})^{-1}}V$.
+Thus $(I-Q)TQ=0$. This implies that
+ %%%%%i.e.,
+%%%$$\eqalign{
+%%%& \left(\matrix{ I-K & -\sqrt{K(I-K)}U  \cr -U^{*}\sqrt{K(I-K)} &
+%%U^{*}KU }\right)\cdot \cr &\left(\matrix{A &
+%%%\sqrt{H_{1}(I-H_{1})^{-1}}S^{-1}AS - A\sqrt{H_{1}(I-H_{1})^{-1}}
+%%\cr 0 & S^{-1}AS } \right)\left(\matrix{ K & \sqrt{K(I-K)}U \cr
+%%U^{*}\sqrt{K(I-K)} & U^{*}(I-K)U }\right)\cr &=0.}
+%%%$$\bye
+\begin{align*}
+(I-&K)A\sqrt{K(I-K)}U +
+(I-K)\left[\sqrt{H_{1}(I-H_{1})^{-1}}S^{-1}AS \right.\cr & -
+\left.A\sqrt{H_{1}(I-H_{1})^{-1}}\right]U^{*}(I-K)U \\ &-
+\sqrt{K(I-K)}US^{-1}ASU^{*}(I-K)U = 0.
+\end{align*}
+Since $\supp(I-K) = I$, $I-K$ is invertible. We have
+\begin{align*}
+&\sqrt{I-K}A\left[\sqrt{K} -
+\sqrt{H_{1}(I-H_{1})^{-1}}U^{*}\sqrt{I-K}\right]\cr &=
+\left[\sqrt{K}U -
+\sqrt{I-K}\sqrt{H_{1}(I-H_{1})^{-1}}\right]S^{-1}ASU^{*}\sqrt{I-K}.
+\end{align*}
+This gives us
+\begin{align*}
+&A[\sqrt{K} -
+\sqrt{H_{1}(I-H_{1})^{-1}}U^{*}\sqrt{I-K}](SU^{*}\sqrt{I-K})^{-1}\cr
+&= \sqrt{(I-K)^{-1}}[\sqrt{K}U -
+\sqrt{I-K}\sqrt{H_{1}(I-H_{1})^{-1}}]S^{-1}A.
+\end{align*}
+The above equation holds for all $A$ in a weak-operator dense
+subalgebra of $\B$ $(\cong \B(\HHH_1))$. Thus there is an $a \in \C$
+such that
+\begin{align*}
+a\sqrt{I-K} &= [\sqrt{K}U -
+            \sqrt{I-K}\sqrt{H_{1}(I-H_{1})^{-1}}]S^{-1},\cr
+aSU^*\sqrt{I-K}&= \sqrt{K} -
+\sqrt{H_{1}(I-H_{1})^{-1}}U^{*}\sqrt{I-K}.
+\end{align*}
+This implies that
+\begin{align*}
+\sqrt{K(I-K)^{-1}}U = aS+ \sqrt{H_{1}(I-H_{1})^{-1}}.
+\end{align*}
+Conversely, when $K$ and $U$ are given by this equation, all above
+equations hold. From Lemma 3 one checks easily that $Q$ given in
+the theorem lies in $\Lat(\Alg(\F_3))$.
+\end{proof}
+
+\section{ $\Alg(\F_3)$ is a Kadison-Singer algebra}
+
+In this section, we shall prove that $\Lat(\Alg(\F_3))$
+is a Kadison-Singer lattice which implies that $\Alg(\F_3)$ is a
+Kadison-Singer algebra.
+
+\begin{lemma}
+For any two distinct
+projections $Q_{1}$, $Q_{2}$ in $\Lat(\Alg(\F_3)) \setminus \{0,
+I, P_{1}\}$, we have that $\Alg(\{P_{1}, Q_{1}, Q_{2}\}) =
+\Alg(\F_3)$.
+\end{lemma}
+
+\begin{proof}
+By Theorem 3, we may assume that,
+for $i=1,2$,
+\begin{equation}\label{(*)}
+\begin{split}
+&Q_{i} =\left(
+          \begin{array}{cc}
+            K_{i} & \sqrt{K_{i}(I-K_{i})}U_{i} \\
+            U_{i}^{*}\sqrt{K_{i}(I-K_{i})} & U_{i}^{*}(I-K_{i})U_{i} \\
+          \end{array}
+        \right) \mbox{ and } \\
+&\sqrt{K_{i}(I-K_{i})^{-1}} U_{i} =
+(1+a_i)\sqrt{H_{1}(I-H_{1})^{-1}} \\ &-
+a_i\sqrt{H_{2}(I-H_{2})^{-1}}V \\
+&=a_{i}S +
+\sqrt{H_{1}(I-H_{1})^{-1}}.
+\end{split}
+\end{equation}
+where $a_{1}, a_{2}\in\C$  and $a_{1} \neq a_{2}$. Then we have
+$\sqrt{K_{1}(I-K_{1})^{-1}}U_{1} - \sqrt{K_{2}(I-K_{2})^{-1}}U_{2}
+= (a_{1} - a_{2})S$. Replacing $S$ by $(a_1-a_2)S$ in Lemma 3,
+we know that $\Alg(\{P_{1}, Q_{1}, Q_{2}\}) =
+\Alg(\F_3)$.
+\end{proof}
+
+\begin{lemma}
+For any three distinct
+projections $Q_1, Q_2$ and $Q_3$ in $\Lat(\Alg(\F_3)) \setminus
+\{0, I \}$, we always have that $P_{1} \in \Lat(\Alg(\{Q_{1},
+Q_{2}, Q_{3}\}))$.
+\end{lemma}
+
+\begin{proof}
+We may assume that $Q_{i} \in
+\Lat(\Alg(\F_3))\setminus \{0, I, P_{1}\}$ and $Q_i$ is given by
+$[1]$ in the proof of Lemma 4, for $i=1,2,3$ and $a_{1}, a_{2},
+a_3$ are distinct scalars.
+
+To prove this lemma, we only need to show that if
+\begin{align*}
+A =\left(
+     \begin{array}{cc}
+       A_{11} & A_{12} \\
+       A_{21} & A_{22} \\
+     \end{array}
+   \right)\in
+\Alg(\{Q_{1}, Q_{2}, Q_{3}\}),
+\end{align*}
+then $A_{21} = 0$.
+Now assume that the above $A$ belongs to $\Alg(\{Q_1,Q_2, Q_3\})$.
+Then $ (I-Q_{i})AQ_{i} = 0$, for $i=1,2,3$. The $(1,2)$ entries of
+the equation $AQ_i=Q_iAQ_i$ give us that
+\begin{align*}
+&(I-K_i)( A_{11}\sqrt{K_i(I-K_i)}U_i+ A_{12}U_i^*(I-K_i)U_i)\cr &=
+\sqrt{K_i(I-K_i)}U_i
+(A_{21}\sqrt{K_i(I-K_i)}U_i+A_{22}U_i^*(I-K_i)U_i).
+\end{align*}
+This implies that
+\begin{align*}
+A_{11}&\sqrt{K_{i}(I-K_{i})^{-1}}U_{i} + A_{12} \\ &=
+\sqrt{K_{i}(I-K_{i})^{-1}}U_{i}[A_{21}\sqrt{K_{i}(I-K_{i})^{-1}}U_{i}
++ A_{22}].
+\end{align*}
+Thus, for $i,j=1,2,3$ and from $\sqrt{K_{i}(I-K_{i})^{-1}} U_{i}
+=a_{i}S + \sqrt{H_{1}(I-H_{1})^{-1}}$, we have
+\begin{align*}
+\sqrt{K_{i}(I  -K_{i})^{-1}} & U_{i}A_{21}
+\sqrt{K_{i}(I-K_{i})^{-1}}U_{i} \\ &- \sqrt{K_{j}(I-K_{j})^{-1}}
+U_{j}A_{21}\sqrt{K_{j}(I-K_{j})^{-1}}U_{j}\cr &= (a_{i}
+-a_{j})[A_{11}S - SA_{22}].
+\end{align*}
+From this, we conclude that
+\begin{align*}
+&(a_{1}-a_{2})\sqrt{K_{3}(I-K_{3})^{-1}}U_{3}A_{21}
+\sqrt{K_{3}(I-K_{3})^{-1}}U_{3}+\cr
+&(a_{2}-a_{3})\sqrt{K_{1}(I-K_{1})^{-1}}U_{1}A_{21}
+\sqrt{K_{1}(I-K_{1})^{-1}}U_{1} +\cr
+&(a_{3}-a_{1})\sqrt{K_{2}(I-K_{2})^{-1}}U_{2}A_{21}
+\sqrt{K_{2}(I-K_{2})^{-1}}U_{2} = 0.
+\end{align*}
+Using the relation $\sqrt{K_{i}(I-K_{i})^{-1}}U_{i} = a_{i}S +
+\sqrt{H_{1}(I-H_{1})^{-1}}$ again, we easily get
+\begin{align*}
+&[a_{3}^{2}(a_{1} - a_{2}) + a_{1}^{2}(a_{2} - a_{3}) +
+a_{2}^{2}(a_{3} - a_{1})]SA_{21}S \cr &+[a_{3}(a_{1} - a_{2}) +
+a_{1}(a_{2} - a_{3}) + a_{2}(a_{3} -
+a_{1})]\\
+&\times [SA_{21}\sqrt{H_{1}(I-H_{1})^{-1}}+
+\sqrt{H_{1}(I-H_{1})^{-1}}A_{21}S] \cr &+[(a_{1} - a_{2}) + (a_{2}
+- a_{3}) \\ & \qquad + (a_{3} -
+a_{1})]\sqrt{H_{1}(I-H_{1})^{-1}}A_{21}\sqrt{H_{1}(I-H_{1})^{-1}}
+= 0,
+\end{align*}
+which implies that
+\begin{align*}
+(a_{1} - a_{2})(a_{1} - a_{3})(a_{2} - a_{3})SA_{21}S = 0.
+\end{align*}
+This gives us that $A_{21} = 0$ and the lemma follows.
+\end{proof}
+
+Now the follow theorem follows easily from our lemmas
+and Theorem 3.
+
+\begin{theorem}
+With the above notation,
+we have that $\Alg(\F_3)$ is a KS-algebra and $\Lat(\Alg(\F_3))$
+is determined by the following: $P\in\Lat(\Alg(\F_3))$ and $P\neq
+0, I, P_1$, if and only if
+\begin{align*}
+P=\left(
+    \begin{array}{cc}
+      K & \sqrt{K(I-K)}U \\
+       U^{*}\sqrt{K(I-K)} & U^{*}(I-K)U \\
+    \end{array}
+  \right) ,
+\end{align*}
+where $K$ and $U$ are uniquely determined by the following polar
+decomposition with any $a\in\C$: $(a+1)\sqrt{H_1(I-H_1)^{-1}} -a
+\sqrt{H_2(I-H_2)^{-1}}V=\sqrt{K(I-K)^{-1}}U$. As a consequence, we
+have $\tau(P)=\frac12$ and as $a$ tends to $\infty$, the
+projection $P$ converges strongly to $P_1$. Thus
+$\Lat(\Alg(\F_3))\setminus \{0,I\}$ is homeomorphic to $S^2$.
+\end{theorem}
+
+\begin{proof}
+We only need to show the minimality
+of $\Lat(\Alg(\F_3))$. Clearly for any sublattice $\LLL_1$
+containing only two projections $Q_1,Q_2$ in $\Lat(\Alg(\F_3))$,
+$\LLL_1$ can not generate the type $\II_1$ factor $\LLL_{G_3}$. Lemma
+4 shows that any reflexive sublattice of $\Lat(\Alg(\F_3))$
+containing more than two nontrivial projections must agree with
+$\Lat(\Alg(\F_3))$. Thus $\Lat(\Alg(\F_3))$ is a Kadison-Singer
+lattice.
+\end{proof}
+
+Although the above theorem is stated for $\F_3$, similar results
+hold when $P_1, P_2$ and $P_3$ are not assumed to be free. There
+are many other factors which can be generated by three
+projections. Let $\M$ be a factor of type $\II_1$ with trace
+$\tau$ and $M_2(\C)\subseteq\M$ and $M_2(\C)'\cap\M=\NNN$, a
+subfactor of $\M$ with generators $H_1$, $H_2$ and $V$, where
+$0\le H_1, H_2\le I$ and $V$ is a unitary operator. Suppose
+$\HHH=L^2(\M,\tau)$. Let $P_1=\left(
+     \begin{array}{cc}
+       1 & 0 \\
+        0 & 0  \\
+     \end{array}\right) \in
+M_2(\C)$ be a projection in $\M$. Furthermore, we assume that
+\begin{align*}
+P_2&=\left(
+     \begin{array}{cc}
+       H_1 & \sqrt{H_1(I-H_1)} \\
+        \sqrt{H_1(I-H_1)} & I-H_1 \\
+     \end{array}\right) \\
+P_3&=\left(
+     \begin{array}{cc}
+       H_2 & \sqrt{H_2(I-H_2)}V \\
+        V^*\sqrt{H_2(I-H_2)} & I-H_2  \\
+     \end{array}\right)
+\end{align*}
+are projections in $\M$ such that  $P_2\vee P_3=I$ and $P_2\wedge
+P_3=0$, and $\sqrt{H_1(I-H_1)^{-1}}$, $\sqrt{H_2(I-H_2)^{-1}}$ and
+$\sqrt{H_1(I-H_1)^{-1}} -\sqrt{H_2(I-H_2)^{-1}}V$ are bounded
+invertible operators. All above conditions are satisfied when
+$H_1$, $H_2$ are free positive elements with disjoint spectra in
+$(0,1)$ ($V=I$), and $\sqrt{H_1(I-H_1)^{-1}}$ and
+$\sqrt{H_2(I-H_2)^{-1}}$ have disjoint spectra.
+
+\begin{theorem}
+With the above notation
+and assumptions, we have that $\Alg(\{P_1, P_2,P_3\})$ is a
+Kadison-Singer algebra and $\Lat(\Alg(\{P_1, P_2,P_3\}))$ is
+determined by the following: $P\in\Lat(\Alg(\{P_1, P_2,P_3\}))$
+and $P\neq 0, I, P_1$, if and only if
+\begin{align*}
+P= \left(
+     \begin{array}{cc}
+       L & \sqrt{L(I-L)}U \\
+       U^{*}\sqrt{L(I-L)} & U^{*}(I-L)U \\
+     \end{array}\right)
+\end{align*}
+where $L$ and $U$ are uniquely determined by the following polar
+decomposition with any $a\in\C$: $(a+1)\sqrt{H_1(I-H_1)^{-1}} -a
+\sqrt{H_2(I-H_2)^{-1}}V=\sqrt{L(I-L)^{-1}}U$. As a consequence, we
+have $\tau(P)=\frac12$.
+\end{theorem}
+
+The proof of this theorem will be the same as that of Theorem 4.
+Moreover, as $a\to\infty$ in Theorem 4, the projection $P\to P_1$
+in strong-operator topology. Thus $\Lat(\Alg(\{P_1, P_2, P_3\}))
+\setminus\{0,I\}$ is homeomorphic to the one point compactification
+of $\C$, i.e., homeomorphic to $S^2$.
+
+When a lattice contains four or more projections in a von Neumann
+algebra, the situation is not clear.  Even for $\F_4$ (the lattice
+generated by four free projections), we know from our above result
+that $\Lat(\Alg(\F_4))$ contains several copies of $S^2$. But we
+do not have a complete characterization of this lattice. The
+following theorem shows that $\Alg(\F_\infty)$ contains no nonzero
+compact operators. We believe that $\Alg(\F_n)$, when $n\ge4$,
+does not contain any compact operators.
+
+\begin{theorem}
+Let $\F_\infty$ be the
+lattice generated by countably infinitely many free projections of
+trace $\frac12$ in $\L_{G_\infty}$, where $G_\infty$ is the free
+product of countably infinitely many copies of $\Z_2$. Then
+$\Alg(\F_\infty)$ does not contain any nonzero compact operators.
+\end{theorem}
+
+\begin{proof}
+Let $U_j$, $j=1,2,\ldots$,  be the
+standard generators of $\LLL_{G_n}$ and $P_j=\frac{I-U_j}2$ the free
+projections in $\F_\infty$. Suppose $T\in\Alg(\F_\infty)$ is a
+compact operator. From $(I-P_j)TP_j=0$, we know that
+$(I+U_j)T(I-U_j)=0$ for $j=1,2,\ldots$. For any $x,y$ in
+$l^2(G_\infty)$, we have
+\begin{align*}
+ \langle (I+U_j)T(I-U_j)x,y  \rangle= \langle T(I-U_j)x, (I+U_j)y  \rangle=0.
+\end{align*}
+Since $U_j$ has weak-operator limit zero, as $j\to\infty$, and $T$
+compact, we have that $ \langle U_jx,y  \rangle \to 0$, $ \langle Tx, U_jy  \rangle \to0$ and
+$TU_jx\to0$ (as $j\to\infty$). This implies that $ \langle Tx,y  \rangle=0$ and
+thus $T=0$.
+\end{proof}
+
+\section{Reduced lattices}
+
+Suppose $\LLL$ is a lattice of projections in a finite von
+Neumann algebra $\M$ with a faithful normal trace $\tau$. Two
+projections $P$ and $Q$ in $\LLL$ are said to be {\it connected} if,
+for any $\epsilon>0$, there are elements $P_1, P_2,\ldots, P_n$ in
+$\LLL$ such that $P_1=P$, $P_n=Q$, $|\tau(P_j-P_{j+1})|<\epsilon$,
+and either $P_j\le P_{j+1}$ or $P_j\ge P_{j+1}$, for $j=1,\ldots,
+n-1$. Define the connected component $O(P)$ of $P$ to be the set
+of all projections in $\LLL$ that are connected with $P$. Let
+$\Gamma_0(\LLL)$ be the set of all connected components in $\LLL$. We
+shall see that $\Gamma_0(\LLL)$ carries an induced lattice structure
+from $\LLL$ and we call $\Gamma_0(\LLL)$ the {\it reduced lattice} of
+$\LLL$. It is clear that if $\LLL$ is a continuous nest, then
+$\Gamma_0(\LLL)$ contains only one point. A basic fact on connected
+components is given in the following.
+
+\begin{proposition}
+Suppose $\LLL$ is a
+lattice of projections in a finite von Neumann algebra $\M$,
+$P,Q\in\LLL$. If $O(P)\neq O(Q)$, then $O(P)\cap O(Q)=\emptyset$.
+\end{proposition}
+
+The proof of this proposition follows easily from the definition.
+If $O(P)$ and $O(Q)$ are two elements in $\Gamma_0(\LLL)$, then, for
+any $Q_1\in O(Q)$, it is easy to see that $O(P\vee Q)=O(P\vee
+Q_1)$. Thus $O(P\vee Q)$ depends on the components $O(P)$ and
+$O(Q)$, not the choices of $P$ and $Q$ in the components. We
+define $O(P)\vee O(Q)=O(P\vee Q)$. Similarly we define that
+$O(P)\wedge O(Q)=O(P\wedge Q)$. It is easy to shows that
+$\Gamma_0(\LLL)$ is a lattice. The following theorem is immediate.
+
+\begin{theorem}
+Suppose $\LLL$ is a
+lattice of projections in a finite von Neumann algebra $\M$ with a
+(faithful normal) trace $\tau$. If $\tau(\LLL)$ contains only
+finitely many trace values, then $\Gamma_0(\LLL)$ is the same as
+$\LLL$ (i.e., every connected component contains only one element in
+$\LLL$).
+\end{theorem}
+
+From this theorem, we know that
+$\Gamma_0(\Lat(\Alg(\F_3)))=\Lat(\Alg(\F_3))$. Suppose $\LLL$ is a
+Kadison-Singer lattice and $\LLL$ generates a finite von Neumann
+algebra. If $\Gamma_0(\LLL)$ contains only one point, then we call
+$\LLL$ {\it contractible}. Thus continuous nests are contractible. In
+a forthcoming paper, we shall construct other contractible
+Kadison-Singer lattices and also show that manifolds of higher
+dimensions can appear as the reduced lattices of Kadison-Singer
+lattices.
+
+Reduced lattices can not contain continuous nests. The following
+theorem shows that all possible trace values can appear in a
+reduced lattice.
+
+\begin{theorem}
+Suppose $\LLL^{(n)}$ is
+the lattice given in Section 4 in \cite{GY}. Then
+$\Gamma_0(\LLL^{(n)})=\LLL^{(n)}$.
+\end{theorem}
+
+The proof is a direct computation. We omit the details here.
+%%-- text of paper here --
+
+%% == end of paper:
+
+%% Optional Materials and Methods Section
+%% The Materials and Methods section header will be added automatically.
+
+%% Enter any subheads and the Materials and Methods text below.
+%\begin{materials}
+% Materials text
+%\end{materials}
+
+
+%% Optional Appendix or Appendices
+%% \appendix Appendix text...
+%% or, for appendix with title, use square brackets:
+%% \appendix[Appendix Title]
+
+\begin{acknowledgments}
+Research supported in part by President Fund of Academy of
+Mathematics and Systems Science, Chinese Academy of Sciences
+\end{acknowledgments}
+
+%% PNAS does not support submission of supporting .tex files such as BibTeX.
+%% Instead all references must be included in the article .tex document.
+%% If you currently use BibTeX, your bibliography is formed because the
+%% command \verb+\bibliography{}+ brings the <filename>.bbl file into your
+%% .tex document. To conform to PNAS requirements, copy the reference listings
+%% from your .bbl file and add them to the article .tex file, using the
+%% bibliography environment described above.
+
+%%  Contact pnas@nas.edu if you need assistance with your
+%%  bibliography.
+
+% Sample bibliography item in PNAS format:
+%% \bibitem{in-text reference} comma-separated author names up to 5,
+%% for more than 5 authors use first author last name et al. (year published)
+%% article title  {\it Journal Name} volume #: start page-end page.
+%% ie,
+% \bibitem{Neuhaus} Neuhaus J-M, Sitcher L, Meins F, Jr, Boller T (1991)
+% A short C-terminal sequence is necessary and sufficient for the
+% targeting of chitinases to the plant vacuole.
+% {\it Proc Natl Acad Sci USA} 88:10362-10366.
+
+
+%% Enter the largest bibliography number in the facing curly brackets
+%% following \begin{thebibliography}
+
+\begin{thebibliography}{21}
+
+\bibitem{GY} L. Ge and W. Yuan, {\em Type I C*-algebrasKadison-Singer algebras,
+I---hyperfinite case,} to appear, 2009
+
+\bibitem{KS} R. Kadison and I. Singer, {\em Triangular operator
+algebras. Fundamentals and hyperreducible theory,} Amer. J. Math.,
+{\bf 82 } (1960),  227--259.
+
+\bibitem{GS}  L. Ge and J. Shen, {\em On the generator problem of
+von Neumann algebras,} Proc. of ICCM 2004 (Hong Kong), Intern.
+Press, Boston.
+
+\bibitem{H}  P. Halmos, {\em Reflexive lattices of subspaces,}
+J. London Math. Soc. {\bf 4}  (1971),  257--263.
+
+\bibitem{Ha} K. Harrison, {\em On lattices of invariant
+subspaces,} Doctoral Thesis, Monash University, Melbourne, 1970.
+
+%%\ref[Ka]  R. Kadison,
+%%     {\eightsl On the orthogonalization of operator
+%%     representations,} Amer. J. Math.
+%%     {\eightbf 78}  (1955),  600--621.
+
+\bibitem{VDN} D. Voiculescu, K. Dykema and A. Nica, {\em ``Free
+Random Variables,''} CRM Monograph Series, vol. 1, 1992.
+
+\bibitem{KR} R.\ Kadison and J.\ Ringrose, {\em ``Fundamentals of
+the Operator Algebras,''} vols. I and II, Academic Press, Orlando,
+1983 and 1986.
+
+\end{thebibliography}
+
+\end{article}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%% Adding Figure and Table References
+%% Be sure to add figures and tables after \end{article}
+%% and before \end{document}
+
+%% For figures, put the caption below the illustration.
+%%
+%% \begin{figure}
+%% \caption{Almost Sharp Front}\label{afoto}
+%% \end{figure}
+
+%% For Tables, put caption above table
+%%
+%% Table caption should start with a capital letter, continue with lower case
+%% and not have a period at the end
+%% Using @{\vrule height ?? depth ?? width0pt} in the tabular preamble will
+%% keep that much space between every line in the table.
+
+%% \begin{table}
+%% \caption{Repeat length of longer allele by age of onset class}
+%% \begin{tabular}{@{\vrule height 10.5pt depth4pt  width0pt}lrcccc}
+%% table text
+%% \end{tabular}
+%% \end{table}
+
+%% For two column figures and tables, use the following:
+
+%% \begin{figure*}
+%% \caption{Almost Sharp Front}\label{afoto}
+%% \end{figure*}
+
+%% \begin{table*}
+%% \caption{Repeat length of longer allele by age of onset class}
+%% \begin{tabular}{ccc}
+%% table text
+%% \end{tabular}
+%% \end{table*}
+
+\end{document}
