@@ -1,0 +1,1352 @@
+\documentclass[a4paper,10pt]{amsart}
+
+\usepackage[protrusion=true,expansion=true]{microtype} 
+\usepackage{fancyhdr}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx} 
+\usepackage{wrapfig} 
+
+\usepackage{mathpazo}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{hyperref}
+\usepackage{cleveref}
+\usepackage{comment}
+\usepackage{color}
+\usepackage{enumerate}
+
+\newtheorem{example}{Example}[section]
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}{Proposition}[section]
+\newtheorem{corollary}{Corollary}[section]
+\newtheorem{definition}{Definition}[section]
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{remark}{Remark}[section]
+\newtheorem{question}{Question}[section]
+
+\crefname{lemma}{Lemma}{lemmas}
+\crefname{remark}{Remark}{remark}
+\crefname{corollary}{Corollary}{corollary}
+\crefname{theorem}{Theorem}{theorem}
+\crefname{example}{Example}{example}
+\crefname{definition}{Definition}{definition}
+
+\newcommand{\AAA}{\mathfrak A}
+\newcommand{\BBB}{\mathcal B}
+\newcommand{\CCC}{\mathcal C}
+\newcommand{\HHH}{\mathcal H} %for Hilbert space
+\newcommand{\LLL}{\mathcal L} % for lattice
+\newcommand{\MMM}{\mathcal M}
+
+
+\newcommand{\Lat}{\mathcal Lat}
+\newcommand{\Alg}{\mathcal Alg}
+\newcommand{\tr}{\tau}
+\newcommand{\C}{\mathbb C} %for complex number
+\newcommand{\R}{\mathbb R}  %for real number
+\newcommand{\Z}{\mathbb Z} %for integer
+\newcommand{\N}{\mathbb N} % for nature number
+\newcommand{\I}{\mathcal I}
+\newcommand{\RR}{\mathcal R}
+% self defined vars
+\newcommand{\titleinfo}{Manifolds of Hilbert space homeomorphic to
+    sphere in Finite von Neumann algebra}
+\newcommand{\authorinfo}{Wei Yuan and Wenming Wu} 
+
+\linespread{1.05}
+\pagestyle{fancyplain}
+\fancyhf{}
+\fancyhf[HRE,HLO]{\authorinfo}
+\fancyhf[FC]{\thepage}
+
+\begin{document}
+
+\title{\LARGE\textbf{\titleinfo}} 
+\author{\large\textsc{\authorinfo}} 
+\address{AMSS}  
+\email{}
+
+\date{}
+
+%\renewcommand{\abstractname}{Summary} 
+\begin{abstract}
+Enter abstract here
+\end{abstract}
+
+% Keywords
+\subjclass[2010]{Primary ; Secondary }
+\keywords{}
+\thanks{}
+\maketitle
+
+
+\section{Introduction}
+Let $\HHH$ be a Hilbert space, $Proj(\HHH)$ be the set of self-adjoint projections
+and $Uint(\HHH)$ be the set of unitary operators. We will routinely identify a 
+closed subspace with its associated orthogonal projection in $B(\HHH)$.
+For a set $\LLL$ of orthogonal projections in $Proj(\HHH)$, we denote by $Alg\LLL$ the set of all bounded linear operators on $\HHH$ leaving each element
+in $\LLL$ invariant. Then $Alg\LLL$ is an unital weak-operator closed subalgebra of 
+$B(\HHH)$. Similarly, for a subset $\mathcal{S}$ of
+$B(\HHH)$, let $Lat\mathcal{S}$ be the set of  invariant projections for every 
+operators in $\mathcal{S}$. Then $Lat\mathcal{S}$ is a
+strong-operator closed lattice of projections. A subalgebra $\mathcal{A}$ of 
+$B(\HHH)$ is said to be reflexive if
+$\mathcal{A}=Alg\Lat\mathcal{A}$, similarly a lattice $\LLL$ of projections 
+is reflexive if $\LLL=LatAlg\LLL$.
+
+\section{Hilbert fields over sphere}
+Suppose $Q(\infty)$, $Q(0)$ and $Q(-1)$ are three projections in a finite 
+von Neumann algebra $\AAA$, and $Q(\infty)$, $Q(0)$ and $Q(-1)$ are 
+in general position, i.e., the intersection of any two is zero and 
+the join of 
+any two is I, then $\AAA \cong Q(\infty)\AAA Q(\infty) \otimes M_{2}(\C)$
+\cite[Proposition 2.4]{Hou}.
+Moreover we can write $Q(\infty)$, $Q(0)$ and $Q(-1)$ in terms 
+of $2 \times 2$ operator matrices (with respect to the canonical matrix 
+units in $I \otimes M_{2}(\C)$) as follows:
+\begin{equation}\label{eq0}
+\begin{split}
+    Q(\infty)&= \left(
+        \begin{array}{cc}
+          I & 0 \\
+          0 & 0 \\
+        \end{array}
+      \right),
+      Q(0) = \left(
+          \begin{array}{cc}
+            H_{1} & \sqrt{H_{1}(I-H_{1})} \\
+            \sqrt{H_{1}(I-H_{1})} & I-H_{1} \\
+          \end{array}
+        \right) , \\
+        Q(-1)&= \left(
+          \begin{array}{cc}
+            H_{2} & \sqrt{H_{2}(I-H_{2})}V \\
+            V^{*}\sqrt{H_{2}(I-H_{2})} & V^{*}(I-H_{2})V \\
+          \end{array}
+        \right),
+\end{split}
+\end{equation}
+where $H_i$ is a contractive positive operator in $Q(\infty)\AAA Q(\infty)$ 
+such that $Ker(I - H_i) = 0$, $i = 1, 2$, and $V$ is a unitary operator 
+in $Q(\infty)\AAA Q(\infty)$. 
+
+In order to describe the invariant subspace lattice 
+$\Lat(\Alg(\{Q(\infty), Q(0), Q(-1)\}))$, 
+unbounded operator will be used. Let $\AAA$ be a von Neumann algebra, and
+$\widetilde{\AAA}$ be the set of closed, densely defined operators 
+affiliated with $\AAA$. When $\AAA$ is finite, the family of operators 
+affiliated with $\AAA$ has remarkable properties, that is the operators in 
+$\widetilde{\AAA}$ admits algebraic operations of addition and multiplication.
+In another word,  $\widetilde{\AAA}$ is an unital * algebra (cf. \cite{MV2}), 
+and the elements in $\widetilde{\AAA} $ can be manipulated as if they were bounded
+operators. In the rest of the paper, we will repeatedly make use this fact 
+without mentioning it explicitly. For a elegant treatment of this subject, 
+we refer readers to \cite{Zhe}. 
+
+\begin{theorem}[\cite{Hou}, Theorem 2.1] \label{1thm1}
+With the above notation and assumptions, we have 
+$\Lat(\Alg(\{Q(\infty), Q(0), Q(-1)\})) \setminus \{0, I\}$ 
+endowed with the strong operator topology
+is homeomorphic to $\C \cup \{\infty\} (\cong S^2)$ with
+the homeomorphism given by
+\begin{align*}
+    \rho[Q(\infty), Q(0), Q(-1)](z) = \left(
+     \begin{array}{cc}
+      K_{z} & \sqrt{K_{z}(I-K_{z})}U_{z} \\
+      U_{z}^{*}\sqrt{K_{z}(I-K_{z})} & U_{z}^{*}(I-K_{z})U_{z} \\
+  \end{array}
+\right) , \qquad \forall z \in \C,
+\end{align*}
+and $\rho[Q(\infty), Q(0), Q(-1)](\infty) 
+= Q(\infty)$, 
+where $K_z$ and $U_z$ are uniquely determined by the following polar decomposition:
+\begin{equation}\label{eq1}
+\begin{split}
+&\sqrt{K_{z}(I-K_{z})^{-1}}U_{z} = (1+z)\sqrt{H_{1}(I-H_{1})^{-1}}-
+                                   z\sqrt{H_{2}(I-H_{2})^{-1}}V \\
+                                 &=zS + \sqrt{H_{1}(I-H_{1})^{-1}} \qquad 
+                                   (S = \sqrt{H_{1}(I-H_{1})^{-1}}- 
+                                   \sqrt{H_{2}(I-H_{2})^{-1}}V) .
+\end{split}
+\end{equation}
+Moreover,  the reflexive lattice 
+$\Lat(\Alg(\{Q(\infty), Q(0), Q(-1)\}))$ 
+can be determined by arbitrary three nontrivial projections
+$($not $0$ or I$)$ in it.
+\end{theorem}
+
+\begin{remark}\label{1re1}
+Since $\sqrt{K_{0}(I-K_{0})^{-1}}U_{0} =
+0\times S + \sqrt{H_{1}(I-H_{1})^{-1}}$ implies $K_{0} = H_{0}$ 
+and $U_{0} = I$, 
+we have $\rho[Q(\infty), Q(0), Q(-1)](0) = Q(0)$. Similarly, 
+$\rho[Q(\infty), Q(0), Q(-1)](-1) = Q(-1)$. Therefore, we will also use 
+$Q(z)$ to denote $\rho[Q(\infty), Q(0), Q(-1)](z)$ throughout the 
+rest of this paper.
+\end{remark}
+
+\begin{definition}[Definition 2.1. (i) in \cite{LP}]\label{1exm1}
+    A topological subspace manifold in $B(\HHH)$ of dimension $n$ is a set
+    $\mathcal{M} \subset Proj(\HHH)$, considered with the relative strong 
+    operator topology, which is locally homeomorphic to $\R^{n}$.
+\end{definition}
+
+Given any there projections $Q(\infty), Q(0), Q(-1)$ in a 
+finite von Neumann
+algebra, we have $\Lat(\Alg(\{Q(\infty), Q(0), Q(-1)\})) \setminus \{0, I\}$
+is a topological subspace manifold of dimension $2$ 
+if $Q(\infty), Q(0), Q(-1)$
+are in general position by \cref{1thm1}.
+
+\begin{example}[Tautological line bundle over $\C\mathbb{P}^1$]
+Let
+\begin{align*}
+Q(\infty)&= \left(
+        \begin{array}{cc}
+          1 & 0 \\
+          0 & 0 \\
+        \end{array}
+      \right),
+Q(0)= \left(
+        \begin{array}{cc}
+          0 & 0 \\
+          0 & 1 \\
+        \end{array}
+      \right),
+Q(-1)= \left(
+        \begin{array}{cc}
+          \frac{1}{2} & -\frac{1}{2} \\
+          -\frac{1}{2} & \frac{1}{2} \\
+        \end{array}
+      \right),
+\end{align*}
+then 
+\begin{align*}
+Q(z) = \frac{1}{1+|z|^2}
+    \left(
+        \begin{array}{cc}
+          |z|^2 & z \\
+        \overline{z} & 1\\
+        \end{array}
+      \right).  
+\end{align*}
+Note that the map $\phi: \C\mathbb{P}^1 \rightarrow S^{2}$ given by
+$\phi([z_1, z_2]) = z_1/z_2$ is a homeomorphism. We have
+\begin{align*}
+\phi^{*}(Q)([z_1, z_2]) = \frac{1}{|z_1|^2+|z_2|^2}
+    \left(
+        \begin{array}{cc}
+            |z_1|^2 & z_1 \overline{z_2} \\
+        \overline{z_1}z_2 & |z_2|^2\\
+        \end{array}
+      \right) 
+\end{align*}
+is a line bundle over $\C\mathbb{P}^{1}$. 
+It is actually the tautological line  bundle over $\C\mathbb{P}^1$.
+\end{example}
+
+In this paper will study the subgroup of automorphisms of $\AAA$ which leaves $Lat(\Alg(\{Q(\infty), Q(0), Q(-1)\}))$ invariant.
+The rest of this paper is organized as follows.  
+Next, we point out that the above result naturally 
+induce a coordinate chart of 
+the reflexive lattice generated by a double triangle lattice of projections (exclude $0$ and $I$) in a finite von Neumann algebra.
+In section 3, we prove that the transition maps between the charts are  
+M\"{o}bius transformations.
+We then study the $\LLL$-invariant subgroup of automorphisms of  a von Neumann algebra $\AAA$, where $\LLL$ is a
+reflexive subspace lattice contained in $\AAA$. In particular, 
+we show if $\AAA$ is a finite factor or finite dimensional, and $\LLL$
+is generated by a double triangle lattice of projections in 
+$\AAA$, then the $\LLL$-invariant automorphism group is 
+homeomorphic to a closed 
+subgroup of $SO(3)$(Corollary \ref{2cor2}). In section 4, we compute the $\LLL$-invariant automorphism group when $\AAA $ 
+is the interpolated free group factor $L_{F_{\frac{3}{2}}}$, 
+and $\LLL$ is determined by the three free projection that 
+generate $L_{F_{\frac{3}{2}}}$. 
+In the appendix, we give a detailed proof of the following fact: 
+If $\LLL$ is a reflexive lattice in a von Neumann algebra 
+$\AAA$, and $\varphi$ is a *-isomorphism of 
+$\AAA$, then $\varphi(\LLL)$ is also reflexive.\newline
+
+
+Since any three projections in 
+$\Lat(\Alg(\{Q(\infty), Q(0), Q(-1)\})) \setminus \{0, I\}$ 
+are in the general position, form Theorem \cref{1thm1}, 
+we have the following corollary.
+\begin{corollary}\label{1cor1}
+With the notations in the Theorem \ref{1thm1} and the Remark \ref{1re1}, 
+suppose $Q(z_1)$, $Q(z_2)$ and $Q(z_3)$ are three nontrivial 
+projections in $\Lat(\Alg(\{Q(\infty), Q(0), Q(-1)\}))$,
+then there is a homeomorphism $\rho[Q(z_1), Q(z_2), Q(z_3)]$ form $S^2$ 
+onto $\Lat(\Alg(\{Q(\infty), Q(0), Q(-1)\})) \setminus \{0, I\}$ 
+such that $\rho[Q(z_1), Q(z_2), Q(z_3)](z)$ is determined by the 
+following relation:
+\begin{equation}\label{eq2}
+\begin{split}
+(I - Q(z_1)\rho[Q(z_1), Q(z_2), Q(z_3)]&(z)Q_{z_1})^{-1}
+    [Q(z_1)\rho[Q(z_1), Q(z_2), Q(z_3)](z)(I-Q(z_1))]\\
+=(1 &+z)(I - Q(z_1)Q(z_2)Q(z_1))^{-1}[Q(z_1)Q(z_2)(I-Q(z_1))] \\
+ & - z(I - Q(z_1)Q(z_3)Q(z_1))^{-1}[Q(z_1)Q(z_3)(I-Q(z_1))].
+ \end{split}
+\end{equation}
+By (\ref{eq2}), $\rho[Q(z_1), Q(z_2), Q(z_3)](\infty) = 
+Q(z_1)$, $\rho[Q(z_1), Q(z_2), Q(z_3)](0) = Q(z_2)$ 
+and $\rho[Q(z_1), Q(z_2), Q(z_3)](-1) = Q(z_3)$. 
+\end{corollary}
+  
+
+The inverse of the homeomorphism $\rho[Q(z_1), Q(z_2), Q(z_3)]$ 
+in the Corollary \ref{1cor1} actually gives a coordinate chart of 
+$(\Lat(\Alg(\{Q(\infty), Q(0), Q(-1)\})) \setminus \{0, I,  Q(z_1)\}$, 
+$\rho[Q(z_1), Q(z_2), Q(z_3)]^{-1})$ of 
+$\Lat(\Alg(\{Q(\infty), Q(0), Q(-1)\})) \setminus \{0, I \}$.
+So $\Lat(\Alg(\{Q(\infty), Q(0), Q(-1)\})) \setminus \{0, I\}$ 
+is a 2-dimensional (topological) manifold with atlas
+$\{\rho[Q(z_1), Q(z_2), Q(z_3)]^{-1} | 
+z_1, z_2, z_3 \in \C \cup \{\infty \} \}$. 
+In the next section, we will determine the transition maps between 
+the charts in this atlas.
+
+\section{Determined by two idempotent}
+
+Let $Q(\infty)$, $Q(0)$ and $Q(-1)$ be trace half projections in 
+a finite von Neumann algebra $\AAA$. If $Q(\infty) \wedge Q(i) = 0$,
+$i = 0, -1$, then we have there exists a two closed idempotents 
+$S_1$ and $S_2$ such that $S_1$ and $S_2$ are affiliated with $\AAA$ and
+$\Alg(Q(\infty), Q(0), Q(-1)) = \{T | TS_i \subset S_{i}T, i = 1,2\}$
+by Lemma 2.3 in \cite{WW}.
+
+Now assume that $T_1$ and $T_2$ be two closed operator affiliated with
+a finite von Neumann algebra $\AAA$. Consider two idempotents in 
+$\AAA \otimes M_{2}(\C)$:
+\begin{align*}
+   S_1 = \begin{pmatrix}
+       I & T_1\\
+       0 & 0
+   \end{pmatrix}, \qquad
+   S_2 = \begin{pmatrix}
+       I & T_2 \\
+       0 & 0
+   \end{pmatrix}.
+\end{align*}
+Let $Q(\infty) = Ran(S_1)$, $Q(0) = Ker(S_1)$ and $Q(-1)=Ker(S_2)$ be 
+three trace half projections. Note that 
+\begin{align*}
+   \Alg(Q(\infty), Q(0), Q(-1)) = \{T | TS_i \subset S_{i}T, i = 1,2\}.
+\end{align*}
+By conjugating a unitary, we could assume that
+\begin{align*}
+   T_1 - T_2  
+   = \begin{pmatrix}
+      K & 0\\
+      0 & 0
+   \end{pmatrix} 
+\end{align*}
+where $K \geq 0$ and $K$ has a closed inverse. We also write $T_1$ as
+$\begin{pmatrix}
+       T_{11} & T_{12} \\
+       T_{21} & T_{22}
+\end{pmatrix}$. 
+
+It is not hard to check that $\Alg(Q(\infty), Q(0), Q(-1))$ contains the
+following elements 
+\begin{align*}
+    &\begin{pmatrix}
+    A_1 & 0 & A_{1} T_{11}-T_{11}K^{-1}A_{1}K & A_{1}T_{12}\\
+       0 & 0 & -T_{21}K^{-1}A_{1}K & 0\\
+       0 & 0 & K^{-1}A_{1}K & 0 \\
+       0 & 0 & 0 & 0
+   \end{pmatrix} \qquad  
+   \begin{pmatrix}
+   0 & 0 & 0 & 0\\ 
+   0 & A_{2} & A_{2}T_{21} & A_{2}T_{22} \\
+   0 & 0 & 0 & 0\\ 
+   0 & 0 & 0 & 0\\ 
+   \end{pmatrix}\\
+   &\begin{pmatrix}
+   0 & A_{3} & A_{3}T_{21} & A_{3}T_{22}\\ 
+   0 & 0 & 0 & 0 \\
+   0 & 0 & 0 & 0\\ 
+   0 & 0 & 0 & 0 
+   \end{pmatrix} \qquad
+   \begin{pmatrix}
+   0 & 0 &  -T_{12}D_{1} & 0\\ 
+   0 & 0 & -T_{22}D_{1} & 0 \\
+   0 & 0 & 0 & 0\\ 
+   0 & 0 & D_{1} & 0 
+   \end{pmatrix} \qquad
+   \begin{pmatrix}
+   0 & 0 & 0 & -T_{12}D_{2}\\ 
+   0 & 0 & 0 & -T_{22}D_{2} \\
+   0 & 0 & 0 & 0\\ 
+   0 & 0 & 0 & D_{2}\\ 
+   \end{pmatrix}
+\end{align*}
+If $Q \in \Lat(\Alg(Q(\infty), Q(0), Q(-1)))$ such that
+$Q \wedge Q(\infty) = 0$ and $Q \wedge Q(\infty) = I$, then there is
+a idempotent
+\begin{align*}
+   S = \begin{pmatrix}
+       I & T_{1} + S_{1} \\
+       0 & 0
+   \end{pmatrix} 
+\end{align*}
+such that $SA = AS$ for any $A \in \Alg(Q(\infty), Q(0), Q(-1))$. 
+This implies that
+\begin{align*}
+   \begin{pmatrix}
+      0 & 0\\
+      0 & I
+   \end{pmatrix}
+   \begin{pmatrix}
+       S_{11} & S_{12}\\
+       S_{21} & S_{22}
+   \end{pmatrix} = 0 \mbox{ and }
+   \begin{pmatrix}
+       S_{11} & S_{12}\\
+       S_{21} & S_{22}
+   \end{pmatrix}
+    \begin{pmatrix}
+      0 & 0\\
+      0 & I
+   \end{pmatrix} = 0.
+\end{align*}
+Therefore $S_{12}$, $S_{21}$ and $S_{22}$ are all equals $0$.
+Since
+\begin{align*}
+   \begin{pmatrix}
+       A_{1} & 0 \\
+       0 & 0
+   \end{pmatrix} 
+   \begin{pmatrix}
+       S_{11} & 0 \\
+       0 & 0
+   \end{pmatrix}
+   = 
+   \begin{pmatrix}
+       S_{11} & 0 \\
+       0 & 0
+   \end{pmatrix}
+   \begin{pmatrix}
+       K^{-1}A_{1}K & 0 \\
+       0 & 0
+   \end{pmatrix} \qquad \mbox{ for all $A_{1} \in Ran(K)\AAA Ran(K)$}. 
+\end{align*}
+This implies that $S = z K$ for some $z \in \C$. We will denote 
+this projection by $Q(z)$.
+
+If $Q \wedge Q(\infty) = 0$ and $Q \vee Q(\infty) \neq I$, then
+\begin{align*}
+    Q \vee Q(\infty) = 
+    \begin{pmatrix}
+        I & 0 & 0 & 0\\
+        0 & I & 0 & 0\\
+        0 & 0 & 0 & 0\\
+        0 & 0 & 0 & I \\
+    \end{pmatrix} = E.
+\end{align*}
+Therefore, there must exist a $\beta = (\xi_1, \xi_2, \xi_3, \xi_4)^{T}
+\in Q\HHH$ such that $\xi_4 \neq 0$. This implies that
+\begin{align*}
+    \{ \begin{pmatrix}
+            -T_{12}\xi\\
+            -T_{22}\xi\\
+            0\\
+            \xi
+    \end{pmatrix} | \xi \} \subset Q\HHH.
+\end{align*}
+Consider the trace of $Q$, we know that 
+\begin{align*}
+    \{ \begin{pmatrix}
+            -T_{12}\xi\\
+            -T_{22}\xi\\
+            0\\
+            \xi
+    \end{pmatrix} | \xi \} = Q\HHH.
+\end{align*}
+It is not hard to check that
+\begin{align*}
+    Q(z_{1}) \wedge Q(z_{2}) =
+    \{ \begin{pmatrix}
+            -T_{12}\xi\\
+            -T_{22}\xi\\
+            0\\
+            \xi
+    \end{pmatrix} | \xi \} 
+\end{align*}
+for any $z_1$ and $z_2 \in \C$.
+
+If $Q \wedge Q(\infty) \neq 0$, then it is easy to see that
+\begin{align*}
+    Q \wedge Q(\infty) = 
+    \begin{pmatrix}
+        I & 0 & 0 & 0\\
+        0 & 0 & 0 & 0 \\
+        0 & 0 & 0 & 0 \\
+        0 & 0 & 0 & 0 \\
+    \end{pmatrix} = F.
+\end{align*}
+Since $E \leq Q \vee Q(\infty)$, $Q(z_1) \wedge Q(z_2) \leq Q$.
+If $Q \vee Q(\infty) = E$, then $\tau(Q) = \frac{1}{2}$. Hence
+\begin{align*}
+    Q =
+    \{ \begin{pmatrix}
+            \xi_1\\
+            -T_{22}\xi\\
+            0\\
+            \xi
+    \end{pmatrix} | \xi_1, \xi \} = F \vee Q(z), \qquad z \in \C. 
+\end{align*}
+The last possibility is $Q \vee Q(\infty) = I$. Then there must 
+exists a vector $(\xi_1, \xi_2, \xi_3, \xi_4)^{T} \in Q$ such that
+$\xi_3 \neq 0$. Note that $\tau(Q) = \frac{1}{2} + \tau(F)$ and
+\begin{align*}
+    \{ \begin{pmatrix}
+             0\\
+            -T_{21}\xi\\
+            \xi\\
+            0 
+    \end{pmatrix} | \xi \} \subset Q\HHH.
+\end{align*}
+Then it is not hard to see that
+\begin{align*}
+    \{ \begin{pmatrix}
+             \xi_1 \\
+             -T_{21}\xi_{2} - T_{22}\xi_3\\
+             \xi_{2}\\
+             \xi_{3} 
+     \end{pmatrix} | \xi_1, \xi_2, \xi_3 \} = Q = Q(z_1)\vee Q(z_2)   
+\end{align*}
+for any $z_1$ and $z_2 \in C$.
+
+\begin{remark}
+    $E = Q(\infty) \vee (Q(0) \wedge Q(-1))$ and 
+    $F = (Q(0) \vee Q(-1)) \wedge Q(\infty)$.  
+\end{remark}
+
+
+\section{Homotopy property of the bundle}
+
+\begin{theorem}
+    Let $Q(\infty)$, $Q(0)$, $Q(-1)$ and $P(\infty)$, $P(0)$, $P(-1)$
+    be trace half projections in a finite factor $\AAA$. If 
+    $Q(i) \wedge Q(j) = 0 = P(i) \wedge P(j)$ and 
+    $Q(i) \vee Q(j) = I = P(i) \vee P(j)$, $i\neq j$ and $i$, $j \in
+    \{0, -1\}$, then
+    there exist continuous paths $P(i, t)$ of trace half projections such
+    that $P(i, 0) = P(i)$ and $P(i, 1) = Q(i)$ where $i = \infty, 0, -1$.
+    Furthermore, we can request that $P(\infty, t)$, $P(0, t)$ and
+    $P(-1, t)$ are in general position and these maps can be 
+    extended to be a continuous map form $S^{1} \times [0,t]$ into 
+    the set of trace half projections such
+    that $P(z, 0) = P(z)$ and $P(z, 1) = Q(z)$.
+\end{theorem}
+
+\begin{proof}
+    We could assume that $Q(\infty) = \bigl(\begin{smallmatrix}
+           I & 0\\
+           0 & 0 
+    \end{smallmatrix} \bigr)$, $Q(0) =  \bigl(\begin{smallmatrix}
+           0 & 0\\
+           0 & I 
+    \end{smallmatrix} \bigr)$, $Q(-1) =  \bigl(\begin{smallmatrix}
+            \frac{1}{2}I & \frac{1}{2}I\\
+           \frac{1}{2}I & \frac{1}{2}I 
+    \end{smallmatrix} \bigr)$.
+    Let $W$ be a unitary such that $W^* P(\infty) W = Q(\infty)$. Since the
+    set of unitaries $U(\AAA)$ is connected, there exists
+    a path $W(t)$ in $U(\AAA)$ such that $W(0) = I$ and $W(1) = W$. By
+    considering $W(t)^{*}P(i)W(t)$, we may assume that 
+    $Q(\infty) = P(\infty)$.
+
+    Now assume that
+    \begin{align*}
+        P(0) &= \begin{pmatrix}
+        K_{1} & \sqrt{K_{1}(I-K_{1})}V_{1}\\
+        V^{*}_{1}\sqrt{K_{1}(I-K_{1})} & V^{*}_{1}(I-K_1)V_{1}
+        \end{pmatrix}, \quad
+        P(-1) = \begin{pmatrix}
+            K_{2} & \sqrt{K_{2}(I-K_{2})}V_{2}\\
+            V_{2}^{*}\sqrt{K_{2}(I-K_{2})} & V_{2}^{*}(I-K_2)V_{2}
+        \end{pmatrix}.
+    \end{align*}
+    Then $P(0)\HHH = \{(\sqrt{\frac{K_1}{I-K_1}}V_{1}\xi, \xi)\}$ and
+    $P(-1)\HHH = \{(\sqrt{\frac{K_2}{I-K_2}}V_{2}\xi, \xi)\}$. Let
+    \begin{align*}
+        P(\infty, t) &= P(\infty) \mbox{, } 
+        P(0, t)\HHH = \{(1-t)\sqrt{\frac{K_1}{I-K_1}}V_{1}\xi, \xi)\}
+        \mbox{ and }\\ 
+        P(-1, t)\HHH &= \{(\sqrt{\frac{K_2}{I-K_2}}V_{2} 
+        -t\sqrt{\frac{K_1}{I-K_1}}V_{1})\xi, \xi)\}.
+    \end{align*}
+    Let 
+    \begin{align*}
+        P(z,t) = \begin{pmatrix}
+            K(z,t) & \sqrt{K(z,t)(I-K(z,t))}V(z,t)\\
+            V(z,t)^{*}\sqrt{K(z,t)(I-K(z,t))} & V(z,t)^{*}(I-K(z,t))V(z,t)
+        \end{pmatrix}, 
+    \end{align*}
+where 
+\begin{align*}
+    \sqrt{\frac{K(z,t)}{I-K(z,t)}}V(z,t) = zS 
+    + (1-t)\sqrt{\frac{K_{1}}{I-K_{1}}}V_{1}, \quad  
+    S = \sqrt{\frac{K_{1}}{I-K_{1}}}V_{1} -
+        \sqrt{\frac{K_{2}}{I-K_{2}}}V_{2}.
+\end{align*}
+We will show that $P(z,t)$ is continuous.
+\begin{align*}
+    &\|P(z,t_1) - P(z,t_2)\|_{2}^{2} = 1 - 2\tau(P(z,t_1)P(z,t_2))\\ 
+                                   &= tr(K(z,t_1)(K(z,t_1) - K(z,t_2)))\\
+                                   & + tr(V(z,t_1)^{*}(I-K(z,t_1))
+    V(z,t_1)(V(z,t_2)^{*}K(z,t_2)V(z,t_2) - V(z,t_1)^{*}K(z,t_1)V(z,t_1)))\\
+    &+ tr(\sqrt{K(z,t_1)(I-K(z,t_1))}V(z,t_1)(V(z,t_1)^{*}
+    \sqrt{K(z,t_1)(I-K(z,t_1))}
+    - V(z,t_2)^{*} \sqrt{K(z,t_2)(I-K(z,t_2))}) \\
+    &+ tr(V(z,t_1)^{*}\sqrt{K(z,t_1)(I-K(z,t_1))}
+    (\sqrt{K(z,t_1)(I-K(z,t_1)))}V(z,t_1)
+    - \sqrt{K(z,t_2)(I-K(z,t_2))}V(z,t_2)).
+\end{align*} 
+Let 
+\begin{align*}
+    F(z,t) = \frac{K(z,t)}{I-K(z,t)} 
+    = |z|^{2}SS^{*} + (1-t)(zSV_{1}^{*}\sqrt{\frac{K_1}{I-K_1}} 
+    + \bar{z}\sqrt{\frac{K_1}{I-K_1}}V_{1}S^{*}) 
+    + (1-t)^{2}\frac{K_1}{I-K_1}.
+\end{align*}
+Note that
+\begin{align*}
+    K(z,t_1) - K(z,t_2) &= 
+    (I+F(z,t_2))^{-1}(F(z,t_1)-F(z,t_2))(I+F(z,t_1))^{-1}\\
+    &=(t_2 - t_1)(I+F(z,t_2))^{-1}(zSV_{1}^{*}\sqrt{\frac{K_1}{I-K_1}} 
+    + \bar{z}\sqrt{\frac{K_1}{I-K_1}}V_{1}S^{*} \\
+    & \qquad \qquad \qquad \qquad 
+    + (2-t_1 - t_2)\frac{K_1}{I-K_1})(I+F(z,t_1))^{-1}.
+\end{align*}
+For any $\varepsilon > 0$, let $E$ be a projection such that
+$\tau(E) \geq 1-\varepsilon$ and 
+\begin{align*}
+ \|SV_{1}^{*}\sqrt{\frac{K_1}{I-K_1}}E\| \leq C,   
+ \|\sqrt{\frac{K_1}{I-K_1}}V_{1}S^{*}E\| \leq C,
+ \|\frac{K_1}{I-K_1}E\| \leq C,
+ \|\sqrt{\frac{K_1}{I-K_1}}E\| \leq C,
+\end{align*}
+where $C$ is a constant determined by $E$.
+Let $E_1(z,t)$ be the projection such that 
+$(I-F(z,t))^{-1}E_1(z,t) = E(I-F(z,t))^{-1}E_1(z,t)$.
+Then
+\begin{align*}
+    |tr(K(z,t_1)(K(z,t_1) - K(z,t_2)))| & \leq 
+    |tr(K(z,t_1)(K(z,t_1) - K(z,t_2)E_1(z,t_1)))|\\
+    &\qquad \qquad + |tr(K(z,t_1)(K(z,t_1) - K(z,t_2)(I-E_1(z,t_1))))|\\
+    & \leq |t_2-t_1|(2|z|+2)C + 2\varepsilon.  
+\end{align*}
+Now consider
+\begin{align*}
+    &(\sqrt{K(z,t_1)(I-K(z,t_1)))}V(z,t_1)
+    - \sqrt{K(z,t_2)(I-K(z,t_2))}V(z,t_2))
+    V(z,t_1)^{*}\sqrt{K(z,t_1)(I-K(z,t_1))}\\
+    &= (K(z,t_2)-K(z,t_1))K(z,t_1)    
+    +(t_2-t_1)(1-K(z,t_2))\sqrt{\frac{K_1}{I-K_1}}V_{1}
+    V(z,t_1)^{*}\sqrt{K(z,t_1)(I-K(z,t_1))}.
+\end{align*}
+Let $E_2(z,t)$ be a projection such that $tr(E_2(z,t)) \geq 
+1 - \varepsilon$ and 
+\begin{align*}
+\|\sqrt{\frac{K_1}{I-K_1}}V_{1}
+V(z,t)^{*}\sqrt{K(z,t)(I-K(z,t))}E_2(z,t)\| \leq C.
+\end{align*}
+Then
+\begin{align*}
+    |tr((\sqrt{K(z,t_1)(I-K(z,t_1)))}V(z,t_1)
+    &- \sqrt{K(z,t_2)(I-K(z,t_2))}V(z,t_2))
+    V(z,t_1)^{*}\sqrt{K(z,t_1)(I-K(z,t_1))})|\\ 
+    &\leq  |t_2-t_1|(2|z|+3)C + 4\varepsilon.
+\end{align*}
+The similar argument will give us similar inequlities 
+\begin{align*}
+|tr(V(z,t_1)^{*}(I-K(z,t_1))
+&V(z,t_1)(V(z,t_2)^{*}K(z,t_2)V(z,t_2) - V(z,t_1)^{*}K(z,t_1)V(z,t_1)))|\\
+&\leq |t_2-t_1|(2|z|+2)C + 2\varepsilon\\
+\end{align*}
+and 
+\begin{align*}
+    |tr(\sqrt{K(z,t_1)(I-K(z,t_1))}V(z,t_1)&(V(z,t_1)^{*}
+    \sqrt{K(z,t_1)(I-K(z,t_1))}
+    - V(z,t_2)^{*} \sqrt{K(z,t_2)(I-K(z,t_2))})|\\
+    &\leq |t_2-t_1|(2|z|+3)C + 4\varepsilon.
+\end{align*}
+This implies that $P(z,t)$ is continuous at all point except $(\infty, t)$.
+Argue exactly as in the proof of Proposition 2.2 in \cite{Hou}, we can
+show that $P(z,t)$ is also continuous at $(\infty, t)$.
+
+Note that $P(0, 1) = Q(0,1)$. Thus we now assume that
+$P(0) = Q(0)$ and
+\begin{align*}
+    P(-1) = \begin{pmatrix}
+            K_{2} & \sqrt{K_{2}(I-K_{2})}V_{2}\\
+            V_{2}^{*}\sqrt{K_{2}(I-K_{2})} & V_{2}^{*}(I-K_2)V_{2}
+        \end{pmatrix}.
+\end{align*}
+By considering the path
+\begin{align*}
+    P(-1,t)\HHH = \{(\sqrt{\frac{K_2}{I-K_2}}V(t)\xi, \xi)\},
+\end{align*}
+where $V(t)$ is a continuous map form $[0,1]$ into the set of
+unitaries of $P(\infty)\AAA P(\infty)$ such that $V(0) = V_2$ and
+$V(1)=I$. We may assume that $V_2 = I$.
+Now
+\begin{align*}
+P(-1,t)\HHH = \{(\frac{t}{2}I+(1-t)\sqrt{\frac{K_2}{I-K_2}})\xi, \xi)\},
+\end{align*}
+connect $P(-1)$ and $Q(-1)$.
+\end{proof}
+
+\begin{lemma}
+    With the same notations as in \cref{1thm1}, 
+    there is a dense subset of $\HHH$ for any fix $z$ such that
+    $\frac{\partial Q(z)\xi}{\partial z}$ and 
+    $\frac{\partial Q(z)\xi}{\partial \bar{z}}$
+    exist for any $\xi$ in the
+    subset. Actually, 
+    \begin{align*}
+        \frac{\partial Q(z)}{\partial z} =
+            \begin{pmatrix}
+                (I-K_z) & 0 \\
+                0 & U^{*}_{z}\sqrt{K_{z}(I-K_{z})} \\
+            \end{pmatrix}
+            \times
+            \begin{pmatrix}
+                S & S \\
+                -S & -S \\
+            \end{pmatrix}
+            \times     
+            \begin{pmatrix}
+                U^{*}_{z}\sqrt{K_{z}(I-K_{z})} & 0 \\
+                0 & U^{*}_{z}(I- K_{z})U_z \\
+            \end{pmatrix},
+    \end{align*}
+and $\frac{\partial Q(z)\xi}{\partial \bar{z}} 
+= (\frac{\partial Q(z)\xi}{\partial z})^{*}$. 
+\end{lemma}
+
+If $S$ is bounded, then the map $(x,y) \rightarrow Q(x+iy)$  
+is $C^{\infty}$. Next we will show that for any map $\R^2 \rightarrow
+Proj(\HHH)$ defined by \cref{1thm1}, there exists a $C^{\infty}$ map
+approximate it.
+
+\begin{lemma} \label{h_lem1}
+   Let $P$ and $Q$ be two trace half projections in a finite von Neumann 
+   algebra $\AAA$. If $\|P - Q\|_2 \leq \varepsilon$, then there exists 
+   a unitary $U \in \AAA$ such that $U^{*}PU = Q$ and 
+   $\|U - I\|_2 \leq \sqrt{2}\varepsilon$.
+\end{lemma}
+
+\begin{proof}
+   Let $E = P \wedge Q$, $F = P \vee Q$. If $E \neq 0$, then
+   $(F-E)P \wedge (F-E)Q = 0$. 
+   If there exists a $U_1 \in (F-E)\AAA(F-E)$ such that
+   $U_{1}^{*}(F-E)PU_1 = (F-E)Q$ and 
+   $\|U_1 -I \|_2 \leq \sqrt{2}\varepsilon$. Then
+   $U=E + U_1 + (I-F)$ will satisfies the conditions in the lemma.
+
+   Now, assume that $P \wedge Q = 0$, $P \vee Q = I$ and
+   \begin{align*}
+      P = \begin{pmatrix}
+          I & 0\\
+          0 & 0
+      \end{pmatrix}, \qquad 
+      Q = \begin{pmatrix}
+          H & \sqrt{H(I-H)}\\
+          \sqrt{H(I-H)} & I-H
+      \end{pmatrix},
+   \end{align*}
+   where $H \geq 0$. Since $\|P - Q\|_2 \leq \varepsilon$,
+   $tr(I-H) \leq \varepsilon^2$, 
+   where $tr$ is the trace on $P\AAA P$. 
+   Let
+   \begin{align*}
+      U = \begin{pmatrix}
+          \sqrt{H} & \sqrt{I-H}\\
+          -\sqrt{I-H} & \sqrt{H}
+      \end{pmatrix}. 
+   \end{align*}
+   It is clear that $U^{*}PU = Q$. Since $1-\varepsilon^2 \leq 
+   tr(H) \leq tr(\sqrt{H}) \leq 1$, 
+   $\|U-I\|^2 = 2-2tr(\sqrt{H}) \leq 2\varepsilon^2$.
+\end{proof}
+
+\begin{corollary} \label{h_cor1}
+    Let $P(\infty)$, $P(0)$, $P(-1)$ and $Q(\infty)$ be trace half projections in a 
+    finite von Neumann algebra $\AAA$. If 
+    $\|Q(\infty)-P(\infty)\|_2 \leq \varepsilon$, and
+    $P(\infty)$, $P(0)$, $P(-1)$ are in general position, then
+    there exist trace half projections $Q(0)$ and $Q(-1)$ such that
+    $Q(\infty)$, $Q(0)$, $Q(-1)$ are in general position and
+    \begin{align*}
+        \|Q(z) - P(z)\| \leq 2\sqrt{2}\varepsilon, \qquad 
+        \forall z \in \C \cup \{\infty\}, 
+    \end{align*}
+    where $Q(z)$ and $P(z)$ are the projections determined by  
+    $P(\infty)$, $P(0)$, $P(-1)$ and $Q(\infty)$, $Q(0)$, $Q(-1)$ 
+    as in \cref{1thm1}.
+\end{corollary}
+
+\begin{proof}
+    By \cref{h_lem1}, we have a unitary $U$ in $\AAA$ such that $U^{*}P(\infty)U =
+    Q(\infty)$ and $\|U - I\|_2 \leq \sqrt{2}\varepsilon$. It is clear that
+    $Q(z) = U^{*}P(z)U$ satisfy the conditions.
+\end{proof}
+
+\begin{lemma} \label{h_lem2}
+   Let $\AAA$ be a finite von Neumann algebra and $\tau$ be a
+   faithful normal trace on $\AAA$. 
+   Suppose that $P$ and $Q$ are two trace half projections in $\AAA$ such
+   that $P \wedge Q = 0$ and $P \vee Q =I$. For any $\varepsilon > 0$, 
+   there exists a $\delta > 0$ such that
+   if $E$ and $F$ are two projections in $\AAA$ satisfying
+   $\| E - P \|_{2} \leq \delta$ and $\| F - Q \|_{2} \leq \delta$, then
+   $\tau(E \wedge F) \leq \varepsilon$.
+\end{lemma}
+
+
+\begin{proof}
+   Since $P \wedge Q = 0$, there exists a $n \in \N$ such that
+   $\tau((PQ)^n) \leq \frac{\varepsilon}{2}$. 
+   We claim that $\delta = \frac{\varepsilon}{4n}$ satisfies the 
+   condition. Indeed,
+   if $\| E - P \|_{2} \leq \frac{\varepsilon}{4n}$ and 
+   $\| F - Q \|_{2} \leq \frac{\varepsilon}{4n}$, then
+   \begin{align*}
+       |\tau(E \wedge F)| &\leq | \tau((EF)^{n}) |\\ 
+       & \leq \tau((PQ)^n) +
+       \sum_{i=0}^{n-1}|\tau((PQ)^{n-i-1}(EF)^{i}E(F-Q))|
+       + |\tau(Q(PQ)^{n-i-1}(EF)^{i}(E-P))|\\
+       &\leq \tau((PQ)^n) + 
+       \sum_{i=0}^{n-1} \|F-Q\|_{2} + \|E-P\|_2 
+       \leq \varepsilon.
+   \end{align*}
+\end{proof}
+
+The following proposition is immediate from the lemma above.
+
+\begin{proposition} \label{h_prop1}
+    Let $Q(\infty) = \bigl(\begin{smallmatrix}
+           I & 0\\
+           0 & 0 
+   \end{smallmatrix} \bigr)$ and 
+   \begin{align*}
+       \qquad Q(0) &= \begin{pmatrix}
+           H_{1} & \sqrt{H_{1}(I-H_{1})}\\
+           \sqrt{H_{1}(I-H_{1})} & I-H_1
+        \end{pmatrix},
+        Q(-1) = \begin{pmatrix}
+            H_{2} & \sqrt{H_{2}(I-H_{2})}U_{2}\\
+            U_{2}^{*}\sqrt{H_{2}(I-H_{2})} & U_{2}^{*}(I-H_2)U_{2}
+        \end{pmatrix}\\ 
+    \end{align*}  
+    be trace half projections in a finite von Neumann algebras.
+    Suppose that $Q(\infty)$, $Q(0)$ and $Q(-1)$ are in general 
+    position.
+    Then for any $\varepsilon$, there exists two trace half projections 
+    \begin{align*}
+        P(0)= \begin{pmatrix}
+            K_{1} & \sqrt{K_{1}(I-K_{1})}V_{1}\\
+            V^{*}_{1}\sqrt{K_{1}(I-K_{1})} & V^{*}_{1}(I-K_1)V_{1}
+        \end{pmatrix},
+        P(-1) = \begin{pmatrix}
+            K_{2} & \sqrt{K_{2}(I-K_{2})}V_{2}\\
+            V_{2}^{*}\sqrt{K_{2}(I-K_{2})} & V_{2}^{*}(I-K_2)V_{2}
+        \end{pmatrix}
+    \end{align*}
+   in $\AAA$ such that 
+    \begin{enumerate}
+        \item $\|P(0) - Q(0)\| \leq \varepsilon$ and 
+            $\|P(-1) - Q(-1)\| \leq \varepsilon$;
+   \item $\tau(Ran(\sqrt{\frac{H_1}{I-H_1}} - \sqrt{\frac{K_1}{I-K_1}}V_1)) 
+             \leq \varepsilon$ and
+    $\tau(Ran(\sqrt{\frac{H_2}{I-H_2}}U_2 - \sqrt{\frac{K_2}{I-K_2}}V_2)) 
+             \leq \varepsilon$;
+        \item $\|I - V_1\| \leq \varepsilon$ and
+            $\|U_2 - V_2\| \leq \varepsilon$;
+        \item $P(0) \wedge Q(\infty) = 0$ and $P(-1) \wedge Q(\infty) = 0$;
+        \item 0 < $\|K_1\| < 1$ and 
+            0 < $\|K_2\| < 1$;
+        \item $P(0)\wedge P(-1) = 0$.
+   \end{enumerate}
+\end{proposition}
+
+\begin{proof}
+    Let
+    \begin{align*}
+        h(x) = \begin{cases}
+           \delta & x \in [0, \delta)\\
+            x & x \in [\delta, 1-\delta]\\
+            1-\delta & x \in (1-\delta, 1]
+           \end{cases}. 
+    \end{align*}
+    For $\delta$ small enough, \cref{h_lem2} implies that 
+    \begin{align*}
+        P(0) = \begin{pmatrix}
+            K_{1} & 
+            \sqrt{K_{1}(I-K_{1})}\\
+            \sqrt{K_{1}(I-K_{1})} 
+            & I-K_1
+        \end{pmatrix} \mbox{ and } 
+        F = \begin{pmatrix}
+            \widetilde{H_{2}} 
+            & \sqrt{\widetilde{H_{2}}(I-\widetilde{H_{2}})}U_{2}\\
+            U_{2}^{*}\sqrt{\widetilde{H_{2}}(I-\widetilde{H_{2}})} 
+            & U_{2}^{*}(I-\widetilde{H_2})U_{2}
+        \end{pmatrix}, 
+    \end{align*}
+    satisfy $\tau(P(0) \wedge F) \leq \frac{\varepsilon}{4}$,
+    where $K_{1} = h(H_1)$ and $\widetilde{H_{2}} = h(H_2)$.
+    It is clear that $\sqrt{\frac{K_1}{I-K_1}}$ and
+    $\sqrt{\frac{\widetilde{H_2}}{I-\widetilde{H_2}}}
+    \widetilde{U}_{2}$ are bounded. Let 
+    $S = \sqrt{\frac{K_1}{I-K_1}} - 
+    \sqrt{\frac{\widetilde{H_2}}{I-\widetilde{H_2}}}\widetilde{U}_2$
+    and $V$ be the partial isometry from $KerS$ onto $(RanS)^{\perp}$
+    ($V$ exists, because $\AAA$ is finite). We 
+    have $\tau(Ran(V)) \leq \frac{\varepsilon}{4}$ and 
+    $Ker(S + zV) = \{0\}$ for any $z \neq 0$.
+    Let 
+    \begin{align*}
+        P(-1) = \begin{pmatrix}
+            K_{2} & \sqrt{K_{2}(I-K_{2})}V_{2}\\
+            K_{2}^{*}\sqrt{K_{2}(I-K_{2})} & K_{2}^{*}(I-K_2)V_{2}
+        \end{pmatrix},
+    \end{align*}
+    where
+    \begin{align*}
+        \sqrt{\frac{K_2}{I-K_2}}V_2 = 
+    \sqrt{\frac{\widetilde{H_2}}{I-\widetilde{H_2}}}\widetilde{U}_2 + 
+     zV.
+    \end{align*}
+    If $z$ is small enough, we have $P(-1)$ satisfies all the
+    conditions in the proposition.
+\end{proof}
+
+\begin{lemma}
+Let $Q(\infty) = \bigl(\begin{smallmatrix}
+           I & 0\\
+           0 & 0 
+   \end{smallmatrix} \bigr)$ and 
+   \begin{align*}
+       \qquad Q(0) &= \begin{pmatrix}
+           H_{1} & \sqrt{H_{1}(I-H_{1})}\\
+           \sqrt{H_{1}(I-H_{1})} & I-H_1
+        \end{pmatrix}, \quad  
+        Q(-1) = \begin{pmatrix}
+            H_{2} & \sqrt{H_{2}(I-H_{2})}U_{2}\\
+            U_{2}^{*}\sqrt{H_{2}(I-H_{2})} & U_{2}^{*}(I-H_2)U_{2}
+        \end{pmatrix},\\ 
+        P(0) &= \begin{pmatrix}
+        K_{1} & \sqrt{K_{1}(I-K_{1})}V_{1}\\
+        V^{*}_{1}\sqrt{K_{1}(I-K_{1})} & V^{*}_{1}(I-K_1)V_{1}
+        \end{pmatrix}, \quad
+        P(-1) = \begin{pmatrix}
+            K_{2} & \sqrt{K_{2}(I-K_{2})}V_{2}\\
+            V_{2}^{*}\sqrt{K_{2}(I-K_{2})} & V_{2}^{*}(I-K_2)V_{2}
+        \end{pmatrix}
+    \end{align*}
+   be trace half projections in a finite von Neumann algebra $\AAA$.
+   Suppose that $Q(\infty)$,
+   $Q(0)$ and $Q(-1)$ are in general position and  
+   $Q(\infty)$, $P(0)$ and $P(-1)$ are in general position. 
+   If $\tau(Ran(\sqrt{\frac{H_1}{I-H_1}} - 
+   \sqrt{\frac{K_1}{I-K_1}}V_1))\leq \varepsilon$
+   and $\tau(Ran(\sqrt{\frac{H_2}{I-H_2}}U_2 - 
+    \sqrt{\frac{K_2}{I-K_2}}V_2))\leq \varepsilon$,
+   then
+   \begin{align*}
+       \|Q(z) - P(z)\|_2 \leq 12\varepsilon 
+       \qquad \mbox{ for any $z \in \C$}. 
+   \end{align*}
+\end{lemma}
+
+\begin{proof}
+    Let $F_1 = ker(\sqrt{\frac{H_1}{I-H_1}} - 
+    \sqrt{\frac{K_1}{I-K_1}}V_1)$, 
+    $F_2 = ker(\sqrt{\frac{H_2}{I-H_2}}U_2 - 
+    \sqrt{\frac{K_2}{I-K_2}}V_2)$ and $E = F_1 \wedge F_2$. Then
+    $\tau(E) \geq 1 - 2\varepsilon$. Note that
+    \begin{align*}
+        \|Q(z) - P(z)\|_{2}^{2} &= 1 - 2\tau(Q(z)P(z))\\ 
+                                &= tr(H_{z}(H_z - K_z))
+    + tr(U^{*}_{z}(I-H_z)U_{z}(V^{*}_{z}K_{z}V_{z} - U^{*}_{z}H_{z}U_{z}))\\
+       &+ tr(\sqrt{H_{z}(I-H_{z})}U_{z}(U^{*}_{z}\sqrt{H_{z}(I-H_{z})}
+        - V^{*}_{z} \sqrt{K_{z}(I-K_{z})}) \\
+        &+ tr(U^{*}_{z}\sqrt{H_{z}(I-H_{z})}(\sqrt{H_{z}(I-H_{z})}U_{z}
+        - \sqrt{K_{z}(I-K_{z})}V_{z}),
+    \end{align*}
+    where $tr$ is the trace on $Q(\infty)\AAA Q(\infty)$.
+    Let
+    \begin{align*}
+        F(z) &= \frac{H_z}{I-H_z} = \left((1+z)\sqrt{\frac{H_1}{I-H_z}}
+        -z\sqrt{\frac{H_2}{I-H_2}}U_{2} \right)
+        \left((1+\bar{z})\sqrt{\frac{H_1}{I-H_z}}
+        -\bar{z}U^{*}_{2}\sqrt{\frac{H_2}{I-H_2}} \right)\\
+        G(z) &= \frac{K_z}{I-K_z} = \left((1+z)\sqrt{\frac{K_1}{I-K_z}}V_1
+        -z\sqrt{\frac{K_2}{I-K_2}}V_{2} \right)
+        \left((1+\bar{z})V^{*}_{1}\sqrt{\frac{K_1}{I-K_z}}
+        -\bar{z}V^{*}_{2}\sqrt{\frac{K_2}{I-K_2}} \right)
+    \end{align*}
+    Note that $E F(z)E = E G(z) E$ and $Ran(I-H_z)= 
+    Ran(I-K_z) = I$. 
+    Let $E_1$ and $E_2$ be the projections
+    such that $(I+F(z))^{-1}E_1 = E(I+F(z))^{-1}E_1$ and 
+    $E_2(I+G(z))^{-1} = E_2(I+G(z))^{-1}E$.
+    Note that $tr(E_1) = tr(E_2) = tr(E) \geq 1 - \varepsilon$.
+    Then
+    \begin{align*}
+        tr(H_z(H_z-K_z))
+        &=tr(H_z(I-E_2)(H_z - K_z)) + tr(H_z E_2 (H_z-K_z)(I-E_1))\\ 
+        &+tr(H_z E_2(H_z - K_z)E_1).
+    \end{align*}
+    Note that
+    \begin{align*}
+        E_2(H_z - K_z)E_1 &= E_2((I+G(z))^{-1} - (I+F(z))^{-1})E_1\\
+                          &= E_2(I+G(z))^{-1}E(F(z) - G(z))E(I+F(z))^{-1}E_1
+                            = 0
+    \end{align*}
+    Therefore, $|tr(H_z(H_z-K_z))| \leq 2\varepsilon$.
+    Similarly, we can show that
+    \begin{align*}
+      |tr(U^{*}_{z}(I-H_z)U_{z}(V^{*}_{z}K_{z}V_{z} - U^{*}_{z}H_{z}U_{z}))|
+        \leq 2\varepsilon.
+    \end{align*}
+    Let $E_3 = Ran( U^{*}_{z}\sqrt{H_{z}(I-H_{z})})$ and 
+    $E_4 = E \wedge E_3$. Then
+    $tr(E_4) \geq tr(E_3) - 2\varepsilon$.
+    Then it is not hard to see that there exist a projection
+    $E_5$ such that $tr(E_5) \geq 1 - 2\varepsilon$ and 
+    $U^{*}_{z}\sqrt{H_{z}(I-H_{z})}E_5 
+    = E_4U^{*}_{z}\sqrt{H_{z}(I-H_{z})}E_5$. Hence
+    \begin{align*}
+        &tr((\sqrt{H_{z}(I-H_{z})}U_{z}
+        - \sqrt{K_{z}(I-K_{z})}V_{z})U^{*}_{z}\sqrt{H_{z}(I-H_{z})})\\
+        &= tr((\sqrt{H_{z}(I-H_{z})}U_{z}
+        - \sqrt{K_{z}(I-K_{z})}V_{z})U^{*}_{z}\sqrt{H_{z}(I-H_{z})}E_5)\\
+        &+ tr((\sqrt{H_{z}(I-H_{z})}U_{z}
+        - \sqrt{K_{z}(I-K_{z})}V_{z})U^{*}_{z}\sqrt{H_{z}(I-H_{z})}(1-E_5)).
+    \end{align*}
+    By the definition of $E_5$, we have
+    \begin{align*}
+        &tr((\sqrt{H_{z}(I-H_{z})}U_{z}
+        - \sqrt{K_{z}(I-K_{z})}V_{z})U^{*}_{z}\sqrt{H_{z}(I-H_{z})}E_5)\\
+        &= tr((K_z - H_z)\sqrt{\frac{H_{z}}{I-H_{z}}}U_{z}
+        )U^{*}_{z}\sqrt{H_{z}(I-H_{z})}E_5) \\
+        &= tr((K_z - H_z)H_z E_5).
+    \end{align*}
+    Therefore
+    \begin{align*}
+        |tr((\sqrt{H_{z}(I-H_{z})}U_{z}
+        - \sqrt{K_{z}(I-K_{z})}V_{z})U^{*}_{z}\sqrt{H_{z}(I-H_{z})})|
+        \leq 4 \varepsilon.
+    \end{align*}
+    Hence
+    \begin{align*}
+        \|Q(z) - P(z)\|_2 \leq 12\varepsilon.
+    \end{align*}
+\end{proof}
+
+
+Let $dQ(z) = \frac{\partial Q(z)}{\partial z}dz + 
+\frac{\partial Q(z)}{\partial \bar{z}}d\bar{z}$.
+
+\begin{lemma}
+    With the notations as in \cref{1thm1}, we have
+    \begin{align*}
+        Q(z)(dQ(z)) = (dQ(z))(I-Q(z)) \mbox{ and } 
+        (dQ(z))Q(z) = (I-Q(z))(dQ(z)).
+    \end{align*}
+\end{lemma}
+
+\begin{proposition}
+    With the notations as in \cref{1thm1}, we have
+    \begin{align*}
+        \bigtriangledown_{Q}^{2}(z) \equiv Q(z)(dQ(z)\wedge dQ(z)) =
+        (dQ(z))(I-Q(z))(dQ(z)) = (dQ(z)\wedge dQ(z))Q(z).   
+    \end{align*}
+\end{proposition}
+
+\begin{remark}
+   Let
+   \begin{align*}
+       W(z) = \begin{pmatrix}
+           \sqrt{K_z} & \sqrt{I-K_z}\\
+           V^{*}_{z}\sqrt{I-K_z}V_{z} & -V^{*}_{z}\sqrt{K_z}
+       \end{pmatrix}.
+   \end{align*}
+   We have
+   \begin{align*}
+       W(z)^{*}(dQ(z))^{2}W(z) &= 
+       \begin{pmatrix}
+           \sqrt{I-K_z}U_{z}S^{*}(I-K_z)SU_{z}^{*}\sqrt{I-K_z} & 0\\
+           0 & \sqrt{I-K_z}SU_{z}^{*}(I-K_z)U_{z}S\sqrt{I-K_z} 
+       \end{pmatrix}dz \wedge d\bar{z}, \\
+       W(z)^{*}\bigtriangledown_{Q}^{2}(z)W(z) &= 
+       \begin{pmatrix}
+           \sqrt{I-K_z}U_{z}S^{*}(I-K_z)SU_{z}^{*}\sqrt{I-K_z} & 0\\
+           0 & 0
+       \end{pmatrix}dz \wedge d\bar{z}.
+   \end{align*}
+\end{remark}
+
+
+
+
+
+\section{Geodesic of the bundle}
+Let $\AAA$ be a finite von Neumann algebra.
+If $S \in \mathcal{I} = \{X^{2}=I : X \in \AAA \}$, then
+\begin{align*}
+   S = \begin{pmatrix}
+       I & 2B \\
+       0 & -I
+   \end{pmatrix} = 
+   \begin{pmatrix}
+       I & -B \\
+       0 & I
+   \end{pmatrix}
+   \begin{pmatrix}
+       I & 0 \\
+       0 & -I
+   \end{pmatrix}
+   \begin{pmatrix}
+       I & B \\
+       0 & I
+   \end{pmatrix}, 
+\end{align*}
+and $T = \frac{S+I}{2}$ is an idempotent.
+Then the tangent space to $S$ is given by
+\begin{align*}
+    T_{S} &= \{X \in \AAA : XS + SX = 0 \}\\
+          &= 
+    \{ \begin{pmatrix}
+       I & -B \\
+       0 & I
+   \end{pmatrix}
+   \begin{pmatrix}
+        0 & X_{12} \\
+        X_{21} & 0
+    \end{pmatrix} 
+    \begin{pmatrix}
+       I & B \\
+       0 & I
+   \end{pmatrix}
+   =
+   \begin{pmatrix}
+       -BX_{21} & -BX_{21}B+X_{12}\\
+       X_{21} & X_{21}B
+   \end{pmatrix}
+   \}. 
+\end{align*}
+
+Let 
+\begin{align*}
+    E_{S}(X) = e^{\frac{XS}{2}}Se^{\frac{-XS}{2}}. 
+\end{align*}
+$E_{S}$ will be called the exponential map. Note that
+$E_{S}(X) \in \mathcal{I}$ and 
+$E_{S}(X) = e^{XS}S$, if $X \in T_{S}$.
+
+It is obvious that $T_{S}$ has a complex structure. Therefore $S$ is a
+complex submanifold of $\AAA$. 
+
+Let $\mathcal{R} = \{H^{*} = H : H \in \mathcal{I} \}$. Then 
+$\mathcal{R}$ is only a (real) analytic submanifold of $\AAA$,
+since 
+\begin{align*}
+    T_{H} = \{
+        \begin{pmatrix}
+            0 & X_{12}\\
+            X_{12}^{*} & 0
+    \end{pmatrix} \}
+\end{align*}
+is not a complex linear space.
+
+Let $S \in \mathcal{I}$ and $\pi_{S}$ be the projection of $\AAA$ onto
+$T_S$ given by
+\begin{align*}
+    \pi_{S}(X) = \frac{1}{2}(X -SXS).
+\end{align*}
+
+Recall the following definition.
+
+\begin{definition}
+   Suppose that $E_1$ and $E_2$ are Banach spaces, and that $U$ is an
+   open subset of $E_1$. A continuous map $f: U \rightarrow E_2$ is said
+   to be differentiable at the point $x_0 \in U$ if there exists a 
+   continuous linear map $T: E_1 \rightarrow E_2$ such that 
+   \begin{align*}
+       \lim_{\|h\| \rightarrow 0} \frac{\| f(x_0 +h) -f(x_0) - T(h)\|}
+       {\|h\|} = 0.
+   \end{align*}
+   $T$ is called the derivative of $f$ at $x_0$ and written as
+   $Df(x_0)$. Note that
+   \begin{align*}
+       Df(x_0)h = \lim_{t \rightarrow 0} \frac{f(x_0 + th) - f(x_0)}{t}. 
+   \end{align*}
+\end{definition}
+
+\begin{definition}
+    Let $T(\I)$ be the tangent bundles over $\I$ and $D(\I)$ be the set of 
+    all vector fields over $\I$, i.e. a smooth map form $\I$ into $T(\I)$.
+    Given $X$ and $Y$ in $D(\I)$, let  
+    \begin{align*}
+        D(X,Y)(S) = \pi_{S}(DY(S) (X(S))) 
+        = \pi_{S}(\frac{d}{dt}Y(c(t))|_{t=0}), 
+    \end{align*}
+    where $c: [-1,1] \rightarrow \I$ be a smooth curve such that $c(0) = S$
+    and $c'(0) = X(S)$.
+\end{definition}
+
+It is easy to see that $D(\cdot, \cdot)$ satisfies the standard axioms of 
+a connection. Following the standard terminology, we say that a smooth
+curve $g$ is a geodesic if
+\begin{align*}
+    D(g', g') = \pi_{g(t)}(\frac{d^{2}}{dt^{2}} (g(t))) = 0. 
+\end{align*}
+
+\begin{lemma}[Lemma 2.9 in \cite{S}]
+    Given $S \in \I$ and $X \in T_{S}$, there exists a unique total
+    geodesic $g = E_{S}(tX)$ such that $g(0) = S$ and $g'(0) = X$.
+\end{lemma}
+
+\begin{example}
+   Let $S = 2P -I$ and $T = 2Q-I$, where $P$ and $Q$ are two projections
+   in $\AAA$. If $\| S - T\| = 2\|P - Q\| < 2$, then $P \sim Q$ in $\AAA$.
+   Suppose that 
+   \begin{align*}
+       S &= \begin{pmatrix}
+          I & 0\\
+          0 & -I 
+      \end{pmatrix}, \\
+      T &= \begin{pmatrix}
+          2H-I & 2\sqrt{H(I-H)} \\
+          2\sqrt{H(I-H)} & I-2H
+      \end{pmatrix} \\
+      &=
+      \begin{pmatrix}
+          \sqrt{H} & \sqrt{I-H} \\
+          \sqrt{I-H} & -\sqrt{H} 
+      \end{pmatrix}
+      \begin{pmatrix}
+          I & 0\\
+          0 & -I
+      \end{pmatrix}
+        \begin{pmatrix}
+          \sqrt{H} & \sqrt{I-H} \\
+          \sqrt{I-H} & -\sqrt{H} 
+      \end{pmatrix}.
+   \end{align*}
+   Let
+   \begin{align*}
+       X & = \frac{\pi i}{2}\begin{pmatrix}
+           I - \sqrt{H} & - \sqrt{I-H}\\
+           - \sqrt{I-H} & I + \sqrt{H}
+      \end{pmatrix} \\
+      W &= \begin{pmatrix}
+          \sqrt{H} & \sqrt{I-H} \\
+          \sqrt{I-H} & -\sqrt{H} 
+      \end{pmatrix} = e^{X}.  
+   \end{align*}
+   Then the geodesic connect $S$ and $T$ is
+   $g(t) = e^{tX}Se^{-tX}$. And
+   \begin{align*}
+       g'(0) = i\pi \begin{pmatrix}
+           0 & \sqrt{I-H}\\
+           -\sqrt{I-H} & 0
+       \end{pmatrix}. 
+   \end{align*}
+\end{example}
+
+\begin{definition}
+    Given a smooth curve $c: [a, b] \rightarrow \RR$, we define the 
+    length $L(c)$ of $c$ by
+    \begin{align*}
+        L(c) = \int^{b}_{a} \|c'(t)\|_2 dt. 
+    \end{align*}
+\end{definition}
+
+\begin{lemma}
+   The $\| \cdot \|_2$ give the geodesic distance on $\RR$. 
+\end{lemma}
+
+\section{Conclusion}
+
+
+%-----------------------------------------------------------------------------------
+%BIBLIOGRAPHY
+%-----------------------------------------------------------------------------------
+\begin{thebibliography}{9}
+\bibitem{RK} R. Kadison and John R. Ringrose, {\em Fundamentals of the theory of Operator Algebras},  {\bf Volume II } (1997)
+
+\bibitem{FK} B. Fuglede and R. Kadison, {\em Determinant Theory in Finite Factors}, The Annals of Mathematics, Second Series, Vol. 55, No. 3 (1952), 520-530
+
+\bibitem{Ta} M. Takesaki, {\em Theory of Operator Algebras}, {\bf Volume I}, Encyclopedia of Mathematical Sciences, vol 124, Springer-Verlag, Berlin (2002)
+
+\bibitem{LP} R. H. Levene, S. C. Power {\em Manifold of Hilbert space 
+    projection}, Proc. London Math. Soc. 1-25 (2009)
+
+
+\bibitem{Mo} Mohan Ravichandran, {University of New Hampshire Ph.D. Thesis} (2009) 
+\bibitem{GYII} L. Ge and W. Yuan, {\em Kadison-Singer algebras,
+II---General case,} to appear, 2009
+
+\bibitem{HF} Uffe Haagerup and Flemming Larsen, {\em Brown's Spectral Distribution Measure for
+R-diagonal Elements in Finite von Neumann Algebras,}, 1999
+
+\bibitem{HH} Uffe Haagerup and Hanne Schultz, {\em Brown Measures of Unbounded Operators Affiliated with
+ Finite von Neumann Algebras,}, 1999
+
+\bibitem{HV} Hari Bercovici and Dan Voiculescu, {\em Free Convolution of Measures with Unbounded Support, }
+
+\bibitem{KS} $K.S.K\ddot{O}LBIG$, {\em On The Value Of A Logarithmic-Trigonometric Integral}, BIT 11(1971), 21-28
+
+\bibitem{MR} Mehmet Koca, Ramazan Koc and Muataz Al-Barwani, {\em Breaking SO(3) into its closed subgroups by Higgs mechanism},
+J.Phys.A: Math.Gen. 30(1997) 2109-2125
+
+\bibitem{BA} Beardon, Alan F, {\em The Geometry of Discrete Groups}, New York: Springer-Verlag GTM 91.
+
+\bibitem{AR} Alexandru Nica and Roland Speicher, {\em Lectures on the Combinatorics of Free Probability},
+London Mathematical Society Lecture Note Series:335
+
+\bibitem{SS} Elias M. Stein and Rami Shakarchi, {\em complex analysis}, Priceton lectures in analysis II.
+
+\bibitem{Hou} Chengjun Hou and Wei Yuan, {\em Minimal Generating Reflexive Lattices of Projections in Finite von Neumann Algebras}
+
+\bibitem{WW} W.Wu and W. Yuan, {\em On generators of abelian 
+        Kadison–Singer algebras in matrix algebras} 
+        Linear Algebra and its Applications, Vol 440, 2014, Pages 197–205.
+
+\bibitem{LU} R. C. Lyndon and J. L. Ullman {\em Groups of Elliptic Linear Fractional Transformations}, Proceedings of the American Mathematical Society,   Vol. 18, No. 6, (1967) 1119-1124
+
+\bibitem{SA} S. Sakai, {\em On automorphism groups of II$_1$-factors}, T\^{o}koku Math. J. (2) 26 (1974), 423-430.
+
+\bibitem{WA} William L. Green and Anthony To-Ming Lau {\em Strong finite von Neumann algebras }, Math. Scand. 40 (1977), 105- 112.
+
+\bibitem{MRM} M. Koca, R. Koc and M. Al-Barwani {\em Breaking SO(3) into its closed subgroups by Higgs mechanism}, J.Phys. A: Math. Gen. 30 (1997) 2109-2125
+
+\bibitem{VDN} D. Voiculescu, K. Dykema and A. Nica, {\em Free Random Variables}, CMR Monograph Series 1, American Mathematical Society (1992)
+
+\bibitem{NS} A. Nica and R. Speicher, {\em Lectures on the Combinatorics of Free Probability}, Londom Mathematical Society Lecture Note Series: 335 (2006)
+
+\bibitem{MV2} F. J. Murray and J. von Neumann, {\em On rings of operators, II}, Trans. Amer. Math. Soc. 41 (1937), 208 - 248
+
+\bibitem{Zhe} Z. Liu, {\em On Some Mathematical Aspects of The Heisenberg Relation }, Science China series Mathematics: Kadison's proceedings
+
+\bibitem{MK} Masoud Khalkhaili, {\em Basic Noncommutative Geometry}, EMS series of Lectures in Mathematics (2009)
+
+\bibitem{S}
+    N. Salinas
+    {\em The Grassmann manifold of a C*-algebra, and Hermitian 
+    holomorphic bundles}, 
+    Operator Theory: Advances and Applications 28, 
+    Birkhaiiser Verlag Basel, 1998, 267-289.
+\end{thebibliography}
+%-----------------------------------------------------------------------------------
+
+\end{document}

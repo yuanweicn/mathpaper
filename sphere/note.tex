@@ -1,0 +1,654 @@
+\documentclass[a4paper,10pt]{amsart}
+
+\usepackage[protrusion=true,expansion=true]{microtype} 
+\usepackage{fancyhdr}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx} 
+\usepackage{wrapfig} 
+
+\usepackage{mathpazo}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{hyperref}
+\usepackage{cleveref}
+\usepackage{comment}
+\usepackage{color}
+
+
+\newtheorem{example}{Example}[section]
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}{Proposition}[section]
+\newtheorem{corollary}{Corollary}[section]
+\newtheorem{definition}{Definition}[section]
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{remark}{Remark}[section]
+\newtheorem{question}{Question}[section]
+
+\crefname{lemma}{Lemma}{lemmas}
+\crefname{remark}{Remark}{remark}
+\crefname{corollary}{Corollary}{corollary}
+\crefname{theorem}{Theorem}{theorem}
+\crefname{example}{Example}{example}
+\crefname{definition}{Definition}{definition}
+
+\newcommand{\AAA}{\mathfrak A}
+\newcommand{\BBB}{\mathcal B}
+\newcommand{\CCC}{\mathcal C}
+\newcommand{\HHH}{\mathcal H} %for Hilbert space
+\newcommand{\LLL}{\mathcal L} % for lattice
+\newcommand{\MMM}{\mathcal M}
+
+
+\newcommand{\Lat}{\mathcal Lat}
+\newcommand{\Alg}{\mathcal Alg}
+\newcommand{\tr}{\tau}
+\newcommand{\C}{\mathbb C} %for complex number
+\newcommand{\R}{\mathbb R}  %for real number
+\newcommand{\Z}{\mathbb Z} %for integer
+\newcommand{\N}{\mathbb N} % for nature number
+\newcommand{\M}{\mathcal M} % for manifold
+\newcommand{\E}{\mathcal E}
+\newcommand{\Gr}{\mathcal Gr} % for grassmann
+% self defined vars
+\newcommand{\titleinfo}{Geometry of Sphere of Projections}
+\newcommand{\authorinfo}{Wei Yuan} 
+
+\linespread{1.05}
+\pagestyle{fancyplain}
+\fancyhf{}
+\fancyhf[HLE,HRO]{\titleinfo}
+\fancyhf[HRE,HLO]{\authorinfo}
+\fancyhf[FC]{\thepage}
+
+\begin{document}
+
+\title{\LARGE\textbf{\titleinfo}} 
+\author{\large\textsc{\authorinfo}} 
+\address{AMSS}  
+\email{}
+
+\date{}
+
+\begin{abstract}
+Enter abstract here
+\end{abstract}
+
+% Keywords
+\subjclass[2010]{Primary 47L75; Secondary 15A30}
+\keywords{}
+\thanks{}
+\maketitle
+
+
+\section*{Introduction}
+Introduction here!
+
+
+\section{Preliminary}
+
+\begin{definition}
+   Let $\M$ be a manifold with a complex structure. 
+   A rank $n$ \textbf{Hermitian holomorphic vector bundle} 
+   over $\M$ consists of 
+   a manifold $\E$ with a complex structure together with a 
+   holomorphic map $\pi$ from $\E$ onto $\M$ such that each
+   fibre $\E_{x} = \pi^{-1}(x)$ is isomorphic to a Hilbert space
+   and such that for each $x_0$ there exists a neighborhood $\Delta$
+   of $x_0$ and holomorphic functions $\xi_{i}(x)$, $i = 1, \ldots, n$,
+   form $\Delta$ to $\E$ whose values form a basis for $\E_{x}$.
+\end{definition}
+
+For a separable Hilbert space $\HHH$, let 
+\begin{align*}
+    \Gr (n, \HHH) = \{\mbox{n-dimensional subspaces of $\HHH$} \}.  
+\end{align*}
+
+\subsection{Curvature Matrix}
+Let $E \rightarrow X$ be a $\C$-vector bundle.
+$\E(X, E)$ denotes the sections of $E$.
+
+\begin{definition}
+   Let $E \rightarrow X$ be a $\C$-vector bundle. 
+   Then a connection 
+   $D$ on $E \rightarrow X$ is a $\C$-linear mapping
+   \begin{align*}
+       D: \E(X,E) \rightarrow \E(X, T^{*}(X) \otimes_{\C} E)  
+   \end{align*}
+   which satisfies 
+   \begin{align*}
+       D(f \xi) = df \cdot \xi + f D\xi,
+   \end{align*}
+   where $f \in C^{\infty}(X)$ and $\xi \in \E(X, E)$.
+\end{definition}
+
+Suppose that $E \rightarrow X$ is a $\C$-vector bundle.
+Let $\{e_1, \ldots, e_n \}$ be a frame for $E$ over a open
+subset $U$. Then locally, $\xi \in \E(U, E)$ can be write as
+\begin{align*}
+   \begin{pmatrix}
+       e_1 & e_2 & \ldots & e_n 
+   \end{pmatrix} \times
+   \begin{pmatrix}
+       \xi_1\\
+       \xi_2\\
+       \vdots\\
+       \xi_n
+   \end{pmatrix} = \sum^{k}\xi_k e_k.
+\end{align*}
+
+If
+\begin{align*}
+    D e_{j} = \sum^{n}_{i} \theta_{ij}e_{i}, 
+\end{align*}
+where $\theta_{ij} \in \E(U, T^{*}(X)\otimes E)$,
+then
+\begin{align*}
+    D(
+    \begin{pmatrix}
+       e_1 & e_2 & \ldots & e_n 
+    \end{pmatrix} \times 
+    \begin{pmatrix}
+       \xi_1\\
+       \xi_2\\
+       \vdots\\
+       \xi_n
+   \end{pmatrix}) &= \\ 
+    \begin{pmatrix}
+       e_1 & e_2 & \ldots & e_n 
+    \end{pmatrix} &\times \left (
+    \begin{pmatrix}
+       d\xi_1\\
+       d\xi_2\\
+       \vdots\\
+       d\xi_n
+   \end{pmatrix} + 
+   \begin{pmatrix}
+       \theta_{11} & \ldots & \theta_{1n}\\
+       \vdots      & \ddots & \vdots \\
+       \theta_{n1} & \ldots & \theta_{nn}
+   \end{pmatrix} \times
+    \begin{pmatrix}
+       \xi_1\\
+       \xi_2\\
+       \vdots\\
+       \xi_n
+   \end{pmatrix} \right ).
+\end{align*}
+
+$\theta(e) =  \begin{pmatrix}
+       \theta_{11} & \ldots & \theta_{1n}\\
+       \vdots      & \ddots & \vdots \\
+       \theta_{n1} & \ldots & \theta_{nn}
+   \end{pmatrix}$ will be called the associated connection matrix.
+
+If 
+\begin{align*}
+    \begin{pmatrix}
+        e_{1}^{'} & e_{2}^{'} & \ldots & e_{n}^{'} 
+    \end{pmatrix} =  
+    \begin{pmatrix}
+       e_1 & e_2 & \ldots & e_n 
+    \end{pmatrix} \times
+    \begin{pmatrix}
+       g_{11} & \ldots & g_{1n}\\
+       \vdots      & \ddots & \vdots \\
+       g_{n1} & \ldots & g_{nn}
+   \end{pmatrix}
+\end{align*}
+is another frames over $U$, then
+\begin{align*}
+   \begin{pmatrix}
+        e_{1}^{'} & e_{2}^{'} & \ldots & e_{n}^{'} 
+   \end{pmatrix} \times
+   \begin{pmatrix}
+       \xi_{1}^{'}\\
+       \xi_{2}^{'}\\
+       \vdots\\
+       \xi_{n}^{'}
+   \end{pmatrix} &= \xi = 
+   \begin{pmatrix}
+       e_1 & e_2 & \ldots & e_n 
+   \end{pmatrix} \times
+   \begin{pmatrix}
+       \xi_1\\
+       \xi_2\\
+       \vdots\\
+       \xi_n
+   \end{pmatrix}
+\end{align*}
+implies that
+\begin{align*}
+   \begin{pmatrix}
+        e_{1}^{'} & e_{2}^{'} & \ldots & e_{n}^{'} 
+   \end{pmatrix} \times
+    \begin{pmatrix}
+       \xi_{1}^{'}\\
+       \xi_{2}^{'}\\
+       \vdots\\
+       \xi_{n}^{'}
+   \end{pmatrix} 
+   = 
+   \begin{pmatrix}
+        e_{1}^{'} & e_{2}^{'} & \ldots & e_{n}^{'} 
+   \end{pmatrix} \times
+   \begin{pmatrix}
+       g_{11} & \ldots & g_{1n}\\
+       \vdots      & \ddots & \vdots \\
+       g_{n1} & \ldots & g_{nn}
+   \end{pmatrix}^{-1} \times
+    \begin{pmatrix}
+       \xi_1\\
+       \xi_2\\
+       \vdots\\
+       \xi_n
+   \end{pmatrix}
+\end{align*}
+or
+\begin{align*}
+    \begin{pmatrix}
+       e_1 & e_2 & \ldots & e_n 
+    \end{pmatrix} \times
+    \begin{pmatrix}
+       \xi_1\\
+       \xi_2\\
+       \vdots\\
+       \xi_n
+   \end{pmatrix}
+  = 
+    \begin{pmatrix}
+       e_1 & e_2 & \ldots & e_n 
+    \end{pmatrix} \times
+  \begin{pmatrix}
+       g_{11} & \ldots & g_{1n}\\
+       \vdots      & \ddots & \vdots \\
+       g_{n1} & \ldots & g_{nn}
+   \end{pmatrix}\times
+    \begin{pmatrix}
+       \xi_{1}^{'}\\
+       \xi_{2}^{'}\\
+       \vdots\\
+       \xi_{n}^{'}
+   \end{pmatrix}.
+\end{align*}
+Then
+\begin{align*}
+    &D(
+    \begin{pmatrix}
+       e_1 & e_2 & \ldots & e_n 
+    \end{pmatrix}  \times 
+    \begin{pmatrix}
+       \xi_1\\
+       \xi_2\\
+       \vdots\\
+       \xi_n
+   \end{pmatrix}) = 
+       D( \begin{pmatrix}
+       e_1 & e_2 & \ldots & e_n 
+    \end{pmatrix} \times
+  \begin{pmatrix}
+       g_{11} & \ldots & g_{1n}\\
+       \vdots      & \ddots & \vdots \\
+       g_{n1} & \ldots & g_{nn}
+   \end{pmatrix}\times
+    \begin{pmatrix}
+       \xi_{1}^{'}\\
+       \xi_{2}^{'}\\
+       \vdots\\
+       \xi_{n}^{'}
+   \end{pmatrix}) \\
+   & = \begin{pmatrix}
+       e_1 & e_2 & \ldots & e_n 
+    \end{pmatrix} 
+   \begin{pmatrix}
+       dg_{11} & \ldots & dg_{1n}\\
+       \vdots      & \ddots & \vdots \\
+       dg_{n1} & \ldots & dg_{nn}
+   \end{pmatrix}\times
+    \begin{pmatrix}
+       \xi_{1}^{'}\\
+       \xi_{2}^{'}\\
+       \vdots\\
+       \xi_{n}^{'}
+   \end{pmatrix}  
+    +
+    \begin{pmatrix}
+       g_{11} & \ldots & g_{1n}\\
+       \vdots      & \ddots & \vdots \\
+       g_{n1} & \ldots & g_{nn}
+   \end{pmatrix}\times
+    \begin{pmatrix}
+       d\xi_{1}^{'}\\
+       d\xi_{2}^{'}\\
+       \vdots\\
+       d\xi_{n}^{'}
+   \end{pmatrix} \\
+   & +
+    \begin{pmatrix}
+       \theta_{11} & \ldots & \theta_{1n}\\
+       \vdots      & \ddots & \vdots \\
+       \theat_{n1} & \ldots & \theta_{nn}
+   \end{pmatrix} \times
+    \begin{pmatrix}
+       g_{11} & \ldots & g_{1n}\\
+       \vdots      & \ddots & \vdots \\
+       g_{n1} & \ldots & g_{nn}
+   \end{pmatrix} \times
+    \begin{pmatrix}
+       \xi_{1}^{'}\\
+       \xi_{2}^{'}\\
+       \vdots\\
+       \xi_{n}^{'}
+   \end{pmatrix}
+    ) \\
+    &=
+    \begin{pmatrix}
+        e_{1}^{'} & e_{2}^{'} & \ldots & e_{n}^{'} 
+    \end{pmatrix} (
+    \begin{pmatrix}
+       d\xi_{1}^{'}\\
+       d\xi_{2}^{'}\\
+       \vdots\\
+       d\xi_{n}^{'}
+   \end{pmatrix} + 
+    \begin{pmatrix}
+       g_{11} & \ldots & g_{1n}\\
+       \vdots      & \ddots & \vdots \\
+       g_{n1} & \ldots & g_{nn}
+    \end{pmatrix}^{-1} \times 
+    \begin{pmatrix}
+       g_{11} & \ldots & g_{1n}\\
+       \vdots      & \ddots & \vdots \\
+       g_{n1} & \ldots & g_{nn}
+   \end{pmatrix} \times
+    \begin{pmatrix}
+       d\xi_{1}^{'}\\
+       d\xi_{2}^{'}\\
+       \vdots\\
+       d\xi_{n}^{'}
+   \end{pmatrix} \\
+   &+ 
+    \begin{pmatrix}
+       g_{11} & \ldots & g_{1n}\\
+       \vdots      & \ddots & \vdots \\
+       g_{n1} & \ldots & g_{nn}
+    \end{pmatrix}^{-1} \times 
+    \begin{pmatrix}
+       \theta_{11} & \ldots & \theta_{1n}\\
+       \vdots      & \ddots & \vdots \\
+       \theta_{n1} & \ldots & \theta_{nn}
+   \end{pmatrix} \times
+    \begin{pmatrix}
+       g_{11} & \ldots & g_{1n}\\
+       \vdots      & \ddots & \vdots \\
+       g_{n1} & \ldots & g_{nn}
+   \end{pmatrix} \times
+    \begin{pmatrix}
+       \xi_{1}^{'}\\
+       \xi_{2}^{'}\\
+       \vdots\\
+       \xi_{n}^{'}
+   \end{pmatrix}
+    ).
+\end{align*}
+Therefore
+\begin{align*}
+    \begin{pmatrix}
+        \theta_{11}^{'} & \ldots & \theta_{1n}^{'}\\
+       \vdots      & \ddots & \vdots \\
+        \theta_{n1}^{'} & \ldots & \theta_{nn}^{'}
+    \end{pmatrix} &= 
+    \begin{pmatrix}
+       g_{11} & \ldots & g_{1n}\\
+       \vdots      & \ddots & \vdots \\
+       g_{n1} & \ldots & g_{nn}
+    \end{pmatrix}^{-1} \times 
+    \begin{pmatrix}
+       g_{11} & \ldots & g_{1n}\\
+       \vdots      & \ddots & \vdots \\
+       g_{n1} & \ldots & g_{nn}
+   \end{pmatrix} \\
+    &+ 
+    \begin{pmatrix}
+       g_{11} & \ldots & g_{1n}\\
+       \vdots      & \ddots & \vdots \\
+       g_{n1} & \ldots & g_{nn}
+    \end{pmatrix}^{-1} \times 
+    \begin{pmatrix}
+       \theta_{11} & \ldots & \theta_{1n}\\
+       \vdots      & \ddots & \vdots \\
+       \theta_{n1} & \ldots & \theta_{nn}
+   \end{pmatrix} \times
+    \begin{pmatrix}
+       g_{11} & \ldots & g_{1n}\\
+       \vdots      & \ddots & \vdots \\
+       g_{n1} & \ldots & g_{nn}
+   \end{pmatrix} 
+\end{align*}
+
+\begin{definition}
+   Let $E \rightarrow X$ be a $\C$-vector bundle with a connection 
+   $D$ and $\theta(e)$ be the associated connection matrix for a
+   frame $e = \begin{pmatrix}
+        e_{1} & e_{2} & \ldots & e_{n} 
+    \end{pmatrix}$. We define the curvature matrix associated with
+    the connection matrix $\theta(e)$ to be 
+   \begin{align*}
+       \Theta(D,e) = d\theta(e) + \theta(e) \wedge \theta(e),
+   \end{align*}
+   an $n \times n$ matrix of 2-forms.
+\end{definition}
+
+\begin{lemma}
+    Let $g$ be a change of frame, i.e.
+    \begin{align*}
+    \begin{pmatrix}
+        e_{1}^{'} & e_{2}^{'} & \ldots & e_{n}^{'} 
+    \end{pmatrix}= 
+    \begin{pmatrix}
+        e_{1} & e_{2} & \ldots & e_{n} 
+    \end{pmatrix} \cdot g.
+    \end{align*} 
+     Then
+   \begin{align*}
+       \Theta(D, e \cdot g) = g^{-1} \Theta(D, e) g. 
+   \end{align*}
+\end{lemma}
+
+\begin{lemma}
+    $[d + \theta(e)][d+ \theta(e)]\xi = \Theta(D, e)\xi$.    
+\end{lemma}
+
+\begin{remark}
+Let 
+\begin{align*}
+    \E^{p}(X, E) = \E(X, \wedge^{p}T^{*}(X) \otimes_{\C} E) 
+\end{align*}
+be the differential forms of degree $p$ on $X$ with coefficients in
+$E$.
+   We can extend $D$ to a linear map 
+   \begin{align*}
+       &D : \E^{p}(X,E) \rightarrow \E^{p+1}(X, E)\\
+       &D \xi = d\xi + \theta(e) \wedge \xi \quad \mbox{for any $\xi
+   \in \E^{p}(X,E)$}
+   \end{align*} 
+   Then, we have $D^{2}\xi = \Theta(D,e)\xi$. 
+\end{remark}
+
+
+\subsection{The Canonical Connection and Curvature of a Hermitian 
+Holomorphic Vector Bundle}
+
+\begin{definition}
+   Let $E \rightarrow X$ be a $\C$-vector bundle. A Hermitian metric
+   $h$ on $E$ is an assignment of a Hermitian inner product
+   $\langle, \rangle_{x}$ to each fibre $E_{x}$ of $E$ such that
+   for any open set $U \subset X$ and $\xi$, $\beta \in \E(U, E)$ the
+   function
+   \begin{align*}
+      \langle \xi, \beta \rangle : U \rightarrow \C 
+   \end{align*}
+   given by 
+   \begin{align*}
+       \langle \xi, \beta \rangle (x) = \langle \xi(x), \beta(x) \rangle_{x}
+   \end{align*}
+   is $C^{\infty}$.
+\end{definition}
+
+\begin{remark}
+  If $E$ is a Hermitian vector bundle over $X$. Then we can extend 
+  the metric on $E$ in a natrual manner to act on $E$-valued covectors 
+  in the following
+  \begin{align*}
+      \langle \omega \otimes \xi, \omega^{'}\otimes \xi^{'} \rangle_{x}
+      = \omega \wedge \omega^{'} \langle \xi, \xi^{'} \rangle_{x}
+  \end{align*}
+  for $\omega \in \wedge^{p}T^{*}_{x}(X)$, $\omega^{'} \in 
+  \wedge^{q}T^{*}_{x}(X)$, and $\xi$, $\xi^{'} \in E$, for
+  $x \in X$.
+\end{remark}
+
+\begin{definition}
+Let $E \rightarrow X$ be a holomorphic vector
+bundle over a complex manifold $X$. If $E$, as a differentiable
+bundle, is equipped with a differentiable Hermitian metric, then
+$E$ is called a Hermitian holomorphic vector bundle.
+\end{definition}
+
+If $X$ is a complex manifold,
+\begin{align*}
+    \sum_{r}\E^{r}(X, E) = \sum_{p,q}\E^{p,q}(X,E), 
+\end{align*}
+where $\E^{p,q}(X,E) = \E(X \wedge^{p,q}T^{*}(X) \otimes_{\R} \C)
+\otimes_{\E(X, \C)} \E(X, E)$.
+If $D$ is a connection, then 
+$D = D^{'} + D^{''}$ and
+\begin{align*}
+    & D^{'} = \partial + \theta: \E(X, E) \rightarrow \E^{1,0}(X, E) \\
+    & D^{''} = \bar{\partial} : \E(X, E) \rightarrow \E^{0,1}(X, E).
+\end{align*}
+
+Note that $H = (\langle e_{i}, e_{j} \rangle)_{i,j}$ is a Hermitian matrix,
+where $(e_1, \ldots, e_n)$ is a holomorphic frame. Then
+\begin{align*}
+    \theta = H^{-1}\partial H
+\end{align*}
+give a connection $D$ such that
+\begin{itemize}
+    \item $d \langle \xi, \beta \rangle = \langle D\xi, \beta \rangle
+        + \langle \xi, D \beta \rangle$ for any $\xi$, $beta \in 
+        \E(X, E)$;
+    \item if $\xi$ is a holomorphic section of $E$, then $D^{''}\xi = 0$.
+\end{itemize}
+
+\begin{remark}
+    If $(e_1, \ldots, e_n)$ is a holomorphic frame, then
+    \begin{align*}
+        & D^{'} = \partial + \theta\\
+        & D^{''} = \bar{\partial}.   
+    \end{align*}
+    We also have
+    \begin{itemize}
+        \item $\theta$ is of type $(1,0)$, and 
+            $\partial \theta = - \theta \wedge \theta$.
+        \item $\Theta(D, e) = \bar{\partial}\theta$ and 
+            $\Theta(D,e)$ is of type $(1,1)$.
+        \item $\bar{\partial}\Theta(D,e) = 0$, and 
+            $\partial \Theta(D,e) = [\Theta(D,e), \theta]$.
+    \end{itemize}
+\end{remark}
+
+\subsection{Chern Classes}
+
+Let $\widetilde{I_{k}}(M_{n}(\C))$ be the $\C$-vector space of all invariant
+$\C$-linear forms on $M_{n}(\C)$, i.e. $\widetilde{\phi}
+: M_{n}(\C) \times \cdots \times M_{n}(\C) \rightarrow \C$,  
+$\in \widetilde{I_{k}}(M_{n}(\C)$ if
+\begin{align*}
+    \widetilde{\phi}(TA_{1}T^{-1}, \ldots, TA_{k}T^{-1}) = 
+    \\widetilde{phi}(A_{1}, \ldots, A_{k})
+\end{align*}
+for and invertible element $T \in M_{n}(\C)$.
+
+Suppose $\widetilde{\phi} \in \widetilde{I_{k}}(M_{n}(\C)$. Let
+$\phi: M_{n}(\C) \rightarrow \C$ be
+\begin{align*}
+    \phi(A) = \widetilde{\phi}(A, \ldots, A). 
+\end{align*}
+Then $\phi$ is a homogeneous polynomial of degree $k$ in the
+entries of $A$. Let 
+\begin{align*}
+    I_{k}(\M_{n}) = \{\phi : \phi(gAg^{-1} = \phi(A), \mbox{
+    $\phi$ is homogeneous polynomials of degree $k$} \}.
+\end{align*}
+If $\phi \in I_{k}$, then
+\begin{align*}
+    \widetilde{\phi}(A_1, \ldots, A_{k}) = 
+    \frac{(-1)^{k}}{k!} \sum^{k}_{j=1} \sum_{i_1 < \cdots < i_{j}}
+    (-1)^{j}\phi(A_{i_1}+ \cdots + A_{i_j})
+\end{align*}
+is a element in $\widetilde{I_{k}}(M_{n}(\C)$.
+
+Note that we can extend $\phi \in \widetilde{I_{k}}(M_{n}(\C)$ to 
+$\E^{*}(X, Hom(E, E))$ in the following way,
+\begin{align*}
+    \phi(A_{1}\cdot \omega_{1}, \ldots, A_{k}\cdot \omega_{k})
+    = \omega_{1} \wedge \cdots \wedge \omega_{k} \phi(A_{1}, \ldots,
+    A_{k}).
+\end{align*}
+
+\begin{theorem}
+   Let $E \rightarrow X$ be a differentiable $\C$-vector bundle, let
+   $D$ be a connection on $E$, and suppose that $\phi \in I_{k}(M_{n}(\C))$.
+   Then
+   \begin{itemize}
+       \item $\phi(\Theta(D, E))$ is closed.
+        \item $\phi(\Theta(D, E))$ in the de Rham group $H^{2k}(X, \C)$ 
+            is independent of the connection $D$.
+   \end{itemize}
+\end{theorem}
+
+\begin{definition}
+   Let $E \rightarrow X$ be a differentiable $\C$-vector bundle
+   equipped with a connection $D$. Then the $k$th Chern form of $E$
+   relative to the connection $D$ is defined to be 
+   \begin{align*}
+       c_{k}(E, D) = \Phi_{k}(\frac{i}{2\pi}\Theta(D, E)) \in 
+       \E^{2k}(X, E),
+   \end{align*}
+   where $\Phi_{k} \in I_{k}(M_{n}(\C))$ are invariant polynomials 
+   defined by 
+   \begin{align*}
+       det(I+A) = \sum_{k=0}^{n}\Phi_{k}(A), \quad A \in M_{n}(\C). 
+   \end{align*}
+  The total Chern form of $E$ relative to $D$ is defined to be 
+  \begin{align*}
+      c(E, D) = \sum^{n}_{k=0}c_{k}(E,D), \quad n = rank E. 
+  \end{align*}
+  The $k$th Chern class of the vector bundle $E$, denoted by $c_{k}(E)$,
+  is the cohomology class of $c_{k}(E, D)$ in the de Rham group
+  $H^{2k}(X, \C)$, and the total Chern class of $E$, denoted by $c(E)$,
+  is the cohomology class of $c(E,D)$ in $H^{*}(X, \C)$;
+  i.e., $c(E) = \sum^{n}_{k=0}c_{k}(E)$.
+\end{definition}
+
+\subsection{Complex Line Bundles}
+
+\begin{proposition}
+    Let $X$ be a (paracompact) differentiable manifold with topological
+    dimension $n$. Suppose $E \rightarrow X$ is a differentiable vector
+    bundle. Then there is $n+1$ open covers $\{U_{i}\}_{i=0}^{n}$ of 
+    $X$ such that $E|_{U_{i}}$ is trivial.
+\end{proposition}
+%-----------------------------------------------------------------------------------
+%BIBLIOGRAPHY
+%-----------------------------------------------------------------------------------
+\begin{thebibliography}{9}
+\bibitem{CD}
+    M. J. Cowen and R. G. Douglas, 
+    \emph{Complex geometry and operator theory}, 
+    Acta Math. 141 (1978) 187–261.
+\end{thebibliography}
+%-----------------------------------------------------------------------------------
+
+\end{document}

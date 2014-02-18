@@ -1,0 +1,555 @@
+\documentclass[a4paper,10pt]{amsart}
+
+\usepackage[protrusion=true,expansion=true]{microtype} 
+\usepackage{fancyhdr}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx} 
+\usepackage{wrapfig} 
+
+\usepackage{mathpazo}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{hyperref}
+\usepackage{cleveref}
+\usepackage{comment}
+\usepackage{color}
+\usepackage{enumerate}
+\usepackage{braket}
+
+\newtheorem{example}{Example}[section]
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}{Proposition}[section]
+\newtheorem{corollary}{Corollary}[section]
+\newtheorem{definition}{Definition}[section]
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{remark}{Remark}[section]
+\newtheorem{question}{Question}[section]
+
+\crefname{lemma}{Lemma}{lemmas}
+\crefname{remark}{Remark}{remark}
+\crefname{corollary}{Corollary}{corollary}
+\crefname{theorem}{Theorem}{theorem}
+\crefname{example}{Example}{example}
+\crefname{definition}{Definition}{definition}
+
+\newcommand{\AAA}{\mathfrak A}
+\newcommand{\BBB}{\mathcal B}
+\newcommand{\CCC}{\mathcal C}
+\newcommand{\D}{\mathfrak D}
+\newcommand{\F}{\mathfrak F}
+\newcommand{\II}{\mathfrak I}
+\newcommand{\HHH}{\mathcal H} %for Hilbert space
+\newcommand{\LLL}{\mathcal L} % for lattice
+\newcommand{\MMM}{\mathcal M}
+
+
+\newcommand{\Lat}{\mathcal Lat}
+\newcommand{\Alg}{\mathcal Alg}
+\newcommand{\C}{\mathbb C} %for complex number
+\newcommand{\R}{\mathbb R}  %for real number
+\newcommand{\Z}{\mathbb Z} %for integer
+\newcommand{\N}{\mathbb N} % for nature number
+\newcommand{\I}{\mathcal I}
+\newcommand{\RR}{\mathcal R}
+% self defined vars
+\newcommand{\titleinfo}{Holomorphic Fields of Hilbert Spaces 
+in Finite von Neumann algebra}
+\newcommand{\authorinfo}{Wei Yuan and Wenming Wu} 
+
+\linespread{1.05}
+\pagestyle{fancyplain}
+\fancyhf{}
+\fancyhf[HRE,HLO]{\authorinfo}
+\fancyhf[FC]{\thepage}
+
+\begin{document}
+
+\title{\LARGE\textbf{\titleinfo}} 
+\author{\large\textsc{\authorinfo}} 
+\address{AMSS}  
+\email{}
+
+\date{}
+
+%\renewcommand{\abstractname}{Summary} 
+\begin{abstract}
+Enter abstract here
+\end{abstract}
+
+% Keywords
+\subjclass[2010]{Primary ; Secondary }
+\keywords{}
+\thanks{}
+\maketitle
+
+
+\section{Introduction}
+Let $\HHH$ be a Hilbert space, $Proj(\HHH)$ be the set of self-adjoint projections
+and $Uint(\HHH)$ be the set of unitary operators. We will routinely identify a 
+closed subspace with its associated orthogonal projection in $B(\HHH)$.
+For a set $\LLL$ of orthogonal projections in $Proj(\HHH)$, we denote by $Alg\LLL$ the set of all bounded linear operators on $\HHH$ leaving each element
+in $\LLL$ invariant. Then $Alg\LLL$ is an unital weak-operator closed subalgebra of 
+$B(\HHH)$. Similarly, for a subset $\mathcal{S}$ of
+$B(\HHH)$, let $Lat\mathcal{S}$ be the set of  invariant projections for every 
+operators in $\mathcal{S}$. Then $Lat\mathcal{S}$ is a
+strong-operator closed lattice of projections. A subalgebra $\mathcal{A}$ of 
+$B(\HHH)$ is said to be reflexive if
+$\mathcal{A}=Alg\Lat\mathcal{A}$, similarly a lattice $\LLL$ of projections 
+is reflexive if $\LLL=LatAlg\LLL$.
+
+\section{Hilbert fields over sphere}
+Let 
+\begin{align*}
+   \II_1 = \begin{pmatrix}
+       0 & T_1 \\
+       0 & I
+   \end{pmatrix} \mbox{ and }
+    \II_2 = \begin{pmatrix}
+       0 & T_2 \\
+       0 & I
+   \end{pmatrix}
+\end{align*}
+be two (unbounded) idempotents acting on $\HHH \oplus \HHH$, 
+where $T_1$ and $T_2$ are two closed operators affiliated with a 
+finite von Neumann subalgebra of $\BBB(\HHH)$. 
+The ranges of $\II_{1}$ and $\II_{2}$ are closed subspaces of 
+$\HHH \oplus \HHH$.
+
+Recall that the set of closed, densely defined operators 
+affiliated with a finite von Neumann algebra $\AAA$
+admits algebraic operations of addition and multiplication.
+In another word, the set is an unital * algebra (cf. \cite{MV2}), 
+and the elements in it can be manipulated as if they were bounded
+operators. In the rest of the paper, we will repeatedly make use this fact 
+without mentioning it explicitly. For a elegant treatment of this subject, 
+we refer readers to \cite{Zhe}. 
+
+Let $Q(\infty)=Ker(\II_1)$, $Q(0)=Ran(\II_{1})$ and $Q(-1)=Ran(\II_{2})$
+be there trace half projections in $\AAA \otimes M_{2}(\C)$.
+Note that
+\begin{align*}
+   \Alg(Q(\infty), Q(0), Q(-1)) = \{A | A\II_i \subset \II_{i}A, i = 1,2\}.
+\end{align*}
+
+By conjugating a unitary, we could assume that
+\begin{align*}
+   T_1 - T_2  
+   = \begin{pmatrix}
+      K & 0\\
+      0 & 0
+   \end{pmatrix} 
+\end{align*}
+where $K \geq 0$ and $K$ has a closed inverse. 
+
+We also write $T_1$ as
+$\begin{pmatrix}
+       T_{11} & T_{12} \\
+       T_{21} & T_{22}
+\end{pmatrix}$. 
+It is not hard to check that $\Alg(Q(\infty), Q(0), Q(-1))$ contains the
+following elements 
+\begin{align*}
+    &\begin{pmatrix}
+    A_1 & 0 & T_{11}K^{-1}A_{1}K-A_{1}T_{11}& -A_{1}T_{12}\\
+       0 & 0 & T_{21}K^{-1}A_{1}K & 0\\
+       0 & 0 & K^{-1}A_{1}K & 0 \\
+       0 & 0 & 0 & 0
+   \end{pmatrix} \qquad  
+   \begin{pmatrix}
+   0 & 0 & 0 & 0\\ 
+   0 & A_{2} & -A_{2}T_{21} & -A_{2}T_{22} \\
+   0 & 0 & 0 & 0\\ 
+   0 & 0 & 0 & 0\\ 
+   \end{pmatrix}\\
+   &\begin{pmatrix}
+   0 & A_{3} & -A_{3}T_{21} & -A_{3}T_{22}\\ 
+   0 & 0 & 0 & 0 \\
+   0 & 0 & 0 & 0\\ 
+   0 & 0 & 0 & 0 
+   \end{pmatrix} \qquad
+   \begin{pmatrix}
+   0 & 0 & T_{12}D_{1} & 0\\ 
+   0 & 0 & T_{22}D_{1} & 0 \\
+   0 & 0 & 0 & 0\\ 
+   0 & 0 & D_{1} & 0 
+   \end{pmatrix} \qquad
+   \begin{pmatrix}
+   0 & 0 & 0 & T_{12}D_{2}\\ 
+   0 & 0 & 0 & T_{22}D_{2} \\
+   0 & 0 & 0 & 0\\ 
+   0 & 0 & 0 & D_{2}\\ 
+   \end{pmatrix}
+\end{align*}
+
+If $Q \in \Lat(\Alg(Q(\infty), Q(0), Q(-1)))$ such that
+$Q \wedge Q(\infty) = 0$ and $Q \vee Q(\infty) = I$, then there is
+an idempotent
+\begin{align*}
+   \II = \begin{pmatrix}
+       0 & T_{1} + S_{1} \\
+       0 & I 
+   \end{pmatrix} 
+\end{align*}
+such that $\II A = A\II$ for any $A \in \Alg(Q(\infty), Q(0), Q(-1))$. 
+This implies that
+\begin{align*}
+   \begin{pmatrix}
+      0 & 0\\
+      0 & I
+   \end{pmatrix}
+   \begin{pmatrix}
+       S_{11} & S_{12}\\
+       S_{21} & S_{22}
+   \end{pmatrix} = 0 \mbox{ and }
+   \begin{pmatrix}
+       S_{11} & S_{12}\\
+       S_{21} & S_{22}
+   \end{pmatrix}
+    \begin{pmatrix}
+      0 & 0\\
+      0 & I
+   \end{pmatrix} = 0.
+\end{align*}
+Therefore $S_{12}$, $S_{21}$ and $S_{22}$ are all equals $0$.
+Since
+\begin{align*}
+   \begin{pmatrix}
+       A_{1} & 0 \\
+       0 & 0
+   \end{pmatrix} 
+   \begin{pmatrix}
+       S_{11} & 0 \\
+       0 & 0
+   \end{pmatrix}
+   = 
+   \begin{pmatrix}
+       S_{11} & 0 \\
+       0 & 0
+   \end{pmatrix}
+   \begin{pmatrix}
+       K^{-1}A_{1}K & 0 \\
+       0 & 0
+   \end{pmatrix} \qquad \mbox{ for all $A_{1} \in Ran(K)\AAA Ran(K)$}. 
+\end{align*}
+This implies that $S = z K$ for some $z \in \C$. We will denote 
+this idempotent by $\II(z)$ and its range projection by $Q(z)$. 
+Note that $\II_1 = \II(0)$ and $\II_{2} = \II(-1)$.
+
+If $Q \wedge Q(\infty) = 0$ and $Q \vee Q(\infty) \neq I$, then
+\begin{align*}
+    E \equiv Q \vee Q(\infty) = 
+    \begin{pmatrix}
+        I & 0 & 0 & 0\\
+        0 & I & 0 & 0\\
+        0 & 0 & 0 & 0\\
+        0 & 0 & 0 & I \\
+    \end{pmatrix}.
+\end{align*}
+Therefore, there must exist a $\beta = (\xi_1, \xi_2, \xi_3, \xi_4)^{T}
+\in Q\HHH$ such that $\xi_4 \neq 0$. This implies that
+\begin{align*}
+    \{(T_{12}\xi, T_{22}\xi, 0, \xi)^{t}| \xi \} \subset Q\HHH.
+\end{align*}
+Consider the trace of $Q$, we know that 
+\begin{align*}
+\{(T_{12}\xi, T_{22}\xi, 0, \xi)^{t}| \xi \}= Q\HHH \mbox{, and }
+    Q = Ran(
+    \begin{pmatrix}
+        0 & T_{1}(I-Ran(T_1 - T_2))\\
+        0 & (I-Ran(T_1 - T_2)) 
+    \end{pmatrix}.
+\end{align*}
+It is not hard to check that
+\begin{align*}
+    Q(z_{1}) \wedge Q(z_{2}) =
+    \{(T_{12}\xi, T_{22}\xi, 0, \xi)^{t}| \xi \}
+\end{align*}
+for any $z_1 \neq z_2 (\in \C))$.
+
+If $Q \wedge Q(\infty) \neq 0$, then it is easy to see that
+\begin{align*}
+   F \equiv Q \wedge Q(\infty) = 
+    \begin{pmatrix}
+        I & 0 & 0 & 0\\
+        0 & 0 & 0 & 0 \\
+        0 & 0 & 0 & 0 \\
+        0 & 0 & 0 & 0 \\
+    \end{pmatrix}.
+\end{align*}
+If $Q \neq F$, we have 
+$E \leq Q \vee Q(\infty)$ and $Q(z_1) \wedge Q(z_2) \leq Q$.
+If $Q \vee Q(\infty) = E$, then $\tau(Q) = \frac{1}{2}$. Hence
+\begin{align*}
+    Q\HHH =
+    \{(\xi_1, T_{22}\xi, 0,\xi)^{t}| \xi_1, \xi \} 
+    = F \vee (Q(z_1) \wedge Q(z_2)). 
+\end{align*}
+The last possibility is $Q \vee Q(\infty) = I$. Then there must 
+exists a vector $(\xi_1, \xi_2, \xi_3, \xi_4)^{T} \in Q$ such that
+$\xi_3 \neq 0$. Note that $\tau(Q) = \frac{1}{2} + \tau(F)$ and
+\begin{align*}
+    \{(0,T_{21}\xi,\xi,0)^{t} | \xi \} \subset Q\HHH.
+\end{align*}
+Then it is not hard to see that
+\begin{align*}
+   Q=\{(\xi_1, T_{21}\xi_{2} + T_{22}\xi_3,\xi_{2},\xi_{3})^{t} 
+   | \xi_1, \xi_2, \xi_3 \} = F \vee Q(z) = Q(z_1)\vee Q(z_2)   
+\end{align*}
+for any $z_1$ and $z_2 \in C$.
+
+\begin{remark}
+    $E = Q(\infty) \vee (Q(0) \wedge Q(-1))$ and 
+    $F = (Q(0) \vee Q(-1)) \wedge Q(\infty)$.  
+\end{remark}
+
+\begin{example}[Tautological line bundle over $\C\mathbb{P}^1$]
+Let
+\begin{align*}
+Q(\infty)&= \left(
+        \begin{array}{cc}
+          1 & 0 \\
+          0 & 0 \\
+        \end{array}
+      \right),
+Q(0)= \left(
+        \begin{array}{cc}
+          0 & 0 \\
+          0 & 1 \\
+        \end{array}
+      \right),
+Q(-1)= \left(
+        \begin{array}{cc}
+          \frac{1}{2} & -\frac{1}{2} \\
+          -\frac{1}{2} & \frac{1}{2} \\
+        \end{array}
+      \right),
+\end{align*}
+then 
+\begin{align*}
+Q(z) = \frac{1}{1+|z|^2}
+    \left(
+        \begin{array}{cc}
+          |z|^2 & z \\
+        \overline{z} & 1\\
+        \end{array}
+      \right).  
+\end{align*}
+Note that the map $\phi: \C\mathbb{P}^1 \rightarrow S^{2}$ given by
+$\phi([z_1, z_2]) = z_1/z_2$ is a homeomorphism. We have
+\begin{align*}
+\phi^{*}(Q)([z_1, z_2]) = \frac{1}{|z_1|^2+|z_2|^2}
+    \left(
+        \begin{array}{cc}
+            |z_1|^2 & z_1 \overline{z_2} \\
+        \overline{z_1}z_2 & |z_2|^2\\
+        \end{array}
+      \right) 
+\end{align*}
+is a line bundle over $\C\mathbb{P}^{1}$. 
+It is the tautological line bundle (or Hopf bundle) over $\C\mathbb{P}^1$.
+\end{example}
+
+If $T_1$ and $T_2$ are not bouneded, then the connected 
+component of $\Lat(\Alg(Q(\infty), Q(0), Q(-1))$ is not a Hilbert bundle.
+
+\begin{definition}[Definition 2.2.1 and Definition 2.2.2 in \cite{LR}]
+   Let $X$ be a smooth manifold. A field of Hilbert spaces in a map
+   $p: \HHH \rightarrow X$, with each fiber $\HHH_{x} = p^{-1}(x)$
+   endowed with the structure of a Hilbert space. A smooth structure on
+   a field $\HHH \rightarrow X$ of Hilbert spaces in given by spcifiying
+   a set $\Gamma^{\infty}$ of sections of $\HHH$, closed under
+   addition and under multiplicatin by elements of $C^{\infty}(X)$,
+   and linear operators $\nabla_\xi: \Gamma^{\infty} \rightarrow 
+   \Gamma^{\infty}$ for each $\xi \in Vect(X)$, such that for 
+   $\xi$, $\eta \in Vect(X)$, $f \in C^{\infty}(X)$ and
+   $\varphi$, $\psi \in \Gamma^{\infty}$
+   \begin{align}
+       &\nabla_{\xi+\eta} = \nabla_{\xi} + \nabla{\eta},
+       \nabla_{f\xi} = f\nabla_{\xi}, 
+       \nabla_{\xi}(f\varphi)= (\xi f)\varphi + f\nabla_{\xi}\varphi;\\
+       & \langle \varphi, \psi \rangle \in C^{\infty}(X) \mbox{ and }
+       \xi \langle \varphi, \psi \rangle 
+       = \langle \nabla_{\xi} \varphi, \pi \rangle +  
+       \langle \varphi, \nabla_{\xi} \pi \rangle; \\
+       & \{ \varphi(x): \varphi \in \Gamma^{\infty}\} \subset \HHH_{x} 
+       \mbox{ is dense, for all } x \in X.
+   \end{align}
+\end{definition}
+
+Let $Proj(1,\HHH)$ denote the set of projections in $\BBB(\HHH)$ such
+that $dim P\HHH = 1$ for any $P \in Proj(1, \HHH)$.
+Altougth $Proj(1, \HHH)$ is only a real analytic manifold, 
+there exists a canonical complex structure on $Proj(1, \HHH)$.
+
+In general, an almost complex structure on a Banach manifold $X$ is a 
+smooth tensor field $J$ on $X$ which associates to each $x \in X$ a 
+linear operator $J$ on the tangent space $T_{x}(X)$ to $X$ at $x$ 
+which satisfies $J_{x}(J\xi) = -\xi$ for all $\xi \in T_{x}(X)$. 
+An almost complex structure $J$ on $X$ is said to be a complex 
+structure on $X$ if and only if, given any point $x \in X$, there exists
+an open neighbourhood $\Omega$ of $x$ in $X$ and a smooth map
+$\Phi: \Omega \rightarrow B$, where $B$ is some complex Banach
+space which satisfies the following conditions:
+\begin{enumerate}
+    \item $\Phi$ maps $\Omega$ diffeomorphically onto some open set
+        in $B$;
+    \item for each $x \in \Omega$ the derivative $(d\Phi)_{x}: 
+        T_{m}(\Omega) \rightarrow B$ of the map $\Omega$ at $x$
+        satisfies $(d\Phi)_{m}(J_{m}\xi) = i(d\Phi)_{m}\xi$ for all
+        $\xi \in T_{m}(X)$. 
+\end{enumerate}
+
+We will dsecibe the complex structure of $Proj(1, \HHH)$. 
+Fixed a unit vector $\beta$ in $P\HHH$,
+it easy to see that the tangent space $T_{P}Proj(1, \HHH)$ at $P$ is 
+\begin{align*}
+    T_{P}Proj(1, \HHH) &=
+    \{H | H^{*}=H, PHP = 0, (I-P)H(I-P)=0, H \in \BBB(\HHH)\} \\
+    & = \{\Ket{\xi}\Bra{\beta} + (\Ket{\xi}\Bra{\beta})^{*} 
+    | \xi \in (I-P)\HHH \}
+    \cong (I-P)\HHH.
+\end{align*}
+Let
+\begin{align*}
+    J_{P}: \{\Ket{\xi}\Bra{\beta} + (\Ket{\xi}\Bra{\beta})^{*} 
+    &\rightarrow \Ket{i \xi}\Bra{\beta} + (\Ket{i \xi}\Bra{\beta})^{*}
+\end{align*}
+It is easy to see that $J_{P}^{2} = -I$. Actually the operator is just
+the mutiplication of $i$ on the Hilbert space $(I-P)\HHH$.
+Let $\Omega = \{Q | \langle Q\beta, \beta \rangle > 0\}$ and 
+\begin{align*}
+    \Phi: Q \rightarrow \frac{(I-P)Q\beta}{\langle Q\beta, \beta \rangle}. 
+\end{align*}
+Then
+\begin{align*}
+    d\Phi: H \rightarrow H\beta, \qquad \forall H \in T_{P}Proj(1, \HHH).
+\end{align*}
+Now it obvious that $(d\Phi)_{P}(J_{P}H) = iH\beta = i(d\Phi)_{P}H$
+(Much general result is proved for the Flag manifolds in a C$^*$-algebra). 
+
+\begin{remark}
+    If we identify the projection with its range, then the complex
+    structure descirbed above is the same as the complex structure of
+    the 1-dimensional Grassmann manifold $Gr(1,\HHH)$,
+    the set of all 1-dimensional subspaces of $\HHH$, as the
+    complex projective space.
+\end{remark}
+
+\begin{definition}
+   Suppose that $\Phi: X \rightarrow Proj(1, \HHH)$ is a 
+   holomorphic embedding, where $X$ is a complex manifold. 
+   We say the embedding is locally constant with respect to
+   a von Neumann algebra $\AAA$ if for any $x \in X$
+\end{definition}
+
+\begin{definition} \label{def_f_2}
+   Let $\AAA$ be a von Neumann algebra acting on a separable Hilbert space
+   $\HHH$. Suppose that $\Phi: X \rightarrow Proj(1, \HHH)$ is a 
+   holomorphic embeding, where $X$ is a complex manifold. Then
+   the field of Hilbert spaces induce by the holomorphic embeding
+   and $\AAA$ is 
+   \begin{align*}
+       \F(\Phi, \AAA) \equiv 
+       \amalg_{x \in X} \bigvee_{U \in U(\AAA)}U^{*}\Phi(x)U.  
+   \end{align*}
+\end{definition}
+
+The following fact is immediate from the \cref{def_f_2}.
+
+\begin{proposition}
+    Let $\AAA$ be a von Neumann algebra acting on a separable Hilbert
+    space $\HHH$ and $\Phi: X \rightarrow Proj(1,\HHH)$ is a
+    holomorphic embeding of a complex manifold. Then for any $x \in X$,
+    $\F(\Phi, \AAA)(x) \in \AAA '$.
+\end{proposition}
+
+
+
+\section{Conclusion}
+
+
+
+%-----------------------------------------------------------------------------------
+%BIBLIOGRAPHY
+%-----------------------------------------------------------------------------------
+\begin{thebibliography}{9}
+\bibitem{RK} R. Kadison and John R. Ringrose, {\em Fundamentals of the theory of Operator Algebras},  {\bf Volume II } (1997)
+
+\bibitem{FK} B. Fuglede and R. Kadison, {\em Determinant Theory in Finite Factors}, The Annals of Mathematics, Second Series, Vol. 55, No. 3 (1952), 520-530
+
+\bibitem{Ta} M. Takesaki, {\em Theory of Operator Algebras}, {\bf Volume I}, Encyclopedia of Mathematical Sciences, vol 124, Springer-Verlag, Berlin (2002)
+
+\bibitem{LP} R. H. Levene, S. C. Power {\em Manifold of Hilbert space 
+    projection}, Proc. London Math. Soc. 1-25 (2009)
+
+
+\bibitem{Mo} Mohan Ravichandran, {University of New Hampshire Ph.D. Thesis} (2009) 
+\bibitem{GYII} L. Ge and W. Yuan, {\em Kadison-Singer algebras,
+II---General case,} to appear, 2009
+
+\bibitem{HF} Uffe Haagerup and Flemming Larsen, {\em Brown's Spectral Distribution Measure for
+R-diagonal Elements in Finite von Neumann Algebras,}, 1999
+
+\bibitem{HH} Uffe Haagerup and Hanne Schultz, {\em Brown Measures of Unbounded Operators Affiliated with
+ Finite von Neumann Algebras,}, 1999
+
+\bibitem{HV} Hari Bercovici and Dan Voiculescu, {\em Free Convolution of Measures with Unbounded Support, }
+
+\bibitem{KS} $K.S.K\ddot{O}LBIG$, {\em On The Value Of A Logarithmic-Trigonometric Integral}, BIT 11(1971), 21-28
+
+\bibitem{MR} Mehmet Koca, Ramazan Koc and Muataz Al-Barwani, {\em Breaking SO(3) into its closed subgroups by Higgs mechanism},
+J.Phys.A: Math.Gen. 30(1997) 2109-2125
+
+\bibitem{BA} Beardon, Alan F, {\em The Geometry of Discrete Groups}, New York: Springer-Verlag GTM 91.
+
+\bibitem{AR} Alexandru Nica and Roland Speicher, {\em Lectures on the Combinatorics of Free Probability},
+London Mathematical Society Lecture Note Series:335
+
+\bibitem{SS} Elias M. Stein and Rami Shakarchi, {\em complex analysis}, Priceton lectures in analysis II.
+
+\bibitem{Hou} Chengjun Hou and Wei Yuan, {\em Minimal Generating Reflexive Lattices of Projections in Finite von Neumann Algebras}
+
+\bibitem{WW} W.Wu and W. Yuan, {\em On generators of abelian 
+        Kadison–Singer algebras in matrix algebras} 
+        Linear Algebra and its Applications, Vol 440, 2014, Pages 197–205.
+
+\bibitem{LU} R. C. Lyndon and J. L. Ullman {\em Groups of Elliptic Linear Fractional Transformations}, Proceedings of the American Mathematical Society,   Vol. 18, No. 6, (1967) 1119-1124
+
+\bibitem{SA} S. Sakai, {\em On automorphism groups of II$_1$-factors}, T\^{o}koku Math. J. (2) 26 (1974), 423-430.
+
+\bibitem{WA} William L. Green and Anthony To-Ming Lau {\em Strong finite von Neumann algebras }, Math. Scand. 40 (1977), 105- 112.
+
+\bibitem{MRM} M. Koca, R. Koc and M. Al-Barwani {\em Breaking SO(3) into its closed subgroups by Higgs mechanism}, J.Phys. A: Math. Gen. 30 (1997) 2109-2125
+
+\bibitem{VDN} D. Voiculescu, K. Dykema and A. Nica, {\em Free Random Variables}, CMR Monograph Series 1, American Mathematical Society (1992)
+
+\bibitem{NS} A. Nica and R. Speicher, {\em Lectures on the Combinatorics of Free Probability}, Londom Mathematical Society Lecture Note Series: 335 (2006)
+
+\bibitem{MV2} F. J. Murray and J. von Neumann, {\em On rings of operators, II}, Trans. Amer. Math. Soc. 41 (1937), 208 - 248
+
+\bibitem{Zhe} Z. Liu, {\em On Some Mathematical Aspects of The Heisenberg Relation }, Science China series Mathematics: Kadison's proceedings
+
+\bibitem{MK} Masoud Khalkhaili, {\em Basic Noncommutative Geometry}, EMS series of Lectures in Mathematics (2009)
+
+\bibitem{S}
+    N. Salinas
+    {\em The Grassmann manifold of a C*-algebra, and Hermitian 
+    holomorphic bundles}, 
+    Operator Theory: Advances and Applications 28, 
+    Birkhaiiser Verlag Basel, 1998, 267-289.
+
+\bibitem{LR} L. Lempert and R. Szoke, {\em Direct Images, Fields of 
+    Hilbert spaces, and Geometric Quantization}
+
+\bibitem{WI} D. R. Wilkings, {\em The Grassmann manifold of a 
+    C$^*$-algebra}, Proc. of the Royal Irish Acad. 90A, 1990, 99-116.
+
+\bibitem{MN} M. Martin and N. Salinas {\em The Canonical Complex Structure
+    of Flag Manifolds in a C$^{*}$-algebra},
+    Operator Theory: Advances and Applications, Vol.104, 1998,
+    173-187.
+\end{thebibliography}
+%-----------------------------------------------------------------------------------
+
+\end{document}
