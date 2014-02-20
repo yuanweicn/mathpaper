@@ -224,7 +224,7 @@ $\mu$ is $T$-invariant iff $\mu(T^{-1}B) = \mu(B)$ for every $B \in \A$.
    and let $\mu$ be a finite $T$-invariant measure in $X$. If
    $\varphi \in L^{1}(X, d\mu)$, then the limit
    \begin{align*}
-       \varphi_{T} = \lim_{n \rightarrow \infity}\frac{1}{n}
+       \varphi_{T} = \lim_{n \rightarrow \infty}\frac{1}{n}
        \sum_{k = 0}^{n} \varphi(T^k (x))
    \end{align*}
    \begin{itemize}
@@ -275,7 +275,7 @@ Let
    the probability measure $\mu$ and $\xi$ a measurable partition of $X$.
    The metric entropy of $T$ with respect to $\mu$ and $\xi$ is 
    \begin{align*}
-       h_{\mu}(T, \xi) = \lim_{n \rightarrrow \infity} \frac{1}{n}H_{\mu}(\xi_n)
+       h_{\mu}(T, \xi) = \lim_{n \rightarrow \infty} \frac{1}{n}H_{\mu}(\xi_n)
        = \inf_{n \in \N} H_{\mu}(\xi_n),
    \end{align*}
    where $\xi_n = \bigvee_{k=0}^{n-1} T^{-k}\xi$.
@@ -1648,6 +1648,39 @@ Therefore $\Psi_{\X}(k,x) = O(x)$ and $\Psi_{1-\X}(k,x) = O(x)$.
     $f$ in $C(X)$ and $x \in X$.
 \end{lemma}
 
+\section{Weighted Sum of $\mu(n)$}
+
+Let $f: \N \rightarrow \N$ be a function defined on $\N$.
+Consider the weighted sum
+\begin{align*}
+    \sum_{n \leq N}f(n)\mu(n) 
+\end{align*}
+
+Let $\rho: \N \rightarrow \N$ be a map defined by
+\begin{align*}
+\rho : p_{1}^{\gamma(1)}p_{2}^{\gamma(2)}\cdots p_{n}^{\gamma(n)} 
+\rightarrow
+1^{\gamma(1)}2^{\gamma(2)}\cdots n^{\gamma(n)}, 
+\end{align*}
+where $p_i$ is the $i$th prime number.
+
+Estimate the sum: 
+\begin{align*}
+    \sum_{\gamma \in (\Z_{2})^{N} \mbox{ and } 
+    1^{\gamma(1)}2^{\gamma(2)}\cdots N^{\gamma(N)} \leq N} 
+    (-1)^{\sum_{i}\gamma(i)}   
+\end{align*}
+
+Note that if $j > \frac{N}{2}$ and $\gamma(j) = 1$, 
+then $\gamma(i) = 0$ for any $i \neq j$. Therefore
+\begin{align*}
+    &\sum_{\gamma \in (\Z_{2})^{N} \mbox{ and } 
+    1^{\gamma(1)}2^{\gamma(2)}\cdots N^{\gamma(N)} \leq N} 
+    (-1)^{\sum_{i}\gamma(i)} \\ 
+    &\sum_{\gamma \in (\Z_{2})^{\frac{N}{2}} \mbox{ and } 
+1^{\gamma(1)}2^{\gamma(2)}\cdots N^{\gamma(\frac{N}{2})} \leq N} 
+    (-1)^{\sum_{i}\gamma(i)} -\frac{N}{2}. 
+\end{align*}
 
 \section{$Stone-\breve{C}ech$ Compactification}
 
