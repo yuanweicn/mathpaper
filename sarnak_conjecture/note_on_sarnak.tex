@@ -1662,26 +1662,171 @@ Let $\rho: \N \rightarrow \N$ be a map defined by
 \rightarrow
 1^{\gamma(1)}2^{\gamma(2)}\cdots n^{\gamma(n)}, 
 \end{align*}
-where $p_i$ is the $i$th prime number.
+where $p_i$ is the $i$-th prime number.
 
-Estimate the sum: 
+\begin{remark}
+    If $k< \sqrt{N}$, then $\floor{\frac{N}{k}} > \floor{\frac{N}{k+1}}$. 
+    Assume that $N = ak + b$ where $0 \leq b < k$ and $a \geq k$. 
+    If $\floor{\frac{N}{k}} = \floor{\frac{N}{k+1}}$, then
+    $ak+ b = a(k+1)+c$. It is impossible.
+\end{remark}
+
+\begin{lemma}
+ \begin{align*}
+    \sum_{\gamma \in (\Z_{2})^{N} \mbox{ and } 
+    1^{\gamma(1)}2^{\gamma(2)}\cdots N^{\gamma(N)} \leq M} 
+    (-1)^{\sum_{i}\gamma(i)} = 0.
+\end{align*}
+\end{lemma}
+
+\begin{proof}
+  \begin{align*}
+    &\sum_{\gamma \in (\Z_{2})^{N} \mbox{ and } 
+    1^{\gamma(1)}2^{\gamma(2)}\cdots N^{\gamma(N)} \leq M} 
+    (-1)^{\sum_{i}\gamma(i)} \\
+    & = \sum_{\gamma \in (\Z_{2})^{N} \mbox{ and } 
+    2^{\gamma(2)}\cdots N^{\gamma(N)} \leq M} 
+    (-1)^{\sum_{i=2}^{N}\gamma(i)}
+    - \sum_{\gamma \in (\Z_{2})^{N} \mbox{ and } 
+    2^{\gamma(2)}\cdots N^{\gamma(N)} \leq M} 
+    (-1)^{\sum_{i=2}^{N}\gamma(i)} \\
+    &= 0.
+\end{align*}
+\end{proof}
+
+Estimate
+ \begin{align*}
+    \sum_{\gamma \in (\Z_{2})^{N} \mbox{ and } 
+    2^{\gamma(2)}\cdots N^{\gamma(N)} \leq N} 
+    (-1)^{\sum_{i}\gamma(i)}.
+\end{align*}
+
+Note that if $j > \floor{\frac{N}{2}}$ and $\gamma(j) = 1$, 
+    then $\gamma(i) = 0$ for any $i \neq j$. 
+    Therefore
+    \begin{align*}
+        &\sum_{\gamma \in (\Z_{2})^{N} \mbox{ and } 
+        2^{\gamma(2)}\cdots N^{\gamma(N)} \leq N} 
+        (-1)^{\sum_{i}\gamma(i)}\\ 
+        &= \sum_{\gamma \in (\Z_{2})^{\floor{\frac{N}{2}}} \mbox{ and } 
+        2^{\gamma(2)}\cdots 
+        (\floor{\frac{N}{2}})^{\gamma(\floor{\frac{N}{2}})} \leq N} 
+        (-1)^{\sum_{i}\gamma(i)} - (N- \floor{\frac{N}{2}}). 
+    \end{align*}
+
+
+Similar argument implies that
+\begin{align*}
+    \sum_{\gamma \in (\Z_{2})^{\frac{N}{2}} \mbox{ and } 
+    1^{\gamma(1)}2^{\gamma(2)}\cdots 
+(\floor{\frac{N}{2}})^{\gamma(\floor{\frac{N}{2}})} \leq N} 
+    (-1)^{\sum_{i}\gamma(i)}
+=\sum_{\gamma \in (\Z_{2})^{\frac{N}{3}} \mbox{ and } 
+    1^{\gamma(1)}2^{\gamma(2)}\cdots 
+(\floor{\frac{N}{3}})^{\gamma(\floor{\frac{N}{3}})} \leq N} 
+    (-1)^{\sum_{i}\gamma(i)}.
+\end{align*}
+Suppose that $\gamma(j) = 1$ and $\floor{\frac{N}{4}} < j \leq 
+\floor{\frac{N}{3}}$.
+The possibilities are
+\begin{align*}
+    &\gamma(1) = \gamma(2) = \gamma(3) = 0 \qquad 
+    \gamma(1) = 1, \gamma(2) = \gamma(3) = 0 \\
+    &\gamma(1) = 0, \gamma(2) = 1, \gamma(3) = 0 \qquad 
+    \gamma(1) = 0, \gamma(2) = 0, \gamma(3) = 1 \\
+    &\gamma(1) = 0, \gamma(2) = 0, \gamma(3) = 1 \qquad 
+    \gamma(1) = 1, \gamma(2) = 1, \gamma(3) = 0 \\
+    &\gamma(1) = 1, \gamma(2) = 0, \gamma(3) = 1.
+\end{align*}
+This implies that
+\begin{align*}
+    \sum_{\gamma \in (\Z_{2})^{\frac{N}{3}} \mbox{ and } 
+    1^{\gamma(1)}2^{\gamma(2)}\cdots 
+(\floor{\frac{N}{3}})^{\gamma(\floor{\frac{N}{3}})} \leq N} 
+    (-1)^{\sum_{i}\gamma(i)}
+=\sum_{\gamma \in (\Z_{2})^{\frac{N}{4}} \mbox{ and } 
+    1^{\gamma(1)}2^{\gamma(2)}\cdots 
+(\floor{\frac{N}{4}})^{\gamma(\floor{\frac{N}{4}})} \leq N} 
+    (-1)^{\sum_{i}\gamma(i)}
+\end{align*}
+Similarly, we have
+\begin{align*}
+    \sum_{\gamma \in (\Z_{2})^{\frac{N}{4}} \mbox{ and } 
+    1^{\gamma(1)}2^{\gamma(2)}\cdots 
+(\floor{\frac{N}{4}})^{\gamma(\floor{\frac{N}{4}})} \leq N} 
+    (-1)^{\sum_{i}\gamma(i)}
+    =\sum_{\gamma \in (\Z_{2})^{\frac{N}{6}} \mbox{ and } 
+    1^{\gamma(1)}2^{\gamma(2)}\cdots 
+(\floor{\frac{N}{6}})^{\gamma(\floor{\frac{N}{6}})} \leq N} 
+    (-1)^{\sum_{i}\gamma(i)}
+\end{align*}
+
+Assume that $k + 1 \leq \sqrt{N}$ and 
 \begin{align*}
     \sum_{\gamma \in (\Z_{2})^{N} \mbox{ and } 
     1^{\gamma(1)}2^{\gamma(2)}\cdots N^{\gamma(N)} \leq N} 
-    (-1)^{\sum_{i}\gamma(i)}   
+    (-1)^{\sum_{i}\gamma(i)} 
+    = \sum_{\gamma \in (\Z_{2})^{\floor{\frac{N}{k}}} \mbox{ and } 
+    1^{\gamma(1)}2^{\gamma(2)}\cdots 
+    (\floor{\frac{N}{k}})^{\gamma(\floor{\frac{N}{k}})} \leq N} 
+    (-1)^{\sum_{i}\gamma(i)}
 \end{align*}
 
-Note that if $j > \frac{N}{2}$ and $\gamma(j) = 1$, 
-then $\gamma(i) = 0$ for any $i \neq j$. Therefore
-\begin{align*}
-    &\sum_{\gamma \in (\Z_{2})^{N} \mbox{ and } 
+\begin{lemma}
+    Let $k \leq \sqrt{N}$. Then
+    \begin{align*}
+    \sum_{\gamma \in (\Z_{2})^{N} \mbox{ and } 
     1^{\gamma(1)}2^{\gamma(2)}\cdots N^{\gamma(N)} \leq N} 
-    (-1)^{\sum_{i}\gamma(i)} \\ 
-    &\sum_{\gamma \in (\Z_{2})^{\frac{N}{2}} \mbox{ and } 
-1^{\gamma(1)}2^{\gamma(2)}\cdots N^{\gamma(\frac{N}{2})} \leq N} 
-    (-1)^{\sum_{i}\gamma(i)} -\frac{N}{2}. 
+    (-1)^{\sum_{i}\gamma(i)} 
+    = \sum_{\gamma \in (\Z_{2})^{\floor{\frac{N}{k}}} \mbox{ and } 
+    1^{\gamma(1)}2^{\gamma(2)}\cdots 
+    (\floor{\frac{N}{k}})^{\gamma(\floor{\frac{N}{k}})} \leq N} 
+    (-1)^{\sum_{i}\gamma(i)}
+\end{align*}
+\end{lemma}
+
+\begin{proof}
+   For $k = 1$, the statement is trivial. Let $k = 2$. 
+       Assume that
+    \begin{align*}
+    \sum_{\gamma \in (\Z_{2})^{N} \mbox{ and } 
+    1^{\gamma(1)}2^{\gamma(2)}\cdots N^{\gamma(N)} \leq N} 
+    (-1)^{\sum_{i}\gamma(i)} 
+    = \sum_{\gamma \in (\Z_{2})^{\floor{\frac{N}{k-1}}} \mbox{ and } 
+    1^{\gamma(1)}2^{\gamma(2)}\cdots 
+    (\floor{\frac{N}{k-1}})^{\gamma(\floor{\frac{N}{k-1}})} \leq N} 
+    (-1)^{\sum_{i}\gamma(i)}.
+\end{align*}
+Suppose that $\gamma(j) = 1$ and 
+$\floor{\frac{N}{k}} < j \leq \floor{\frac{N}{k-1}}$.
+Note that
+\begin{align*}
+    \sum_{\gamma \in (\Z_{2})^{k-1} \mbox{ and } 
+    1^{\gamma(1)}2^{\gamma(2)}\cdots (k-1)^{\gamma(k-1)} \leq N} 
+    -(-1)^{\sum_{i}\gamma(i)} 
 \end{align*}
 
+\end{proof}
+
+\section{What We Talk About When We Talk About Smoothness} 
+
+Consider the $C^{*}$-algebra $L^{\infty}(\N)$ acting on $l^{2}(\N)$.
+Let $V$ be the unilateral shift, i.e., $V e_{i} = e_{i+1}$.
+Then $A \rightarrow V^{*}AV$ is a homomorphism form $L^{\infty}$ onto
+$L^{\infty}(\N)$.
+Note that 
+\begin{align*}
+    V^{*}A_{1}VV^{*}A_{2}V = V^{*}A_{1}A_{2}V,
+\end{align*}
+where $A_1$ and $A_2$ are in $L^{\infty}(\N)$.
+
+Let $f \in L^{\infty}(\N)$ and $C(f)$ be the C$^*$-algebra generated
+by $(V^{*})^{n}M_{f}V^{n}$, $n = 0, 1, \ldots$. This is a abelian 
+C$^*$-algebra. Then $C(f) \simeq C(X)$, where $X$ is a compact 
+space.
+    
+
+    
 \section{$Stone-\breve{C}ech$ Compactification}
 
 \begin{definition}
