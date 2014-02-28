@@ -2107,6 +2107,56 @@ We will consider the function $f(n) = e^{2\pi i \sqrt{n}}$.
     in $S^{1}$.
 \end{proof}
 
+Let $T$ be the left shift of $(S^{1})^{\N}$ and $X$ be the closure of
+$\{\omega, T(\omega), T^{(2)}(\omega), \ldots \}$ in $(S^{1})^{\N}$, where 
+$\omega = (e^{2\pi i}, e^{2\pi i \sqrt{2}}, e^{2\pi i \sqrt{3}},
+\ldots )$. 
+
+\begin{lemma}
+Let $T$ be the left shift of $(S^{1})^{\N}$ and
+$\omega = (e^{2\pi i}, e^{2\pi i \sqrt{2}}, e^{2\pi i \sqrt{3}},\ldots )$.
+The accumulation points of 
+$\{\omega, T(\omega), T^{(2)}(\omega), \ldots \}$ 
+in $(S^{1})^{\N}$ is
+\begin{align*}
+    \{(e^{2\pi i \theta}, e^{2\pi i \theta}, e^{2\pi i \theta}, \ldots ):
+        \theta \in [0, 1) \}.
+\end{align*}
+And the closure of $\{\omega, T(\omega), T^{(2)}(\omega), \ldots \}$ is 
+\begin{align*}
+    \{\omega, T(\omega), T^{(2)}(\omega), \ldots \} \cup
+    \{(e^{2\pi i \theta}, e^{2\pi i \theta}, e^{2\pi i \theta}, \ldots ):
+        \theta \in [0, 1) \}.
+\end{align*}
+\end{lemma}
+
+\begin{proof}
+   Let $x = \{(e^{2\pi i \theta_1}, e^{2\pi i \theta_2}, 
+       e^{2\pi i \theta_3}, \ldots ):\theta \in [0, 1) \}$ 
+       be a accumulation points of 
+    $\{\omega, T(\omega), T^{(2)}(\omega), \ldots \}$. 
+   Since $(S^{1})^{\N}$ is a compact metric space,  
+   there exists a sequnce of nature number 
+   $n_k$, $k = 1, 2, \ldots$ such that $T^{(n_k)}(\omega) \to x$.
+   Assume that $e^{2\pi i \sqrt{n_{k}}} \to e^{2\pi i \theta}$,
+   then
+   \begin{align*}
+       e^{2\pi i \sqrt{n_{k}+l}} \to e^{2\pi i \theta}, \qquad l \in \N.
+   \end{align*}
+   This implies that $T^{(n_k)} \to 
+    (e^{2\pi i \theta}, e^{2\pi i \theta}, e^{2\pi i \theta}, \ldots )$.
+\end{proof}
+
+Now, we are ready to compute the topological entropy of the left shift $T$
+of the spectrum of $C(f)$.
+
+Let 
+\begin{align*}
+    &X_{0} = \{(e^{2\pi i\theta_1}, e^{2\pi i\theta_2}, e^{2\pi i\theta_3}, 
+\ldots): 0 \leq \theta_1 < \frac{1}{2}\} \cap X, \\
+    &X_{1} = \{(e^{2\pi i\theta_1}, e^{2\pi i\theta_2}, e^{2\pi i\theta_3}, 
+\ldots): \frac{1}{2} \leq \theta_1 < 1\} \cap X. \\
+\end{align*}
     
 \section{$Stone-\breve{C}ech$ Compactification}
 
