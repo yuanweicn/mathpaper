@@ -110,7 +110,7 @@
 \DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
 % self defined vars
 \newcommand{\titleinfo}{Note on Sarnak Conjecture}
-\newcommand{\authorinfo}{Jinsong Wu} 
+\newcommand{\authorinfo}{B. Fu, L. Ge, W. Yuan} 
 
 \linespread{1.05}
 \pagestyle{fancyplain}
@@ -1810,21 +1810,302 @@ Note that
 
 \section{What We Talk About When We Talk About Smoothness} 
 
+Let $C(X)$ and $C(Y)$ be two abelian C$^*$-algebras, where
+$X$ and $Y$ are compact Hausdorff spaces. Suppose $\varPhi$ 
+is a *-homomorphism form $C(X)$ to $C(Y)$. It is clear that
+$\varPhi$ induces a map $\varPhi^{*}$ from $Y$ to $X$,
+\begin{align*}
+    \varPhi^{*}: \rho \rightarrow \rho \circ \varPhi, \qquad
+    \rho \in Y.
+\end{align*}
+
+Similar, if $\varphi: X \rightarrow Y$ be a continuous map, then
+$\varphi$ induces a map from $C(Y) \rightarrow C(X)$,
+\begin{align*}
+    \varphi^{*}: f \rightarrow f \circ \varphi, \qquad 
+    f \in C(Y).
+\end{align*}
+It is cleat that $\varPhi^{**} = \varPhi$ and $\varphi^{**} = \varphi$.
+
 Consider the $C^{*}$-algebra $L^{\infty}(\N)$ acting on $l^{2}(\N)$.
-Let $V$ be the unilateral shift, i.e., $V e_{i} = e_{i+1}$.
-Then $A \rightarrow V^{*}AV$ is a homomorphism form $L^{\infty}$ onto
-$L^{\infty}(\N)$.
+It is well-known that  $L^{\infty}(\N) \simeq C(\beta \N)$.
+Let $\sigma$ be the continuous map form $\beta \N$ to $\beta \N$
+induced by the shift on $\N$: $\sigma(n) = n+1$.
+Throughout this section, we will use $\sigma$ to denote this
+continuous map.
+
+Let $V$ be the unilateral shift, i.e., $V e_{i} = e_{\sigma(i)}$.
+Then
+\begin{align*}
+    \Sigma: M_{f} \rightarrow V^{*}M_{f}V = M_{f \circ \sigma}, 
+    \mbox{ for all } f 
+    \in L^{\infty}(\N),
+\end{align*}
+is a homomorphism form $L^{\infty}(\N)$ onto $L^{\infty}(\N)$.
+
 Note that 
 \begin{align*}
-    V^{*}A_{1}VV^{*}A_{2}V = V^{*}A_{1}A_{2}V,
+    V^{*}M_{f_1}VV^{*}M_{f_2}V = V^{*}M_{f_{1}f_{2}}V,
 \end{align*}
-where $A_1$ and $A_2$ are in $L^{\infty}(\N)$.
+where $f_1$ and $f_2$ are in $L^{\infty}(\N)$.
+It is easy to see that $\sigma^{*} = \Sigma$ and $\Sigma^{*} = \sigma$.
 
 Let $f \in L^{\infty}(\N)$ and $C(f)$ be the C$^*$-algebra generated
-by $(V^{*})^{n}M_{f}V^{n}$, $n = 0, 1, \ldots$. This is a abelian 
-C$^*$-algebra. Then $C(f) \simeq C(X)$, where $X$ is a compact 
-space.
-    
+by $M_{f \circ \sigma^{(n)}}$, $n = 0, 1, \ldots$ 
+and $I$. This is an abelian 
+C$^*$-algebra. By Gelfand transform, $C(f)$ can be identified as
+$\simeq C(\Omega)$, where $\Omega$ is a compact Hausdorff 
+space. $\Omega$ is metrizable since $C(f)$ is separable.
+
+\begin{remark}
+    Let $C(f) \simeq C(\Omega)$ where $\Omega$ is the spectrum of $C(f)$.
+    $\{M_{f \circ \sigma^{(n)}} : n = 0, 1, 2 \ldots \}$ 
+    separates points in $\Omega$.
+\end{remark}
+
+\begin{theorem}[Tietze extension theorem]
+    If $X$ is a normal topological space (e.g., every compact Hausdorff 
+    space is normal) and $f: A \rightarrow \R$ is a continuous map 
+    from a closed subset $A$ of $X$ into the real numbers 
+    carrying the standard topology, then there exists a continuous map
+    $F: X \to \R$ with $F(x) = f(x)$ for all $x \in A$.
+    Moreover, $F$ may be chosen such that 
+    $\sup \{ |f(a)| : a \in A \} = \sup \{ |F(x)| : x \in X \}$, i.e., 
+    if $f$ is bounded, $F$ may be chosen to be bounded 
+    (with the same bound as $f$). $F$ is called a continuous 
+    extension of $f$.
+\end{theorem}
+
+\begin{definition}
+Let $T: X \rightarrow X$ and $S:Y \rightarrow Y$ be continuous maps
+of compact (metric) spaces (that is, topological dynamical systems). 
+Then a homeomorphism $\theta : X \rightarrow Y$ with 
+$\theta \circ T = S \circ \theta$ is called a topological conjugacy,
+and if there such a conjugacy then $T$ and $S$ are topologically conjugate. 
+A continuous surjective map $\varphi : X \rightarrow Y$ with 
+$\varphi \circ T = S \circ \varphi$ is called a topological
+factor map, and in this case $S$ is said to be a factor of $T$.
+\end{definition}
+
+\begin{lemma} \label{w_lem1}
+    Let $\AAA \simeq C(Y)$ be a C$^*$-subalgebra of $C(X)$,
+    and $\varphi$ be the continuous surjective from $X$ onto
+    $Y$ induced by the embedding of $C(Y)$ into $C(X)$. 
+    Suppose $\varPhi$ is a homomorphism from $C(X)$ to $C(X)$ 
+    such that $\varPhi$ fixes $\AAA$, i.e., $\varPhi(\AAA) \subset \AAA$.
+    Let $\varPsi = \varPhi|_{\AAA}$. Then 
+    $\varPsi^{*}$ is a factor of $\varPhi^{*}$.
+\end{lemma}
+
+\begin{proof}
+    We only need to show that $\varphi \circ \varPhi^{*} 
+    = \varPsi^{*} \circ \varphi$. 
+   Let $\rho$ in $X$ and $A \in \AAA$. Then
+   \begin{align*}
+    \varphi \circ \varPhi^{*}(\rho)(A) = \rho(\varPhi(A))
+    = \varPsi^{*}\circ \varphi (\rho)(A).
+   \end{align*}
+\end{proof}
+
+\begin{lemma} \label{w_lam2}
+Let $T: X \rightarrow X$ and $S:Y \rightarrow Y$ be continuous maps
+of compact (metric) spaces. Let $\varphi: X \rightarrow Y$ be a 
+topological factor map. Then $\varphi^{*}$ is injective. And 
+$\{f \circ \varphi : f \in C(Y) \}$ is invariant under the map
+$g \rightarrow g \circ T$, $g \in C(X)$.
+\end{lemma}
+
+\begin{lemma} \label{w_lam3}
+Let $T: X \rightarrow X$ and $S:Y \rightarrow Y$ be continuous maps
+of compact (metric) spaces. If $S$ is a factor of $T$, then
+$h_{top}(T) \geq h_{top}(S)$.
+\end{lemma}
+
+\begin{proof}
+    Let $\varphi$ be a factor map.
+    Suppose that $\{U_{1}, \ldots ,U_{n}\}$ be a open cover of $Y$. 
+    Let $V_{i} = \varphi^{-1}(U_{i})$. Then $\{V_1, \ldots, V_{n}\}$ is
+    a open cover of $X$. Let $U^{n}_{i} = S^{-n}(U_{i})$ and
+    $V^{n}_{i} = T^{-n}(V_{i})$. We claim that 
+    $V^{n}_{i} = \varphi^{-1}(U^{n}_{i})$. Indeed
+    \begin{align*}
+        V_{i}^{n} &= \{x \in X : T^{n}(x) \in V_{i}\}\\
+                  &=\{x \in X : \varphi \circ T^{n}(x) \in U_{i}\}\\
+                  &=\{x \in X : S^{n} \circ \varphi (x) \in U_{i}\}\\
+                  &=\{x \in X : \varphi(x) \in U_{i}^{n} \} 
+                  = \varphi^{-1}(U^{n}_{i}).
+    \end{align*}
+    This implies that
+    \begin{align*}
+        V_{i_1}\cap V_{i_2}^{2} \cap \cdots \cap V_{i_n}^{n}
+        &= \varphi^{-1}(U_{i_1})\cap \varphi^{-1}(U_{i_2}^{2}) 
+        \cap \cdots \cap \varphi^{-1}(U_{i_n}^{n})\\
+        &=\varphi^{-1}(
+        U_{i_1}\cap U_{i_2}^{2} \cap \cdots \cap U_{i_n}^{n}).
+    \end{align*}
+    Thus
+    \begin{align*}
+        N(\bigvee_{i=0}^{m}T^{-i}\{V_{1},\ldots, V_{n}\})
+        = N(\bigvee_{i=0}^{m}S^{-i}\{U_{1},\ldots, U_{n}\}).
+    \end{align*}
+    This clearly implies that $h_{top}(T) \geq h_{top}(S)$.
+\end{proof}
+
+
+\begin{lemma} \label{w_lam4}
+    Let $f \in L^{\infty}(\N)$ and $(Y, \varphi)$ be 
+    a topological dynamical system.
+    Assume that $C(f) \simeq C(X)$.
+    If there exists $h \in C(Y)$ such that $f(n) = h(\varphi^{(n)}(x))$,
+    and $\{h\circ \varphi^{(n)} : n = 0, 1, \ldots \} \cup \{I\}$ generate
+    $C(Y)$, then there is a continuous injective map form $X$ into $Y$. 
+    Furthermore, the range of the continuous map is the closure of 
+    $\{x, \varphi(x), \varphi^{(2)}(x), \ldots \}$ in $Y$.
+\end{lemma}
+
+\begin{proof}
+   Let $\Omega$ be the closure of 
+   $\{x, \varphi(x), \varphi^{(2)}(x), \ldots \}$ in $Y$.
+   By the Tietze extension theorem, we have 
+   \begin{align*}
+       g \to g|_{\Omega}, \qquad \mbox{ for any } g \in C(Y), 
+   \end{align*}
+   is a surjective map form $C(Y)$ to $C(\Omega)$.
+   Therefore $\{h\circ \varphi^{(n)}|_{\Omega} : n = 0, 1, \ldots \} 
+   \cup \{I\}$ also generate $C(\Omega)$. It is not hard to see that
+   \begin{align*}
+       \varPhi: h \circ \varphi^{n}|_{\Omega} 
+       \rightarrow f \circ \sigma^{(n)},
+       \qquad n = 0, 1, \ldots
+   \end{align*}
+   induce a *-isomorphism form $C(\Omega)$ to $C(f) \simeq C(X)$.
+   Then
+   \begin{align*}
+       \varPhi^{*}: \rho \rightarrow \rho \circ \varPhi, 
+   \end{align*}
+   where $\rho \in X$, is a homeomorphism form $X$ to $\Omega$.
+
+   Note that 
+   \begin{align*}
+       \varPhi(g \circ \varphi) = \varPhi(g) \circ \sigma, \qquad
+       g \in C(Y).
+   \end{align*}
+   Therefore, for $g \in C(Y)$ and $\rho \in X$, we have
+   \begin{align*}
+       g(\varphi(\varPhi^{*}(\rho)))=
+       g \circ \varphi(\varPhi^{*}(\rho)) = 
+       \varPhi(g \circ \varphi)(\rho)=
+       (\varPhi(g) \circ \sigma)(\rho)
+       = \varPhi(g)(\sigma(\rho)) 
+       = g(\varPhi^{*}(\sigma(\rho))).
+   \end{align*}
+   This means that $\varphi \circ \varPhi^{*} = 
+   \varPhi^{*} \circ \sigma$.
+\end{proof}
+
+\begin{corollary}\label{w_cor1}
+    Let $f \in L^{\infty}(\N)$ and $(Y, \varphi)$ be 
+    a topological dynamical system.
+    Assume that $C(f) \simeq C(X)$.
+    If there exists $h \in C(Y)$ such that $f(n) = h(\varphi^{(n)}(x))$,
+    $\{h\circ \varphi^{(n)} : n = 0, 1, \ldots \} \cup \{I\}$ generate
+    $C(Y)$ and $\{x, \sigma(x), \sigma^{(2)}(x), \ldots\}$ is dense in 
+    $Y$. Then $\sigma$ and $\varphi$ are topologically conjugate.
+\end{corollary}
+
+\begin{lemma} \label{w_lam5}
+    Let $f \in L^{\infty}(\N)$ and $(Y, \varphi)$ be 
+    a topological dynamical system.
+    Assume that $C(f) \simeq C(X)$.
+    If there exists $h \in C(Y)$ such that $f(n) = h(\varphi^{(n)}(x))$,
+    then $h_{top}(\varphi) \geq h_{top}(\sigma)$.
+\end{lemma}
+
+\begin{proof}
+   By Variational principle for the topological entropy.
+\end{proof}
+
+\begin{example}[Theorem 8 in \cite{Sarnak}]
+    Let $\Omega^{(2)} = \{0, 1\}^{\N}$. The square-free flow $S$ is the 
+    subflow of the full shift on $\Omega^{(2)}$ by the point
+    $\theta = (\mu^{2}(1), \mu^{2}(2), \ldots)$, that is 
+    $S = (X_{S}, T)$ with $X_{S}$ the closure of the $T$-orbit of $\theta$
+    in $\Omega^{(2)}$.
+    \begin{itemize}
+        \item $T: X_{S} \to X_{S}$ is surjective, it is topologically 
+            ergodic and $h_{top}(S) = \frac{6}{\pi^2}\log 2$.
+        \item $S$ is proximal (i.e. for any $x$, $y \in X_{S}$,
+            $\inf_{n \geq 1} d(T^{(n)}(x), T^{(n)}(y)) = 0$) and 
+            $\{(0,0,0 \ldots)\}$ is the unique $T$-minimal subset 
+            of $X_{S}$.
+    \end{itemize}
+\end{example}
+
+\begin{remark}
+    Let $h$ be the characteristic function on of the subset 
+    $\{(a_1, a_2, \ldots, ): a_1 = 1\}$ of $\Omega^{(2)}$.
+    It is clear that $\{h, h \circ T, h \circ T^{(2)}, \ldots \}$
+    separates points. By Stone–Weierstrass theorem, we have 
+    $\{h, h \circ T, h \circ T^{(2)}, \ldots \}$ generates the 
+    C$^*$-algebra $C(X_{S})$. By \cref{w_cor1}, $C(\mu^{2}) \simeq
+    C(X_{S})$.
+    Let $\rho \in X$ where $X$ is the spectrum of $C(\mu^{2})$. Then
+    \begin{align*}
+        \rho \to (\rho(\mu^2), \rho(\mu^2 \circ \sigma), 
+        \rho(\mu^2 \circ \sigma^{(2)}), \ldots) (\in \Omega^{(2)}) 
+    \end{align*}
+    is the homeomorphism from $X$ to $X_{S}$ ($X$ endowed with
+    weak* toplogy and $X_{S}$ endowed with the product topology).
+\end{remark}
+
+In general, we have the following fact.
+
+\begin{proposition} \label{w_pro1}
+    Suppose that $f$ is a function in $L^{\infty}(\N)$. 
+    Let $\Omega$ be the spectrum of $M_{f}$, 
+    and $S$ be the left shift map : $\Omega^{\N} \to \Omega^{\N}$ defined by
+    \begin{align*}
+        T(a_1, a_2, \ldots ) = (a_2, a_3, \ldots). 
+    \end{align*}
+    Note that $\Omega^{\N}$ is a compact Hausdroff space endowed with the 
+    product topology.
+    Then the spectrum of $C(f)$ is homeomorphic to the closure of 
+    $\{\omega, T(\omega), T^{(2)}(\omega), \ldots \}$ in $\Omega^{\N}$, 
+    where $\omega = (f(1), f(2), \ldots )$. And the homeomorphism is
+    given by
+    \begin{align*}
+        \rho \to (\rho(f), \rho(f\circ \sigma), \rho(f \circ \sigma^{(2)}),
+        \ldots),   
+    \end{align*}
+    where $\rho$ is a point in the spectrum of $C(f)$.
+\end{proposition}
+
+\begin{proof}
+    By \cref{w_cor1}, we only need to show that there exists a continous
+    function $h \in C(\Omega^{\N})$ such that 
+    $h(T^{(n)}(\omega)) = f(n)$ and $h$ separates points.
+    It is easy to check that the function given by the projection to the
+    first corrodinate, i.e. $h((a_1,a_2,\ldots)) = a_1$, 
+    satisfies all conditions.
+\end{proof}
+
+We will consider the function $f(n) = e^{2\pi i \sqrt{n}}$.
+
+\begin{lemma}
+    $\{ e^{2\pi i \sqrt{n}} \}_{n \in \N}$ is dense in the unit circle
+    $S^{1}$.
+\end{lemma}
+
+\begin{proof}
+    Only need to show that $\{\frac{k}{\sqrt{n^2 + k} + n} : k = 0, 1,
+    \ldots, 2n, n \in \N \}$ is dense in $[0,1]$. If $\frac{k}{2n} \to
+    \theta$, then
+    \begin{align*}
+        \frac{\frac{k}{n}}{\sqrt{1 + \frac{k}{n^2}} + 1} \to \theta. 
+    \end{align*}
+    It is clear now that $\{ e^{2\pi i \sqrt{n}} \}_{n \in \N}$ is dense
+    in $S^{1}$.
+\end{proof}
 
     
 \section{$Stone-\breve{C}ech$ Compactification}
@@ -1989,6 +2270,11 @@ $\{ U(t): t \in [0, \infty)\}$ of $\AAA$ such that
   \emph{On some infinite series involving arithmetical functions(II)}.
   Quarterly Journal of Mathematics, 8,
   313-320, 1937.
+
+\bibitem{Sarnak}
+  P. Sarnak 
+  \emph{Three Lectures On The M\"{o}bius Function Randomness And
+  Dynamics}.
 
 \bibitem{UH}
   U.Haagerup 
