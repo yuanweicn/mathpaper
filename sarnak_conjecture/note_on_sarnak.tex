@@ -1854,7 +1854,7 @@ Let $f \in L^{\infty}(\N)$ and $C(f)$ be the C$^*$-algebra generated
 by $M_{f \circ \sigma^{(n)}}$, $n = 0, 1, \ldots$ 
 and $I$. This is an abelian 
 C$^*$-algebra. By Gelfand transform, $C(f)$ can be identified as
-$\simeq C(\Omega)$, where $\Omega$ is a compact Hausdorff 
+$C(\Omega)$, where $\Omega$ is a compact Hausdorff 
 space. $\Omega$ is metrizable since $C(f)$ is separable.
 
 \begin{remark}
@@ -1983,7 +1983,7 @@ $h_{top}(T) \geq h_{top}(S)$.
    \begin{align*}
        \varPhi^{*}: \rho \rightarrow \rho \circ \varPhi, 
    \end{align*}
-   where $\rho \in X$, is a homeomorphism form $X$ to $\Omega$.
+   where $\rho \in X$, is a homeomorphism from $X$ to $\Omega$.
 
    Note that 
    \begin{align*}
@@ -2089,32 +2089,22 @@ In general, we have the following fact.
     satisfies all conditions.
 \end{proof}
 
-We will consider the function $f(n) = e^{2\pi i \sqrt{n}}$.
-
-\begin{lemma}
-    $\{ e^{2\pi i \sqrt{n}} \}_{n \in \N}$ is dense in the unit circle
-    $S^{1}$.
-\end{lemma}
-
-\begin{proof}
-    Only need to show that $\{\frac{k}{\sqrt{n^2 + k} + n} : k = 0, 1,
-    \ldots, 2n, n \in \N \}$ is dense in $[0,1]$. If $\frac{k}{2n} \to
-    \theta$, then
-    \begin{align*}
-        \frac{\frac{k}{n}}{\sqrt{1 + \frac{k}{n^2}} + 1} \to \theta. 
-    \end{align*}
-    It is clear now that $\{ e^{2\pi i \sqrt{n}} \}_{n \in \N}$ is dense
-    in $S^{1}$.
-\end{proof}
-
+\begin{example}
+Let $f(n) = e^{2\pi i \sqrt{n}}$.
+It is not hard to see that
+$\{ e^{2\pi i \sqrt{n}} \}_{n \in \N}$ is dense in the unit circle $S^{1}$.
+Indeed, we only need to show that 
+$\{\frac{k}{\sqrt{n^2 + k} + n} : k = 0, 1,
+\ldots, 2n, n \in \N \}$ is dense in $[0,1]$. If $\frac{k}{2n} \to
+\theta$, then
+\begin{align*}
+    \frac{\frac{k}{n}}{\sqrt{1 + \frac{k}{n^2}} + 1} \to \theta. 
+\end{align*}
 Let $T$ be the left shift of $(S^{1})^{\N}$ and $X$ be the closure of
 $\{\omega, T(\omega), T^{(2)}(\omega), \ldots \}$ in $(S^{1})^{\N}$, where 
 $\omega = (e^{2\pi i}, e^{2\pi i \sqrt{2}}, e^{2\pi i \sqrt{3}},
 \ldots )$. 
-
-\begin{lemma}
-Let $T$ be the left shift of $(S^{1})^{\N}$ and
-$\omega = (e^{2\pi i}, e^{2\pi i \sqrt{2}}, e^{2\pi i \sqrt{3}},\ldots )$.
+We claim that 
 The accumulation points of 
 $\{\omega, T(\omega), T^{(2)}(\omega), \ldots \}$ 
 in $(S^{1})^{\N}$ is
@@ -2128,12 +2118,11 @@ And the closure of $\{\omega, T(\omega), T^{(2)}(\omega), \ldots \}$ is
     \{(e^{2\pi i \theta}, e^{2\pi i \theta}, e^{2\pi i \theta}, \ldots ):
         \theta \in [0, 1) \}.
 \end{align*}
-\end{lemma}
 
-\begin{proof}
+\begin{proof}[Proof of the claim]
    Let $x = \{(e^{2\pi i \theta_1}, e^{2\pi i \theta_2}, 
        e^{2\pi i \theta_3}, \ldots ):\theta \in [0, 1) \}$ 
-       be a accumulation points of 
+       be an accumulation point of 
     $\{\omega, T(\omega), T^{(2)}(\omega), \ldots \}$. 
    Since $(S^{1})^{\N}$ is a compact metric space,  
    there exists a sequnce of nature number 
@@ -2147,17 +2136,30 @@ And the closure of $\{\omega, T(\omega), T^{(2)}(\omega), \ldots \}$ is
     (e^{2\pi i \theta}, e^{2\pi i \theta}, e^{2\pi i \theta}, \ldots )$.
 \end{proof}
 
-Now, we are ready to compute the topological entropy of the left shift $T$
-of the spectrum of $C(f)$.
+We quote the following fact in \cite{JO}.
 
-Let 
-\begin{align*}
-    &X_{0} = \{(e^{2\pi i\theta_1}, e^{2\pi i\theta_2}, e^{2\pi i\theta_3}, 
-\ldots): 0 \leq \theta_1 < \frac{1}{2}\} \cap X, \\
-    &X_{1} = \{(e^{2\pi i\theta_1}, e^{2\pi i\theta_2}, e^{2\pi i\theta_3}, 
-\ldots): \frac{1}{2} \leq \theta_1 < 1\} \cap X. \\
-\end{align*}
-    
+\begin{lemma}[Lemma 4.2 in \cite{JO}]\label{w_lam6}
+Let $Y$ be a compact metric space and $S : Y \to Y$ a
+continuous mapping. If $C \subset Y$ 
+is a closed $S$-invariant subset of $Y$ and
+$Y \setminus C$ is countable and $S$-invariant, 
+then $h_{top}(S) = h_{top}(S|_{C})$.
+\end{lemma}
+
+\begin{proposition}
+The topological entropy of the left shift $T$
+of the spectrum of $C(f)$ is $0$, where $f(n) = e^{2\pi i \sqrt{n}}$. 
+\end{proposition}
+
+\begin{proof}
+Let $C =\{(e^{2\pi i \theta}, e^{2\pi i \theta},
+e^{2\pi i \theta}, \ldots ):\theta \in [0, 1) \}$.
+By \cref{w_lam6}, we have $h_{top}(T) = h_{top}(T|_C)$.
+It is clear that $h_{top}(T|_C) =0$ since $T|_C$ is identiity.
+\end{proof}
+\end{example}
+
+
 \section{$Stone-\breve{C}ech$ Compactification}
 
 \begin{definition}
