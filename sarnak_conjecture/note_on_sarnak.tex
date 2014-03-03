@@ -1533,13 +1533,181 @@ $\frac{6}{\pi^2}$, more precisely
 \end{corollary}
 
 
-\begin{lemma}
-   \begin{align*}
-       \lim_{N \rightarrow \infty}
-       \frac{1}{N}\sum_{n=1}^{N} \mu(n) e^{2\pi ik\sqrt{n}}
-       \rightarrow 0.
-   \end{align*} 
+\begin{lemma} \label{Le_BSZ} [Bourgain-Sarnak-Ziegler]
+Let $F: \mathbb{N} \rightarrow \mathbb{C}$ with $|F|\leq 1$ and 
+let $\nu$ be a multiplicative function with $|\nu|\leq 1$. Let $\tau>0$ 
+be a small parameter and assume that for all primes 
+$p_1,p_2\leq e^{1/\tau}$, $p_1\neq p_2$, we have that for $M$ 
+large enough
+\[
+\left|\sum_{m\leq M} F(p_1m)\overline{F(p_2m)}\right|\leq \tau M.
+\]
+Then for $N$ large enough
+\[
+\left|\sum_{n\leq N} \nu(n) F(n)\right| \leq 2 N \sqrt{\tau \log (1/\tau)}.
+\]
 \end{lemma}
+
+
+\begin{lemma} [Kusmin-Landau] \label{Le_Kus-Lan}
+If $f$ is continuously differentiable, $f^\prime$ is monotonic, and $0<\lambda\leq f^\prime(x)\leq 1-\lambda$ on the interval $(a,b]$, then
+\[
+\left|\sum_{a<n\leq b}e(f(n))\right|\ll \lambda^{-1}.
+\]
+\end{lemma}
+
+\begin{lemma} \label{Le_multi_exponential}
+Let $0<\gamma<1$. For arbitrarily small $\tau>0$, and for 
+$0\neq |k|\leq x^{(1-\gamma)/2}$ and multiplicative function 
+$\nu$ with $|\nu|\leq 1$, we have
+\[
+\left|\sum_{n\leq x} \nu(n) e(kn^\gamma)\right| \ll_\tau x
+\]
+\end{lemma}
+
+\begin{proof}
+With the help of Lemma \cref{Le_BSZ}, if we prove that for all 
+primes $p_1\neq p_2\ll e^{1/\tau}$, the estimate
+\[
+\left|\sum_{n\leq x} e(k(p_1n)^\gamma -k (p_2 n)^\gamma)\right| \ll_\tau x
+\]
+holds for sufficiently large $x$, then
+\[
+\left|\sum_{n\leq x} \nu(n) e(kn^\gamma)\right| \ll_\tau x
+\]
+also holds. Since
+\[
+\left|\sum_{n\leq x(\log x)^{-1}} e(k(p_1n)^\gamma -k (p_2 n)^\gamma)
+\right| \ll x(\log x)^{-1} \ll_\tau x
+\]
+for $x$ sufficiently large, it is sufficient to prove
+\[
+\left|\sum_{x(\log x)^{-1}\leq n\leq x} e(k(p_1n)^\gamma 
+-k (p_2 n)^\gamma)\right| \ll_\tau x
+\]
+Take $f(n):=k(p_1^\gamma -p_2 ^\gamma) n^\gamma$ in Lemma \cref{Le_Kus-Lan}.
+Note that
+\[
+|f^\prime(n)|\asymp k (p_1^\gamma -p_2 ^\gamma) n^{\gamma-1} 
+\gg_\tau |k| x^{\gamma-1}
+\]
+and
+\[
+|f^\prime(n)|\asymp k (p_1^\gamma -p_2 ^\gamma) n^{\gamma-1} 
+\ll_\tau |k| x^{\gamma-1} (\log x)^{1-\gamma}=\textit{o}_\tau(1)
+\]
+when $k\leq x^{(1-\gamma)/2}$. By Lemma \cref{Le_Kus-Lan}, we conclude that
+\[
+\left|\sum_{x(\log x)^{-1}\leq n\leq x} e(k(p_1n)^\gamma 
+-k (p_2 n)^\gamma)\right| \ll_\tau x^{1-\gamma}.
+\]
+\end{proof}
+
+\begin{theorem}
+Let $0<\gamma<1$ and write $\beta=\gamma^{-1}$. 
+Define $A=\bigcup_{m=1}^\infty [m^\beta, (m+\gamma)^\beta)$. 
+Then for any multiplicative function $\nu$ with $|\nu|\leq 1$, we have
+\[
+\sum_{ n\leq x} \nu(n) 1_A(n) = \gamma \sum\limits_{n\leq x} \nu(n) 
++ \textit{o}(x).
+\]
+In particular, we have
+\[
+\sum_{ n\leq x} \mu(n) 1_A(n) = \textit{o}(x)
+\]
+and
+\[
+\sum_{ n\leq x} \mu^2(n) 1_A(n) = \frac{6\gamma}{\pi^2} x + \textit{o}(x).
+\]
+\end{theorem}
+
+\begin{proof}
+Let $\tau>0$ be an arbitrarily small parameter to be determined later. 
+Define
+\[
+\widetilde{A}=\bigcup_{m=1}^\infty [m,m+\gamma]
+\]
+and
+\[
+\eta(y)=
+\begin{cases}
+\exp\left(-\frac{1}{1-\left((y-\tau-m)/\tau\right)^2}+1\right), 
+\quad &y\in \bigcup_{m=1}^\infty [m,m+\tau),\\
+1, \quad &y\in \bigcup_{m=1}^\infty [m+\tau,m+\gamma-\tau),\\
+\exp\left(-\frac{1}{1-\left((y-\gamma+\tau-m)/\tau\right)^2}+1\right), 
+\quad &y\in \bigcup_{m=1}^\infty [m+\gamma-\tau, m+\gamma),\\
+0, \quad &y\in \bigcup_{m=1}^\infty [m+\gamma, m+1).
+\end{cases}
+\]
+The function $\eta$ has the Fourier expansion
+\[
+\eta(y) = \sum_{k\in \Z} \widehat{\eta}(k) e(ky), \quad y\geq 1,
+\]
+where the Fourier coefficients 
+$\widehat{\eta}(k)=\int_0^1 \eta(t)e(-kt) dt$ 
+satisfy $|\widehat{\eta}(k)|\ll_{\tau,A} (2+|k|)^{-A}$. 
+Write $\delta=(1-\gamma)/2$, we have
+\begin{align*}
+\eta(y) &= \sum_{|k|\leq x^{\delta/2}} \widehat{\eta}(k) e(ky)+ 
+    \textit{O}_{\tau,A}\left(\sum_{|k|\geq x^{\delta/2}}|k|^{-A}\right)\\
+&= \sum_{|k|\leq x^{\delta/2}} \widehat{\eta}(k) e(ky)
+    + \textit{O}_{\tau,A}\left(x^{-100}\right).
+\end{align*}
+
+Now
+\begin{align*}
+&\sum_{ n\leq x} \nu(n) 1_A(n) = \sum_{  n\leq x} \nu(n) 
+    1_{\widetilde{A}}(n^\gamma)\\
+&\quad \quad \quad  = \sum_{  n\leq x} \nu(n) \eta(n^\gamma) 
+    +\sum_{  n\leq x} \nu(n) \left(1_{\widetilde{A}}(n^\gamma)
+    -\eta(n^\gamma)\right)\\
+&\quad \quad \quad  := W_1+W_2.
+\end{align*}
+
+The first summation is
+\begin{align*}
+W_1&=\sum_{n \leq x} \nu(n) \left(\sum_{|k|\leq x^{\delta/2}} 
+\widehat{\eta}(k) e(kn^\gamma) + \textit{O}_A\left(x^{-100}\right) 
+\right)\\
+&= \sum_{|k|\leq x^{\delta/2}} \widehat{\eta}(k) 
+\left(\sum_{n \leq x} \nu(n) e(kn^\gamma)\right) 
++\textit{O}\left(1\right)\\
+& = \widehat{\eta}(0) \sum_{n \leq x} \nu(n) 
++\textit{O}\left(1+\sum_{|k|\leq x^{\delta/2}}|\widehat{\eta}(k)| 
+\left|\sum_{n \leq x} \nu(n) e(kn^\gamma)\right|\right)
+\end{align*}
+
+In view of Lemma \cref{Le_multi_exponential}, 
+the summation in the error term is $\textit{O}_\tau(x)$. The coefficient
+\[
+\widehat{\eta}(0)=\int_0^1 \eta(y) dy = \gamma + \textit{O}(\tau).
+\]
+As a result, it follows that
+\[
+W_1 = \gamma \sum_{n\leq x}\nu(n)+ \textit{O}\left(\tau x\right).
+\]
+
+Now we start to bound $W_2$. 
+Write $h(n)=1_{\tilde{A}}(n^\gamma)-\eta(n^\gamma)$, then
+\[
+\text{Supp}(h)\cap [1,x] \subseteq \bigcup_{m=1}^{x^\gamma} 
+[m^\beta, (m+\tau)^\beta] \cup [(m+\gamma-\tau)^\beta, (m+\gamma)^\beta].
+\]
+Hence
+\[
+W_2 \ll \sum_{m\leq x^\gamma} \tau m^{\beta-1} \ll \tau x.
+\]
+
+Putting every thing together, we see that
+\[
+\sum_{ n\leq x} \nu(n) 1_A(n) =\gamma \sum_{n\leq x}\nu(n)
++ \textit{O}\left( \tau x\right).
+\]
+Since $\tau>0$ can be chosen arbitrarily small, it can be conclude that
+\[
+\sum_{ n\leq x} \nu(n) 1_A(n) =\gamma \sum_{n\leq x}\nu(n)+\textit{o}(x).
+\]
+\end{proof}
 
 \begin{lemma}
    \begin{align*}
@@ -2159,6 +2327,12 @@ It is clear that $h_{top}(T|_C) =0$ since $T|_C$ is identiity.
 \end{proof}
 \end{example}
 
+\begin{example}
+    Let $f(n) = e^{2\pi i n^2\theta}$. Let $T$ be the left shift of 
+    $(S^{1})^{\N}$ and $X$ be the closure of $\{\omega, T(\omega),
+    T^{(2)}(\omega), \ldots \}$, where 
+    $\omega = (f(1), f(2), \ldots)$.
+\end{example}
 
 \section{$Stone-\breve{C}ech$ Compactification}
 
