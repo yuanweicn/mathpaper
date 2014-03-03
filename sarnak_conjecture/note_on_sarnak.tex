@@ -103,6 +103,7 @@
 \newcommand{\Z}{\mathbb Z} %for integer
 \newcommand{\N}{\mathbb N} % for nature number
 \newcommand{\Q}{\mathbb Q} % for rational number
+\newcommand{\T}{\mathbb T} % for torus
 
 \providecommand{\sceil}[1]{\left \lceil #1 \right \rceil }
 \providecommand{\sfloor}[1]{\left \lceil #1 \right \rceil }
@@ -187,7 +188,7 @@ $\mu$ is $T$-invariant iff $\mu(T^{-1}B) = \mu(B)$ for every $B \in \A$.
    Let $T : X  \rightarrow X$ be a transformation. The periodic entropy
    of $T$ is 
    \begin{align*}
-       p(T) = \lim_{m \rightarrow \infty} sum \frac{1}{m}
+       p(T) = \lim_{m \rightarrow \infty} frac{1}{m}
        log(\#\{x \in X : T^{m}(x)=x \}).
    \end{align*}
 \end{definition}
@@ -1331,10 +1332,10 @@ $\frac{6}{\pi^2}$, more precisely
 \end{proof}
 
 \begin{theorem}[Dirichlet, c. 1840]
-   For any real number $k$ and any integer $N \geq 1$, there exist
+   For any real number $\theta$ and any integer $N \geq 1$, there exist
    integers $p$ and $q$ such that $1 \leq q \leq N$ and 
    \begin{align*}
-       |qk - p| \leq \frac{1}{N+1}. 
+       |q\theta - p| \leq \frac{1}{N+1}. 
    \end{align*}
 \end{theorem}
 
@@ -1976,6 +1977,108 @@ Note that
 
 \end{proof}
 
+\section{$Stone-\breve{C}ech$ Compactification}
+
+\begin{definition}
+   A filter on a set $X$ is a collection $\FFF$ of subsets of $X$
+   satisfying:
+   \begin{enumerate}
+       \item $X \in \FFF$, but $\varnothing \notin \FFF$.
+       \item If $A \in \FFF$ and $A \subset B \subset X$, then 
+           $B \in \FFF$.
+       \item A finite intersection of sets in $\FFF$ is in $\FFF$.
+   \end{enumerate}
+   A filter is a ultrafilter if
+   \begin{enumerate}[resume] 
+       \item For every set $A \subset X$ either $A \in \FFF$
+           or $A^{c} = X \setminus A \in \FFF$.  
+   \end{enumerate}
+   or
+   \begin{enumerate}
+    \item[(4)'] For every finite cover $\{A_{i}\}_{i=1}^{n}$ of a 
+           set $A \in \FFF$, $A_{i} \in \FFF$ for some $i$.
+   \end{enumerate}
+\end{definition}
+
+It is well-known that the $Stone-\breve{C}ech$ Compactification
+$\beta \N$ of $\N$ can be identified with the set of all ultrafilters 
+on $\N$. The topology of $\beta \N$ is given by the basis 
+$\mathcal{B}= \{ U_{A}: A \subset \N\}$, where for any set $A \subset \N$,
+\begin{align*}
+    U_{A}=\{\FFF \in \beta \N: A \in \FFF \}. 
+\end{align*}
+
+\begin{example}\label{scexp1}
+   Let $\sigma$ be a continuous map from $\N$ to $\N$ defined by
+   $\sigma(n) = n+1$. By the universal property of $\beta \N$, $\sigma$
+   lifts uniquely to a continuous map $\sigma: \beta \N \rightarrow 
+   \beta \N$.Then the m\"{o}bius function 
+   $\mu$ can be viewed as a continuous
+   function on $\beta \N$ and $\sum_{k=1}^{n}\mu(k)^2$ is the number 
+   of square-free numbers below $n$. It is well-known
+   \begin{align*}
+       \frac{1}{n}\sum_{k=0}^{n-1}\mu(n)^2 = \frac{6}{\pi^2} + o(1).
+   \end{align*}
+   Therefore $\lim_{n \rightarrow \infty}\frac{1}{n}
+   \sum_{k=0}^{n-1}\mu(n)^2 = \frac{6}{\pi^2} \neq 0$. 
+   However, this is not a counter-example of sarnak's conjecture, 
+   since $h_{top}(\sigma) = \infty$.
+   Indeed, for any $N \in \N$, let 
+   \begin{align*}
+       A_{N}= \cup_{k=1}^{\infty}
+       \{kn+1+\frac{k(k-1)}{2}, \ldots, kn+1+\frac{k(k-1)}{2}+k\}.
+   \end{align*}
+   It is easy to see that for any $n_1$, $\ldots$, $n_m$, we have
+   $\sigma^{n_1}(A_{N}) \cap \cdots \cap \sigma^{n_m}(A_{N}) 
+   \neq \varnothing$, and $\cup^{N-1}_{i=0}\sigma^{i}(A_{N}) = \N$.
+   Therefore, $\UUU = \{U_{\sigma^{i}(A_N)} \}_{i=0}^{N-1}$ is an open
+   over of $\beta \N$ and $h_{cover}(\sigma, \UUU) = logN$.
+\end{example}
+
+\begin{remark}
+    Recall that a thick set is a set of integers that contains 
+    arbitrarily long intervals. And a syndetic set is a subset of $\N$, 
+    having the property of "bounded gaps", i.e. the sizes of the gaps 
+    in the sequence of natural numbers is bounded. It is easy to see that
+    $A_{N}$ in the \cref{scexp1} is thick and syndetic. 
+\end{remark}
+
+\begin{definition}
+    A dynamical system $(X, \sigma)$ is call minimal if $X$ does not
+    contain any non-empty, proper, closed $\sigma$-invariant subset, 
+    i.e. every orbit is dense in $X$.
+\end{definition}
+
+\begin{remark}
+    If$(X, \sigma)$ is a minimal dynamical system and $X$ is a compact 
+    Hausdorff space, then $\sigma$ must be surjective. 
+\end{remark}
+
+\begin{lemma}
+   $\beta \N \setminus \N$ is not separable. 
+\end{lemma}
+\begin{proof}
+    Let $\{\FFF_n \}_{n=1}^{\infty}$ be a sequence of ultrafilters.
+    To prove the result, we will construct a subset $A$ of $\N$ 
+    recursively such that $A \notin \FFF_n$ for any $n$.
+    Let $A_1$ be a infinite set that $A_1 \notin \FFF_1$ and 
+    $a_1 = min A_{1}$. Assume that we have $A_n \notin \FFF_n$.
+    Let $a_n = min A_{n}$. Choose a infinite subset $A_{n+1}$ of $A_n$ 
+    such that $a_{n+1} = min A_{n+1} > a_n$ and $A_{n+1} \notin \FFF_{n+1}$.
+    If $A \in \FFF_n$, then $A \cap A_n = 
+    A \cap \{1, \ldots, a_n-1\}^{c} \in \FFF_n$. 
+    Since $A_{n}^{c} \in \FFF_n$, we have $\A \cap A_n 
+    \cap A_{n}^{c} = \varnothing \in \FFF_n$. It is a contradiction.
+\end{proof}
+
+\begin{corollary}
+   Let $(\beta \N, \sigma)$ be the dynamical system where $\sigma$ is
+   the map induced by the shift on $\N$, i.e. $\sigma(n) = n+1$. Then
+   $(\beta \N, \sigma)$ is not minimal.
+\end{corollary}
+
+
+
 \section{What We Talk About When We Talk About Smoothness} 
 
 Let $C(X)$ and $C(Y)$ be two abelian C$^*$-algebras, where
@@ -2327,122 +2430,133 @@ It is clear that $h_{top}(T|_C) =0$ since $T|_C$ is identiity.
 \end{proof}
 \end{example}
 
+
+
+\begin{definition}
+    A sequence $x_n = (x^{1}_{n}, \ldots, x^{k}_{n}) \in \R^{k}$ 
+    is said to be uniformly distributed mod $1$ if, for each choice 
+    of $k$ intervals $[a_1, b_1], \ldots, [a_k, b_k] \subset [0, )$,
+    we have that
+    \begin{align*}
+        \frac{1}{n}\sum^{n}_{j=1}
+        \prod_{i=1}^{k}\X_{[a_i, b_i]}(\{x^{i}_{j}\}) \to 
+        \prod_{i=1}^{k}(b_i - a_i), \qquad \mbox{ as }  n \to \infty.
+    \end{align*}
+\end{definition}
+
+\begin{theorem}[Weyl's Criterion]\label{w_thm2}
+   The sequence $x_n \in \R^{k}$ is uniformly distributed mod $1$ if and
+   only if
+    \begin{align*}
+        \frac{1}{n}\sum^{n}_{j=1} e^{2\pi i 
+        (l_{1} x_{j}^{1} + l_{2} x_{j}^{2} + \cdots + l_{k} x_{j}^{k})} 
+        \to 0, \mbox{ as $n \to \infty$},
+    \end{align*}
+    for all $l = (l_1, \ldots, l_k) \in \Z^{k} \setminus \{0\}$.
+\end{theorem}
+
+\begin{theorem}[Weyl]\label{w_thm3}
+    Let $p(n) = a_{k}n^{k} + a_{k-1}n^{k-1} + \cdots + a_{1}n + a_{0}$.
+    If any $a_1$, $a_2 \ldots$, $a_{k}$ is irrational, then
+    \begin{align*}
+        \frac{1}{n} \sum^{n}_{j=1} e^{2\pi i p(n)} \to 0 
+    \end{align*}
+    as $n \to \infty$.
+\end{theorem}
+
+\begin{corollary} \label{w_cor2}
+    Let $p(n) = \theta n^{k}$
+    such that $\theta$ is irrational.
+    Then $\{(p(n), p(n+1), \ldots, p(n+k-1))\}_{n=1}^{\infty}$ is
+    uniformly distributed mod $1$. 
+\end{corollary}
+
+\begin{proof}
+    Assumet that
+    \begin{align*}
+        \frac{1}{n} \sum^{n}_{j=1} 
+        e^{2\pi i \theta(l_0 n^{k} + \cdots + l_{k-1}(n+k-1)^k)} 
+        \nrightarrow 0 
+    \end{align*}
+    where $(l_0, \ldots, l_{k-1}) \in \Z^{k}$. By \cref{w_thm3}, we have
+    \begin{align*}
+       \begin{pmatrix}
+           1 & 1 & 1 & \cdots & 1 \\
+           0 & 1 & 2 & \cdots & k-1 \\
+           0 & 1 & 2^{2} & \cdots & (k-1)^2 \\
+           \vdots & \vdots & \ddots & \vdots \\
+           0 & 1 & 2^{k-1} & \cdots & (k-1)^{k-1}
+       \end{pmatrix} 
+       \begin{pmatrix}
+          l_0 \\
+          l_1 \\
+          l_2 \\
+          \vdots \\
+          l_{k-1}
+       \end{pmatrix} = 0.
+    \end{align*}
+    This implies that $(l_0, \ldots, l_{k-1}) = (0, \ldots, 0)$. 
+\end{proof}
+
 \begin{example}
     Let $f(n) = e^{2\pi i n^2\theta}$. Let $T$ be the left shift of 
     $(S^{1})^{\N}$ and $X$ be the closure of $\{\omega, T(\omega),
     T^{(2)}(\omega), \ldots \}$, where 
-    $\omega = (f(1), f(2), \ldots)$.
+    $\omega = (f(1), f(2), \ldots)$. By \cref{w_cor2}, 
+    \begin{align*}
+        \{(\theta n^{2}, \theta (n+1)^{2}) : n \in \N\} 
+    \end{align*}
+    is uniformly distributed mod $1$. This implise that 
+    $X \simeq \T^{2}$, the two dimensional torus $\R^{2}/\Z^{2}$.
+    Indeed, for any $(e^{2\pi i \alpha_{1}}, e^{2\pi i \alpha_{2}}) \in 
+    \T^{2}$, there is a subsequence $n_{k}$ such that
+    \begin{align*}
+        \theta n_{k}^{2} \to \alpha_1 \mod 1 
+        \mbox{ and } \theta (n_k + 1)^{2}  
+    \to \alpha_2 \mod 1 
+    \end{align*}
+    as $k \to \infty$. This implies that 
+    \begin{align*}
+        2\theta n_{k} \to \alpha_2 -\alpha_1 - \theta \mod 1. 
+    \end{align*}
+    Therefore
+    \begin{align*}
+        (n_{k} + m)^{2} \to \alpha_1 + m(\alpha_2-\alpha_1 -\theta) 
+        + m^{2}\theta \mod 1, \mbox{ for any }  m \in \N. 
+    \end{align*}
+    And the homemorphism form $X$ onto $\T^{2}$ is the 
+    projection onto the first two coordinates.
+    Now, consider the map induced by the left shift on $(S^{1})^{\N}$.
+    Note that
+    \begin{align*}
+        (e^{2\pi i \theta n^{2}}, e^{2\pi i \theta (n+1)^{2}}) \to
+        (e^{2\pi i \theta (n+1)^{2}}, e^{2\pi i \theta (n+2)^{2}}).  
+    \end{align*}
+    Therefore the map is
+    \begin{align*}
+        \varphi: (e^{2\pi i \alpha_1}, e^{2\pi i \alpha_2}) \to
+        (e^{2\pi i \alpha_2}, e^{2\pi i (2\alpha_2 - \alpha_1 + 2\theta)}).
+    \end{align*}
+    If we identifies $\T^{2}$ with 
+    $[0, 1) \times [0, 1)$, then
+    \begin{align*}
+        \varphi((\alpha_1, \alpha_2)) = 
+        \begin{pmatrix}
+            0 & 1 \\
+            -1 & 2\\
+        \end{pmatrix}
+        \begin{pmatrix}
+           \alpha_1 \\
+           \alpha_2 \\
+        \end{pmatrix} + 
+        \begin{pmatrix}
+           0 \\
+           2\theta
+        \end{pmatrix}.
+    \end{align*}
 \end{example}
 
-\section{$Stone-\breve{C}ech$ Compactification}
 
-\begin{definition}
-   A filter on a set $X$ is a collection $\FFF$ of subsets of $X$
-   satisfying:
-   \begin{enumerate}
-       \item $X \in \FFF$, but $\varnothing \notin \FFF$.
-       \item If $A \in \FFF$ and $A \subset B \subset X$, then 
-           $B \in \FFF$.
-       \item A finite intersection of sets in $\FFF$ is in $\FFF$.
-   \end{enumerate}
-   A filter is a ultrafilter if
-   \begin{enumerate}[resume] 
-       \item For every set $A \subset X$ either $A \in \FFF$
-           or $A^{c} = X \setminus A \in \FFF$.  
-   \end{enumerate}
-   or
-   \begin{enumerate}
-    \item[(4)'] For every finite cover $\{A_{i}\}_{i=1}^{n}$ of a 
-           set $A \in \FFF$, $A_{i} \in \FFF$ for some $i$.
-   \end{enumerate}
-\end{definition}
-
-It is well-known that the $Stone-\breve{C}ech$ Compactification
-$\beta \N$ of $\N$ can be identified with the set of all ultrafilters 
-on $\N$. The topology of $\beta \N$ is given by the basis 
-$\mathcal{B}= \{ U_{A}: A \subset \N\}$, where for any set $A \subset \N$,
-\begin{align*}
-    U_{A}=\{\FFF \in \beta \N: A \in \FFF \}. 
-\end{align*}
-
-\begin{example}\label{scexp1}
-   Let $\sigma$ be a continuous map from $\N$ to $\N$ defined by
-   $\sigma(n) = n+1$. By the universal property of $\beta \N$, $\sigma$
-   lifts uniquely to a continuous map $\sigma: \beta \N \rightarrow 
-   \beta \N$.Then the m\"{o}bius function 
-   $\mu$ can be viewed as a continuous
-   function on $\beta \N$ and $\sum_{k=1}^{n}\mu(k)^2$ is the number 
-   of square-free numbers below $n$. It is well-known
-   \begin{align*}
-       \frac{1}{n}\sum_{k=0}^{n-1}\mu(n)^2 = \frac{6}{\pi^2} + o(1).
-   \end{align*}
-   Therefore $\lim_{n \rightarrow \infty}\frac{1}{n}
-   \sum_{k=0}^{n-1}\mu(n)^2 = \frac{6}{\pi^2} \neq 0$. 
-   However, this is not a counter-example of sarnak's conjecture, 
-   since $h_{top}(\sigma) = \infty$.
-   Indeed, for any $N \in \N$, let 
-   \begin{align*}
-       A_{N}= \cup_{k=1}^{\infty}
-       \{kn+1+\frac{k(k-1)}{2}, \ldots, kn+1+\frac{k(k-1)}{2}+k\}.
-   \end{align*}
-   It is easy to see that for any $n_1$, $\ldots$, $n_m$, we have
-   $\sigma^{n_1}(A_{N}) \cap \cdots \cap \sigma^{n_m}(A_{N}) 
-   \neq \varnothing$, and $\cup^{N-1}_{i=0}\sigma^{i}(A_{N}) = \N$.
-   Therefore, $\UUU = \{U_{\sigma^{i}(A_N)} \}_{i=0}^{N-1}$ is an open
-   over of $\beta \N$ and $h_{cover}(\sigma, \UUU) = logN$.
-\end{example}
-
-\begin{remark}
-    Recall that a thick set is a set of integers that contains 
-    arbitrarily long intervals. And a syndetic set is a subset of $\N$, 
-    having the property of "bounded gaps", i.e. the sizes of the gaps 
-    in the sequence of natural numbers is bounded. It is easy to see that
-    $A_{N}$ in the \cref{scexp1} is thick and syndetic. 
-\end{remark}
-
-\begin{definition}
-    A dynamical system $(X, \sigma)$ is call minimal if $X$ does not
-    contain any non-empty, proper, closed $\sigma$-invariant subset, 
-    i.e. every orbit is dense in $X$.
-\end{definition}
-
-\begin{remark}
-    If$(X, \sigma)$ is a minimal dynamical system and $X$ is a compact 
-    Hausdorff space, then $\sigma$ must be surjective. 
-\end{remark}
-
-\begin{lemma}
-   $\beta \N \setminus \N$ is not separable. 
-\end{lemma}
-\begin{proof}
-    Let $\{\FFF_n \}_{n=1}^{\infty}$ be a sequence of ultrafilters.
-    To prove the result, we will construct a subset $A$ of $\N$ 
-    recursively such that $A \notin \FFF_n$ for any $n$.
-    Let $A_1$ be a infinite set that $A_1 \notin \FFF_1$ and 
-    $a_1 = min A_{1}$. Assume that we have $A_n \notin \FFF_n$.
-    Let $a_n = min A_{n}$. Choose a infinite subset $A_{n+1}$ of $A_n$ 
-    such that $a_{n+1} = min A_{n+1} > a_n$ and $A_{n+1} \notin \FFF_{n+1}$.
-    If $A \in \FFF_n$, then $A \cap A_n = 
-    A \cap \{1, \ldots, a_n-1\}^{c} \in \FFF_n$. 
-    Since $A_{n}^{c} \in \FFF_n$, we have $\A \cap A_n 
-    \cap A_{n}^{c} = \varnothing \in \FFF_n$. It is a contradiction.
-\end{proof}
-
-\begin{corollary}
-   Let $(\beta \N, \sigma)$ be the dynamical system where $\sigma$ is
-   the map induced by the shift on $\N$, i.e. $\sigma(n) = n+1$. Then
-   $(\beta \N, \sigma)$ is not minimal.
-\end{corollary}
-
-
-\begin{question}
-    \begin{enumerate}
-        \item Is there a compactification of $\N$ such that 
-        m\"{o}bius function is continuous and the shift is continuous map?
-        \item Let $\sigma: \N \rightarrow \N$. If $h_{top}(\sigma) = 0$, do 
-            we have $\N^{-}$ is "countable" in some sense.
-    \end{enumerate}
-\end{question}
 
 \section{AF algebras}
 \begin{definition}
@@ -2478,11 +2592,6 @@ $\{ U(t): t \in [0, \infty)\}$ of $\AAA$ such that
     \end{align*}
 \end{definition}
 
-\begin{question}
-    Consider the $C^{*}$-algebra generated by $\mu$ and $\alpha^{n}(\mu)$
-    in $L^{\infty}(\N)$ where $\alpha$ is the unilateral shift of $\N$.
-    What is this algebra?
-\end{question}
 %BIBLIOGRAPHY
 
 \begin{thebibliography}{9}
