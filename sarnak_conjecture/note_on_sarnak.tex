@@ -2194,8 +2194,8 @@ $h_{top}(T) \geq h_{top}(S)$.
 
 \begin{proof}
     Let $\varphi$ be a factor map.
-    Suppose that $\{U_{1}, \ldots ,U_{n}\}$ be a open cover of $Y$. 
-    Let $V_{i} = \varphi^{-1}(U_{i})$. Then $\{V_1, \ldots, V_{n}\}$ is
+    Suppose that $\{U_{i}\}_{i \in I}$ be a open cover of $Y$. 
+    Let $V_{i} = \varphi^{-1}(U_{i})$. Then $\{V_i\}_{i \in I}$ is
     a open cover of $X$. Let $U^{n}_{i} = S^{-n}(U_{i})$ and
     $V^{n}_{i} = T^{-n}(V_{i})$. We claim that 
     $V^{n}_{i} = \varphi^{-1}(U^{n}_{i})$. Indeed
@@ -2216,8 +2216,8 @@ $h_{top}(T) \geq h_{top}(S)$.
     \end{align*}
     Thus
     \begin{align*}
-        N(\bigvee_{i=0}^{m}T^{-i}\{V_{1},\ldots, V_{n}\})
-        = N(\bigvee_{i=0}^{m}S^{-i}\{U_{1},\ldots, U_{n}\}).
+        N(\bigvee_{i=0}^{m}T^{-i}(\{V_i\}_{i \in I}))
+        = N(\bigvee_{i=0}^{m}S^{-i}(\{U_{i}\}_{i \in I})).
     \end{align*}
     This clearly implies that $h_{top}(T) \geq h_{top}(S)$.
 \end{proof}
@@ -2554,6 +2554,21 @@ It is clear that $h_{top}(T|_C) =0$ since $T|_C$ is identiity.
            2\theta
         \end{pmatrix}.
     \end{align*}
+    Let 
+    \begin{align*}
+        A = \begin{pmatrix}
+            0 & 1 \\
+            -1 & 2\\
+        \end{pmatrix}.
+    \end{align*} 
+    By induction, we have
+    \begin{align*}
+        A^{n} = \begin{pmatrix}
+            1-n & n \\
+            -n & 1 + n\\
+        \end{pmatrix}. 
+    \end{align*}
+    From this, it is easy too see that $\varphi$ is distal.
 \end{example}
 
 
