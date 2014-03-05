@@ -2576,6 +2576,17 @@ It is clear that $h_{top}(T|_C) =0$ since $T|_C$ is identiity.
             -1 & 2\\
         \end{pmatrix}.
     \end{align*} 
+
+    \begin{remark}
+       A continuous automorphism $\varphi$ of the n-dimensional torus
+       $\T^{n}$ is associated with a unimodular matrix 
+       $\varPhi = (\psi_{ij})$, i.e., $\psi_{ij}$ are integers and
+       $\det \varPhi = \pm 1$. This transformation preserves Haar 
+       measure; and it is ergodic if and only if no characteristic 
+       value of $\varPhi$ is a root of unity.
+    \end{remark}
+
+    Note that $\varphi$ is a continuous automorphism of $\T^{2}$. 
     By induction, we have
     \begin{align*}
         A^{n} = \begin{pmatrix}
@@ -2587,7 +2598,41 @@ It is clear that $h_{top}(T|_C) =0$ since $T|_C$ is identiity.
     By \cite{NA}, we have $h_{top}(\varphi) = 0$.
 \end{example}
 
+\begin{example}
+    Let
+    \begin{align*}
+     f(n) = \begin{cases}
+        \frac{1}{\log p}  \mbox{, if $n=p$, $p$ is prime,}\\
+        0  \mbox{, otherwise}.
+    \end{cases} 
+    \end{align*}
+    It is clear that $C(f) = C_{0}(\N) \cup \{\C I\}$.
+    Therefore the spectrum of $C(f)$ is just the one-point compactification
+    of $\N$. And $h_{top}(\sigma) = 0$, where $\sigma$ is the left
+    shift on $\N \cup \{\infty\}$.
+\end{example}
 
+
+It will be interesting to consider the dynamic system determined 
+by the von Mangoldt function. Recall that von Mangoldt is defined as
+\begin{align*}
+    \varLambda(n) = \begin{cases}
+        \log p  \mbox{, if $n=p^{k}$, $p$ is prime and $k \geq 1$}\\
+        0  \mbox{, otherwise}.
+    \end{cases}
+\end{align*}
+
+
+
+\begin{example}
+    Let
+    \begin{align*}
+     f(n) = \begin{cases}
+        \frac{1}{\log p}  \mbox{, if $n=p^{m}$, $p$ is prime,}\\
+        0  \mbox{, otherwise}.
+    \end{cases} 
+    \end{align*}
+\end{example}
 
 \section{AF algebras}
 \begin{definition}
