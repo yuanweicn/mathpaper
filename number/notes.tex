@@ -1,0 +1,680 @@
+\documentclass[a4paper,10pt]{amsart}
+
+\usepackage[protrusion=true,expansion=true]{microtype} 
+\usepackage{fancyhdr}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx} 
+\usepackage{wrapfig} 
+\usepackage{enumitem}
+
+\usepackage{mathpazo}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{hyperref}
+\usepackage{cleveref}
+\usepackage[font=small,labelfont=bf,margin=\parindent,tableposition=top]{caption}
+\usepackage{comment}
+\usepackage{color}
+\usepackage{mathtools}
+
+%%%%%%%%% for quotation
+\usepackage{microtype}
+\usepackage{times}
+\usepackage[english]{babel}
+\usepackage{xcolor}
+%%%%%%%%%%
+% fancy quotes
+%%%%%%%%%%
+\definecolor{quotemark}{gray}{0.7}
+\makeatletter
+\def\fquote{%
+    \@ifnextchar[{\fquote@i}{\fquote@i[]}%]
+           }%
+\def\fquote@i[#1]{%
+    \def\tempa{#1}%
+    \@ifnextchar[{\fquote@ii}{\fquote@ii[]}%]
+                 }%
+\def\fquote@ii[#1]{%
+    \def\tempb{#1}%
+    \@ifnextchar[{\fquote@iii}{\fquote@iii[]}%]
+                      }%
+\def\fquote@iii[#1]{%
+    \def\tempc{#1}%
+    \vspace{1em}%
+    \noindent%
+    \begin{list}{}{%
+         \setlength{\leftmargin}{0.1\textwidth}%
+         \setlength{\rightmargin}{0.1\textwidth}%
+                  }%
+         \item[]%
+         \begin{picture}(0,0)%
+         \put(-15,-5){\makebox(0,0){\scalebox{3}{\textcolor{quotemark}{``}}}}%
+         \end{picture}%
+         \begingroup\itshape}%
+ %%%%%%%%%
+ \def\endfquote{%
+ \endgroup\par%
+ \makebox[0pt][l]{%
+ \hspace{0.8\textwidth}%
+ \begin{picture}(0,0)(0,0)%
+ \put(15,15){\makebox(0,0){%
+ \scalebox{3}{\color{quotemark}''}}}%
+ \end{picture}}%
+ \ifx\tempa\empty%
+ \else%
+    \ifx\tempc\empty%
+       \hfill\rule{100pt}{0.5pt}\\\mbox{}\hfill\tempa,\ \emph{\tempb}%
+   \else%
+       \hfill\rule{100pt}{0.5pt}\\\mbox{}\hfill\tempa,\ \emph{\tempb},\ \tempc%
+   \fi\fi\par%
+   \vspace{0.5em}%
+ \end{list}%
+ }%
+ \makeatother
+
+\newtheorem{example}{Example}[section]
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}{Proposition}[section]
+\newtheorem{corollary}{Corollary}[section]
+\newtheorem{definition}{Definition}[section]
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{remark}{Remark}[section]
+\newtheorem{question}{Question}[section]
+\newtheorem{conjecture}{Conjecture}[section]
+
+\newcommand{\AAA}{\mathfrak A}
+\newcommand{\BBB}{\mathcal B}
+\newcommand{\CCC}{\mathcal C}
+\newcommand{\HHH}{\mathcal H} %for Hilbert space
+\newcommand{\LLL}{\mathcal L} % for lattice
+\newcommand{\MMM}{\mathcal M}
+\newcommand{\UUU}{\mathcal U}
+\newcommand{\FFF}{\mathcal F}
+\newcommand{\A}{\mathcal{A}}
+\newcommand{\X}{\mathcal X}
+
+\newcommand{\Lat}{\mathcal Lat}
+\newcommand{\Alg}{\mathcal Alg}
+\newcommand{\tensor}{\mathop{\bar \otimes}}
+\newcommand{\tr}{\tau}
+\newcommand{\C}{\mathbb C} %for complex number
+\newcommand{\R}{\mathbb R}  %for real number
+\newcommand{\Z}{\mathbb Z} %for integer
+\newcommand{\N}{\mathbb N} % for nature number
+\newcommand{\Q}{\mathbb Q} % for rational number
+
+\providecommand{\sceil}[1]{\left \lceil #1 \right \rceil }
+\providecommand{\sfloor}[1]{\left \lceil #1 \right \rceil }
+\DeclarePairedDelimiter\ceil{\lceil}{\rceil}
+\DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
+% self defined vars
+\newcommand{\titleinfo}{Wei Fei's Note}
+\newcommand{\authorinfo}{Wei Fei} 
+
+\linespread{1.05}
+\pagestyle{fancyplain}
+\fancyhf{}
+\fancyhf[HLE,HRO]{\titleinfo}
+\fancyhf[HRE,HLO]{\authorinfo}
+\fancyhf[FC]{\thepage}
+
+\begin{document}
+
+\title{\LARGE\textbf{\titleinfo}} 
+
+\author{\large\textsc{\authorinfo}} 
+\address{AMSS}  
+\email{}
+
+\date{}
+
+%\renewcommand{\abstractname}{Summary} 
+
+\begin{abstract}
+    Note on Wei Fei's lecture.
+\end{abstract}
+
+% Keywords
+\subjclass[2010]{Primary 47L75; Secondary 15A30}
+\keywords{Number Theory}
+
+\thanks{}
+
+\maketitle
+
+\section{Important formula}
+
+\begin{theorem}[Possion Summation Formula]
+    Let $f$ in $S(\R)$. We have
+    \begin{align*}
+        \sum_{n \in \Z}f(n) = \sum_{n \in \Z} \Hat{f}(n), 
+    \end{align*}
+    where $\Hat{f}(x) = \int_{-\infty}^{\infty}f(y)e^{2\pi i xy}dy$.
+\end{theorem}
+
+\begin{example}
+    Let $f(x) = e^{-\pi x^2 y}$.
+    \begin{align*}
+        \Hat{f}(x)= y^{-\frac{1}{2}}e^{-\frac{\pi x^2}{y}}. 
+    \end{align*}
+\end{example}
+
+\section{Entire Function}
+
+\begin{lemma}
+Let $\{a_{n}\}_{n} \subset \C$ be a sequence, 
+\begin{align*}
+    0 < |a_{1}| \leq |a_{2}| \leq \cdots \leq |a_{n}| \leq \cdots,
+    \mbox{ and } |a_{n}| \rightarrow \infty.
+\end{align*}
+Then there exists a entire function $f$ such that $f(s) = 0$ if and 
+only if $s \in \{a_{n}\}_{n}$.
+\end{lemma}
+
+\begin{proof}
+   Let 
+   \begin{align*}
+       h_{n} = (1 - \frac{s}{a_n})e^{\frac{s}{a_{n}}
+           +\frac{1}{2}(\frac{s}{a_{n}})^{2} 
+            +\frac{1}{3}(\frac{s}{a_{n}})^{3} + \cdots
+        +\frac{1}{n}(\frac{s}{a_{n}})^{n}}.
+   \end{align*}
+   Then
+   \begin{align*}
+       f(s) = \prod_{n=1}^{\infty}h_{n}(s)   
+   \end{align*}
+   satisfies the condition.
+\end{proof}
+
+\begin{remark}
+Let $\{a_{n}\}_{n} \subset \C$ be a sequence, 
+\begin{align*}
+    0 < |a_{1}| \leq |a_{2}| \leq \cdots \leq |a_{n}| \leq \cdots,
+    \mbox{ and } |a_{n}| \rightarrow \infty.
+\end{align*}
+If $\sum_{n}\frac{1}{|a_{n}|^{p+1}} < \infty$, then we could 
+use
+\begin{align*}
+       h_{n} = (1 - \frac{s}{a_n})e^{\frac{s}{a_{n}}
+           +\frac{1}{2}(\frac{s}{a_{n}})^{2} 
+            +\frac{1}{3}(\frac{s}{a_{n}})^{3} + \cdots
+        +\frac{1}{p}(\frac{s}{a_{n}})^{p}}.
+   \end{align*}
+in the above proof.
+\end{remark}
+
+\begin{example}
+    Let $\{n\}_{n \in \Z}$. Then
+    \begin{align*}
+        f(s) = s\prod_{n \in \N}(1-\frac{s}{n})(1+\frac{s}{n}).  
+    \end{align*}
+\end{example}
+
+\begin{lemma}
+Let $\{a_{n}\}_{n} \subset \C$ be a sequence, 
+\begin{align*}
+    0 < |a_{1}| \leq |a_{2}| \leq \cdots \leq |a_{n}| \leq \cdots,
+    \mbox{ and } |a_{n}| \rightarrow \infty.
+\end{align*}
+Suppose that $f$ satisfies $f(s) = 0$ if and only if $s \in \{a_{n}\}_n$.
+Then
+$f(s) = e^{H(s)}\prod_{n=1}^{\infty}h_{n}(s)$.
+\end{lemma}
+
+\begin{definition}
+    Suppose $G(s)$ is a function and $\mu(r) = max_{|s| \leq r}|G(s)|$.
+    Let 
+    \begin{align*}
+        \alpha_{0} = inf\{\alpha : \mu(r) \leq e^{a_{0}r^{\alpha}}\}. 
+    \end{align*}
+\end{definition}
+
+\begin{theorem}
+   Let $p$ be the smallest integer such that
+   \begin{align*}
+       \sum_{n} \frac{1}{|a_{n}|^{p+1}} < \infty. 
+   \end{align*}
+   Then the degree of
+\begin{align*}
+        f(s) = \prod_{n}(1-\frac{s}{a_{n}}) 
+        e^{\frac{s}{a_{n}}
+           +\frac{1}{2}(\frac{s}{a_{n}})^{2} 
+            +\frac{1}{3}(\frac{s}{a_{n}})^{3} + \cdots
+        +\frac{1}{p}(\frac{s}{a_{n}})^{p}}
+    \end{align*}
+      is $p$.
+\end{theorem}
+
+\begin{example}
+   \begin{align*}
+       \sin(\pi s) = \pi s \prod_{n}(1-\frac{s^2}{n^2}). 
+   \end{align*} 
+\end{example}
+
+\begin{proof}
+   Add proof. 
+\end{proof}
+
+
+\section{$\Gamma(s)$}
+Let 
+\begin{align*}
+    \Gamma(s) = \int_{0}^{+\infty} x^{s-1}e^{-x} dx \mbox{, } \qquad 
+    Re(S) > 0. 
+\end{align*}
+It is easy to see that $\Gamma(s+1) = s\Gamma(s)$.
+
+\begin{align*}
+    \frac{1}{\Gamma(s)} = se^{\gamma s}\prod_{n=1}^{\infty}(1+\frac{s}{n})
+    e^{-\frac{s}{n}},
+\end{align*}
+where $\gamma$ is the Euler constant, i.e. $\gamma = \lim_{n \rightarrow
+\infty} (1 + \frac{1}{2} + \cdots \frac{1}{n} - \log(n))$.
+
+\begin{theorem}
+   \begin{align*}
+       \frac{1}{\Gamma(s)} = s \prod_{n=1}^{\infty}(1+\frac{1}{n})^{-s}
+       (1+ \frac{s}{n}). 
+   \end{align*} 
+\end{theorem}
+
+\begin{proof}
+   add proof. 
+\end{proof}
+
+
+\begin{theorem}
+   Let $0 < \delta < \pi$. We have
+   \begin{align*}
+       \log \Gamma(s) = s \log s - \frac{1}{2}\log s - s 
+       + \log (\sqrt{2\pi}) + O_{\delta}(\frac{1}{|s|}). 
+   \end{align*}
+\end{theorem}
+
+\begin{proof}
+   Add proof. 
+\end{proof}
+
+
+This following is incomplete.
+\begin{proposition}
+   Let $s = \sigma + it$. Assume $\alpha < \sigma < \beta$. We have
+   \begin{align*}
+       \Gamma(s) = |t|^{s - \frac{1}{2}} e^{-\frac{\pi}{2}|t| -it +
+       } 
+   \end{align*}
+\end{proposition}
+
+
+\section{$\zeta$}
+
+\begin{theorem}
+    If $Re(s) = \sigma > 1$, then $\zeta(s) \neq 0$.
+\end{theorem}
+
+\begin{proof}
+    Note 
+   \begin{align*}
+       \frac{1}{|\zeta(s)|} = |\sum^{\infty}_{n=1} \frac{\mu(n)}{n^{s}}|
+       \leq \sum^{\infty}_{n=1}\frac{1}{n^{\sigma}} \leq 
+       1 + \int^{\infty}_{1} \frac{1}{t^{\sigma}} dt 
+       = \frac{\sigma}{\sigma-1}.
+   \end{align*}
+   This implies the result. 
+\end{proof}
+
+\begin{theorem}
+    For $Re(s) > 0$, we have
+   \begin{align*}
+       \zeta(s) = \sum^{N}_{n=1}\frac{1}{n^{2}} + \frac{N^{1-s}}{s-1} 
+       -\frac{N^{-s}}{2} + s \int^{\infty}_{N} \frac{\rho(u)}{u^{s+1}}d u,
+       \quad N \geq 1,
+   \end{align*}
+   where $\rho(u) = \frac{1}{2} - \{u\}$.
+   Specially, 
+   \begin{align*}
+       \zeta(s) = \frac{1}{2} + \frac{1}{s-1} 
+       + s \int^{\infty}_{1} \frac{\rho(u)}{u^{s+1}}d u.
+   \end{align*}
+
+\end{theorem}
+
+\begin{theorem}
+\begin{align*}
+\pi^{-\frac{s}{2}} \Gamma(\frac{s}{2})\zeta(s) =  
+\pi^{\frac{s-1}{2}} \Gamma(\frac{1-s}{2})\zeta(1-s)
+\end{align*}
+\end{theorem}
+
+\begin{proof}
+   Add proof. 
+\end{proof}
+
+Let 
+\begin{align*}
+    \xi(s) = \frac{1}{2}
+    s(s-1)\zeta(s)\Gamma(\frac{S}{2})\pi^{-\frac{s}{2}}.  
+\end{align*}
+
+\begin{theorem}
+For any $\varepsilon > 0$, we have
+\begin{align*}
+    |\xi(s)|  \ll e^{c|s|^{1+\varepsilon}}. 
+\end{align*}
+\end{theorem}
+
+\begin{remark}
+   The theorem above implies that $\xi$ has infinite many zeros. 
+   (provide a proof).
+\end{remark}
+
+For $Re(s) > 1$, estimate  
+\begin{align*}
+    f(s) = (1-2^{1-s})\zeta(s) = \sum_{n}^{\infty}\frac{(-1)^{n-1}}{n^{s}}. 
+\end{align*}
+It is not hard to see that $\zeta(s)$ does not have real zeros.
+
+\begin{lemma}
+    Let $\{\rho_n\}_{n}$ be the zeros of $\xi(s)$. Then
+    \begin{align*}
+        \sum^{\infty}_{n} \frac{1}{|\rho_n|} = \infty, \\ 
+        \sum^{\infty}_{n} \frac{1}{|\rho_n|^{1+\varepsilon}} < \infty, 
+    \end{align*}
+    for any $\varepsilon > 0$.
+\end{lemma}
+
+\begin{theorem}
+   \begin{align*}
+       \frac{\zeta'(s)}{\zeta(s)} = \frac{1}{1-s} + 
+       \sum^{\infty}_{n=1}(\frac{1}{s-\rho_n} + \frac{1}{\rho_n})
+       + \sum^{\infty}_{n=1}(\frac{1}{s+2n} - \frac{1}{2n}) + B_{0},
+   \end{align*} 
+   where $B_0$ is a constant.
+\end{theorem}
+
+\begin{proof}
+    Consider the two expressions of $\xi(s)$:
+    \begin{align*}
+        \xi(s) &= 
+        e^{as+b}\prod_{n}(1-\frac{s}{\rho_n})e^{\frac{s}{\rho_n}}\\
+        \xi(s) &= \frac{1}{2}
+    s(s-1)\zeta(s)\Gamma(\frac{S}{2})\pi^{-\frac{s}{2}}.  
+    \end{align*}
+    Compute the derivative of $\log \xi(s)$ 
+    by plugging in the two expressions.
+\end{proof}
+
+\begin{theorem}
+   Let $T \geq 0$ and $\rho_n = \beta_n + i \gamma_n$ be the non-trivial 
+   zeros of $\zeta(s)$. Then
+   \begin{align*}
+       \sum^{\infty}_{n=1} \frac{1}{1 + (T-\gamma_n)^2} \leq C \log(T+2). 
+   \end{align*}
+\end{theorem}
+
+\begin{proof}
+    Let $s = 2 + iT$.
+    \begin{align*}
+        Re(\frac{1}{s - \rho_n}) = 
+        \frac{2 - \beta_n}{(2-\beta_n)^{2} + (T-\gamma_n)^{2})^2} 
+        \geq \frac{1}{4(1+(T-\gamma_n)^2)}.
+   \end{align*} 
+\end{proof}
+
+\section{$n \times 2$ case}
+Let
+\begin{align*}
+    S_{n} = \begin{pmatrix} 
+    0 & 1 & 0 & \cdots & 0 \\
+    0 & 0 & 1 & \cdots & 0\\
+    0 & 0 & 0 & \ddots & 0 \\
+    0 & 0 & 0 & 0 & 1 \\
+    0 & 0 & 0 & 0 & 0  \\
+    \end{pmatrix} \in M_{n}(\C) 
+\end{align*}
+We would like to find the commutant of $(I-\frac{1}{2}S_n) \otimes (I- \frac{1}{3}S_2)$
+in $M_n(\C) \otimes M_2(\C)$. If
+\begin{align*}
+\begin{pmatrix}
+    T_1 & T_2 \\
+    T_3 & T_4 \\
+\end{pmatrix}
+&
+   \begin{pmatrix}
+       S_n & \frac{2}{3} (I-\frac{1}{2}S_n) \\
+       0 & S_n
+   \end{pmatrix}  =
+   \begin{pmatrix}
+       T_1 S_n & T_1 \frac{2}{3} (I-\frac{1}{2}S_n) + T_2 S_n \\
+       T_3 S_n & T_3 \frac{2}{3} (I-\frac{1}{2}S_n) + T_4 S_n \\
+   \end{pmatrix} \\
+   & = 
+\begin{pmatrix}
+    S_n T_1 +  \frac{2}{3} (I-\frac{1}{2}S_n)T_3 & S_n T_2 + \frac{2}{3} (I-\frac{1}{2}S_n)T_4 \\
+    S_n T_3 & S_n T_4\\
+\end{pmatrix}
+= \begin{pmatrix}
+       S_n & \frac{2}{3} (I-\frac{1}{2}S_n) \\
+       0 & S_n
+   \end{pmatrix} 
+\begin{pmatrix}
+    T_1 & T_2 \\
+    T_3 & T_4 \\
+\end{pmatrix}
+\end{align*}
+
+Since $T_3$ commute with $S_n$, $T_3$ must be a polynomial of $S_n$.
+Also note that $T_1 S_n - S_n T_1  =  \frac{2}{3} (I-\frac{1}{2}S_n)T_3$, this implies that the trace of $T_3$ is zero. Therefore $T_3$ must be upper triangular. 
+
+Note that
+\begin{align*}
+    & \begin{pmatrix} 
+       x_{11} & x_{12} & x_{13} & \cdots & x_{1n} \\
+       x_{21} & x_{22} & x_{23} & \cdots & x_{2n}\\
+       x_{31} & x_{32} & x_{33} & \ddots & x_{3n} \\
+       x_{n-1,1} &  x_{n-1,2} &  x_{n-1,3} & \cdots & x_{n-1,n}  \\
+       x_{n,1}  & x_{n,2}  & x_{n,3}  & \cdots & x_{n,n}   \\
+    \end{pmatrix}      
+    \begin{pmatrix} 
+    0 & 1 & 0 & \cdots & 0 \\
+    0 & 0 & 1 & \cdots & 0\\
+    0 & 0 & 0 & \ddots & 0 \\
+    0 & 0 & 0 & 0 & 1 \\
+    0 & 0 & 0 & 0 & 0  \\
+    \end{pmatrix}\\ 
+    & -
+    \begin{pmatrix} 
+    0 & 1 & 0 & \cdots & 0 \\
+    0 & 0 & 1 & \cdots & 0\\
+    0 & 0 & 0 & \ddots & 0 \\
+    0 & 0 & 0 & 0 & 1 \\
+    0 & 0 & 0 & 0 & 0  \\
+    \end{pmatrix}      
+    \begin{pmatrix} 
+       x_{11} & x_{12} & x_{13} & \cdots & x_{1n} \\
+       x_{21} & x_{22} & x_{23} & \cdots & x_{2n}\\
+       x_{31} & x_{32} & x_{33} & \ddots & x_{3n} \\
+       x_{n-1,1} &  x_{n-1,2} &  x_{n-1,3} & \cdots & x_{n-1,n}  \\
+       x_{n,1}  & x_{n,2}  & x_{n,3}  & \cdots & x_{n,n}   \\
+    \end{pmatrix}\\
+    & = 
+    \begin{pmatrix} 
+       0 & x_{11} & x_{12} & \cdots & x_{1,n-1} \\
+       0 & x_{21} & x_{22} & \cdots & x_{2,n-1}\\
+       0 & x_{31} & x_{32} & \ddots & x_{3,n-1} \\
+       0 &  x_{n-1,1} &  x_{n-1,2} & \cdots & x_{n-1,n-1}  \\
+       0  & x_{n,1}  & x_{n,2}  & \cdots & x_{n,n-1}   \\
+    \end{pmatrix} -  
+    \begin{pmatrix} 
+       x_{21} & x_{22} & x_{23} & \cdots & x_{2n} \\
+       x_{31} & x_{32} & x_{33} & \cdots & x_{3n}\\
+       x_{41} & x_{42} & x_{43} & \ddots & x_{4n} \\
+       x_{n,1} &  x_{n,2} &  x_{n,3} & \cdots & x_{n,n}  \\
+       0  & 0  & 0  & \cdots & 0   \\
+    \end{pmatrix}
+\end{align*}
+
+If the above is strict upper triangular, we must have 
+\begin{align*}
+    X= \begin{pmatrix} 
+       x_{11} & x_{12} & x_{13} & \cdots & x_{1n} \\
+       x_{21} & x_{22} & x_{23} & \cdots & x_{2n}\\
+       x_{31} & x_{32} & x_{33} & \ddots & x_{3n} \\
+       x_{n-1,1} &  x_{n-1,2} &  x_{n-1,3} & \cdots & x_{n-1,n}  \\
+       x_{n,1}  & x_{n,2}  & x_{n,3}  & \cdots & x_{n,n}   \\
+    \end{pmatrix}\
+\end{align*}
+is upper triangular.
+
+So we have $T_1, T_4$ are upper triangular.
+And it is easy to see that for a fixed $T_3$ which commute with $S_n$, we have many
+elements which commute with $(I-\frac{1}{2}S_n) \otimes (I- \frac{1}{3}S_2)$.
+ 
+\section{Spectrum of sums of unitary}
+
+Let $X_{n} = \{f_n(z) : z \in S^{1} \}$ where
+$f_n(z) = 1 + z + z^2 + \cdots + z^{n-1} = \frac{1-z^{n}}{1-z}$, 
+$n = 1, 2, \ldots$. Each $X_n$ is a compact subset of $\C$. We would like 
+to know the limit of $X_n$ as $n \to \infty$.
+
+Let $z = e^{i\theta}$, then
+\begin{align*}
+    \frac{1-z^{n}}{1-z} &= 
+    \frac{1-\cos \theta - \cos n\theta + \cos(n-1)\theta}
+    {2-2\cos \theta}
+    + \frac{\sin \theta - \sin n\theta + \sin(n-1)\theta}
+    {2-2\cos \theta} i \\
+    &= \frac{\sin (\frac{n}{2}\theta)}
+       {\sin (\frac{\theta}{2})} \left (
+       \cos (\frac{(n-1)}{2}\theta) + i\sin (\frac{(n-1)}{2}\theta) \right).
+\end{align*}
+
+If $n = 2m + 1$, then
+\begin{align*}
+    \frac{1-z^{n}}{1-z} = 
+    \frac{\sin (m\theta + \frac{1}{2}\theta)}
+       {\sin (\frac{\theta}{2})} \left (
+       \cos (m\theta) + i\sin (m\theta) \right).
+\end{align*}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.8\textwidth]{zn5.png}
+    \caption{$n=5$}
+\end{figure}
+
+Let $z_1 = e^{i\theta_1}$ and $z_2 = e^{i\theta_2}$ and
+$\theta_1$, $\theta_2$ are in $[0, 2\pi)$. Suppose that 
+$f_{n}(z_1) = f_{n}(z_2)$ and $\theta_1 < \theta_2$. 
+First assume that $\sin (m\theta_1 + \frac{1}{2}\theta_1) = 0
+= \sin (m\theta_2 + \frac{1}{2}\theta_2)$ and $\theta_1$, $\theta_2$.
+Note that $\sin (\frac{\theta_1}{2})$ and $\sim (\frac{\theta_2}{2})$ can
+not equal zero at the same time, since $\frac{\theta_1}{2}$ and 
+$\frac{\theta_1}{2}$ are in $[0, \pi)$. Then
+\begin{align*}
+    \theta_1, \theta_2 \in \{\frac{2k\pi}{2m+1} : k = 1, 2, \ldots, 2m\}. 
+\end{align*}
+And $f_n(z) = 0$.
+
+Now assume that $\sin (m\theta + \frac{1}{2}\theta) \neq 0$.
+We have $\theta_2 = \theta_1 + \frac{2k\pi}{m}$ or
+$\theta_2 = \theta_1 + \frac{(2k+1)\pi}{m}$.
+
+First assume that $\theta_2 = \theta_1 + \frac{2k\pi}{m}$, we have
+\begin{align*}
+    \frac{\sin (m\theta_1 + \frac{1}{2}\theta_1)}
+       {\sin (\frac{\theta_1}{2})} =
+    \frac{\sin (m\theta_2 + \frac{1}{2}\theta_2)}
+       {\sin (\frac{\theta_2}{2})}
+\end{align*}
+implies
+\begin{align*}
+    \frac{\sin m\theta_1 \cos (\frac{\theta_1}{2})}
+    {\sin (\frac{\theta_1}{2})} + \cos m\theta_1  
+    =
+    \frac{\sin m\theta_2 \cos (\frac{\theta_2}{2})}
+    {\sin (\frac{\theta_2}{2})} + \cos m\theta_2 . 
+\end{align*}
+
+If $\sin m\theta_1 \neq 0$ then $\cot (\frac{\theta_1}{2}) = 
+\cot (\frac{\theta_2}{2})$. This implies that $\theta_1 = \theta_2$. 
+
+Suppose that $\sin m\theta_1 = 0$, we have 
+$\sin (\frac{\theta_1}{2}) \neq 0$ and $\sin (\frac{\theta_2}{2}) \neq 0$,
+since $\frac{\theta_1}{2}$ and $\frac{\theta_2}{2}$ are in $[0, \pi)$.
+This means that $\theta_1$ and $\theta_2$ are in 
+\begin{align*}
+    \{\frac{k\pi}{m} : k = 1, 2, \ldots, 2m-1 \}.
+\end{align*}
+And $f_n(z) = \cos^{2} m\theta = 1$.
+
+Now assume that $\theta_2 = \theta_1 + \frac{(2k+1)\pi}{m}$. Then we have
+\begin{align*}
+    \frac{\sin (m\theta_1 + \frac{1}{2}\theta_1)}
+       {\sin (\frac{\theta_1}{2})} =
+    -\frac{\sin (m\theta_2 + \frac{1}{2}\theta_2)}
+       {\sin (\frac{\theta_2}{2})}.
+\end{align*}
+This also implies that
+\begin{align*}
+    \frac{\sin m\theta_1 \cos (\frac{\theta_1}{2})}
+    {\sin (\frac{\theta_1}{2})} 
+    =
+    \frac{\sin m\theta_1 \cos (\frac{\theta_2}{2})}
+    {\sin (\frac{\theta_2}{2})}. 
+\end{align*}
+Argue as above, we have $\theta_1$ and $\theta_2$ are in 
+\begin{align*}
+    \{\frac{k\pi}{m} : k = 1, 2, \ldots, 2m-1 \}.
+\end{align*}
+And $f_n(z) = \cos^{2} m\theta = 1$.   
+
+\begin{lemma}
+    For any $re^{i\alpha} \in \C$ and any $\varepsilon > 0$, 
+   there exists a $N \in \N$ and a $\theta_{m} \in [0, 2\pi)$
+   such that
+   \begin{align*}
+      |\frac{\sin (m\theta_m + \frac{1}{2}\theta_m)}
+       {\sin (\frac{\theta_m}{2})} \left (
+   \cos (m\theta_m) + i\sin (m\theta_m) \right) - re^{i\alpha}| 
+   < \varepsilon
+   \end{align*}
+   for any $m \geq N$.
+\end{lemma}
+
+\begin{proof}
+    Assume that $\alpha = \frac{2\pi i p}{q}$, where $(p, q) = 1$ and 
+    $q > p$. For any $m > 1$, consider the set
+    \begin{align*}
+        \{\frac{2\pi i (p + kq)}{qm} : k = 0, 1, \ldots, m-1 \}. 
+    \end{align*}
+    Let  
+    \begin{align*}
+        r_{k} = \frac{\sin (\frac{2\pi i p}{q}+ 
+        \frac{\pi i (p + kq)}{qm})}
+        {\sin (\frac{\theta_m}{2})}
+     = \cos (\frac{2\pi i p}{q}) + \sin (\frac{2\pi i p}{q})
+     \cot (\frac{\pi i (p + kq)}{qm}).
+    \end{align*}
+    Now it is not hard to see that there exist a $N \in \N$ such that
+    there is a $0 \leq k_m \leq m-1$ such that 
+    $|r_{k_m} - r| \leq \varepsilon$ whenever $m > N$. 
+\end{proof}
+
+\begin{lemma}
+    If $U$ is a Haar unitary, then $T = I + U + U^{2} + \cdots $ is a 
+    densely defined closed operator. The spectrum of $T$ is $\C$.
+\end{lemma}
+
+%-----------------------------------------------------------------------------------
+%BIBLIOGRAPHY
+%-----------------------------------------------------------------------------------
+
+%\bibliographystyle{unsrt}
+
+%\bibliography{sample}
+
+%-----------------------------------------------------------------------------------
+
+\end{document}
