@@ -1,0 +1,639 @@
+\documentclass[a4paper,10pt]{amsart}
+
+\usepackage[protrusion=true,expansion=true]{microtype} 
+\usepackage{fancyhdr}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx} 
+\usepackage{wrapfig} 
+
+\usepackage{mathpazo}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{hyperref}
+\usepackage{cleveref}
+\usepackage{comment}
+\usepackage{color}
+
+
+\newtheorem{example}{Example}[section]
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}{Proposition}[section]
+\newtheorem{corollary}{Corollary}[section]
+\newtheorem{definition}{Definition}[section]
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{remark}{Remark}[section]
+\newtheorem{question}{Question}[section]
+
+\crefname{lemma}{Lemma}{lemmas}
+\crefname{remark}{Remark}{remark}
+\crefname{corollary}{Corollary}{corollary}
+\crefname{theorem}{Theorem}{theorem}
+\crefname{example}{Example}{example}
+\crefname{definition}{Definition}{definition}
+
+\newcommand{\AAA}{\mathfrak A}
+\newcommand{\BBB}{\mathcal B}
+\newcommand{\CCC}{\mathcal C}
+\newcommand{\HHH}{\mathcal H} %for Hilbert space
+\newcommand{\MMM}{\mathcal M}
+\newcommand{\SSS}{\mathcal S}
+\newcommand{\FFF}{\mathfrak F}
+\newcommand{\DDD}{\mathfrak D}
+\newcommand{\PPP}{\widetilde{P}}
+\newcommand{\LLL}{\widetilde{L}}
+
+\newcommand{\tr}{\tau}
+\newcommand{\C}{\mathbb C} %for complex number
+\newcommand{\R}{\mathbb R}  %for real number
+\newcommand{\Z}{\mathbb Z} %for integer
+\newcommand{\N}{\mathbb N} % for nature number
+% self defined vars
+\newcommand{\titleinfo}{Note On Quantum Field Theory}
+\newcommand{\authorinfo}{Wei Yuan} 
+
+\linespread{1.05}
+\pagestyle{fancyplain}
+\fancyhf{}
+\fancyhf[HLE,HRO]{\titleinfo}
+\fancyhf[HRE,HLO]{\authorinfo}
+\fancyhf[FC]{\thepage}
+
+\begin{document}
+
+\title{\LARGE\textbf{\titleinfo}} 
+\author{\large\textsc{\authorinfo}} 
+\address{AMSS}  
+\email{}
+
+\date{}
+
+%\renewcommand{\abstractname}{Summary} 
+\begin{abstract}
+Enter abstract here
+\end{abstract}
+
+% Keywords
+\subjclass[2010]{Primary 47L75; Secondary 15A30}
+\keywords{Mobius function}
+\thanks{}
+\maketitle
+
+
+\section{Field Operators}
+
+\subsection{Distributions}
+
+\begin{definition}
+    Let $\SSS(\R^{n})$ be the Schwartz space of rapidly decreasing smooth
+    functions, that is the complex vector space of all functions 
+    $f: \R^n \to \C$ with continuous partial derivatives of any order for
+    which
+    \begin{align} \label{sch_norm}
+        |f|_{p,k} = \sup_{|\alpha | \leq q} \sup_{x \in \R^n}
+    | \partial^{\alpha} f(x)|(1+|x|^2)^k < \infty,
+    \end{align}
+    for all $p$, $k \in \N$ and $\alpha = (\alpha_1, \alpha_2, \ldots,
+    \alpha_n) \in \N^{n}$.
+\end{definition}
+
+\begin{definition}
+   A tempered distribution $T$ is a linear functional $T: \SSS \to \C$
+   which is continuous with respect to all the seminorms $|.|_{p,k}$ 
+   defined in \cref{sch_norm}, $p, k \in \N$.
+\end{definition}
+
+\begin{example}
+   \begin{enumerate}
+       \item Let $g \in L^{\infty}(\R^n)$. 
+           \begin{align*}
+               T_{g}(f) = \int_{\R^{n}} g(x)f(x) dx, \qquad f \in \SSS. 
+           \end{align*}
+        \item The delta distribution given by
+            \begin{align*}
+                \delta_{y}: f \to f(y), \qquad f \in \SSS.
+            \end{align*}
+   \end{enumerate} 
+\end{example}
+
+If $T$ is a tempered distribution, then
+\begin{align*}
+    \langle \partial^{\alpha}T, f \rangle = 
+    \langle T, (-1)^{|\alpha|}\partial^{\alpha}f \rangle, 
+\end{align*}
+i.e., 
+\begin{align*}
+\partial^{\alpha}T(f) = (-1)^{|\alpha|}T(\partial^{\alpha}f), \qquad
+    f \in \SSS.
+\end{align*}
+
+\begin{example}
+    Let $\varkappa$ be the characteristic function of $[0, \infty)$. 
+    Then
+    \begin{align*}
+        \frac{d}{dt}T_{\varkappa}(f) = -\int_{0}^{\infty}f'(x)dx = f(0)
+        = \delta_{0}(f).
+    \end{align*}
+\end{example}
+
+\begin{proposition}
+   Every tempered distribution $T$ has a representation as a finite 
+   sum of derivatives of continuous functions of polynomial growth, that
+   is there exist $g_{alpha}: \R^{n} \to \C$ such that
+   \begin{align*}
+       T = \sum_{0 \leq |\alpha| \leq k}\partial^{\alpha}T_{g_{\alpha}}. 
+   \end{align*}
+\end{proposition}
+
+For a polynomial $P(x) = c_{\alpha}X^{\alpha} \in \C[x_1, \ldots, x_n]$
+in $n$ variables with complex coefficients $c_{\alpha} \in \C$ on obtains
+the partial differential operator
+\begin{align*}
+   P(i\partial) = c_{\alpha}(i\partial)^{\alpha} 
+   =\sum (i)^{|\alpha|}c_{\alpha_1, \ldots, \alpha_2}
+   \partial_{1}^{\alpha_1} \ldots
+\partial_{n}^{\alpha_n}.
+\end{align*}
+
+\begin{example}
+   \begin{enumerate}
+       \item $P(x) = -(x_{1}^{2} + \cdots + x^{2}_{n})$ gives the Laplace
+           operator
+           \begin{align*}
+               \Delta = \partial^{2}_1 + \cdots + \partial^{2}_n. 
+           \end{align*}
+        \item $P(x) = -x^{2}_{0} + x^{2}_1 + \cdots + x^{2}_n$ gives the
+            Laplace-Beltrami operator
+            \begin{align*}
+                \square = \partial_{0}^{2} 
+                - (\partial^{2}_1 + \cdots + \partial^{2}_n).
+            \end{align*}
+   \end{enumerate} 
+\end{example}
+
+For any $f \in \SSS$, let 
+\begin{align*}
+    (\FFF f)(x) 
+    = \Hat{f}(p) = \int_{\R^{n}} f(x)e^{-i \langle x, p \rangle} dx 
+\end{align*}
+be the Fourier transform of $f$. The inverse Fourier transform of $f$ is
+\begin{align*}
+    (\FFF^{-1} \Hat{f})(x) = f(x) = \frac{1}{(2\pi)^n}
+    \int_{\R^n} \Hat{f}(p)e^{i \langle p, x \rangle} dp. 
+\end{align*}
+
+Note that
+\begin{align*}
+    \FFF(\partial_k f)(p) = 
+\int_{\R^{n}} \partial_k f(x)e^{-i \langle x, p \rangle } dx= 
+-\int_{\R^{n}} f(x)\partial_{k} e^{-i \langle x, p \rangle } dx =
+i p_{k} \FFF(f)(p).
+\end{align*}
+Similarly, we have
+\begin{align*}
+    \FFF^{-1}(\partial_k \Hat{f})(x) = -ix_{k} \FFF^{-1}(\Hat{f})(x). 
+\end{align*}
+
+\begin{definition}
+   For any tampered distribution $T$, let
+   \begin{align*}
+       \FFF(T)(f) = (T \circ \FFF)(f) = T(\FFF(f)).
+   \end{align*}
+   If $P(p)$ is a polynomial, then
+   \begin{align*}
+       PT(f) = T(Pf). 
+   \end{align*}
+\end{definition}
+
+\begin{example}
+   \begin{enumerate}
+       \item $\FFF(\delta_0)(f) = \FFF(f)(0) = 
+           \int_{\R^{n}}f(x) dx$, therefore 
+           \begin{align*}
+           \FFF(\delta_0) = 1.
+           \end{align*}
+        \item
+            \begin{align*}
+                \FFF^{-1}(e^{i \langle p, y \rangle}) = \delta_{x-y}. 
+            \end{align*}
+   \end{enumerate} 
+\end{example}
+
+\begin{remark}
+   Let $T$ be a tempered distribution and $f \in \SSS$. 
+   \begin{align*}
+       \partial_{k} \circ \FFF(T)(f) = T(\FFF (\partial_{k} f)) = 
+       T(ip_{k}\FFF(f)) = \FFF (ip_{k} T)(f). 
+   \end{align*}
+   And
+   \begin{align*}
+       \FFF(i \partial_{k}T)(f) = T(i\partial_{k}\FFF(f)) 
+       = T(\FFF(x_k f)) = (x_k \FFF(T)) (f)
+   \end{align*}
+\end{remark}
+
+\subsection{Klein-Gordon Equation}
+
+Consider the Klein-Gordon Equation with mass $m > 0$:
+\begin{align} \label{k_g_eq}
+    (\square + m^2)T_1 = T_2, 
+\end{align}
+where $T_i$, $i = 1, 2$ are tempered distribution.
+
+If $T_2 = \delta_0$, then by applying the Fourier transform on both side
+of \cref{k_g_eq}, we only need to solve the division problem
+\begin{align*}
+    (-\mathbf{p}^2 + m^2)T = 1, 
+\end{align*}
+where $\mathbf{p}^2 = p_{0}^{2} - (p_{1}^{2} + \cdots + p_{n-1}^{2})$. 
+
+Consider the homogeneous equation
+\begin{align*}
+    (\square - m^2)f = 0 \Longleftrightarrow 
+    (\mathbf{p}^{2} - m^2)\Hat{f} = 0. 
+\end{align*}
+
+
+\subsection{Fields Operators}
+
+\begin{definition}
+    Let $A$ be a closed operator. The spectrum of $A$ is 
+    \begin{align*}
+        \sigma(A) = \{z \in \C : (zI - A)^{-1} \mbox{ is not a bounded
+        operator.} \}
+    \end{align*}
+\end{definition}
+
+\begin{definition}
+   Let $\mathfrak{O}(\HHH)$ be the set of all densely defined 
+   operators in $\HHH$. 
+   A field operator or quantum field is an operator-valued distribution
+   (on $\R^{n}$), this is a map
+   \begin{align*}
+       \Phi: \SSS(\R^{n}) \to \mathfrak{O}(\HHH)
+   \end{align*}
+   such that there exists a dense subspace $\DDD \subset \HHH$ satisfying
+   \begin{enumerate}
+       \item For each $f \in \SSS$ the domain of $\Phi(f)$ contains $\DDD$.
+       \item The induced map $f \to \Phi(f)|_{\DDD}$ is linear.
+       \item For each $\xi \in \DDD$ and $\beta \in \HHH$ the 
+           assignment $f \to \langle \Phi(f)\xi, \beta \rangle$ is a
+           tempered distribution.
+   \end{enumerate}
+\end{definition}
+
+\subsection{Wightman Axioms}
+
+Let $M = \R^{1, D-1}$ be the $D$-dimensional Minkowski space with the 
+(Lorentz) metric
+\begin{align*}
+    \langle x, x \rangle = (x^{0})^{2} - \sum_{j=1}^{D-1}(x^{j})^{2},
+    \qquad x = (x^{0}, \ldots, x^{D-1}) \in M.
+\end{align*}
+
+Two subsets $X, Y \subset M$ are called to be space-like separated if for
+any $x \in X$ and $y \in Y$ we have
+\begin{align*}
+    (x^{0} - y^{0}) - \sum^{D-1}_{j=1}(x^{j} - y^{j})^2 < 0. 
+\end{align*}
+
+The forward cone is 
+\begin{align*}
+    C_{+} = \{x \in M : \langle x, x \rangle \geq 0, x^{0} \geq 0\}
+\end{align*}
+and the \textbf{causal order} is given by $x \geq y$ iff $x-y \in C_{+}$.
+
+Let $P = P(1, D-1)$ be the \textit{Poincar\'{e}} group and
+$L = SO_{0}(1, D-1) \subset GL(D, \R)$ be the identity component of 
+the orthogonal group $O(1, D-1)$ preserving the metric.
+It is know that $P = \R^{D} \rtimes L$, where $\R^{D}$ represents 
+the translation group.
+
+The \textit{Poincar\'{e}} group acts on $\SSS$ by
+\begin{align*}
+    g \cdot  f(x) = f(g^{-1}x), \qquad g \in P, \quad f \in \SSS.
+\end{align*}
+
+If $g = (q, \Lambda) \in \R^{D} \rtimes L$, then
+\begin{align*}
+    g \cdot f (x) = (q, \Lambda)f(x) = f(\Lambda^{-1}(x-q)). 
+\end{align*}
+
+Let $\PPP = \R^{D} \rtimes Spin(1, D-1)$ for $D > 2$ where
+$Spin(1,D-1)=\LLL$ is the spin group, 
+the universal covering group of the Lorentz group $L = SO(1, D-1)$.
+
+\begin{remark}
+   The Lorentz group is six-dimensional. The following gives a basis of
+   the Lie algebra:
+   \begin{align*}
+       &J_{01} = \begin{pmatrix}
+           0 & 1 & 0 & 0\\
+           1 & 0 & 0 & 0\\
+           0 & 0 & 0 & 0\\
+           0 & 0 & 0 & 0 \\
+       \end{pmatrix},
+        J_{02} = \begin{pmatrix}
+           0 & 0 & 1 & 0\\
+           0 & 0 & 0 & 0\\
+           1 & 0 & 0 & 0\\
+           0 & 0 & 0 & 0 \\
+       \end{pmatrix},
+        J_{03} = \begin{pmatrix}
+           0 & 0 & 0 & 1\\
+           0 & 0 & 0 & 0\\
+           0 & 0 & 0 & 0\\
+           1 & 0 & 0 & 0 \\
+       \end{pmatrix} \\
+        &J_{12} = \begin{pmatrix}
+           0 & 0 & 0 & 0\\
+           0 & 0 & -1 & 0\\
+           0 & 1 & 0 & 0\\
+           0 & 0 & 0 & 0 \\
+       \end{pmatrix},
+        J_{13} = \begin{pmatrix}
+           0 & 0 & 0 & 0\\
+           0 & 0 & 0 & 1\\
+           0 & 0 & 0 & 0\\
+           0 & -1 & 0 & 0 \\
+       \end{pmatrix},
+        J_{23} = \begin{pmatrix}
+           0 & 0 & 0 & 0\\
+           0 & 0 & 0 & 0\\
+           0 & 0 & 0 & -1\\
+           0 & 0 & 1 & 0 \\
+       \end{pmatrix}.
+   \end{align*}
+   The subgroup generated by $J_{01}$ is 
+   \begin{align*}
+      \begin{pmatrix}
+          \cosh \theta & \sinh \theta & 0 & 0\\
+          \sinh \theta & \cosh \theta & 0 & 0\\
+          0 & 0 & 1 & 0\\
+          0 & 0 & 0 & 1
+      \end{pmatrix}.
+   \end{align*}
+   The subgroup generated by $J_{12}$ is 
+   \begin{align*}
+      \begin{pmatrix}
+          1 & 0 & 0 & 0\\
+          0 & \cos \theta & -\sin \theta & 0\\
+          0 & \sin \theta & \cos \theta & 0 \\
+          0 & 0 & 0 & 1
+      \end{pmatrix}.
+   \end{align*}
+
+   We can identify $\R^4$ with the space of $2$ by $2$ complex self-adjoint
+   matrices by
+   \begin{align*}
+       (p_0, p_1, p_2, p_3) \leftrightarrow 
+       \begin{pmatrix}
+           p_0 + p_3 & p_1 - ip_2\\
+           p_1 + ip_2 & p_0 -p_3
+       \end{pmatrix}
+   \end{align*}
+   and observe that
+   \begin{align*}
+       \det \begin{pmatrix}
+           p_0 + p_3 & p_1 - ip_2\\
+           p_1 + ip_2 & p_0 -p_3
+       \end{pmatrix}  = p_{0}^2 - p_{1}^2 - p_{2}^2 - p_{3}^{2}.
+   \end{align*}
+   The for any $\Lambda \in SL_{2}(\C)$, it is obviously that
+   the following map preserves the determinant and self-adjointness:
+   \begin{align*}
+       \begin{pmatrix}
+           p_0 + p_3 & p_1 - ip_2\\
+           p_1 + ip_2 & p_0 -p_3
+       \end{pmatrix}
+       \to
+        \Lambda
+        \begin{pmatrix}
+           p_0 + p_3 & p_1 - ip_2\\
+           p_1 + ip_2 & p_0 -p_3
+        \end{pmatrix} \Lambda^{*}
+   \end{align*}
+   Note that both $\Lambda$ and $-\Lambda$ give the same linear 
+   transformation. This implies that $SL_{2}(\C)$ is a double covering 
+   of $SO(1,3)$. Thus $spin(1,3) \simeq SL_2(\C)$. 
+\end{remark}
+
+Now assume that we have a unitary representation of $\PPP$ which will be 
+denoted by
+\begin{align*}
+    U : \PPP \to U(\HHH), \qquad (q, \Lambda) \to U(q, \Lambda), 
+    \qquad (q, \Lambda) \in \R^{D} \rtimes \LLL.
+\end{align*}
+
+By Stone's Theorem, there exist $D$ self-adjoint closed operator
+$P_0, P_1, \ldots, P_{D-1}$ such that
+\begin{align*}
+    U(q, 1) = e^{i(q^{0}P_{0} - q^{1}P_1 - \cdots - q^{D-1}P_{D-1})},
+\end{align*}
+where $q_i \in \R$. $P_0$ is interpreted as the energy operators 
+and $P_j$, $j > 0$ as the components of th momentum.
+
+\textbf{Wightmen Axioms.} A Wightman quantum field theory in dimension
+D consists of the following data:
+\begin{itemize}
+    \item the space of states, which is the projective space $P(\HHH)$ of 
+        a separable complex Hilbert space $\HHH$;
+    \item the vacuum vector $\Omega \in \HHH$ of norm $1$;
+    \item a unitary representation $U: \PPP \to U(\HHH)$ of $\PPP$;
+    \item a collection of field operator $\Phi_{a}$, $a \in I$,
+        \begin{align*}
+            \Phi_{a}: \SSS \to \mathfrak{O}(\HHH), 
+        \end{align*}
+        with a dense subspace $D \subset \HHH$ as their common domain 
+        ( that is the domain $\DDD(\Phi_{a}(f))$ contains $\DDD$ 
+        for all $a \in I$ and $f \in S$) such that $\Omega \in \DDD$.
+\end{itemize}
+
+This data satisfy the following three axioms:
+
+\textbf{Axiom 1(Covariance)}
+\begin{enumerate}
+    \item $\Omega$ is $\PPP$-invariant, i.e., 
+        \begin{align*}
+            U(q, \Lambda) \Omega = \Omega, \qquad \forall (q, \Lambda) \in
+            \PPP,
+        \end{align*}
+        and $\DDD$ is $\PPP$-invariant, i.e.,
+        \begin{align*}
+            U(q, \Lambda) \DDD \subset \DDD, 
+            \qquad \forall (q, \Lambda) \in
+            \PPP;
+        \end{align*}
+      \item 
+          \begin{align*}
+              \Phi_{a}(f) \DDD \subset \DDD, \qquad \forall f \in \SSS
+              \mbox{, and } a \in I;
+          \end{align*}
+      \item 
+          \begin{align*}
+              U(q, \Lambda)\Phi_{a}(f)U(q, \Lambda)^{*} = 
+              \Phi_{a}((q,\Lambda)f), \qquad \forall f \in \SSS
+              \mbox{ and } (q, \Lambda) \in \PPP.
+          \end{align*}
+\end{enumerate}
+
+\textbf{Axiom 2(Locality)} $\Phi_{a}(f)$ and $\Phi_{b}(g)$ commute on 
+$\DDD$ if the supports of $f, g \in \SSS$ are space-like separated, that
+is on $\DDD$
+\begin{align*}
+    [\Phi_a(f), \Phi_b(f)] = 0. 
+\end{align*}
+
+\textbf{Axiom 3(Spectrum Condition)} The joint spectrum of the operators
+$P_j$ is contained in the forward cone $C_{+}$, i.e.,
+the eigenvalues rector $(p_0, p_1, \ldots, p_{D-1}) \in C_{+}$.
+
+\begin{remark}
+   It is customary to require that the vacuum is cyclic in the sense that
+   the subspace $\DDD_{0} \subset \DDD$ spanned by all vectors
+   \begin{align*}
+       \Phi_{a_1}(f_1) \Phi_{a_2}(f_2)\cdots \Phi_{a_m}(f_m)\Omega  
+   \end{align*}
+   is dense in $\DDD$.
+\end{remark}
+
+As an additional axiom, one can require the vacuum $\Omega$ to be unique:
+
+\textbf{Axiom 4(Uniqueness of the Vacuum)} The only vectors in $\HHH$ left
+invariant by the translations $U(q,1)$, $q \in \R^{D}$, are the scalar
+multiples of the vacuum $\Omega$.
+
+\begin{example}[Free Bosonic QFT]
+    Let
+    \begin{align*}
+        \Gamma_m = \{(p_0, p_1, p_2, p_3) \in \R^{(1,3)} : 
+            \langle p, p \rangle = p_{0}^2 - p_{1}^{2} - p_{2}^{2}
+        -p_{3}^{2} = m^2, p_{0} > 0 \}.
+    \end{align*}
+    Then
+    \begin{align*}
+        \rho: \R^{3} \to \Gamma_{m}, (p_1, p_2, p_3) \to
+        (\sqrt{p_{1}^{2} + p_{2}^{2}+ p_{3}^{2} + m^{2}}, p_1, p_2, p_3), 
+    \end{align*}
+    is an isomorphism.
+    In the sequel, denote $\sqrt{p_{1}^{2} + p_{2}^{2}+ p_{3}^{2} + m^{2}}$
+    with $\omega(p)$ for any $p = (p_1, p_2, p_3) \in \R^{3}$.
+      
+    Let $\lambda_m$ be the invariant measure on $\Gamma_m$ given by
+    \begin{align*}
+        \int_{\Gamma_m} f(\rho(\mathbf{p})) d\lambda_m(\rho(\mathbf{p})) 
+        = \int_{\R^{3}}\frac{h(\mathbf{p})}
+        {2\sqrt{\mathbf{p}^2 + m^2}}d\mathbf{p},
+    \end{align*}
+    where $\mathbf{p}^2 = p_{1}^{2} + p^{2}_{2} + p^{2}_{3}$.
+
+    Let 
+    \begin{align*}
+        \Lambda = \begin{pmatrix}
+            \cosh(x) & \sinh(x) & 0 & 0\\
+            \sinh(x) & \cosh(x) & 0 & 0 \\
+            0 & 0 & 1 & 0\\
+            0 & 0 & 0 & 1
+        \end{pmatrix}. 
+    \end{align*}
+    The isometry 
+    \begin{align*}
+        \begin{pmatrix}
+           p_0 \\
+           p_1 \\
+           p_2 \\
+           p_3
+        \end{pmatrix}
+        \to
+        \begin{pmatrix}
+            \cosh(x) & \sinh(x) & 0 & 0\\
+            \sinh(x) & \cosh(x) & 0 & 0 \\
+            0 & 0 & 1 & 0\\
+            0 & 0 & 0 & 1
+        \end{pmatrix}
+        \begin{pmatrix}
+           p_0 \\
+           p_1 \\
+           p_2 \\
+           p_3
+        \end{pmatrix},
+    \end{align*}
+    induced the map form $\R^{3}$ onto $\R^{3}$
+    \begin{align*}
+        \begin{pmatrix}
+           p_1 \\
+           p_2 \\
+           p_3
+        \end{pmatrix}
+        \to 
+        \begin{pmatrix}
+            \sinh(x)\sqrt{m^2+\mathbf{p}^2} + \cosh(x)p_1 \\
+           p_2 \\
+           p_3
+        \end{pmatrix}.
+    \end{align*}
+    The Jacobi of this transformation is
+    \begin{align*}
+        \frac{\sinh(x)p_1 + \cosh(x)p_0}{\sqrt{m^2+\mathbf{p}^2}}. 
+    \end{align*}
+    Therefore it is easy to see that the measure $d\lambda_m$ is invariant.
+     
+
+Let $\HHH_{1} = L^{2}(\Gamma_m, d\lambda_m)$ and 
+$\mathit{H}_n$ be the space of rapidly decreasing functions on 
+the n-fold product of the upper hyperboloid $\Gamma_m$ which are
+symmetric in the variables ($\mathbf{p}_1, \mathbf{p}_2, \ldots, 
+\mathbf{p}_n) \in \Gamma_{m}^{n}$ ($\mathit{H} = \SSS(\Gamma_m)$).
+$\mathit{H}_n$ has the inner product
+\begin{align*}
+    \langle u, v \rangle = \int_{\Gamma_m^{n}}u(\mathbf{p}_1, \ldots,
+        \mathbf{p}_n) \Bar{v}(\mathbf{p}_1, \ldots, \mathbf{p}_n)
+        d\lambda_{m}(\mathbf{p}_1)\ldots d\lambda_{m}(\mathbf{p}_n).
+\end{align*}
+
+The Hilbert space completion of $\mathit{H}_n$ well be denoted by
+$\HHH_n$. Let
+\begin{align*}
+    \DDD = \bigoplus_{n=0}^{\infty}\mathit{H}_n 
+\end{align*}
+($\mathit{H}_0 = \C$ with the vacuum $\Omega = 1 \in \mathit{H}_0$) has
+a natural inner product given by
+\begin{align*}
+    \langle f, g \rangle = f_0 \Bar{g}_{0} + \sum_{n \geq 1}
+    \frac{1}{n!} \langle f_n, g_n \rangle,
+\end{align*}
+where $f = (f_0, f_1, \ldots)$, $(g_0, g_1, \ldots) \in \DDD$. The 
+completion of $\DDD$ w.r.t this inner product is the Fock space $\HHH$.
+
+Let $f \in \SSS(\R^{4})$ and $g = (g_0, g_1, \ldots) \in \DDD$.
+Define $\Phi(f)$ by
+\begin{align*}
+    (\Phi(f)g)_n(\mathbf{p_1}, \ldots, \mathbf{p_n}) &= 
+    \int_{\Gamma_{m}} \Hat{f}(\mathbf{p})g_{N+1}(\mathbf{p},
+    \mathbf{p}_1, \ldots, \mathbf{p}_n) d\lambda_{n}(\mathbf{p}) \\
+    & + \sum_{j=1}^{n} \Hat{f}(-\mathbf{p}_j) g_{n-1}(\mathbf{p}_1,
+    \ldots \Hat{\mathbf{p}}_{j}, \ldots, \mathbf{p}_n).
+\end{align*}
+
+Note that for any $f \in \SSS(\R^4)$, we have $\Phi(\square f - m^2 f) = 0$
+since
+\begin{align*}
+    \FFF(\square f - m^2 f) = (-\mathbf{p}^2 + m^2)\Hat{f} 
+\end{align*}
+vanishes on $\Gamma_m$.
+
+\end{example}
+%-----------------------------------------------------------------------------------
+%BIBLIOGRAPHY
+%-----------------------------------------------------------------------------------
+\begin{thebibliography}{9}
+\bibitem{Davenport37}
+  H.Davenport
+  \emph{On some infinite series involving arithmetical functions(II)}.
+  Quarterly Journal of Mathematics, 8,
+  313-320, 1937.
+
+\end{thebibliography}
+%-----------------------------------------------------------------------------------
+
+\end{document}
