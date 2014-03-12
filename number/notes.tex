@@ -6,6 +6,7 @@
 \usepackage{graphicx} 
 \usepackage{wrapfig} 
 \usepackage{enumitem}
+\usepackage{float}
 
 \usepackage{mathpazo}
 \usepackage[T1]{fontenc}
@@ -105,6 +106,7 @@
 \newcommand{\Z}{\mathbb Z} %for integer
 \newcommand{\N}{\mathbb N} % for nature number
 \newcommand{\Q}{\mathbb Q} % for rational number
+\newcommand{\Hd}{H^{2}(\mathbb{D})}
 
 \providecommand{\sceil}[1]{\left \lceil #1 \right \rceil }
 \providecommand{\sfloor}[1]{\left \lceil #1 \right \rceil }
@@ -587,6 +589,66 @@ elements which commute with $(I-\frac{1}{2}S_n) \otimes (I- \frac{1}{3}S_2)$.
  
 \section{Spectrum of sums of unitary}
 
+\begin{definition}
+   Let $T$ be a densely defined, closed operator on a Hilbert space $\HHH$.
+   \begin{enumerate}
+       \item The resolvent set $\rho(T)$ of $T$ is the set of all complex
+           numbers $\lambda$ such that $\lambda - T$ is a bijection
+           (between $\DDD(T)$ and $\HHH$) with bounded inverse.
+       \item The resolvent of $T$ at $\lambda \in \rho(T) \subset \C$ is
+           $R_{\lambda}(T) = (\lambda -T)^{-1}$.
+       \item The spectrum of $T$ is $\sigma(T) = \C \setminus \rho(T)$.
+       \item $\lambda \in \C$ is a point spectrum of $T$ if $\lambda - T$
+           is not injective.
+       \item $\lambda \in \C$ is a residual spectrum of $T$ if $\lambda -T$
+           is injective but the range of $\lambda - T$ is not dense in 
+           $\HHH$.
+   \end{enumerate}
+\end{definition}
+
+\begin{example}
+    Let $\HHH = L^{2}([0,1])$ and
+    \begin{align*}
+        \DDD = \{f(x) = C + \int_{0}^{x}\varphi(t)dt : C \in \C, 
+        \varphi \in L^{2}([0,1]) \}.
+    \end{align*}
+    \begin{itemize}
+        \item Assume that $\DDD(T) = \DDD$ such that
+            $Tf = i\frac{df}{dx}$. Then $\sigma(T) = \C$ since
+            $e^{-i\lambda x}$ is an eigenfunction for $T$ with
+            eigenvalue $\lambda$.
+        \item If $\DDD(T) = \{f \in \DDD: f(0) = 0\}$ with
+            $Tf = i\frac{df}{dx}$, then $\sigma(T) = \varnothing$.
+            In fact, for any $\lambda \in \C$, the resolvent of 
+            $(\lambda - T)^{-1}$ is
+            \begin{align*}
+                (R_{\lambda}(T)f)(x) = i \int_{0}^{x}e^{-i\lambda(x-t)}
+                f(t)dt.
+            \end{align*}
+        \item Let $\alpha \in \C \setminus \{0\}$. If
+            $\DDD(T) = \{f \in \DDD : f(0) = \alpha f(1) \}$ with
+            $Tf = i\frac{df}{dx}$, then $\sigma(T) = 
+            \{-i \ln \alpha + 2k\pi : k \in \Z\}$. 
+            If $\lambda = -i \ln \alpha + 2k\pi$, then $e^{-i\lambda x}$
+            is an eigenfunction for $T$. For $\lambda$ not of 
+            the form $-i \ln \alpha + 2k\pi$, the resolvent operator
+            $(\lambda - T)^{-1}$ is 
+            \begin{align*}
+                (R_{\lambda}(T)f)(x) = \int_{0}^{1} G_{\lambda}(x,t)f(t)dt 
+            \end{align*}
+            with
+            \begin{align*}
+                G_{\lambda}(x,t) = 
+                \begin{cases}
+                    \frac{i\alpha e^{i\lambda(t-x-1)}}
+                    {1-\alpha e^{-i\lambda}} & \mbox{ if $x < t$} \\
+                    \frac{i\alpha e^{i\lambda(t-x)}}
+                    {1-\alpha e^{-i\lambda}} & \mbox{ if $x > t$}
+                \end{cases}
+            \end{align*}
+    \end{itemize}
+\end{example}
+
 Let $U$ be a unitary such that $(Uf)(t) = f(t+1)$. Then
 \begin{align*}
     \Hat{Uf}(s) = e^{2\pi i s}\Hat{f}(s). 
@@ -731,19 +793,27 @@ Let $\omega = e^{\frac{2 \pi i}{n}}$ and
    \end{pmatrix} 
 \end{align*}
 
+Recall the definition of Hardy space $\Hd$. Let 
+$f(z) = \sum_{n=0}^{\infty} a_n z^n \in Hol(\mathbb{D})$,
+then $f \in \Hd$ if 
+\begin{align*}
+    sup_{0 < r < 1}\int_{\mathbb{T}} |f(re^{i\theta})|^2 d\theta
+= \sum_{n=0}^{\infty} |a_n|^2 < \infty. 
+\end{align*}
+
 Let $P: l^{2}(\Z) \to l^{2}(\N)$ be the orthonormal projection onto
 the subspace spanned by $e_i$, $i \geq 0$.
-Let $\HHH_{1} = Pl^{2}(\Z)$ and 
+Identify the Hardy space $\Hd$ with $Pl^{2}(\Z)$ and 
 \begin{align*}
     &T_1 = PTP : (a_0, a_1, a_2, \ldots ) \to (\sum_{k=0}a_k,\sum_{k=1}a_k,
     \sum_{k=2}a_k, \ldots), \\
     &S_1 = PSP : (a_0, a_1, a_2, \ldots ) \to (a_0,\sum_{k=0}^{1}a_k,
     \sum_{k=0}^{2}a_k, \ldots),
 \end{align*}
-where $(a_0, a_1, a_2, \ldots) \in \DDD|_{\HHH_1}$.
+where $(a_0, a_1, a_2, \ldots) \in \DDD|_{\Hd}$.
 
 Let $\xi = (a_0, \ldots, a_n, 0, 0, \ldots)$ 
-and $\beta = (b_0, \ldots, b_n, 0, 0, \ldots)$ in $\DDD_{\HHH_1}$.
+and $\beta = (b_0, \ldots, b_n, 0, 0, \ldots)$ in $\DDD|_{\Hd}$.
 \begin{align*}
     \langle T_1 \xi, \beta \rangle &= \Bar{b}_{0}(a_0 + \cdots + a_n)
     + \Bar{b}_{1}(a_1 + \cdots + a_n) + \cdots + \Bar{b}_{n}a_n \\
@@ -755,7 +825,7 @@ Note that
 \begin{align*}
     (I-P)SP\xi = 0 \mbox{ and } (I-P)TP \xi = 0, 
 \end{align*} 
-for any $\xi \in \DDD_{\HHH_1}$.
+for any $\xi \in \DDD|_{\Hd}$.
 
 
 \begin{example}
@@ -773,7 +843,7 @@ for any $\xi \in \DDD_{\HHH_1}$.
     If $\gamma = 0$, it is obvious that $PM_{1-z}P$ is the bounded 
     inverse of $M_{\frac{1}{1-z}}$.
     
-    Note that the closure of $PM_{\frac{1}{1-z}}P|_{\DDD|_{\HHH_1}}$
+    Note that the closure of $PM_{\frac{1}{1-z}}P|_{\DDD|_{\Hd}}$
     is a extension of $S_1$.
 
     Assume that $\gamma = \frac{1}{1-s}$ where $|s| < 1$. Note that
@@ -784,20 +854,54 @@ for any $\xi \in \DDD_{\HHH_1}$.
     \begin{align*}
         \xi = 1 + sz + (sz)^2 + (sz)^3 + \cdots, 
     \end{align*} 
-    and $f \in \DDD|_{\HHH_1}$, i.e., $f(z) = (1-z)g(z)$. Then
+    and $f \in \DDD|_{\Hd}$, i.e., $f(z) = (1-z)g(z)$. Then
     \begin{align*}
        \langle  \frac{s-z}{(1-s)(1-z)} f, \xi \rangle = 
        \frac{1}{1-s}\langle g, PM_{\Bar{s} - \Bar{z}} \xi \rangle = 0.   
     \end{align*}
     Therefore the range of $M_{\frac{s-z}{(1-s)(1-z)}}$ 
-    is not dense in $\HHH_1$.
+    is not dense in $\Hd$.
 \end{example}
 
 Note that
 \begin{align*}
-    \DDD|_{\HHH_1} = span \{e_i - e_j : i \neq j, i,j 
+    \DDD|_{\Hd} = span \{e_i - e_j : i \neq j, i,j 
     \in \{0, 1, 2, \ldots\} \}.
 \end{align*}
+
+
+Let $\DDD_1 = \{(1-z)g(z) : g \in \Hd \}$.
+Let 
+\begin{align*}
+    S_2: \DDD_1 \to \Hd, (1-z)g(z) \to g(z), \qquad \forall g \in \Hd. 
+\end{align*}
+It is clear that $\DDD|_{\HHH_1} \subset \DDD_1$ and $S_1 |_{\DDD|_{\HHH_1}}
+\subset S_2|_{\DDD_2}$.
+The range of $S_2$ is $\Hd$ and the graph of $S_2$ is
+\begin{align*}
+    Gr(S_2)=\{((1-z)g(z), g(z)) : g(z) \in \Hd\}. 
+\end{align*}
+$Gr(S_2)$ is closed since $Gr(S_2)$ can be viewed as the graph 
+$Gr(M_{1-z})$ of the bounded operator $M_{1-z}$. 
+
+
+Let $\DDD_2 = \{P(1-\Bar{z})g(z) : g(z) \in \Hd \} \subset \Hd$ where
+$P$ is the projection form $L^{2}(S^1)$ onto $\Hd$. Note that
+\begin{align*}
+    Ker(PM_{1-\Bar{z}}|_{\Hd}) = \{0\}.
+\end{align*}
+Thus
+\begin{align*}
+    T_2:  \DDD_2 \to \Hd, 
+    P(1-\Bar{z})g(z) \to g(z)
+\end{align*}
+is well-defined.
+It is not hard to check that 
+\begin{align*}
+   \langle S_2 \xi , \beta \rangle = \langle \xi, T_2 \beta \rangle, 
+\end{align*}
+where $\xi \in \DDD_1$ and $\beta \in \DDD_2$. This implies that 
+$S_{2}^* = T_2$.
 
 Let $X_{n} = \{f_n(z) : z \in S^{1} \}$ where
 $f_n(z) = 1 + z + z^2 + \cdots + z^{n-1} = \frac{1-z^{n}}{1-z}$, 
@@ -824,7 +928,7 @@ If $n = 2m + 1$, then
        \cos (m\theta) + i\sin (m\theta) \right).
 \end{align*}
 
-\begin{figure}
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{zn5.png}
     \caption{$n=5$}
