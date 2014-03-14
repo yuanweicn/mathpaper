@@ -478,6 +478,41 @@ It is not hard to see that $\zeta(s)$ does not have real zeros.
    \end{align*} 
 \end{proof}
 
+\section{Prime number theorem}
+
+\begin{lemma}
+   Let $s = \sigma + it$. Then
+   \begin{align*}
+       \frac{\zeta'(s)}{\zeta(s)} = \frac{1}{1-s} + 
+       \sum_{|\gamma_n -t| \leq 1} \frac{1}{s-\rho_n} + O(\log (|t|+2))
+   \end{align*}
+   where $\rho_n = \beta_n + i \gamma_n$ is the n-th non-trivial zero of
+   $\zeta(s)$.
+\end{lemma}
+
+\begin{proof}
+   Add proof. 
+\end{proof}
+
+\begin{theorem}[Peron's Formula]
+Let $x \geq 4$, $\|x\| = min_{N \in \N}|x-N| \leq \frac{1}{2}$.
+For any $b > \sigma_0$ and $T \geq 2$, $0 < \theta < 1$ and 
+$2 \leq H \leq (1-\theta)x$, we have
+\begin{align*}
+    \sum_{n \leq x} a_n = \frac{1}{2\pi i} \int_{b-iT}^{b+iT}
+    f(s)\frac{x^s}{s} ds + O(\frac{x A_{H}(x) \log(\frac{x}{H})}{T})
+    + O(\frac{x^{b}B(b)H}{T}) + O(|a_N|min(1, \frac{x}{T\|x\|}),
+\end{align*}
+where $A_{H}(x) \geq max_{x - \frac{x}{H} \leq n \leq x + \frac{x}{H}}
+|a_n|$, and $f(s) = \sum_{n=1}^{\infty}\frac{a_n}{n^s}$ and
+$B(b) = \sum_{n=1}^{\infty}\frac{|a_n|}{n^b}$, $b > \sigma_0$ converges
+absolutely.
+\end{theorem}
+
+\begin{theorem}
+    $\varphi(x) =  \sum_{n \leq X}\Lambda(n) = X + O(xe^{-c\sqrt{\log X}})$.
+\end{theorem}
+
 \section{$n \times 2$ case}
 Let
 \begin{align*}
@@ -1032,17 +1067,104 @@ And $f_n(z) = \cos^{2} m\theta = 1$.
     $|r_{k_m} - r| \leq \varepsilon$ whenever $m > N$. 
 \end{proof}
 
+In the sequal, we will use inifinte tensor product of Hilbert. So
+let us recall some basic facts first.
 
+Let $\{\HHH_k\}_{k \in I}$ be a family of Hilbert spaces and $I$ is a 
+index set. A incomplete tensor product of $\{\HHH_k\}$ is constructed 
+as following (\cite{V}).
 
+Let $\{e^{k}_{j}\}$ be a orthnormal basis of $\HHH_k$ and 
+$\xi = \otimes_{k \in I} e^{k}_{0}$. A orthnormal basis of the 
+incomplete tensor product $\otimes_{k \in I}^{\xi} \HHH_{k}$ is
+\begin{align*}
+    \{ \otimes_{k \in I}e^{k}_{j_k} : j_k \neq 0 \mbox{ occurs for a finite 
+    k's only}\}
+\end{align*}
+(Lemma 4.1.4 in \cite{V}).
 
-%-----------------------------------------------------------------------------------
+$\otimes_{k \in I}^{\xi} \HHH_{k}$ contains all sequences 
+$(\xi_{k})_{k \in I}$ where $\xi_{k} \in \HHH_k$ such that
+\begin{align*}
+    \sum_{k \in I}|\langle \xi_k, e^{k}_{0} \rangle -1 | \mbox{ converges.} 
+\end{align*}
+
+Let $\otimes_{k=1}^{\infty} \Hd$ be the infinte tensor product of 
+$\Hd$. More precisely, let $\{ e_j \}_{j=0}^{\infty}$ be the canonical 
+basis of $\Hd$, a basis of $\otimes_{k=1}^{\infty} \Hd$ is 
+$\{\otimes e_{j_k}\}_{(j_1, j_2, \ldots) \in \N \cup \{0\}}$ 
+where only finitely many of $j_k \neq 0$.
+
+Note that $\otimes_{j=1}^{n}\Hd \to \otimes_{k=1}^{\infty} \Hd$ given by
+\begin{align*}
+    \otimes_{k=1}^{n} \xi_{k} \to 
+    \otimes_{k=1}^{n} \xi_{k} \otimes_{l=n+1}^{\infty} e_{0},  
+\end{align*}
+is an embedding.
+
+Let $U: e_{n} \to e_{n-1}$($Ue_0 = 0$) be the backward shift on $\Hd$ 
+and $T$ be a unbounded operator with domain 
+\begin{align*}
+    \DDD = \cup_{n=1}^{\infty} \otimes_{j=1}^{n}\Hd,
+\end{align*}
+given by
+\begin{align*}
+    T:  \otimes_{k=1}^{n} \xi_{k} \to \otimes_{k=1}^{n} (I-U)\xi_{k}.
+\end{align*}
+
+Let $\xi_n = (\frac{\sqrt{n^2-1}}{n}-\frac{1}{n})e_0 - \frac{1}{n}e_1$.
+Then $(I-U)\xi = \frac{\sqrt{n^2-1}}{n}e_0 - \frac{1}{n}e_1 = \beta$ 
+is a unit vector.
+Note that
+\begin{align*}
+    T: \underbrace{\xi_1 \otimes \xi_2 \otimes \cdots 
+    \otimes \xi_n}_\text{n}
+    \to \underbrace{\beta_1 \otimes \beta_2 \otimes \cdots 
+    \otimes \beta_n}_\text{n}.
+\end{align*}
+Note that
+\begin{align*}
+    \lim_{n \to \infty} 
+    \| \xi_1 \otimes \xi_2 \otimes \cdots \otimes \xi_n\|_{2}^{2} = 
+    \lim_{n \to \infty} 
+    \prod_{k=1}^{n} (1-\frac{2\sqrt{n^2-1}-1}{n^2}) = 0.
+\end{align*}
+We also have
+\begin{align*}
+    \|\beta_n - e_0\|_{2}^{2} = \frac{2(n-\sqrt{n^2-1})}{n} = 
+    \frac{2}{n(n+\sqrt{n^2-1})}.
+\end{align*}
+
+Note that
+\begin{align*}
+   \| \beta_1 \otimes \cdots \otimes \beta_n \otimes e_0 \cdots 
+   -  \otimes_{k=1}^{\infty}\beta_k \|_{2}^{2} 
+   &= 2(1 - \prod_{j=1}^{\infty} \frac{\sqrt{(n+j)^2-1}}{n+j})\\
+   & = 2(1 - \prod_{j=1}^{\infty}(1 - \frac{1}
+   {(n+j)[(n+j)+\sqrt{(n+j)^2 -1}]})) \\
+   & \leq 2 (e^{\sum_{j=1}^{\infty}\frac{1}{(n+j)[(n+j)+\sqrt{(n+j)^2 -1}]}}
+   - 1).
+\end{align*}
+
+Therefore, $\beta_1 \otimes \cdots \otimes \beta_n$ converges to 
+$\otimes_{k=1}^{\infty}\beta_k$ in $\otimes_{k}^{\infty} \Hd$.
+
+Thus, $T$ is not preclosed unbounded operator.
+
 %BIBLIOGRAPHY
-%-----------------------------------------------------------------------------------
 
-%\bibliographystyle{unsrt}
+\begin{thebibliography}{9}
+\bibitem{V}
+    J. von Neumann, 
+    \emph{On infinite direct products},
+    Compositio Mathematica, 1939, 1-77.
 
-%\bibliography{sample}
+\bibitem{AN}
+    H. Ariki and Y. Nakagami, 
+    \emph{A Remark on an Infinite Tensor Product of 
+    von Neumann Algebras},
+    Publ. RIMS, Kyoto Univ. Vol. 8,  1972/73, 363-374.
 
-%-----------------------------------------------------------------------------------
+\end{thebibliography}
 
 \end{document}
